@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="angu_">angu_</style>
+    <style name="angu_">
+        <item name="android:textSize">
+            48sp
+        </item>
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+    </style>
+    <style name="title_poppins" parent="@style/TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/title_poppins</item>
+    </style>
 </resources>
