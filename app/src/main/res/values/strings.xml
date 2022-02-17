@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Bangu</string>
-    <string name="angu_">angu.</string>
-    <string name="some_id2">방구석 리뷰 모음</string>
+    <string name="intro_title">angu.</string>
+    <string name="intro_info">방구석 리뷰 모음</string>
+    <string name="login_title">Bangu.</string>
+    <string name="login_sign_up">회원가입하기</string>
+    <string name="login_lgtext">로그인하기</string>
 </resources>

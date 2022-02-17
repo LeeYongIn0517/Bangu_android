@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bangu">
         <activity
-            android:name=".IntroActivity"
+            android:name=".login.ui.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.ui.IntroActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/login_back"
+    android:background="@drawable/intro_back"
+    tools:context=".login.ui.LoginActivity">
+
+<!--    <View-->
+<!--        android:id="@+id/login_semiback"-->
+<!--        android:layout_width="471.61dp"-->
+<!--        android:layout_height="664.51dp"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_marginLeft="418.71dp"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginTop="573.85dp"-->
+<!--        android:background="@drawable/login_semiback"-->
+<!--        />-->
+    <!-- 로그인 -->
+    <View
+        android:id="@+id/login_btnpic"
+        android:layout_width="305.6dp"
+        android:layout_height="52.91dp"
+        android:layout_marginBottom="51dp"
+        android:background="@drawable/login_btnpic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- 조명그림 -->
+<!--    <View-->
+<!--        android:id="@+id/login_bulb"-->
+<!--        android:layout_width="139.05dp"-->
+<!--        android:layout_height="50.2dp"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:background="@drawable/login_bulb" />-->
+    <!-- 회원가입하기 -->
+
+    <TextView
+        android:id="@+id/login_lgtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:gravity="top"
+        android:lineSpacingExtra="0sp"
+        android:text="@string/login_lgtext"
+        android:textAppearance="@style/login_lgtext"
+        app:layout_constraintBottom_toBottomOf="@+id/login_btnpic"
+        app:layout_constraintEnd_toEndOf="@id/login_btnpic"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="@+id/login_btnpic"
+        app:layout_constraintTop_toTopOf="@+id/login_btnpic" />
+
+    <TextView
+        android:id="@+id/login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="59dp"
+        android:fontFamily="@font/poppins"
+        android:gravity="top"
+        android:lineSpacingExtra="0sp"
+        android:text="@string/login_title"
+        android:textAppearance="@style/login_title"
+        app:layout_constraintBottom_toTopOf="@+id/login_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/login_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="17dp"
+        android:gravity="top"
+        android:lineSpacingExtra="0sp"
+        android:text="@string/login_sign_up"
+        android:textAppearance="@style/login_sign_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/login_pw"
+        app:layout_constraintTop_toBottomOf="@+id/login_pw" />
+
+    <View
+        android:id="@+id/login_id"
+        android:layout_width="305.6dp"
+        android:layout_height="44.45dp"
+        android:background="@drawable/login_id"
+        app:layout_constraintBottom_toTopOf="@id/login_pw"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="7dp"/>
+
+    <View
+        android:id="@+id/login_pw"
+        android:layout_width="305.6dp"
+        android:layout_height="44.45dp"
+        android:layout_marginBottom="201dp"
+        android:background="@drawable/login_pw"
+        app:layout_constraintBottom_toTopOf="@+id/login_btnpic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+<!--    <View-->
+<!--        android:id="@+id/login_light"-->
+<!--        android:layout_width="523.23dp"-->
+<!--        android:layout_height="195.07dp"-->
+<!--        android:background="@drawable/login_light"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        tools:layout_editor_absoluteY="0dp" />-->
+
+<!--    <View-->
+<!--        android:id="@+id/login_bulbline"-->
+<!--        android:layout_width="36.75dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:background="@drawable/login_bulbline"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="1.0"-->
+<!--        tools:layout_editor_absoluteX="315dp" />-->
+
+<!--    <View-->
+<!--        android:id="@+id/login_bulblight"-->
+<!--        android:layout_width="119.38dp"-->
+<!--        android:layout_height="7.88dp"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:background="@drawable/login_bulblight"-->
+<!--        tools:layout_editor_absoluteX="135dp"-->
+<!--        tools:layout_editor_absoluteY="75dp" />-->
+</androidx.constraintlayout.widget.ConstraintLayout>
