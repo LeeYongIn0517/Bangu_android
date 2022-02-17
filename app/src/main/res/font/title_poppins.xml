@@ -4,4 +4,8 @@
         android:font="@font/poppins"
         android:fontWeight="700"
         android:fontStyle="normal"/>
+    <font
+        android:font="@font/spoqa_medium"
+        android:fontWeight="400"
+        android:fontStyle="normal"/>
 </font-family>

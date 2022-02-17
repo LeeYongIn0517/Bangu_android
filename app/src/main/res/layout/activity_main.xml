@@ -7,6 +7,18 @@
     android:clipToOutline="true"
     android:background="@drawable/some_id"
     >
+    <!-- Asset 1 1 -->
+    <View
+        android:id="@+id/asset_1_1"
+        android:layout_width="42.77dp"
+        android:layout_height="47.7dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="92.43dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="242dp"
+        android:background="@drawable/asset_1_1"
+        android:elevation="4dp"
+        />
     <!-- angu. -->
     <TextView
         android:id="@+id/angu_"
@@ -21,4 +33,19 @@
         android:lineSpacingExtra="0sp"
         android:text="@string/angu_"
         android:textAppearance="@style/angu_" />
+    <!-- 방구석 리뷰 모음 -->
+    <TextView
+        android:id="@+id/some_id2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="92.43dp"
+        android:layout_marginTop="306.34dp"
+        android:fontFamily="@font/spoqa_medium"
+        android:gravity="top"
+        android:lineSpacingExtra="0sp"
+        android:text="@string/some_id2"
+        android:textAppearance="@style/some_id2" />
+
 </RelativeLayout>
