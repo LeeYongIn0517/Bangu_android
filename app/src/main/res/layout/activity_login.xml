@@ -19,7 +19,7 @@
 <!--        android:background="@drawable/login_semiback"-->
 <!--        />-->
     <!-- 로그인 -->
-    <View
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/login_btnpic"
         android:layout_width="305.6dp"
         android:layout_height="52.91dp"
@@ -82,7 +82,7 @@
         app:layout_constraintStart_toStartOf="@+id/login_pw"
         app:layout_constraintTop_toBottomOf="@+id/login_pw" />
 
-    <View
+    <TextView
         android:id="@+id/login_id"
         android:layout_width="305.6dp"
         android:layout_height="44.45dp"
@@ -92,7 +92,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="7dp"/>
 
-    <View
+    <TextView
         android:id="@+id/login_pw"
         android:layout_width="305.6dp"
         android:layout_height="44.45dp"
