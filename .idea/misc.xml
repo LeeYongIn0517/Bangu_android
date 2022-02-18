@@ -7,6 +7,7 @@
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/example.xml" value="0.197" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/ic_launcher_background.xml" value="0.146" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/intro_B.xml" value="0.197" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/intro_b.xml" value="0.1" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/intro_back.xml" value="0.197" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/line_6.xml" value="0.194" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/login_back.xml" value="0.194" />
@@ -23,7 +24,7 @@
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/font/spoqa_medium.xml" value="0.1" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/font/title_poppins.xml" value="0.16" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/activity_login.xml" value="0.264" />
-        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>
   </component>

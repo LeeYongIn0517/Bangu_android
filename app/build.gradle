@@ -32,9 +32,19 @@ android {
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
     }
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
+    // Retrofit, Gson, RxAdapter
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:$retrofit_version:2.9.0'
+
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
