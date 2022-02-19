@@ -13,7 +13,7 @@
         <item name="android:fontFamily">@font/title_poppins</item>
     </style>
 
-    <style name="spoqa_medium" parent="@style/TextAppearance.AppCompat">
+    <style name="spoqa_bold" parent="@style/TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/spoqa</item>
     </style>
 
@@ -44,12 +44,30 @@
         </item>
     </style>
 
+    <style name="signupfin_text">
+        <item name="android:textSize">
+            14sp
+        </item>
+        <item name="android:textColor">
+            #C0C7DD
+        </item>
+    </style>
+
     <style name="login_lgtext">
         <item name="android:textSize">
             18sp
         </item>
         <item name="android:textColor">
             #1A1A24
+        </item>
+    </style>
+
+    <style name="signupfin_msg">
+        <item name="android:textSize">
+            32sp
+        </item>
+        <item name="android:textColor">
+            #FFFFFF
         </item>
     </style>
 </resources>
