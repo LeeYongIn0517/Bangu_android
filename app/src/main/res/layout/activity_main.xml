@@ -39,7 +39,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="92.43dp"
         android:layout_marginTop="306.34dp"
-        android:fontFamily="@font/spoqa_medium"
+        android:fontFamily="@font/spoqa"
         android:gravity="top"
         android:lineSpacingExtra="0sp"
         android:text="@string/intro_info"

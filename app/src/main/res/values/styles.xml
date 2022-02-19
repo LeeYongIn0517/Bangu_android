@@ -14,7 +14,7 @@
     </style>
 
     <style name="spoqa_medium" parent="@style/TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/spoqa_medium</item>
+        <item name="android:fontFamily">@font/spoqa</item>
     </style>
 
     <style name="intro_info">
