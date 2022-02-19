@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bangu">
         <activity
-            android:name=".login.ui.SignupFin_Activity"
+            android:name=".signup.ui.SignupFin_Activity"
             android:exported="false" />
         <activity
             android:name=".login.ui.LoginActivity"

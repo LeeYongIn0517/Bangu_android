@@ -4,6 +4,117 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.ui.SignupFin_Activity">
+    tools:context=".signup.ui.SignupFinActivity"
+    android:background="@drawable/intro_back">
+
+    <View
+        android:id="@+id/signupfin_pic"
+        android:layout_width="37.4dp"
+        android:layout_height="36.56dp"
+        android:background="@drawable/signupfin_pic"
+        app:layout_constraintBottom_toTopOf="@+id/signupfin_msg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6"
+        tools:layout_constraintHorizontal_bias="0.15
+" />
+
+    <TextView
+        android:id="@+id/signupfin_msg"
+        android:layout_width="156dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:fontFamily="@font/spoqa"
+        android:gravity="top"
+        android:lineSpacingExtra="0sp"
+        android:text="@string/signupfin_msg"
+        android:textAppearance="@style/signupfin_msg"
+        app:layout_constraintBottom_toTopOf="@id/recyclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6"
+        tools:layout_constraintHorizontal_bias="0.2" />
+
+    <TextView
+        android:id="@+id/signupfin_msg2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:lineSpacingExtra="0sp"
+        android:text="@string/signupfin_msg2"
+        android:textAppearance="@style/signupfin_text"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupfin_msg"
+        app:layout_constraintVertical_bias="0.3" />
+<!--    <ImageView-->
+<!--        android:id="@+id/union"-->
+<!--        android:layout_width="18.7dp"-->
+<!--        android:layout_height="12.97dp"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:background="@drawable/union"-->
+<!--        tools:layout_editor_absoluteX="36dp"-->
+<!--        tools:layout_editor_absoluteY="84dp" />-->
+
+    <ImageView
+        android:id="@+id/signupfin_pic2"
+        android:layout_width="10.74dp"
+        android:layout_height="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="76dp"
+        android:background="@drawable/signupfin_pic2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/signupfin_pic3"
+        android:layout_width="17.09dp"
+        android:layout_height="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/signupfin_pic3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupfin_pic2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6" />
+    <!-- 다양한 리뷰보러 가기 -->
+    <TextView
+        android:id="@+id/signupfin_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:fontFamily="@font/spoqa"
+        android:gravity="top"
+        android:lineSpacingExtra="0sp"
+        android:text="@string/signupfin_text"
+        android:textAppearance="@style/signupfin_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerview"
+        app:layout_constraintVertical_bias="0.6"
+        tools:layout_constraintHorizontal_bias="0.9" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

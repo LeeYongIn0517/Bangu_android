@@ -14,13 +14,13 @@ class LoginActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        var id = (binding.loginId.toString()).toLongOrNull() //숫자가 아니면 null을 반환
-        var pw = (binding.loginPw.toString()).toCharArray()
-        //id, pw 조건 검사 필요
-
-        //Call로 받은 응답-> LgDataResource의 응답인터페이스로 성공, 실패 상황 구현하기
-        val lgRepo = LgRepository
-        lgRepo.requestLogin()
+//        var id = (binding.loginId.toString()).toLongOrNull() //숫자가 아니면 null을 반환
+//        var pw = (binding.loginPw.toString()).toCharArray()
+//        //id, pw 조건 검사 필요
+//
+//        //Call로 받은 응답-> LgDataResource의 응답인터페이스로 성공, 실패 상황 구현하기
+//        val lgRepo = LgRepository
+//        lgRepo.requestLogin()
 
     }
 }
