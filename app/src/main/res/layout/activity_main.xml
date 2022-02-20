@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/intro_back"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -12,37 +14,49 @@
         android:layout_height="47.7dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="92.43dp"
-        android:layout_marginTop="242dp"
-        android:background="@drawable/intro_b"
-        android:elevation="4dp" />
+        android:background="@drawable/ic_asset_3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.386" />
     <!-- angu. -->
+    <!-- 방구석 리뷰 모음 -->
     <TextView
         android:id="@+id/intro_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="123dp"
-        android:layout_marginTop="249dp"
         android:fontFamily="@font/title_poppins"
         android:gravity="top"
         android:lineSpacingExtra="0sp"
         android:text="@string/intro_title"
-        android:textAppearance="@style/intro_title" />
-    <!-- 방구석 리뷰 모음 -->
+        android:textAppearance="@style/intro_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.386" />
+
     <TextView
         android:id="@+id/intro_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="92.43dp"
-        android:layout_marginTop="306.34dp"
         android:fontFamily="@font/spoqa"
         android:gravity="top"
         android:lineSpacingExtra="0sp"
         android:text="@string/intro_info"
-        android:textAppearance="@style/intro_info" />
+        android:textAppearance="@style/intro_info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/intro_b"
+        app:layout_constraintVertical_bias="0.04" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
