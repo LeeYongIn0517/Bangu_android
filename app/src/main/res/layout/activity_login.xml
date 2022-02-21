@@ -68,6 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
         android:layout_marginBottom="170dp"
+        android:clickable="true"
         android:fontFamily="@font/spoqa"
         android:gravity="top"
         android:lineSpacingExtra="0sp"
@@ -80,12 +81,13 @@
         app:layout_constraintTop_toBottomOf="@+id/login_pw"
         app:layout_constraintVertical_bias="0.05" />
 
-    <TextView
+    <EditText
         android:id="@+id/login_id"
         android:layout_width="305.6dp"
         android:layout_height="44.45dp"
         android:layout_marginBottom="7dp"
         android:background="@drawable/login_id"
+        android:textColorLink="#E8403F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -93,7 +95,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login_title"
         app:layout_constraintVertical_bias="0.18" />
 
-    <TextView
+    <EditText
         android:id="@+id/login_pw"
         android:layout_width="305.6dp"
         android:layout_height="44.45dp"
@@ -111,9 +113,9 @@
         android:layout_height="195.07dp"
         android:background="@drawable/login_light"
         app:layout_constraintBottom_toBottomOf="@id/login_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/login_bulb"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="@+id/login_bulb"
         app:layout_constraintTop_toTopOf="@id/login_bulb"
         app:layout_constraintVertical_bias="0.173" />
 

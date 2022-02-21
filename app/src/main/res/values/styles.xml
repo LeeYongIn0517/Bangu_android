@@ -70,4 +70,33 @@
             #FFFFFF
         </item>
     </style>
+    <style name="signup_title">
+        <item name="android:textSize">
+            24sp
+        </item>
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+    </style>
+    <style name="signup_msg">
+        <item name="android:textSize">
+            12sp
+        </item>
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+    </style>
+    <style name="signup_dot">
+        <item name="android:textSize">
+            18sp
+        </item>
+        <item name="android:textColor">
+            #FD4C4C
+        </item>
+    </style>
+    <style name="white_color">
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+    </style>
 </resources>
