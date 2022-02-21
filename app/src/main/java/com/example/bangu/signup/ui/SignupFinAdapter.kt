@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.R
 
 class SignupFinAdapter():RecyclerView.Adapter<SignupFinAdapter.ViewHolder>() {
-    val array = arrayOf(1,2,3)
+    var list = listOf<Int>(1,2,3)
     class ViewHolder(view: View):RecyclerView.ViewHolder(view){
         val movieimage :ImageView
         val moviestar :RatingBar
@@ -30,11 +30,11 @@ class SignupFinAdapter():RecyclerView.Adapter<SignupFinAdapter.ViewHolder>() {
         //holder에 데이터바인딩
 //        holder.movieimage.setImageURI(getMovieUri()) //서버에서 온 데이터
 //        holder.moviestar.rating = getMovieStar() //서버에서 온 데이터
-        holder.moviestar.rating = (array.get(position)).toFloat()
+        holder.moviestar.rating = (list.get(position)).toFloat()
     }
 
     //전체 아이템 개수 리턴
     override fun getItemCount(): Int {
-        return 5
+        return 3
     }
 }

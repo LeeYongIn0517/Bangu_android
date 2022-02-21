@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/asset_1_1.xml" value="0.1925" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/birth_year.xml" value="0.2495" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/custom_starbar.xml" value="0.197" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/example.xml" value="0.197" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/ic_asset_3.xml" value="0.23" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/ic_launcher_background.xml" value="0.146" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/intro_B.xml" value="0.197" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/intro_b.xml" value="0.1" />
@@ -14,15 +16,22 @@
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/login_back.xml" value="0.194" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/login_btnpic.xml" value="0.197" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/login_bulb.xml" value="0.197" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/login_bulblight.xml" value="0.255" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/login_bulbline.xml" value="0.255" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/login_light.xml" value="0.1235" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/login_semiback.xml" value="0.1235" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/polygon_4.xml" value="0.197" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/rectangle_2.xml" value="0.197" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/rectangle_3.xml" value="0.197" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/rectangle_5.xml" value="0.197" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/signup_btn_empty.xml" value="0.197" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/signup_btn_fill.xml" value="0.197" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/signup_btn_fill2.xml" value="0.197" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/signupfin_pic.xml" value="0.197" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/signupfin_pic2.xml" value="0.219" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/signupfin_pic3.xml" value="0.197" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/signupfin_union.xml" value="0.255" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/signupfin_union_.xml" value="0.255" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/some_id.xml" value="0.125" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/star_empty.xml" value="0.197" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/star_filled.xml" value="0.197" />
@@ -34,10 +43,12 @@
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/font/spoqa.xml" value="0.21927083333333333" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/font/spoqa_medium.xml" value="0.1" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/font/title_poppins.xml" value="0.16" />
-        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/activity_login.xml" value="0.264" />
-        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/activity_login.xml" value="0.4" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/activity_signup.xml" value="0.264" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/activity_signup_fin.xml" value="0.264" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/activity_signup_fin_item.xml" value="0.264" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/signup_fin_item.xml" value="0.2223731884057971" />
       </map>
     </option>
   </component>

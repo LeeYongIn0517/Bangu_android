@@ -4,6 +4,551 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/intro_back"
     tools:context=".signup.ui.SignupActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/signup_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/signup_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqa"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="0sp"
+            android:text="@string/signup_title"
+            android:textAppearance="@style/signup_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.6" />
+
+        <TextView
+            android:id="@+id/id_dot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:textAppearance="@style/signup_dot"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/signup_msg"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/signup_title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.6" />
+
+        <TextView
+            android:id="@+id/signup_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqa"
+            android:gravity="center_horizontal|top"
+            android:lineSpacingExtra="0sp"
+            android:text="@string/signup_msg"
+            android:textAppearance="@style/signup_msg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.6" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_topbar"
+        app:layout_constraintVertical_bias="0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block1"
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+                <!-- 아이디* -->
+                <TextView
+                    android:id="@+id/signup_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/spoqa"
+                    android:gravity="top"
+                    android:lineSpacingExtra="0sp"
+                    android:text="@string/signup_id"
+                    android:textAppearance="@style/white_color"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toTopOf="@+id/signup_rec1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dot_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textAppearance="@style/signup_dot"
+                    app:layout_constraintBottom_toTopOf="@id/signup_rec1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/signup_id"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5" />
+
+                <TextView
+                    android:id="@+id/signup_rec1"
+                    android:layout_width="316.61dp"
+                    android:layout_height="38.77dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/signup_rec"
+                    android:gravity="center|left"
+                    android:hint="   영문,숫자,특수문자 조합 8-12자리"
+                    android:textColorHint="@color/signup_char"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.8" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block2"
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+
+                <TextView
+                    android:id="@+id/signup_pw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/spoqa"
+                    android:gravity="top"
+                    android:lineSpacingExtra="0sp"
+                    android:text="@string/signup_pw"
+                    android:textAppearance="@style/white_color"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toTopOf="@id/signup_rec2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dot_pw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textAppearance="@style/signup_dot"
+                    app:layout_constraintBottom_toTopOf="@id/signup_rec2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/signup_pw"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5" />
+
+                <TextView
+                    android:id="@+id/signup_rec2"
+                    android:layout_width="316.61dp"
+                    android:layout_height="38.77dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/signup_rec"
+                    android:gravity="center|left"
+                    android:hint="   영문,숫자,특수문자 조합 8-20자리"
+                    android:textColorHint="@color/signup_char"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.8" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block3"
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+
+                <TextView
+                    android:id="@+id/signup_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/spoqa"
+                    android:gravity="top"
+                    android:lineSpacingExtra="0sp"
+                    android:text="@string/signup_check"
+                    android:textAppearance="@style/white_color"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toTopOf="@id/signup_rec3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dot_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textAppearance="@style/signup_dot"
+                    app:layout_constraintBottom_toTopOf="@id/signup_rec3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/signup_check"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5" />
+
+                <TextView
+                    android:id="@+id/signup_rec3"
+                    android:layout_width="316.61dp"
+                    android:layout_height="38.77dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/signup_rec"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.8" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block4"
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+
+                <TextView
+                    android:id="@+id/signup_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/spoqa"
+                    android:gravity="top"
+                    android:lineSpacingExtra="0sp"
+                    android:text="@string/signup_name"
+                    android:textAppearance="@style/white_color"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toTopOf="@id/signup_rec4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dot_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textAppearance="@style/signup_dot"
+                    app:layout_constraintBottom_toTopOf="@id/signup_rec4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/signup_name"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5" />
+
+                <TextView
+                    android:id="@+id/signup_rec4"
+                    android:layout_width="316.61dp"
+                    android:layout_height="38.77dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/signup_rec"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.8" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block5"
+                android:layout_width="match_parent"
+                android:layout_height="170dp">
+
+                <TextView
+                    android:id="@+id/signup_ott"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/spoqa"
+                    android:gravity="top"
+                    android:lineSpacingExtra="0sp"
+                    android:text="@string/signup_ott"
+                    android:textAppearance="@style/white_color"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.1" />
+
+                <TextView
+                    android:id="@+id/dot_ott"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textAppearance="@style/signup_dot"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/signup_ott"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.1" />
+
+                <RadioButton
+                    android:id="@+id/rdbtn_tving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="17dp"
+                    android:button="@drawable/signup_btn_empty"
+                    android:fontFamily="@font/spoqa"
+                    android:text="   TVING"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/signup_ott"
+                    app:layout_constraintTop_toBottomOf="@id/signup_ott"
+                    app:layout_constraintVertical_bias="0.2" />
+
+                <RadioButton
+                    android:id="@+id/rdbtn_watcha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="17dp"
+                    android:button="@drawable/signup_btn_empty"
+                    android:fontFamily="@font/spoqa"
+                    android:text="   WATCHA"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.502"
+                    app:layout_constraintStart_toEndOf="@id/rdbtn_tving"
+                    app:layout_constraintTop_toBottomOf="@id/signup_ott"
+                    app:layout_constraintVertical_bias="0.198" />
+
+                <RadioButton
+                    android:id="@+id/rdbtn_netflix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="17dp"
+                    android:button="@drawable/signup_btn_empty"
+                    android:fontFamily="@font/spoqa"
+                    android:text="   NETFLIX"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rdbtn_tving"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/signup_ott"
+                    app:layout_constraintTop_toTopOf="@+id/rdbtn_tving"
+                    app:layout_constraintVertical_bias="0.407" />
+
+                <RadioButton
+                    android:id="@+id/rdbtn_wavve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="17dp"
+                    android:button="@drawable/signup_btn_empty"
+                    android:fontFamily="@font/spoqa"
+                    android:text="   WAVVE"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rdbtn_watcha"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/rdbtn_watcha"
+                    app:layout_constraintTop_toBottomOf="@id/rdbtn_watcha"
+                    app:layout_constraintVertical_bias="0.25" />
+
+                <RadioButton
+                    android:id="@+id/rdbtn_none"
+                    android:layout_width="wrap_content"
+                    android:layout_height="17dp"
+                    android:button="@drawable/signup_btn_empty"
+                    android:fontFamily="@font/spoqa"
+                    android:text="   해당 사항 없음"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rdbtn_netflix"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/signup_ott"
+                    app:layout_constraintTop_toTopOf="@+id/rdbtn_tving"
+                    app:layout_constraintVertical_bias="0.8" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block6"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/signup_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/spoqa"
+                    android:gravity="top"
+                    android:lineSpacingExtra="0sp"
+                    android:text="성별"
+                    android:textAppearance="@style/white_color"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.1" />
+
+                <TextView
+                    android:id="@+id/dot_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textAppearance="@style/signup_dot"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/signup_gender"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.1" />
+
+                <RadioButton
+                    android:id="@+id/rdbtn_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="17dp"
+                    android:button="@drawable/signup_btn_empty"
+                    android:fontFamily="@font/spoqa"
+                    android:text="   남"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/signup_gender"
+                    app:layout_constraintTop_toBottomOf="@id/signup_gender"
+                    app:layout_constraintVertical_bias="0.2" />
+
+                <RadioButton
+                    android:id="@+id/rdbtn_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="17dp"
+                    android:button="@drawable/signup_btn_empty"
+                    android:fontFamily="@font/spoqa"
+                    android:text="   여"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.502"
+                    app:layout_constraintStart_toEndOf="@id/rdbtn_male"
+                    app:layout_constraintTop_toBottomOf="@id/signup_gender"
+                    app:layout_constraintVertical_bias="0.198" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block7"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <TextView
+                    android:id="@+id/signup_birth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/spoqa"
+                    android:gravity="top"
+                    android:lineSpacingExtra="0sp"
+                    android:text="생년월일"
+                    android:textAppearance="@style/white_color"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.1" />
+
+                <TextView
+                    android:id="@+id/dot_birth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textAppearance="@style/signup_dot"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/signup_birth"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.1" />
+
+                <DatePicker
+                    android:id="@+id/datepicker"
+                    android:layout_width="290dp"
+                    android:layout_height="100dp"
+                    android:background="@color/purple_200"
+                    android:calendarViewShown="false"
+                    android:datePickerMode="spinner"
+                    android:focusableInTouchMode="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/signup_birth"
+                    app:layout_constraintVertical_bias="0.3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/block8"
+                android:layout_width="match_parent"
+                android:layout_height="52.91dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/login_btnpic"
+        android:layout_width="305.6dp"
+        android:layout_height="52.91dp"
+        android:background="@drawable/login_btnpic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.975"
+        tools:layout_constraintHorizontal_bias="0.5" />
+
+    <TextView
+        android:id="@+id/signup_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/spoqa"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="0sp"
+        android:text="BANGU 시작하기"
+        android:textAppearance="@style/login_lgtext"
+        app:layout_constraintBottom_toBottomOf="@+id/login_btnpic"
+        app:layout_constraintEnd_toEndOf="@+id/login_btnpic"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/login_btnpic"
+        app:layout_constraintTop_toTopOf="@+id/login_btnpic"
+        app:layout_constraintVertical_bias="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>
