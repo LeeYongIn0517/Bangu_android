@@ -42,7 +42,7 @@
         android:lineSpacingExtra="0sp"
         android:text="@string/signupfin_msg"
         android:textAppearance="@style/signupfin_msg"
-        app:layout_constraintBottom_toTopOf="@id/recyclerview"
+        app:layout_constraintBottom_toTopOf="@id/signupfin_rcyleview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -57,14 +57,14 @@
         android:lineSpacingExtra="0sp"
         android:text="@string/signupfin_msg2"
         android:textAppearance="@style/signupfin_text"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerview"
+        app:layout_constraintBottom_toTopOf="@+id/signupfin_rcyleview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signupfin_msg"
         app:layout_constraintVertical_bias="0.3" />
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
+        android:id="@+id/signupfin_rcyleview"
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:orientation="horizontal"
@@ -89,7 +89,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerview"
+        app:layout_constraintTop_toBottomOf="@+id/signupfin_rcyleview"
         app:layout_constraintVertical_bias="0.6"
         tools:layout_constraintHorizontal_bias="0.9" />
 
@@ -102,7 +102,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toEndOf="@+id/signupfin_text"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerview"
+        app:layout_constraintTop_toBottomOf="@+id/signupfin_rcyleview"
         app:layout_constraintVertical_bias="0.6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

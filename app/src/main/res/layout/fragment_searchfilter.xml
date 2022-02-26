@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="209.07dp"
+    android:background="@color/canvas">
+
+    <TextView
+        android:id="@+id/search_ott"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27.8dp"
+        android:layout_marginBottom="10.7dp"
+        android:fontFamily="@font/spoqa"
+        android:text="OTT"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/ott_netflixBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.47000003" />
+
+    <ImageButton
+        android:id="@+id/ott_netflixBtn"
+        android:layout_width="77.15dp"
+        android:layout_height="31.78dp"
+        android:background="@drawable/filter_netflix_states"
+        android:clickable="true"
+        android:focusableInTouchMode="false"
+        app:layout_constraintBottom_toTopOf="@id/search_genre"
+        app:layout_constraintEnd_toStartOf="@id/ott_watchaBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/search_ott"
+        app:layout_constraintTop_toBottomOf="@id/search_ott"
+        tools:layout_marginEnd="5.4dp" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/ott_watchaBtn"
+        android:layout_width="77.15dp"
+        android:layout_height="31.78dp"
+        android:src="@drawable/filter_watcha_states"
+        app:layout_constraintBottom_toBottomOf="@+id/ott_netflixBtn"
+        app:layout_constraintEnd_toStartOf="@+id/ott_tvingBtn"
+        app:layout_constraintStart_toEndOf="@id/ott_netflixBtn"
+        app:layout_constraintTop_toTopOf="@+id/ott_netflixBtn"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_marginEnd="5.4dp" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/ott_tvingBtn"
+        android:layout_width="77.15dp"
+        android:layout_height="31.78dp"
+        android:src="@drawable/filter_tving_states"
+        app:layout_constraintBottom_toBottomOf="@+id/ott_watchaBtn"
+        app:layout_constraintEnd_toStartOf="@+id/ott_wavveBtn"
+        app:layout_constraintStart_toEndOf="@id/ott_watchaBtn"
+        app:layout_constraintTop_toTopOf="@+id/ott_watchaBtn"
+        app:layout_constraintVertical_bias="0.2"
+        tools:layout_marginEnd="5.4dp" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/ott_wavveBtn"
+        android:layout_width="77.15dp"
+        android:layout_height="31.78dp"
+        android:src="@drawable/filter_wavve_states"
+        app:layout_constraintBottom_toBottomOf="@+id/ott_tvingBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ott_tvingBtn"
+        app:layout_constraintTop_toTopOf="@+id/ott_tvingBtn"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/search_genre"
+        android:layout_width="27dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="32.09dp"
+        android:layout_marginBottom="10.7dp"
+        android:fontFamily="@font/spoqa"
+        android:text="장르"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/genre_drama_Btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/search_ott"
+        app:layout_constraintTop_toBottomOf="@id/ott_netflixBtn" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/genre_drama_Btn"
+        android:layout_width="77.15dp"
+        android:layout_height="31.78dp"
+        android:layout_marginBottom="43.4dp"
+        android:src="@drawable/filter_drama_states"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/genre_movieBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/search_genre"
+        app:layout_constraintTop_toBottomOf="@id/search_genre"
+        tools:layout_marginEnd="5.4dp" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/genre_movieBtn"
+        android:layout_width="77.15dp"
+        android:layout_height="31.78dp"
+        android:src="@drawable/filter_movie_states"
+        app:layout_constraintBottom_toBottomOf="@+id/genre_drama_Btn"
+        app:layout_constraintEnd_toStartOf="@+id/genre_tvshowBtn"
+        app:layout_constraintStart_toEndOf="@id/genre_drama_Btn"
+        app:layout_constraintTop_toTopOf="@+id/genre_drama_Btn"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_marginEnd="5.4dp" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/genre_tvshowBtn"
+        android:layout_width="77.15dp"
+        android:layout_height="31.78dp"
+        android:src="@drawable/filter_tvshow_states"
+        app:layout_constraintBottom_toBottomOf="@+id/genre_movieBtn"
+        app:layout_constraintEnd_toStartOf="@+id/genre_docuBtn"
+        app:layout_constraintStart_toEndOf="@id/genre_movieBtn"
+        app:layout_constraintTop_toTopOf="@+id/genre_movieBtn"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_marginEnd="5.4dp" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/genre_docuBtn"
+        android:layout_width="77.15dp"
+        android:layout_height="31.78dp"
+        android:src="@drawable/filter_docu_states"
+        app:layout_constraintBottom_toBottomOf="@id/genre_tvshowBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/genre_tvshowBtn"
+        app:layout_constraintTop_toTopOf="@+id/genre_tvshowBtn"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

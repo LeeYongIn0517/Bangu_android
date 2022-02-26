@@ -11,7 +11,7 @@ class IntroActivity : AppCompatActivity() {
     private val myHandler = Handler(Looper.getMainLooper())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_intro)
         val workThread = Thread(nextActivity())
         workThread.start()
     }

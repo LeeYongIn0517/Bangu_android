@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.example.bangu.R
 import com.example.bangu.databinding.ActivityLoginBinding
 import com.example.bangu.login.data.LgRepository
+import com.example.bangu.main.ui.MainActivity
 import com.example.bangu.signup.ui.SignupActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -13,8 +14,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
 
 //        var id = (binding.loginId.toString()).toLongOrNull() //숫자가 아니면 null을 반환
 //        var pw = (binding.loginPw.toString()).toCharArray()
@@ -25,6 +25,10 @@ class LoginActivity : AppCompatActivity() {
 //        lgRepo.requestLogin()
         binding.loginSignUp.setOnClickListener{
             val next = Intent(this,SignupActivity::class.java)
+            startActivity(next)
+        }
+        binding.loginBtnpic.setOnClickListener{
+            val next = Intent(this, MainActivity::class.java)
             startActivity(next)
         }
 

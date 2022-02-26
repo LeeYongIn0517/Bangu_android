@@ -1,6 +1,5 @@
 package com.example.bangu.signup.ui
 
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

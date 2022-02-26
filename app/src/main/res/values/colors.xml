@@ -8,4 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="signup_char">#474D61</color>
+    <color name="canvas">#000000</color>
+    <color name="search_gray">#565D72</color>
+    <color name="review_profile">#878787</color>
+    <color name="review_text">#B6BED8</color>
+    <color name="genre_text">#7D89AA</color>
 </resources>

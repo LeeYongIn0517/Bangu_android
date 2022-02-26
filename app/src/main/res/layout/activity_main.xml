@@ -2,59 +2,87 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/intro_back"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/intro_back"
-    android:clipToOutline="true">
-    <!-- Asset 1 1 -->
-    <View
-        android:id="@+id/intro_b"
-        android:layout_width="42.77dp"
-        android:layout_height="47.7dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/ic_asset_3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.37"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.386" />
-    <!-- angu. -->
-    <!-- 방구석 리뷰 모음 -->
-    <TextView
-        android:id="@+id/intro_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/title_poppins"
-        android:gravity="top"
-        android:lineSpacingExtra="0sp"
-        android:text="@string/intro_title"
-        android:textAppearance="@style/intro_title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.386" />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/canvas"
+    tools:context=".main.ui.MainActivity">
 
-    <TextView
-        android:id="@+id/intro_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:fontFamily="@font/spoqa"
-        android:gravity="top"
-        android:lineSpacingExtra="0sp"
-        android:text="@string/intro_info"
-        android:textAppearance="@style/intro_info"
+    <View
+        android:id="@+id/main_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="23.25dp"
+        android:background="@drawable/main_topbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/intro_b"
-        app:layout_constraintVertical_bias="0.04" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        app:layout_constraintBottom_toTopOf="@id/main_btmbar"
+        app:layout_constraintEnd_toEndOf="@id/main_btmbar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_topbar"
+        app:layout_constraintVertical_bias="0.434" />
+
+    <View
+        android:id="@+id/main_btmbar"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:background="@drawable/main_btmbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:id="@+id/main_tab_home"
+        android:layout_width="22.74dp"
+        android:layout_height="38.83dp"
+        android:background="@drawable/main_home_empty"
+        app:layout_constraintBottom_toBottomOf="@id/main_btmbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="@+id/main_btmbar"
+        app:layout_constraintTop_toTopOf="@+id/main_btmbar" />
+
+    <View
+        android:id="@+id/main_tab_mybangu"
+        android:layout_width="40dp"
+        android:layout_height="38.05dp"
+        android:background="@drawable/main_mybangu_empty"
+        app:layout_constraintBottom_toBottomOf="@+id/main_btmbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="@+id/main_btmbar"
+        app:layout_constraintTop_toTopOf="@+id/main_btmbar" />
+
+    <View
+        android:id="@+id/main_tab_feed"
+        android:layout_width="19.73dp"
+        android:layout_height="38.13dp"
+        android:background="@drawable/main_feed_empty"
+        app:layout_constraintBottom_toBottomOf="@id/main_btmbar"
+        app:layout_constraintEnd_toEndOf="@id/main_btmbar"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toStartOf="@+id/main_btmbar"
+        app:layout_constraintTop_toTopOf="@id/main_btmbar" />
+
+    <View
+        android:id="@+id/main_tab_profile"
+        android:layout_width="28dp"
+        android:layout_height="38.57dp"
+        android:background="@drawable/main_profile_empty"
+        app:layout_constraintBottom_toBottomOf="@+id/main_btmbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toStartOf="@id/main_btmbar"
+        app:layout_constraintTop_toTopOf="@+id/main_btmbar" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
