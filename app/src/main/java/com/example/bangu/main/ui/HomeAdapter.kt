@@ -4,9 +4,11 @@ import android.media.Rating
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.R
 import com.example.bangu.signup.ui.SignupFinAdapter
@@ -23,11 +25,18 @@ class HomeAdapter():RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
         var review_title:TextView
         var review_score:RatingBar
         var review_content:TextView
+//        var review_bookmark:AppCompatButton
         init {
+//            var sign:Boolean
             review_image=view.findViewById(R.id.review_movieimage)
             review_title=view.findViewById(R.id.review_movietitle)
             review_score=view.findViewById(R.id.review_starscore)
             review_content=view.findViewById(R.id.review_content)
+//            review_bookmark=view.findViewById(R.id.review_bookmark)
+//            review_bookmark.setOnClickListener {
+//                sign = review_bookmark.isSelected
+//                review_bookmark.isSelected = !sign
+//            }
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
