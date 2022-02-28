@@ -166,7 +166,7 @@
         android:layout_height="30.12dp"
         android:background="@drawable/ic_drama"
         app:layout_constraintBottom_toBottomOf="@+id/review_movieimage"
-        app:layout_constraintEnd_toEndOf="@+id/bookmark"
+        app:layout_constraintEnd_toEndOf="@+id/review_bookmark"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/rectangle_1"
         app:layout_constraintTop_toTopOf="@+id/rectangle_1" />
