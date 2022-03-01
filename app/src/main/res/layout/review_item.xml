@@ -112,6 +112,7 @@
         android:id="@+id/review_movietitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/spoqa_bold"
         android:hint="her 그녀"
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/review_movieimage"
@@ -135,11 +136,12 @@
         app:layout_constraintVertical_bias="0.120000005" />
 
     <TextView
-        android:id="@+id/review_content"
-        android:layout_width="wrap_content"
+        android:id="@+id/review_core"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:hint="시간 가는 줄 모르고 봤다"
+        android:hint="너무나 재미있습니다 조심하십시오. 저는 여기에 영혼을 빼앗겨 버렸습니다. 여러분도 그렇게 되지 않으시길 바랍니다."
         android:textColorHint="@color/review_text"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/review_movieimage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -148,38 +150,35 @@
         app:layout_constraintTop_toBottomOf="@+id/review_starscore"
         app:layout_constraintVertical_bias="0.0" />
 
-    <View
-        android:id="@+id/rectangle_1"
-        android:layout_width="30.95dp"
-        android:layout_height="30.12dp"
-        android:background="@drawable/ic_drama"
-        app:layout_constraintBottom_toBottomOf="@+id/review_movieimage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.634"
-        app:layout_constraintStart_toEndOf="@+id/review_movieimage"
-        app:layout_constraintTop_toTopOf="@+id/review_content"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <View
-        android:id="@+id/rectangle_2"
-        android:layout_width="30.95dp"
-        android:layout_height="30.12dp"
-        android:background="@drawable/ic_drama"
-        app:layout_constraintBottom_toBottomOf="@+id/review_movieimage"
-        app:layout_constraintEnd_toEndOf="@+id/review_bookmark"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/rectangle_1"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_1" />
-
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
+        android:id="@+id/info_queue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="드라마"
-        android:textColor="@color/genre_text"
-        android:textSize="9sp"
-        app:layout_constraintBottom_toBottomOf="@+id/rectangle_1"
-        app:layout_constraintEnd_toEndOf="@+id/rectangle_1"
-        app:layout_constraintStart_toStartOf="@+id/rectangle_1"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_1" />
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/review_bookmark"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/review_core">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_drama"/>
+
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@mipmap/ic_watcha_content"/>
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@mipmap/ic_tving_content"/>
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@mipmap/ic_wavve_content"/>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,12 @@
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/filter_wavve_empty.xml" value="0.205" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/filter_wavve_states.xml" value="0.2185" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/ic_asset_3.xml" value="0.23" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/ic_backbtn.xml" value="0.2185" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/ic_checkbox.xml" value="0.209" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/ic_checkbox_fill.xml" value="0.209" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/ic_checkbox_states.xml" value="0.209" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/ic_drama.xml" value="0.209" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/ic_drama_dark.xml" value="0.2185" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/ic_launcher_background.xml" value="0.146" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/ic_netflix.xml" value="0.2185" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/ic_tving.xml" value="0.2185" />
@@ -38,9 +44,14 @@
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/login_semiback.xml" value="0.1235" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/main_btmbar.xml" value="0.149" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/main_feed_empty.xml" value="0.1485" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/main_feed_profile.xml" value="0.2185" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/main_home_empty.xml" value="0.2185" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/main_home_emty.xml" value="0.149" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/main_home_fill.xml" value="0.2185" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/main_mybangu_empty.xml" value="0.149" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/main_mybangu_fill.xml" value="0.2185" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/main_profile_empty.xml" value="0.149" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/main_profile_fill.xml" value="0.2185" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/polygon_4.xml" value="0.197" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/rectangle_2.xml" value="0.197" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/rectangle_3.xml" value="0.197" />
@@ -50,6 +61,7 @@
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/review_bookmark_empty.xml" value="0.255" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/review_bookmark_states.xml" value="0.255" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/search_bar.xml" value="0.235" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/search_content.xml" value="0.209" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/signup_btn_empty.xml" value="0.197" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/signup_btn_fill.xml" value="0.197" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/drawable/signup_btn_fill2.xml" value="0.197" />
@@ -77,10 +89,12 @@
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/activity_signup_fin.xml" value="0.264" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/activity_signup_fin_item.xml" value="0.264" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/fragment_home.xml" value="0.264" />
-        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/fragment_searchfilter.xml" value="0.536" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/fragment_searchcontent.xml" value="0.4" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/fragment_searchfilter.xml" value="0.4" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/home_item.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/review_item.xml" value="0.4" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/layout/signup_fin_item.xml" value="0.2223731884057971" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu/app/src/main/res/mipmap-anydpi-v26/ic_watcha.xml" value="0.1" />
       </map>
     </option>
   </component>

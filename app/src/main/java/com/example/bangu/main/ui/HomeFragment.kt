@@ -31,9 +31,9 @@ class HomeFragment : Fragment() {
     }
 
     override fun onStart() {
+        super.onStart()
         val workThread = Thread(HeightControl(550))
         val workThread2 = Thread(HeightControl(0))
-        super.onStart()
         binding.searchBar.setOnFocusChangeListener { view, b ->
             if (b) {
                 //검색필터 프레그먼트 호출하기
@@ -49,6 +49,23 @@ class HomeFragment : Fragment() {
                 //검색필터 접기
                 workThread2.start()
             }
+        }
+        binding.searchIcon.setOnClickListener {
+            //콘텐츠 및 필터 프레그먼트
+//            val fragmentManager = childFragmentManager
+//            val fragmentTransaction = fragmentManager.beginTransaction()
+//            val fragment = SearchcontentFragment()
+//            fragmentTransaction.add(R.id.frame_filter, fragment)
+//            fragmentTransaction.commit()
+
+            val newFragment = SearchcontentFragment()
+            val transaction = childFragmentManager.beginTransaction().apply {
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack so the user can navigate back
+                replace(R.id.frame_filter, newFragment)
+                addToBackStack(null)
+            }
+            transaction.commit();
         }
     }
     inner class HeightControl(i:Int):Runnable{
