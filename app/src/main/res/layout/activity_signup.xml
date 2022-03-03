@@ -85,7 +85,7 @@
                 android:layout_height="90dp">
                 <!-- 아이디* -->
                 <TextView
-                    android:id="@+id/signup_id"
+                    android:id="@+id/id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/spoqa"
@@ -94,7 +94,7 @@
                     android:text="@string/signup_id"
                     android:textAppearance="@style/white_color"
                     android:textSize="13sp"
-                    app:layout_constraintBottom_toTopOf="@+id/signup_rec1"
+                    app:layout_constraintBottom_toTopOf="@+id/signup_id"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toStartOf="parent"
@@ -106,15 +106,15 @@
                     android:layout_height="wrap_content"
                     android:text="*"
                     android:textAppearance="@style/signup_dot"
-                    app:layout_constraintBottom_toTopOf="@id/signup_rec1"
+                    app:layout_constraintBottom_toTopOf="@id/signup_id"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toEndOf="@id/signup_id"
+                    app:layout_constraintStart_toEndOf="@id/id"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.5" />
 
-                <TextView
-                    android:id="@+id/signup_rec1"
+                <EditText
+                    android:id="@+id/signup_id"
                     android:layout_width="316.61dp"
                     android:layout_height="38.77dp"
                     android:layout_alignParentLeft="true"
@@ -137,7 +137,7 @@
                 android:layout_height="90dp">
 
                 <TextView
-                    android:id="@+id/signup_pw"
+                    android:id="@+id/pw"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/spoqa"
@@ -146,7 +146,7 @@
                     android:text="@string/signup_pw"
                     android:textAppearance="@style/white_color"
                     android:textSize="13sp"
-                    app:layout_constraintBottom_toTopOf="@id/signup_rec2"
+                    app:layout_constraintBottom_toTopOf="@id/signup_pw"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toStartOf="parent"
@@ -158,15 +158,15 @@
                     android:layout_height="wrap_content"
                     android:text="*"
                     android:textAppearance="@style/signup_dot"
-                    app:layout_constraintBottom_toTopOf="@id/signup_rec2"
+                    app:layout_constraintBottom_toTopOf="@id/signup_pw"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toEndOf="@id/signup_pw"
+                    app:layout_constraintStart_toEndOf="@id/pw"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.5" />
 
-                <TextView
-                    android:id="@+id/signup_rec2"
+                <EditText
+                    android:id="@+id/signup_pw"
                     android:layout_width="316.61dp"
                     android:layout_height="38.77dp"
                     android:layout_alignParentLeft="true"
@@ -189,7 +189,7 @@
                 android:layout_height="90dp">
 
                 <TextView
-                    android:id="@+id/signup_check"
+                    android:id="@+id/pwcheck"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/spoqa"
@@ -198,7 +198,7 @@
                     android:text="@string/signup_check"
                     android:textAppearance="@style/white_color"
                     android:textSize="13sp"
-                    app:layout_constraintBottom_toTopOf="@id/signup_rec3"
+                    app:layout_constraintBottom_toTopOf="@id/signup_pwcheck"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toStartOf="parent"
@@ -210,19 +210,17 @@
                     android:layout_height="wrap_content"
                     android:text="*"
                     android:textAppearance="@style/signup_dot"
-                    app:layout_constraintBottom_toTopOf="@id/signup_rec3"
+                    app:layout_constraintBottom_toTopOf="@id/signup_pwcheck"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toEndOf="@id/signup_check"
+                    app:layout_constraintStart_toEndOf="@id/pwcheck"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.5" />
 
-                <TextView
-                    android:id="@+id/signup_rec3"
+                <EditText
+                    android:id="@+id/signup_pwcheck"
                     android:layout_width="316.61dp"
                     android:layout_height="38.77dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
                     android:background="@drawable/signup_rec"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -238,7 +236,7 @@
                 android:layout_height="90dp">
 
                 <TextView
-                    android:id="@+id/signup_name"
+                    android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/spoqa"
@@ -247,7 +245,7 @@
                     android:text="@string/signup_name"
                     android:textAppearance="@style/white_color"
                     android:textSize="13sp"
-                    app:layout_constraintBottom_toTopOf="@id/signup_rec4"
+                    app:layout_constraintBottom_toTopOf="@id/signup_name"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toStartOf="parent"
@@ -259,15 +257,15 @@
                     android:layout_height="wrap_content"
                     android:text="*"
                     android:textAppearance="@style/signup_dot"
-                    app:layout_constraintBottom_toTopOf="@id/signup_rec4"
+                    app:layout_constraintBottom_toTopOf="@id/signup_name"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toEndOf="@id/signup_name"
+                    app:layout_constraintStart_toEndOf="@id/name"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.5" />
 
-                <TextView
-                    android:id="@+id/signup_rec4"
+                <EditText
+                    android:id="@+id/signup_name"
                     android:layout_width="316.61dp"
                     android:layout_height="38.77dp"
                     android:layout_alignParentLeft="true"
@@ -320,7 +318,7 @@
                     android:id="@+id/rdbtn_tving"
                     android:layout_width="wrap_content"
                     android:layout_height="17dp"
-                    android:button="@drawable/signup_btn_empty"
+                    android:button="@drawable/signup_btn_states"
                     android:fontFamily="@font/spoqa"
                     android:text="   TVING"
                     android:textColor="@color/white"
@@ -336,7 +334,7 @@
                     android:id="@+id/rdbtn_watcha"
                     android:layout_width="wrap_content"
                     android:layout_height="17dp"
-                    android:button="@drawable/signup_btn_empty"
+                    android:button="@drawable/signup_btn_states"
                     android:fontFamily="@font/spoqa"
                     android:text="   WATCHA"
                     android:textColor="@color/white"
@@ -352,7 +350,7 @@
                     android:id="@+id/rdbtn_netflix"
                     android:layout_width="wrap_content"
                     android:layout_height="17dp"
-                    android:button="@drawable/signup_btn_empty"
+                    android:button="@drawable/signup_btn_states"
                     android:fontFamily="@font/spoqa"
                     android:text="   NETFLIX"
                     android:textColor="@color/white"
@@ -368,7 +366,7 @@
                     android:id="@+id/rdbtn_wavve"
                     android:layout_width="wrap_content"
                     android:layout_height="17dp"
-                    android:button="@drawable/signup_btn_empty"
+                    android:button="@drawable/signup_btn_states"
                     android:fontFamily="@font/spoqa"
                     android:text="   WAVVE"
                     android:textColor="@color/white"
@@ -384,7 +382,7 @@
                     android:id="@+id/rdbtn_none"
                     android:layout_width="wrap_content"
                     android:layout_height="17dp"
-                    android:button="@drawable/signup_btn_empty"
+                    android:button="@drawable/signup_btn_states"
                     android:fontFamily="@font/spoqa"
                     android:text="   해당 사항 없음"
                     android:textColor="@color/white"
@@ -434,37 +432,51 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.1" />
 
-                <RadioButton
-                    android:id="@+id/rdbtn_male"
+                <RadioGroup
                     android:layout_width="wrap_content"
-                    android:layout_height="17dp"
-                    android:button="@drawable/signup_btn_empty"
-                    android:fontFamily="@font/spoqa"
-                    android:text="   남"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@id/signup_gender"
-                    app:layout_constraintTop_toBottomOf="@id/signup_gender"
-                    app:layout_constraintVertical_bias="0.2" />
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5">
 
-                <RadioButton
-                    android:id="@+id/rdbtn_female"
-                    android:layout_width="wrap_content"
-                    android:layout_height="17dp"
-                    android:button="@drawable/signup_btn_empty"
-                    android:fontFamily="@font/spoqa"
-                    android:text="   여"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.502"
-                    app:layout_constraintStart_toEndOf="@id/rdbtn_male"
-                    app:layout_constraintTop_toBottomOf="@id/signup_gender"
-                    app:layout_constraintVertical_bias="0.198" />
+                    <RadioButton
+                        android:id="@+id/rdbtn_male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="17dp"
+                        android:layout_marginEnd="100dp"
+                        android:button="@drawable/signup_btn_states"
+                        android:fontFamily="@font/spoqa"
+                        android:text="   남"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/signup_gender"
+                        app:layout_constraintTop_toBottomOf="@id/signup_gender"
+                        app:layout_constraintVertical_bias="0.416" />
+
+                    <RadioButton
+                        android:id="@+id/rdbtn_female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="17dp"
+                        android:layout_marginStart="100dp"
+                        android:button="@drawable/signup_btn_states"
+                        android:fontFamily="@font/spoqa"
+                        android:text="   여"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.502"
+                        app:layout_constraintStart_toEndOf="@id/rdbtn_male"
+                        app:layout_constraintTop_toBottomOf="@id/signup_gender"
+                        app:layout_constraintVertical_bias="0.198" />
+                </RadioGroup>
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -506,16 +518,16 @@
                     android:id="@+id/datepicker"
                     android:layout_width="290dp"
                     android:layout_height="100dp"
-                    android:background="@color/purple_200"
+                    android:background="@color/white"
                     android:calendarViewShown="false"
                     android:datePickerMode="spinner"
                     android:focusableInTouchMode="true"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintHorizontal_bias="0.132"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/signup_birth"
-                    app:layout_constraintVertical_bias="0.3" />
+                    app:layout_constraintVertical_bias="0.0" />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/block8"
@@ -525,10 +537,11 @@
     </ScrollView>
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/login_btnpic"
+        android:id="@+id/signup_startbtn"
         android:layout_width="305.6dp"
         android:layout_height="52.91dp"
         android:background="@drawable/login_btnpic"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -536,19 +549,4 @@
         app:layout_constraintVertical_bias="0.975"
         tools:layout_constraintHorizontal_bias="0.5" />
 
-    <TextView
-        android:id="@+id/signup_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/spoqa"
-        android:gravity="center_horizontal|top"
-        android:lineSpacingExtra="0sp"
-        android:text="BANGU 시작하기"
-        android:textAppearance="@style/login_lgtext"
-        app:layout_constraintBottom_toBottomOf="@+id/login_btnpic"
-        app:layout_constraintEnd_toEndOf="@+id/login_btnpic"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/login_btnpic"
-        app:layout_constraintTop_toTopOf="@+id/login_btnpic"
-        app:layout_constraintVertical_bias="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>
