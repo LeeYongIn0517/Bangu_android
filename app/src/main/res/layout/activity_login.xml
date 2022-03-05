@@ -7,30 +7,27 @@
             name="activity"
             type="com.example.bangu.login.ui.LoginActivity"/>
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/login_back"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/intro_back"
-        android:visibility="visible"
-        tools:context=".login.ui.LoginActivity">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/login_back"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/intro_back"
+    android:visibility="visible"
+    tools:context=".login.ui.LoginActivity">
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/login_startbtn"
+        android:layout_width="305.6dp"
+        android:layout_height="52.91dp"
+        android:background="@drawable/login_btnpic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.73"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-        <!-- 로그인 -->
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/login_startbtn"
-            android:layout_width="305.6dp"
-            android:layout_height="52.91dp"
-            android:background="@drawable/login_btnpic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.73"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
+    <TextView
             android:id="@+id/login_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,13 +63,13 @@
             app:layout_constraintVertical_bias="0.05" />
 
         <EditText
-            android:id="@+id/login_id"
+            android:id="@+id/login_email"
             android:layout_width="305.6dp"
             android:layout_height="44.45dp"
             android:layout_marginBottom="7dp"
-            android:background="@{activity.error}"
+            android:background="@drawable/login_input"
             android:fontFamily="@font/spoqa"
-            android:hint="ID"
+            android:hint="Email"
             android:paddingStart="20.2dp"
             android:text=""
             android:textColor="@color/white"
@@ -87,24 +84,24 @@
 
         <!-- Line 6 -->
 
-        <EditText
-            android:id="@+id/login_pw"
-            android:layout_width="305.6dp"
-            android:layout_height="44.45dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/login_input"
-            android:fontFamily="@font/spoqa"
-            android:hint="PW"
-            android:paddingStart="20.2dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/signup_startbtn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_id"
-            app:layout_constraintVertical_bias="0.04" />
+    <EditText
+        android:id="@+id/login_pw"
+        android:layout_width="305.6dp"
+        android:layout_height="44.45dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/login_input"
+        android:fontFamily="@font/spoqa"
+        android:hint="PW"
+        android:paddingStart="20.2dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/login_startbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_email"
+        app:layout_constraintVertical_bias="0.04" />
 
         <View
             android:id="@+id/login_light"
@@ -207,6 +204,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_pw"
             app:layout_constraintVertical_bias="0.359" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

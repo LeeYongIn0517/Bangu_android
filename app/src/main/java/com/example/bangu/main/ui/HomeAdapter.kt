@@ -31,7 +31,7 @@ class HomeAdapter():RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
             review_image=view.findViewById(R.id.review_movieimage)
             review_title=view.findViewById(R.id.review_movietitle)
             review_score=view.findViewById(R.id.review_starscore)
-            review_content=view.findViewById(R.id.review_content)
+            review_content=view.findViewById(R.id.review_core)
 //            review_bookmark=view.findViewById(R.id.review_bookmark)
 //            review_bookmark.setOnClickListener {
 //                sign = review_bookmark.isSelected

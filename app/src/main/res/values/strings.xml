@@ -5,13 +5,6 @@
     <string name="login_title">Bangu.</string>
     <string name="login_sign_up">회원가입하기</string>
     <string name="login_lgtext">로그인하기</string>
-    <string name="signup_title">회원가입</string>
-    <string name="signup_id">아이디</string>
-    <string name="signup_pw">비밀번호</string>
-    <string name="signup_check">비밀번호 확인</string>
-    <string name="signup_name">닉네임</string>
-    <string name="signup_ott">구독중인 OTT 서비스</string>
-    <string name="signup_msg">는 필수입력 항목입니다</string>
     <string name="signupfin_text">다양한 리뷰보러 가기</string>
     <string name="signupfin_msg">안녕하세요 닉네임님!</string>
     <string name="signupfin_msg2">회원가입이 완료되었습니다</string>
