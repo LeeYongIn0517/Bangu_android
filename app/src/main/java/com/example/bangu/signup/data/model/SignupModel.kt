@@ -7,16 +7,16 @@ import java.sql.Timestamp
 data class SignupModel(
     @SerializedName("birth")
     var birth :Long,
-    @SerializedName("create_at")
-    var create_at: Timestamp,
+    @SerializedName("createAt")
+    var createAt: Timestamp,
     @SerializedName("email")
     var email:String,
     @SerializedName("gender")
-    var gender:Char,
+    var gender:String,
     @SerializedName("nickname")
     var nickname:String,
-    @SerializedName("update_at")
-    var update_at: Timestamp,
+    @SerializedName("updateAt")
+    var updateAt: Timestamp,
     @SerializedName("userOttRespenseData")
     var userOttRespenseData: List<userOttResponseData>
 )

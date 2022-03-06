@@ -2,21 +2,20 @@ package com.example.bangu.signup.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.example.bangu.databinding.ActivitySignupBinding
-import java.sql.Timestamp
+import java.text.SimpleDateFormat
+import java.util.*
 
-abstract class SignupActivity : AppCompatActivity() {
+class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
     private lateinit var email:String
-    private lateinit var pw:String
+    private lateinit var password:String
     private lateinit var nickname:String
+    private lateinit var gender:String
     private var ott = mutableMapOf("tving" to false, "watcha" to false, "netflix" to false, "wavve" to false, "nothing" to false)
-    private var gender = mutableMapOf("M" to false, "F" to false)
-    abstract var birth:Long
-    private lateinit var createAt:Timestamp
-    private lateinit var updateAt:Timestamp
+    private lateinit var createAt:String
+    private lateinit var updateAt:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
@@ -25,17 +24,24 @@ abstract class SignupActivity : AppCompatActivity() {
         //회원가입 요청
         binding.loginBtnpic.setOnClickListener{
             email = binding.signupEmail.text.toString()
-            pw = binding.signupPw.text.toString()
+            password = binding.signupPw.text.toString()
             nickname = binding.signupNickname.toString()
             ott.set("tving",if(binding.rdbtnTving.isChecked) true else false)
             ott.set("watcha",if(binding.rdbtnWatcha.isChecked) true else false)
             ott.set("netflix",if(binding.rdbtnNetflix.isChecked) true else false)
             ott.set("wavve",if(binding.rdbtnWavve.isChecked) true else false)
             ott.set("nothing",if(binding.rdbtnNothing.isChecked) true else false)
-            if(binding.rdbtnMale.isChecked) gender.set("M", true)
-            else gender.set("F", true)
-            birth = binding.datepicker.maxDate
-            Toast.makeText(this,"$birth",Toast.LENGTH_SHORT).show()
+            gender = if(binding.rdbtnMale.isChecked) "M" else "F"
+            var year = binding.datepicker.year
+            var month = binding.datepicker.month + 1
+            var day = binding.datepicker.dayOfMonth
+            var birth = (year*10000 + month*100 + day).toLong()
+            var now = System.currentTimeMillis()
+            createAt = SimpleDateFormat("yyyy-MM-dd HH:mm::ss.S",Locale.KOREAN).format(now)
+            updateAt = createAt
+            Toast.makeText(this@SignupActivity,"$createAt, $updateAt",Toast.LENGTH_SHORT).show()
+
+            SignupViewModel(this.application).requestSignup(birth,createAt, email,gender,nickname,password,updateAt,ott)
         }
     }
 }
