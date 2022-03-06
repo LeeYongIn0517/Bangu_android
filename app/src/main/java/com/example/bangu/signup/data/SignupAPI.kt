@@ -11,16 +11,16 @@ interface SignupAPI {
     @FormUrlEncoded
     @POST("/session/signup") //Http Method 예시
     fun requestSignup(
-        @Field("birth") birth:String,
-        @Field("create_at") create_at:Timestamp,
+        @Field("birth") birth:Long,
+        @Field("create_At") createAt:String,
         @Field("email") email:String,
-        @Field("gender") gender:Char,
-        @Field("netflix") netflix:Boolean,
+        @Field("gender") gender:String,
+        @Field("netflix") netflix:Boolean?,
         @Field("nickname") nickname:String,
         @Field("password") password:String,
-        @Field("tving") tving:Boolean,
-        @Field("update_at") update_at:Timestamp,
-        @Field("watcha") watcha:Boolean,
-        @Field("wavve") wavve:Boolean,
+        @Field("tving") tving:Boolean?,
+        @Field("updateAt") updateAt:String,
+        @Field("watcha") watcha:Boolean?,
+        @Field("wavve") wavve:Boolean?,
     ):Call<SignupModel>
 }
