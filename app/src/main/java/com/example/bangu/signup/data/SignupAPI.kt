@@ -21,6 +21,6 @@ interface SignupAPI {
         @Field("tving") tving:Boolean?,
         @Field("updateAt") updateAt:String,
         @Field("watcha") watcha:Boolean?,
-        @Field("wavve") wavve:Boolean?,
+        @Field("wavve") wavve:Boolean?
     ):Call<SignupModel>
 }

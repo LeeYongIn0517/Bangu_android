@@ -1,5 +1,6 @@
 package com.example.bangu.signup.data
 
+import android.util.Log
 import com.example.bangu.signup.data.model.SignupModel
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
@@ -21,6 +22,7 @@ object SgDataResource {
             override fun onResponse(call: Call<SignupModel>, response: Response<SignupModel>) {
                 if(response.isSuccessful){
                     callback.onSuccess(response.body())
+                    Log.d("SgDataResource","just did signupApi.requestSignup and got opResponse")
                 }
             }
 

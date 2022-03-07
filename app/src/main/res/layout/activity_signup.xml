@@ -120,7 +120,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.5" />
 
-                <TextView
+                <EditText
                     android:id="@+id/signup_email"
                     android:layout_width="316.61dp"
                     android:layout_height="38.77dp"
@@ -129,6 +129,7 @@
                     android:background="@drawable/signup_rec"
                     android:gravity="center|left"
                     android:textColorHint="@color/signup_char"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -171,7 +172,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.5" />
 
-                <TextView
+                <EditText
                     android:id="@+id/signup_pw"
                     android:layout_width="316.61dp"
                     android:layout_height="38.77dp"
@@ -181,6 +182,7 @@
                     android:gravity="center|left"
                     android:hint="   영문,숫자,특수문자 조합 8-20자리"
                     android:textColorHint="@color/signup_char"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -223,13 +225,14 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.5" />
 
-                <TextView
+                <EditText
                     android:id="@+id/signup_check"
                     android:layout_width="316.61dp"
                     android:layout_height="38.77dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:background="@drawable/signup_rec"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -272,13 +275,14 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.5" />
 
-                <TextView
+                <EditText
                     android:id="@+id/signup_nickname"
                     android:layout_width="316.61dp"
                     android:layout_height="38.77dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:background="@drawable/signup_rec"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
