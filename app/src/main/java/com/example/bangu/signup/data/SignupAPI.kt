@@ -1,6 +1,7 @@
 package com.example.bangu.signup.data
 
 import com.example.bangu.signup.data.model.SignupModel
+import io.reactivex.rxjava3.core.Observable
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -9,7 +10,7 @@ import java.sql.Timestamp
 
 interface SignupAPI {
     @FormUrlEncoded
-    @POST("/session/signup") //Http Method 예시
+    @POST("/session/signup") //회원가입
     fun requestSignup(
         @Field("birth") birth:Long,
         @Field("create_At") createAt:String,
@@ -23,4 +24,10 @@ interface SignupAPI {
         @Field("watcha") watcha:Boolean?,
         @Field("wavve") wavve:Boolean?
     ):Call<SignupModel>
+
+    @FormUrlEncoded
+    @POST("/users/emailCheck/{userEmail}") //아이디 중복확인
+    fun checkUserEmail(
+        @Field("userEmail") userEmail:String
+    ):Observable<Boolean>
 }

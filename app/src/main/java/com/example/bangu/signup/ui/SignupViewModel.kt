@@ -15,7 +15,11 @@ class SignupViewModel:ViewModel(){
     private val repo = SgRepository
     private var _success = MutableLiveData<Event<Boolean>>()
     val success: LiveData<Event<Boolean>> = _success
+    val userEmail:MutableLiveData<String> = MutableLiveData()
 
+    fun checkUserEmail(emailText:String){
+        
+    }
     fun requestSignup(birth:Long, createAt: String, email:String, gender:String, nickname:String,
                       password:String, updateAt: String, ott:MutableMap<String,Boolean>){
         repo.requestSignup(birth,createAt, email,gender,nickname,password,updateAt,ott, object : SgRepository.GetDataCallback<SignupModel>{

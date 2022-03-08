@@ -7,6 +7,10 @@
             name="activity"
             type="com.example.bangu.signup.ui.SignupActivity"
             />
+        <variable
+            name="vm"
+            type="com.example.bangu.signup.ui.SignupViewModel"
+            />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -124,10 +128,12 @@
                     android:id="@+id/signup_email"
                     android:layout_width="316.61dp"
                     android:layout_height="38.77dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
                     android:background="@drawable/signup_rec"
                     android:gravity="center|left"
+                    android:text="@{vm.userEmail}"
+                    android:singleLine="true"
+                    android:nextFocusDown="@id/signup_pw"
+                    android:afterTextChanged=""
                     android:textColorHint="@color/signup_char"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
