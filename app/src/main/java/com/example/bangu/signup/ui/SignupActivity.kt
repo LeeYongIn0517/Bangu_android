@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
@@ -29,6 +30,17 @@ class SignupActivity : AppCompatActivity() {
         val viewmodel = SignupViewModel()
         setContentView(view)
 
+        //버튼 대신에 엔터키 이벤트로 임시구현
+        binding.signupEmail.setOnKeyListener { view, i, keyEvent ->
+            if(keyEvent.action == KeyEvent.ACTION_DOWN && keyEvent.keyCode == KeyEvent.KEYCODE_ENTER)
+                viewmodel.checkUserEmail(binding.signupEmail.text.toString())
+            true
+        }
+        binding.signupNickname.setOnKeyListener { view, i, keyEvent ->
+            if(keyEvent.action == KeyEvent.ACTION_DOWN && keyEvent.keyCode == KeyEvent.KEYCODE_ENTER)
+                viewmodel.checkNickname(binding.signupNickname.text.toString())
+            true
+        }
         //회원가입 요청
         binding.loginBtnpic.setOnClickListener{
             email = binding.signupEmail.text.toString()

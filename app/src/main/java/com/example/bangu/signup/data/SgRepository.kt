@@ -1,18 +1,31 @@
 package com.example.bangu.signup.data
 
 import android.util.Log
+import android.widget.Toast
+import com.example.bangu.signup.data.model.Signup
 import com.example.bangu.signup.data.model.SignupModel
+import com.example.bangu.signup.ui.SignupActivity
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
+import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import java.sql.Timestamp
 
 object SgRepository {
     private val remoteDataService = SgDataResource
-    fun checkUserEmail(emailText:String){
-
+    /*아이디 중복확인*/
+    fun checkUserEmail(emailText:String,callback: GetDataCallback<Boolean>){
+        remoteDataService.checkUserEmail(emailText,callback)
     }
-    fun requestSignup(birth:Long, createAt: String, email:String, gender:String,nickname:String,
-                      password:String, updateAt: String, ott:MutableMap<String,Boolean>,callback:GetDataCallback<SignupModel>){
-        remoteDataService.requestSignup(birth,createAt, email,gender,nickname,password,updateAt,ott,callback)
-        Log.d(" SgRepository","just did remoteDataService.requestSignup")
+    /*닉네임 중복확인*/
+    fun checkNickname(nickname:String,callback: GetDataCallback<Boolean>){
+        remoteDataService.checkUserEmail(nickname,callback)
+    }
+    /*회원가입*/
+    fun requestSignup(signup: Signup,callback:GetDataCallback<SignupModel>){
+        remoteDataService.requestSignup(signup,callback)
+        Log.d("SgRepository","just did remoteDataService.requestSignup")
     }
     interface GetDataCallback<T>{
         fun onSuccess(data:T?)
