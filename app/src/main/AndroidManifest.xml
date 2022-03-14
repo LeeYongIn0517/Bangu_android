@@ -5,17 +5,20 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Bangu">
+        android:theme="@style/Theme.Bangu"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".login.ui.LoginViewModel"
+            android:exported="false" />
         <activity
             android:name=".main.ui.MainActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".signup.ui.SignupActivity"
             android:exported="false" />

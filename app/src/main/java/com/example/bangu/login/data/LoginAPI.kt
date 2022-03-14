@@ -1,10 +1,16 @@
 package com.example.bangu.login.data
 
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import com.example.bangu.login.data.model.AccessToken
+import com.example.bangu.login.data.model.LoginRequest
+import com.example.bangu.login.data.model.LoginResponse
+import retrofit2.Call
+import retrofit2.http.Body
+import retrofit2.http.GET
 
 interface LoginAPI {
-    @FormUrlEncoded
-    @POST("") //Http Method 예시
-    fun requestLogin() //미정. 인증요청 함수
+    @GET("oauth/kakao/login") //api수정 중
+    fun getKakaoToken(): Call<AccessToken>
+
+    @GET("session/login") //로그인
+    fun getLoginToken(@Body loginRequest:LoginRequest): Call<LoginResponse>
 }

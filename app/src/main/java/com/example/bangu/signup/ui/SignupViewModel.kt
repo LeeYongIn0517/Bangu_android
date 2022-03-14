@@ -1,22 +1,19 @@
 package com.example.bangu.signup.ui
 
-import android.app.Application
-import android.content.Intent
 import android.util.Log
 import android.widget.Toast
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.bangu.Event
 import com.example.bangu.signup.data.SgRepository
 import com.example.bangu.signup.data.model.Signup
-import com.example.bangu.signup.data.model.SignupModel
+import com.example.bangu.signup.data.model.SignupResponse
 
 class SignupViewModel:ViewModel(){
     private val repo = SgRepository
     private var _success = MutableLiveData<Event<Boolean>>()
     val success: LiveData<Event<Boolean>> = _success
-    val userEmail:MutableLiveData<String> = MutableLiveData()
 
     fun checkUserEmail(emailText:String){
         repo.checkUserEmail(emailText,object :SgRepository.GetDataCallback<Boolean>{
@@ -30,7 +27,7 @@ class SignupViewModel:ViewModel(){
         })
     }
     fun checkNickname(nickname:String){
-        repo.checkUserEmail(nickname,object :SgRepository.GetDataCallback<Boolean>{
+        repo.checkNickname(nickname,object :SgRepository.GetDataCallback<Boolean>{
             override fun onSuccess(data: Boolean?) {
                 Toast.makeText(SignupActivity(),"사용가능한 닉네임입니다.",Toast.LENGTH_SHORT).show()
             }
@@ -53,11 +50,14 @@ class SignupViewModel:ViewModel(){
             tving = ott.get("tving"),
             updateAt = updateAt,
             watcha = ott.get("watcha"),
-            wavve = ott.get("wavve"),
+            wavve = ott.get("wavve")
         )
-        repo.requestSignup(signup, object : SgRepository.GetDataCallback<SignupModel>{
-            override fun onSuccess(data: SignupModel?){
-                //액티비티에 성공신호 주기
+        repo.requestSignup(signup, object : SgRepository.GetDataCallback<SignupResponse>{
+            override fun onSuccess(data: SignupResponse?){
+                if (data != null) {
+                        Log.d(" Test",data.birth.toString())
+                }
+                //LiveData로 액티비티에 성공신호 제공
                 _success.value = Event(true)
                 Log.d(" SignupViewModel","override fun onSuccess")
             }

@@ -126,21 +126,30 @@
 
                 <EditText
                     android:id="@+id/signup_email"
-                    android:layout_width="316.61dp"
+                    android:layout_width="220dp"
                     android:layout_height="38.77dp"
-                    android:background="@drawable/signup_rec"
+                    android:background="@drawable/signup_rec2"
                     android:gravity="center|left"
-                    android:text="@{vm.userEmail}"
-                    android:singleLine="true"
                     android:nextFocusDown="@id/signup_pw"
-                    android:textColorHint="@color/signup_char"
+                    android:singleLine="true"
                     android:textColor="@color/white"
+                    android:textColorHint="@color/signup_char"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/text_id"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.8" />
+                    app:layout_constraintVertical_bias="0.77" />
+
+                <ImageButton
+                    android:id="@+id/email_checkbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/signup_confirmbtn"
+                    app:layout_constraintBottom_toBottomOf="@+id/signup_email"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/signup_email"
+                    app:layout_constraintTop_toTopOf="@+id/signup_email" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -186,14 +195,13 @@
                     android:background="@drawable/signup_rec"
                     android:gravity="center|left"
                     android:hint="   영문,숫자,특수문자 조합 8-20자리"
-                    android:textColorHint="@color/signup_char"
                     android:textColor="@color/white"
+                    android:textColorHint="@color/signup_char"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.8" />
+                    app:layout_constraintVertical_bias="0.75" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -282,18 +290,29 @@
 
                 <EditText
                     android:id="@+id/signup_nickname"
-                    android:layout_width="316.61dp"
+                    android:layout_width="220dp"
                     android:layout_height="38.77dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:background="@drawable/signup_rec"
+                    android:background="@drawable/signup_rec2"
+                    android:gravity="center|left"
+                    android:nextFocusDown="@id/signup_pw"
+                    android:singleLine="true"
                     android:textColor="@color/white"
+                    android:textColorHint="@color/signup_char"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/textnickname"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.8" />
+                    app:layout_constraintVertical_bias="0.77" />
+                <ImageButton
+                    android:id="@+id/nickcname_checkbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/signup_confirmbtn"
+                    app:layout_constraintBottom_toBottomOf="@+id/signup_nickname"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/signup_nickname"
+                    app:layout_constraintTop_toTopOf="@+id/signup_nickname" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout

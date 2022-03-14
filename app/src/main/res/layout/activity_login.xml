@@ -14,6 +14,7 @@
     android:background="@drawable/intro_back"
     android:visibility="visible"
     tools:context=".login.ui.LoginActivity">
+
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/login_startbtn"
         android:layout_width="305.6dp"
@@ -24,7 +25,7 @@
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.73"
+        app:layout_constraintVertical_bias="0.74"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
@@ -166,7 +167,7 @@
             app:layout_constraintVertical_bias="0.65999997" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/naver_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -178,13 +179,13 @@
             app:srcCompat="@mipmap/ic_naver" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/kakao_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintStart_toEndOf="@+id/naver_btn"
             app:layout_constraintTop_toBottomOf="@+id/tv_msg"
             app:layout_constraintVertical_bias="0.2"
             app:srcCompat="@mipmap/ic_kakao" />

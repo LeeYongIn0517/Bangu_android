@@ -1,14 +1,25 @@
 package com.example.bangu.login.data
 
-object LgRepository {
+import android.util.Log
+import com.example.bangu.login.data.model.AccessToken
+import com.example.bangu.login.data.model.LoginRequest
+import com.example.bangu.login.data.model.LoginResponse
+import io.reactivex.rxjava3.core.Single
 
-    fun requestLogin(){
-        val lgdr = LgDataResource
-        lgdr.requestLogin() //인자 전달
+object LgRepository {
+    val lgdr = LgDataResource
+
+    fun getKakaoAuthCode(callback:GetDataCallback<AccessToken>){
+        lgdr.getKakaoToken(callback)
+        Log.d("LgRepository","just did LgDataService.getKakaoAuthCode")
+    }
+    fun getLoginToken(loginRequest: LoginRequest,callback:GetDataCallback<LoginResponse>){
+        lgdr.getLoginToken(loginRequest,callback)
+        Log.d("LgRepository","just did LgDataService.getLoginToken")
     }
     //로그인 요청에 대한 응답인터페이스
     interface GetDataCallback<T>{
-        fun onSuccess(){}
-        fun onFailure(){}
+        fun onSuccess(data:T?)
+        fun onFailure(throwable: Throwable)
     }
 }

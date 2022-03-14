@@ -31,15 +31,11 @@ class SignupActivity : AppCompatActivity() {
         setContentView(view)
 
         //버튼 대신에 엔터키 이벤트로 임시구현
-        binding.signupEmail.setOnKeyListener { view, i, keyEvent ->
-            if(keyEvent.action == KeyEvent.ACTION_DOWN && keyEvent.keyCode == KeyEvent.KEYCODE_ENTER)
+        binding.emailCheckbtn.setOnClickListener {
                 viewmodel.checkUserEmail(binding.signupEmail.text.toString())
-            true
         }
-        binding.signupNickname.setOnKeyListener { view, i, keyEvent ->
-            if(keyEvent.action == KeyEvent.ACTION_DOWN && keyEvent.keyCode == KeyEvent.KEYCODE_ENTER)
+        binding.nickcnameCheckbtn.setOnClickListener {
                 viewmodel.checkNickname(binding.signupNickname.text.toString())
-            true
         }
         //회원가입 요청
         binding.loginBtnpic.setOnClickListener{
@@ -65,7 +61,7 @@ class SignupActivity : AppCompatActivity() {
 
         //회원가입 성공화면으로
         viewmodel.success.observe(this@SignupActivity, androidx.lifecycle.Observer {
-            it.getSignIfEvented()?.let {
+            it.getIfEvented()?.let {
                 Intent(this@SignupActivity,SignupFinActivity::class.java).apply {
                     startActivity(this)
                 }

@@ -3,7 +3,7 @@ package com.example.bangu.signup.data
 import android.util.Log
 import android.widget.Toast
 import com.example.bangu.signup.data.model.Signup
-import com.example.bangu.signup.data.model.SignupModel
+import com.example.bangu.signup.data.model.SignupResponse
 import com.example.bangu.signup.ui.SignupActivity
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -42,15 +42,15 @@ object SgDataResource {
             })
     }
     /*회원가입*/
-    fun requestSignup(signup: Signup, callback: SgRepository.GetDataCallback<SignupModel>){
-        signupApi.requestSignup(signup).enqueue(object:Callback<SignupModel>{
-            override fun onResponse(call: Call<SignupModel>, response: Response<SignupModel>) {
+    fun requestSignup(signup: Signup, callback: SgRepository.GetDataCallback<SignupResponse>){
+        signupApi.requestSignup(signup).enqueue(object:Callback<SignupResponse>{
+            override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
                 if(response.isSuccessful){
                     callback.onSuccess(response.body())
-                    Log.d("SgDataResource","just did signupApi.requestSignup and got opResponse")
+                    Log.d("SgDataResource","just did signupApi.requestSignup and got onResponse")
                 }
             }
-            override fun onFailure(call: Call<SignupModel>, t: Throwable) {
+            override fun onFailure(call: Call<SignupResponse>, t: Throwable) {
                 callback.onFailure(t)
             }
         })
