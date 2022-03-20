@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
+import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.bangu.R
 import com.example.bangu.databinding.ActivitySignupBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -29,14 +31,80 @@ class SignupActivity : AppCompatActivity() {
         val view = binding.root
         val viewmodel = SignupViewModel()
         setContentView(view)
-
-        //버튼 대신에 엔터키 이벤트로 임시구현
+        binding.apply {
+            lifecycleOwner = this@SignupActivity
+            activity = this@SignupActivity
+        }
+        //이메일 중복체크 버튼
         binding.emailCheckbtn.setOnClickListener {
                 viewmodel.checkUserEmail(binding.signupEmail.text.toString())
         }
-        binding.nickcnameCheckbtn.setOnClickListener {
+        //닉네임 중복체크 버튼
+        binding.nicknameCheckbtn.setOnClickListener {
                 viewmodel.checkNickname(binding.signupNickname.text.toString())
         }
+        //이메일 중복확인 결과
+        viewmodel.emailOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
+            it.getIfEvented()?.let {
+                if(it == "emailOk"){
+                    //성공
+                    binding.apply {
+                        emailCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn2)
+                        emailCheckbtn.isEnabled = false
+                        emailOk.visibility = View.VISIBLE
+                        emailFail.visibility = View.INVISIBLE
+                    }
+                }
+                else if(it == "emailFail"){
+                    //실패
+                    binding.apply {
+                        emailCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn)
+                        emailCheckbtn.isEnabled = true
+                        emailOk.visibility = View.INVISIBLE
+                        emailFail.visibility = View.VISIBLE
+                    }
+                }
+            }
+        })
+        //닉네임 중복확인 결과
+        viewmodel.nicknameOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
+            it.getIfEvented()?.let {
+                if(it == "nicknameOk"){
+                    //성공
+                    binding.apply {
+                        nicknameCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn2)
+                        nicknameCheckbtn.isEnabled = false
+                        nicknameOk.visibility = View.VISIBLE
+                        nicknameFail.visibility = View.INVISIBLE
+                    }
+                }
+                else if(it == "nicknameFail"){
+                    //실패
+                    binding.apply {
+                        nicknameCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn)
+                        nicknameCheckbtn.isEnabled = true
+                        nicknameOk.visibility = View.INVISIBLE
+                        nicknameFail.visibility = View.VISIBLE
+                    }
+                }
+            }
+        })
+        //이메일 중복확인 초기화
+        viewmodel.emailText.observe(this@SignupActivity, androidx.lifecycle.Observer {
+            binding.apply {
+                emailCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn)
+                emailOk.visibility = View.INVISIBLE
+                emailFail.visibility = View.INVISIBLE
+            }
+        })
+        //닉네임 중복확인 초기화
+        viewmodel.nicknameText.observe(this@SignupActivity, androidx.lifecycle.Observer {
+            binding.apply {
+                nicknameCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn)
+                nicknameOk.visibility = View.INVISIBLE
+                nicknameFail.visibility = View.VISIBLE
+            }
+        })
         //회원가입 요청
         binding.loginBtnpic.setOnClickListener{
             email = binding.signupEmail.text.toString()
@@ -59,8 +127,8 @@ class SignupActivity : AppCompatActivity() {
             Log.d(" SignupActivity","just did viewmodel.requestSignup")
         }
 
-        //회원가입 성공화면으로
-        viewmodel.success.observe(this@SignupActivity, androidx.lifecycle.Observer {
+        //회원가입 성공 -> 회원가입 성공화면으로
+        viewmodel.requestOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
             it.getIfEvented()?.let {
                 Intent(this@SignupActivity,SignupFinActivity::class.java).apply {
                     startActivity(this)
@@ -68,5 +136,6 @@ class SignupActivity : AppCompatActivity() {
                 Log.d(" SignupActivity","just did viewmodel.success.observe")
             }
         })
+        //회원가입 실패 -> ?
     }
 }

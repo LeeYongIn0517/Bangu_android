@@ -12,28 +12,43 @@ import com.example.bangu.signup.data.model.SignupResponse
 
 class SignupViewModel:ViewModel(){
     private val repo = SgRepository
-    private var _success = MutableLiveData<Event<Boolean>>()
-    val success: LiveData<Event<Boolean>> = _success
+    private var _requestOk = MutableLiveData<Event<Boolean>>()
+    val requestOk: LiveData<Event<Boolean>> = _requestOk
+    private var _emailOk = MutableLiveData<Event<String>>()
+    val emailOk: LiveData<Event<String>> = _emailOk
+    private var _nicknameOk = MutableLiveData<Event<String>>()
+    val nicknameOk: LiveData<Event<String>> = _nicknameOk
+    private var _emailText = MutableLiveData<String>()
+    val emailText : LiveData<String> = _emailText
+    private var _nicknameText = MutableLiveData<String>()
+    val nicknameText : LiveData<String> = _nicknameText
 
     fun checkUserEmail(emailText:String){
         repo.checkUserEmail(emailText,object :SgRepository.GetDataCallback<Boolean>{
             override fun onSuccess(data: Boolean?) {
-                Toast.makeText(SignupActivity(),"사용가능한 아이디입니다.",Toast.LENGTH_SHORT).show()
+                if (data != null) {
+                    //LiveData로 액티비티에 성공신호 제공
+                    _emailOk.postValue(Event("emailOk"))
+                }
             }
 
             override fun onFailure(throwable: Throwable) {
-                Toast.makeText(SignupActivity(),"사용할 수 없는 아이디입니다.",Toast.LENGTH_SHORT).show()
+                //실패신호는 어떻게 제공?
+                _emailOk.postValue(Event("emailFail"))
             }
         })
     }
     fun checkNickname(nickname:String){
         repo.checkNickname(nickname,object :SgRepository.GetDataCallback<Boolean>{
             override fun onSuccess(data: Boolean?) {
-                Toast.makeText(SignupActivity(),"사용가능한 닉네임입니다.",Toast.LENGTH_SHORT).show()
+                if (data != null) {
+                    //LiveData로 액티비티에 성공신호 제공
+                    _nicknameOk.postValue(Event("nicknameOk"))
+                }
             }
 
             override fun onFailure(throwable: Throwable) {
-                Toast.makeText(SignupActivity(),"사용할 수 없는 닉네임입니다.",Toast.LENGTH_SHORT).show()
+                _nicknameOk.postValue(Event("nicknameFail"))
             }
         })
     }
@@ -56,10 +71,10 @@ class SignupViewModel:ViewModel(){
             override fun onSuccess(data: SignupResponse?){
                 if (data != null) {
                         Log.d(" Test",data.birth.toString())
+                    //LiveData로 액티비티에 성공신호 제공
+                    _requestOk.postValue(Event(true))
+                    Log.d(" SignupViewModel","override fun onSuccess")
                 }
-                //LiveData로 액티비티에 성공신호 제공
-                _success.value = Event(true)
-                Log.d(" SignupViewModel","override fun onSuccess")
             }
 
             override fun onFailure(throwable: Throwable){

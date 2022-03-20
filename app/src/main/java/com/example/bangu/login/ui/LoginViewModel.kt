@@ -12,14 +12,14 @@ import com.example.bangu.Event
 
 class LoginViewModel: ViewModel() {
     private val repo = LgRepository
-    private var _success = MutableLiveData<Event<Boolean>>()
-    val success: LiveData<Event<Boolean>> = _success
+    private var _getTokenOk = MutableLiveData<Event<String>>()
+    val getTokenOk: LiveData<Event<String>> = _getTokenOk
 
     fun getKakaoAuthCode(){
         repo.getKakaoAuthCode(object : LgRepository.GetDataCallback<AccessToken>{
             override fun onSuccess(data: AccessToken?) {
                 if(data != null){
-                    data.accessToken.toString()
+                    data.accessToken
                     //근데 이 토큰을 회원가입 or 로그인에 사용하면 됨
                 }
             }
@@ -38,11 +38,11 @@ class LoginViewModel: ViewModel() {
                 //AccessToken으로 앱 기능이용 예정
 
                 //LiveData로 액티비티에 성공신호 제공
-                _success.value = Event(true)
-                Log.d("LoginViewModel","override fun onSuccess")
+                _getTokenOk.postValue(Event("getTokenOk"))
             }
             override fun onFailure(throwable: Throwable) {
-                //로그인 실패-빨간색 로그인박스로 바꾸기
+                //로그인 실패 - 빨간색 로그인박스로 바꾸기
+                _getTokenOk.value = Event("getTokenFail")
             }
         })
     }

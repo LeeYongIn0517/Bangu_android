@@ -190,20 +190,20 @@
             app:layout_constraintVertical_bias="0.2"
             app:srcCompat="@mipmap/ic_kakao" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/spoqa"
-            android:text="*입력하신 정보가 올바르지 않습니다."
-            android:textColor="@color/login_error"
-            android:textSize="12sp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/login_startbtn"
-            app:layout_constraintEnd_toStartOf="@+id/login_sign_up"
-            app:layout_constraintHorizontal_bias="0.486"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_pw"
-            app:layout_constraintVertical_bias="0.359" />
+    <TextView
+        android:id="@+id/tv_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/spoqa"
+        android:text="*입력하신 정보가 올바르지 않습니다."
+        android:textColor="@color/login_error"
+        android:textSize="12sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/login_startbtn"
+        app:layout_constraintEnd_toStartOf="@+id/login_sign_up"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_pw"
+        app:layout_constraintVertical_bias="0.359" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

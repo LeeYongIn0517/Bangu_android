@@ -15,4 +15,5 @@
     <color name="genre_text">#7D89AA</color>
     <color name="login_text">#8890A6</color>
     <color name="login_error">#E8403F</color>
+    <color name="signup_error">#FD4C4C</color>
 </resources>
