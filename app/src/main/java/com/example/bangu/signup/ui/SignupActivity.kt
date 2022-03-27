@@ -45,7 +45,7 @@ class SignupActivity : AppCompatActivity() {
         }
         //이메일 중복확인 결과
         viewmodel.emailOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
-            it.getIfEvented()?.let {
+            it.getContentIfNotHandled()?.let {
                 if(it == "emailOk"){
                     //성공
                     binding.apply {
@@ -68,7 +68,7 @@ class SignupActivity : AppCompatActivity() {
         })
         //닉네임 중복확인 결과
         viewmodel.nicknameOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
-            it.getIfEvented()?.let {
+            it.getContentIfNotHandled()?.let {
                 if(it == "nicknameOk"){
                     //성공
                     binding.apply {
@@ -129,7 +129,7 @@ class SignupActivity : AppCompatActivity() {
 
         //회원가입 성공 -> 회원가입 성공화면으로
         viewmodel.requestOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
-            it.getIfEvented()?.let {
+            it.getContentIfNotHandled()?.let {
                 Intent(this@SignupActivity,SignupFinActivity::class.java).apply {
                     startActivity(this)
                 }

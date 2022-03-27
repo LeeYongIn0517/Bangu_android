@@ -3,7 +3,7 @@ package com.example.bangu
 class Event<out T>(private val content:T) {
     var hasBeenHandled = false
 
-    fun getIfEvented():T?{
+    fun getContentIfNotHandled():T?{
         return if(hasBeenHandled){ //이벤트가 이미 처리된 상태
             null
         } else {

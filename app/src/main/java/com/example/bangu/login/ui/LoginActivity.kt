@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.bangu.R
@@ -49,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
         viewmodel.getTokenOk.observe(this@LoginActivity, Observer {
-            it.getIfEvented()?.let {
+            it.getContentIfNotHandled()?.let {
                 //로그인 성공->메인 홈화면으로 (일반, kakao, naver 공통)
                 if(it == "getTokenOk"){
                     Intent(this@LoginActivity, MainActivity::class.java).apply {

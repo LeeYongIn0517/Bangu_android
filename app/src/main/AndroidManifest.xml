@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,9 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bangu"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".login.ui.LoginViewModel"
-            android:exported="false" />
         <activity
             android:name=".main.ui.MainActivity"
             android:exported="false"

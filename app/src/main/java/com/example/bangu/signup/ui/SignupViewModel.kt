@@ -28,13 +28,14 @@ class SignupViewModel:ViewModel(){
             override fun onSuccess(data: Boolean?) {
                 if (data != null) {
                     //LiveData로 액티비티에 성공신호 제공
-                    _emailOk.postValue(Event("emailOk"))
+                        if(data == true) _emailOk.postValue(Event("emailOk"))
+                    else if(data == false) _emailOk.postValue(Event("emailFail"))
                 }
             }
 
             override fun onFailure(throwable: Throwable) {
-                //실패신호는 어떻게 제공?
-                _emailOk.postValue(Event("emailFail"))
+                //실패
+                Log.d("SignupVM.checkUserEmail","onFailure")
             }
         })
     }
@@ -43,12 +44,14 @@ class SignupViewModel:ViewModel(){
             override fun onSuccess(data: Boolean?) {
                 if (data != null) {
                     //LiveData로 액티비티에 성공신호 제공
-                    _nicknameOk.postValue(Event("nicknameOk"))
+                        if(data == true) _nicknameOk.postValue(Event("nicknameOk"))
+                    else if(data == false) _nicknameOk.postValue(Event("nicknameFail"))
                 }
             }
 
             override fun onFailure(throwable: Throwable) {
-                _nicknameOk.postValue(Event("nicknameFail"))
+                //실패
+                Log.d("SignupVM.checkNicknameEmail","onFailure")
             }
         })
     }
