@@ -38,7 +38,12 @@ class LoginViewModel: ViewModel() {
             override fun onSuccess(data: LoginResponse?) {
                 if(data != null){
                     //저장소를 활용해 AccessToken으로 앱 기능이용 예정
-
+                    App.token_prefs.apply {
+                        accessToken = data.accessToken
+                        accessTokenExpireDate = data.accessTokenExpireDate
+                        grantType = data.grantType
+                        refreshToken = data.refreshToken
+                    }
                     //LiveData로 액티비티에 성공신호 제공
                     _getTokenOk.postValue(Event("getTokenOk"))
                 }

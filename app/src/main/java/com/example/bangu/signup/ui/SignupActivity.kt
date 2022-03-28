@@ -3,6 +3,8 @@ package com.example.bangu.signup.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
@@ -35,6 +37,26 @@ class SignupActivity : AppCompatActivity() {
             lifecycleOwner = this@SignupActivity
             activity = this@SignupActivity
         }
+        //비밀번호 확인
+        binding.signupCheck.addTextChangedListener(object : TextWatcher{
+            //비밀번호 확인란에 문자 입력 전
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            //비밀번호 확인란에 변화가 있을 경우
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            //비밀번호 확인란에 문자 입력 후
+            override fun afterTextChanged(p0: Editable?) {
+                //일치
+                if(binding.signupCheck.text.toString().equals(binding.signupPw.text.toString())){
+                    binding.pwCheckOk.visibility = View.VISIBLE
+                    binding.pwCheckFail.visibility = View.INVISIBLE
+                }
+                //불일치
+                else{
+                    binding.pwCheckOk.visibility = View.INVISIBLE
+                    binding.pwCheckFail.visibility = View.VISIBLE
+                }
+            }
+        })
         //이메일 중복체크 버튼
         binding.emailCheckbtn.setOnClickListener {
                 viewmodel.checkUserEmail(binding.signupEmail.text.toString())
@@ -43,7 +65,7 @@ class SignupActivity : AppCompatActivity() {
         binding.nicknameCheckbtn.setOnClickListener {
                 viewmodel.checkNickname(binding.signupNickname.text.toString())
         }
-        //이메일 중복확인 결과
+        //이메일 중복확인 결과 -> UI반영하기
         viewmodel.emailOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
             it.getContentIfNotHandled()?.let {
                 if(it == "emailOk"){
@@ -66,7 +88,7 @@ class SignupActivity : AppCompatActivity() {
                 }
             }
         })
-        //닉네임 중복확인 결과
+        //닉네임 중복확인 결과 -> UI반영하기
         viewmodel.nicknameOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
             it.getContentIfNotHandled()?.let {
                 if(it == "nicknameOk"){
@@ -89,7 +111,7 @@ class SignupActivity : AppCompatActivity() {
                 }
             }
         })
-        //이메일 중복확인 초기화
+        //이메일 중복확인 초기화 -> UI반영하기
         viewmodel.emailText.observe(this@SignupActivity, androidx.lifecycle.Observer {
             binding.apply {
                 emailCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn)
@@ -97,7 +119,7 @@ class SignupActivity : AppCompatActivity() {
                 emailFail.visibility = View.INVISIBLE
             }
         })
-        //닉네임 중복확인 초기화
+        //닉네임 중복확인 초기화 -> UI반영하기
         viewmodel.nicknameText.observe(this@SignupActivity, androidx.lifecycle.Observer {
             binding.apply {
                 nicknameCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn)
@@ -123,10 +145,15 @@ class SignupActivity : AppCompatActivity() {
             var now = System.currentTimeMillis()
             createAt = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S",Locale.KOREAN).format(now)
             updateAt = createAt
+            Log.d(" SignupActivity","viewmodel.requestSignup")
             viewmodel.requestSignup(birth,createAt, email,gender,nickname,password,updateAt,ott)
-            Log.d(" SignupActivity","just did viewmodel.requestSignup")
         }
-
+//        //테스트 용
+//        binding.loginBtnpic.setOnClickListener {
+//            Intent(this@SignupActivity, SignupFinActivity::class.java).apply {
+//                startActivity(this)
+//            }
+//        }
         //회원가입 성공 -> 회원가입 성공화면으로
         viewmodel.requestOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
             it.getContentIfNotHandled()?.let {

@@ -1,13 +1,12 @@
 package com.example.bangu.signup.ui
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.bangu.Event
 import com.example.bangu.signup.data.SgRepository
-import com.example.bangu.signup.data.model.Signup
+import com.example.bangu.signup.data.model.SignupRequest
 import com.example.bangu.signup.data.model.SignupResponse
 
 class SignupViewModel:ViewModel(){
@@ -24,6 +23,7 @@ class SignupViewModel:ViewModel(){
     val nicknameText : LiveData<String> = _nicknameText
 
     fun checkUserEmail(emailText:String){
+        Log.d("SignupVM.checkUserEmail","checkUserEmail")
         repo.checkUserEmail(emailText,object :SgRepository.GetDataCallback<Boolean>{
             override fun onSuccess(data: Boolean?) {
                 if (data != null) {
@@ -51,13 +51,14 @@ class SignupViewModel:ViewModel(){
 
             override fun onFailure(throwable: Throwable) {
                 //실패
-                Log.d("SignupVM.checkNicknameEmail","onFailure")
+                Log.d("SignupVM.checkNickname","onFailure")
             }
         })
     }
     fun requestSignup(birth:Long, createAt: String, email:String, gender:String, nickname:String,
                       password:String, updateAt: String, ott:MutableMap<String,Boolean>){
-        val signup = Signup(
+        Log.d("SignupVM.checkNickname","requestSignup")
+        val signup = SignupRequest(
             birth = birth,
             createAt = createAt,
             email = email,
@@ -73,13 +74,12 @@ class SignupViewModel:ViewModel(){
         repo.requestSignup(signup, object : SgRepository.GetDataCallback<SignupResponse>{
             override fun onSuccess(data: SignupResponse?){
                 if (data != null) {
-                        Log.d(" Test",data.birth.toString())
+                    Log.d(" SignupViewModel","override fun onSuccess")
                     //LiveData로 액티비티에 성공신호 제공
                     _requestOk.postValue(Event(true))
-                    Log.d(" SignupViewModel","override fun onSuccess")
+                    Log.d(" Test",data.birth.toString()) //확인 용
                 }
             }
-
             override fun onFailure(throwable: Throwable){
             //경고창 띄우기
                 Log.d(" SignupViewModel","override fun onFailure")

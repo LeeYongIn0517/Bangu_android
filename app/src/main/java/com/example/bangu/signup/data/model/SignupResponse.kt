@@ -5,7 +5,6 @@ import java.sql.Timestamp
 
 //응답 데이터모델
 data class SignupResponse(
-    @SerializedName("birth")
     var birth :Long,
     @SerializedName("createAt")
     var createAt: Timestamp,
@@ -13,6 +12,8 @@ data class SignupResponse(
     var email:String,
     @SerializedName("gender")
     var gender:String,
+    @SerializedName("id")
+    var id:Int,
     @SerializedName("nickname")
     var nickname:String,
     @SerializedName("updateAt")

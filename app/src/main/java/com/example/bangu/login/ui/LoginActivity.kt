@@ -33,12 +33,12 @@ class LoginActivity : AppCompatActivity() {
             lifecycleOwner = this@LoginActivity
             activity = this@LoginActivity
 
-            //앱 자체 로그인인증 시작
-            loginStartbtn.setOnClickListener{
-                email = loginEmail.toString()
-                password = loginPw.toString()
-                viewmodel.getLoginToken(email,password)
-            }
+//            //앱 자체 로그인인증 시작
+//            loginStartbtn.setOnClickListener{
+//                email = loginEmail.toString()
+//                password = loginPw.toString()
+//                viewmodel.getLoginToken(email,password)
+//            }
             //kako 로그인 버튼 눌렀을 때
             kakaoBtn.setOnClickListener{
                 viewmodel.getKakaoAuthCode()
@@ -47,6 +47,12 @@ class LoginActivity : AppCompatActivity() {
             loginSignUp.setOnClickListener{
                 val next = Intent(this@LoginActivity,SignupActivity::class.java)
                 startActivity(next)
+            }
+        }
+        //테스트용 프리패스
+        binding.loginStartbtn.setOnClickListener{
+            Intent(this@LoginActivity, MainActivity::class.java).apply {
+                startActivity(this)
             }
         }
         viewmodel.getTokenOk.observe(this@LoginActivity, Observer {

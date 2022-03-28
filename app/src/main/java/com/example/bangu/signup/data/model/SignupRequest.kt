@@ -3,7 +3,7 @@ package com.example.bangu.signup.data.model
 import com.google.gson.annotations.SerializedName
 import retrofit2.http.Field
 
-data class Signup (
+data class SignupRequest (
     @SerializedName("birth")
     var birth :Long,
     @SerializedName("createAt")

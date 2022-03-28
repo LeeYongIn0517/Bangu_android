@@ -6,7 +6,7 @@ data class LoginResponse(
     @SerializedName("accessToken")
     var accessToken: String,
     @SerializedName("accessTokenExpireDate")
-    var accessTokenExpireDate: String,
+    var accessTokenExpireDate: Int,
     @SerializedName("grantType")
     var grantType: String,
     @SerializedName("refreshToken")
