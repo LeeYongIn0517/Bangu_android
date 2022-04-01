@@ -159,26 +159,23 @@
         app:layout_constraintEnd_toEndOf="@+id/review_bookmark"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/review_core">
+        app:layout_constraintTop_toBottomOf="@+id/review_core"
+        app:layout_constraintVertical_bias="0.45">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_drama"/>
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:background="@mipmap/ic_watcha_content" />
 
+        <ImageView
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:background="@mipmap/ic_tving_content" />
 
         <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="@mipmap/ic_watcha_content"/>
-        <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="@mipmap/ic_tving_content"/>
-        <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="@mipmap/ic_wavve_content"/>
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:background="@mipmap/ic_wavve_content" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

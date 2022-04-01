@@ -8,14 +8,14 @@ import com.example.bangu.signup.ui.SignupActivity
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import retrofit2.*
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.sql.Timestamp
 
 object SgDataResource {
     private val retrofit = Retrofit.Builder()
         .baseUrl("http://3.34.255.216:8080")
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
+        .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     private val signupApi = retrofit.create(SignupAPI::class.java)

@@ -10,8 +10,6 @@ import java.sql.Timestamp
 
 interface SignupAPI {
     @POST("/session/signup") //회원가입
-    @Headers("accept: application/json",
-        "content-type: application/json")
     fun requestSignup(@Body signup:Signup):Call<SignupResponse>
 
     @GET("/users/emailCheck/{userEmail}") //아이디 중복확인
