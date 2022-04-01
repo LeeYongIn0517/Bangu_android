@@ -281,6 +281,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.6" />
+
                 <TextView
                     android:id="@+id/pwCheck_fail"
                     android:layout_width="wrap_content"
@@ -291,9 +292,10 @@
                     android:textSize="11sp"
                     android:visibility="invisible"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/signup_check"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/signup_check"/>
+                    app:layout_constraintTop_toBottomOf="@+id/signup_check" />
 
                 <TextView
                     android:id="@+id/pwCheck_ok"
@@ -301,11 +303,12 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-thin"
                     android:text="비밀번호가 일치합니다"
-                    android:textColor="@color/teal_200"
+                    android:textColor="@color/signup_ok"
                     android:textSize="11sp"
                     android:visibility="invisible"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/signup_check"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/signup_check" />
             </androidx.constraintlayout.widget.ConstraintLayout>

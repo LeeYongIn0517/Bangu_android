@@ -6,8 +6,6 @@ import retrofit2.http.Field
 data class SignupRequest (
     @SerializedName("birth")
     var birth :Long,
-    @SerializedName("createAt")
-    var createAt:String,
     @SerializedName("email")
     var email:String,
     @SerializedName("gender")
@@ -20,8 +18,6 @@ data class SignupRequest (
     var password:String,
     @SerializedName("tving")
     var tving:Boolean?,
-    @SerializedName("updateAt")
-    var updateAt:String,
     @SerializedName("watcha")
     var watcha:Boolean?,
     @SerializedName("wavve")

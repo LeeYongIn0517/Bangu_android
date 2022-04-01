@@ -70,6 +70,7 @@ class SignupActivity : AppCompatActivity() {
             it.getContentIfNotHandled()?.let {
                 if(it == "emailOk"){
                     //성공
+                    Log.d("SignupActivity.emailOk","emailOk")
                     binding.apply {
                         emailCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn2)
                         emailCheckbtn.isEnabled = false
@@ -79,6 +80,7 @@ class SignupActivity : AppCompatActivity() {
                 }
                 else if(it == "emailFail"){
                     //실패
+                    Log.d("SignupActivity.emailFail","emailFail")
                     binding.apply {
                         emailCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn)
                         emailCheckbtn.isEnabled = true
@@ -93,6 +95,7 @@ class SignupActivity : AppCompatActivity() {
             it.getContentIfNotHandled()?.let {
                 if(it == "nicknameOk"){
                     //성공
+                    Log.d("SignupActivity.nicknameOk","nicknameOk")
                     binding.apply {
                         nicknameCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn2)
                         nicknameCheckbtn.isEnabled = false
@@ -102,6 +105,7 @@ class SignupActivity : AppCompatActivity() {
                 }
                 else if(it == "nicknameFail"){
                     //실패
+                    Log.d("SignupActivity.nicknameFail","nicknameFail")
                     binding.apply {
                         nicknameCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn)
                         nicknameCheckbtn.isEnabled = true
@@ -115,6 +119,7 @@ class SignupActivity : AppCompatActivity() {
         viewmodel.emailText.observe(this@SignupActivity, androidx.lifecycle.Observer {
             binding.apply {
                 emailCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn)
+                emailCheckbtn.isEnabled = true
                 emailOk.visibility = View.INVISIBLE
                 emailFail.visibility = View.INVISIBLE
             }
@@ -123,6 +128,7 @@ class SignupActivity : AppCompatActivity() {
         viewmodel.nicknameText.observe(this@SignupActivity, androidx.lifecycle.Observer {
             binding.apply {
                 nicknameCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn)
+                nicknameCheckbtn.isEnabled = true
                 nicknameOk.visibility = View.INVISIBLE
                 nicknameFail.visibility = View.VISIBLE
             }
@@ -142,11 +148,8 @@ class SignupActivity : AppCompatActivity() {
             var month = binding.datepicker.month + 1
             var day = binding.datepicker.dayOfMonth
             var birth = (year*10000 + month*100 + day).toLong()
-            var now = System.currentTimeMillis()
-            createAt = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S",Locale.KOREAN).format(now)
-            updateAt = createAt
             Log.d(" SignupActivity","viewmodel.requestSignup")
-            viewmodel.requestSignup(birth,createAt, email,gender,nickname,password,updateAt,ott)
+            viewmodel.requestSignup(birth,email,gender,nickname,password,ott)
         }
 //        //테스트 용
 //        binding.loginBtnpic.setOnClickListener {

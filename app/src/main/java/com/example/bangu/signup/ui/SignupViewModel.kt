@@ -17,9 +17,9 @@ class SignupViewModel:ViewModel(){
     val emailOk: LiveData<Event<String>> = _emailOk
     private var _nicknameOk = MutableLiveData<Event<String>>()
     val nicknameOk: LiveData<Event<String>> = _nicknameOk
-    private var _emailText = MutableLiveData<String>()
+    private var _emailText = MutableLiveData<String>() //미완
     val emailText : LiveData<String> = _emailText
-    private var _nicknameText = MutableLiveData<String>()
+    private var _nicknameText = MutableLiveData<String>() //미완
     val nicknameText : LiveData<String> = _nicknameText
 
     fun checkUserEmail(emailText:String){
@@ -28,8 +28,8 @@ class SignupViewModel:ViewModel(){
             override fun onSuccess(data: Boolean?) {
                 if (data != null) {
                     //LiveData로 액티비티에 성공신호 제공
-                        if(data == true) _emailOk.postValue(Event("emailOk"))
-                    else if(data == false) _emailOk.postValue(Event("emailFail"))
+                        if(data == true) _emailOk.postValue(Event("emailFail")) //아이디 존재x
+                    else if(data == false) _emailOk.postValue(Event("emailOk")) //아이디 이미 존재함(아이디 중복처리 필요)
                 }
             }
 
@@ -44,8 +44,8 @@ class SignupViewModel:ViewModel(){
             override fun onSuccess(data: Boolean?) {
                 if (data != null) {
                     //LiveData로 액티비티에 성공신호 제공
-                        if(data == true) _nicknameOk.postValue(Event("nicknameOk"))
-                    else if(data == false) _nicknameOk.postValue(Event("nicknameFail"))
+                        if(data == true) _nicknameOk.postValue(Event("nicknameFail"))
+                    else if(data == false) _nicknameOk.postValue(Event("nicknameOk"))
                 }
             }
 
@@ -55,19 +55,25 @@ class SignupViewModel:ViewModel(){
             }
         })
     }
-    fun requestSignup(birth:Long, createAt: String, email:String, gender:String, nickname:String,
-                      password:String, updateAt: String, ott:MutableMap<String,Boolean>){
+    //이메일 중복 초기화
+    fun emailReset(){
+
+    }
+    //닉네임 중복 초기화
+    fun NicknameReset(){
+
+    }
+    fun requestSignup(birth:Long, email:String, gender:String, nickname:String,
+                      password:String,ott:MutableMap<String,Boolean>){
         Log.d("SignupVM.checkNickname","requestSignup")
         val signup = SignupRequest(
             birth = birth,
-            createAt = createAt,
             email = email,
             gender = gender,
             netflix = ott.get("netflix"),
             nickname = nickname,
             password = password,
             tving = ott.get("tving"),
-            updateAt = updateAt,
             watcha = ott.get("watcha"),
             wavve = ott.get("wavve")
         )

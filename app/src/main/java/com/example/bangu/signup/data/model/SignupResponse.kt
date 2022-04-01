@@ -5,6 +5,7 @@ import java.sql.Timestamp
 
 //응답 데이터모델
 data class SignupResponse(
+    @SerializedName("birth")
     var birth :Long,
     @SerializedName("createAt")
     var createAt: Timestamp,
