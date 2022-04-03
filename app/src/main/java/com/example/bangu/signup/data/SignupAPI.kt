@@ -18,5 +18,7 @@ interface SignupAPI {
     ): Single<Boolean>
 
     @POST("/session/signup") //회원가입
-    fun requestSignup(@Body signupRequest:SignupRequest):Call<SignupResponse>
+    fun requestSignup(
+        @Body signupRequest: SignupRequest
+    ):Call<SignupResponse>
 }

@@ -7,8 +7,8 @@ import java.sql.Timestamp
 data class SignupResponse(
     @SerializedName("birth")
     var birth :Long,
-    @SerializedName("createAt")
-    var createAt: Timestamp,
+    @SerializedName("create_at")
+    var create_at: String,
     @SerializedName("email")
     var email:String,
     @SerializedName("gender")
@@ -17,8 +17,8 @@ data class SignupResponse(
     var id:Int,
     @SerializedName("nickname")
     var nickname:String,
-    @SerializedName("updateAt")
-    var updateAt: Timestamp,
+    @SerializedName("update_at")
+    var update_at: String,
     @SerializedName("userOttRespenseData")
     var userOttRespenseData: List<userOttResponseData>
 )

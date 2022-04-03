@@ -1,7 +1,6 @@
 package com.example.bangu.signup.data.model
 
 import com.google.gson.annotations.SerializedName
-import retrofit2.http.Field
 
 data class SignupRequest (
     @SerializedName("birth")

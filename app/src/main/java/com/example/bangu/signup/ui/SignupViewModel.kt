@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.bangu.App
 import com.example.bangu.Event
 import com.example.bangu.signup.data.SgRepository
 import com.example.bangu.signup.data.model.SignupRequest
@@ -28,8 +29,8 @@ class SignupViewModel:ViewModel(){
             override fun onSuccess(data: Boolean?) {
                 if (data != null) {
                     //LiveData로 액티비티에 성공신호 제공
-                        if(data == true) _emailOk.postValue(Event("emailFail")) //아이디 존재x
-                    else if(data == false) _emailOk.postValue(Event("emailOk")) //아이디 이미 존재함(아이디 중복처리 필요)
+                        if(data == true) _emailOk.postValue(Event("emailFail")) //입력된 아이디 존재o
+                    else if(data == false) _emailOk.postValue(Event("emailOk")) //입력된 아이디 존재x
                 }
             }
 
@@ -83,7 +84,19 @@ class SignupViewModel:ViewModel(){
                     Log.d(" SignupViewModel","override fun onSuccess")
                     //LiveData로 액티비티에 성공신호 제공
                     _requestOk.postValue(Event(true))
-                    Log.d(" Test",data.birth.toString()) //확인 용
+                    //본인 정보 -> sharedPreference로 저장
+                    App.signup_prefs.apply {
+                        sp_birth = data.birth
+                        sp_create_at = data.create_at
+                        sp_email = data.email
+                        sp_gender = data.gender
+                        sp_id = data.id
+                        sp_nickname = data.nickname
+                        sp_update_at = data.update_at
+                        sp_ottID = data.userOttRespenseData.get(0).ottID
+                        sp_ottName = data.userOttRespenseData.get(1).ottName
+                        sp_userId = data.userOttRespenseData.get(2).userId
+                    }
                 }
             }
             override fun onFailure(throwable: Throwable){

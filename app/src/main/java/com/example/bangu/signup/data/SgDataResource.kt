@@ -50,7 +50,15 @@ object SgDataResource {
                     Log.d("SgDataResource","signupApi.requestSignup.onResponse.callback-Successful")
                     callback.onSuccess(response.body())
                 }else{
+                    val data = response.headers()
+                    val data2 = response.body()
+                    val data3 = response.message()
+                    val data4 = response.code()
                     Log.d("SgDataResource","signupApi.requestSignup.onResponse.callback-UnSuccessful")
+                    Log.d("SgDataResource.header",data.toString())
+                    Log.d("SgDataResource.body",data2.toString())
+                    Log.d("SgDataResource.message",data3.toString())
+                    Log.d("SgDataResource.code",data4.toString())
                 }
             }
             override fun onFailure(call: Call<SignupResponse>, t: Throwable) {
