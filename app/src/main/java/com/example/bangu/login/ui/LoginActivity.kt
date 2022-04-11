@@ -4,18 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
-import com.bumptech.glide.Glide
 import com.example.bangu.R
 import com.example.bangu.databinding.ActivityLoginBinding
 import com.example.bangu.login.data.LgRepository
-import com.example.bangu.login.data.model.AccessToken
 import com.example.bangu.main.ui.MainActivity
 import com.example.bangu.signup.ui.SignupActivity
-import com.example.bangu.signup.ui.SignupFinActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding

@@ -5,9 +5,6 @@
     <string name="login_title">Bangu.</string>
     <string name="login_sign_up">회원가입하기</string>
     <string name="login_lgtext">로그인하기</string>
-    <string name="signupfin_text">다양한 리뷰보러 가기</string>
-    <string name="signupfin_msg">안녕하세요 닉네임님!</string>
-    <string name="signupfin_msg2">회원가입이 완료되었습니다</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

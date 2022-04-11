@@ -39,9 +39,6 @@ android {
 }
 apply plugin: 'kotlin-kapt'
 dependencies {
-    //kakao api
-    implementation "com.kakao.sdk:v2-user:2.0.5" // 카카오 로그인
-    implementation "com.kakao.sdk:v2-talk:2.0.5" // 친구, 메시지(카카오톡)
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     //implemented in Kotlin,include a kapt dependency instead of a annotationProcessor dependency

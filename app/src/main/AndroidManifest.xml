@@ -21,7 +21,7 @@
             android:name=".signup.ui.SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".signup.ui.SignupFinActivity"
+            android:name=".signup_fin.ui.SgFinActivity"
             android:exported="false" />
         <activity
             android:name=".login.ui.LoginActivity"

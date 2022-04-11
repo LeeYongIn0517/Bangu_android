@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signup.ui.SignupFinActivity"
+    tools:context=".signup_fin.ui.SgFinActivity"
     android:background="@drawable/intro_back">
 
     <View
@@ -31,22 +31,23 @@
         app:layout_constraintEnd_toEndOf="@+id/signupfin_pic"
         app:layout_constraintStart_toStartOf="@+id/signupfin_pic"
         app:layout_constraintTop_toTopOf="@+id/signupfin_pic" />
+
     <TextView
         android:id="@+id/signupfin_msg"
-        android:layout_width="156dp"
-        android:layout_height="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:fontFamily="@font/spoqa"
         android:gravity="top"
         android:lineSpacingExtra="0sp"
-        android:text="@string/signupfin_msg"
+        android:text="안녕하세요,"
         android:textAppearance="@style/signupfin_msg"
         app:layout_constraintBottom_toTopOf="@id/signupfin_rcyleview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"
+        app:layout_constraintVertical_bias="0.49"
         tools:layout_constraintHorizontal_bias="0.2" />
 
     <TextView
@@ -55,14 +56,14 @@
         android:layout_height="wrap_content"
         android:gravity="top"
         android:lineSpacingExtra="0sp"
-        android:text="@string/signupfin_msg2"
+        android:text="회원가입이 완료되었습니다."
         android:textAppearance="@style/signupfin_text"
         app:layout_constraintBottom_toTopOf="@+id/signupfin_rcyleview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupfin_msg"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_nickname"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nickname"
+        app:layout_constraintVertical_bias="0.19999999" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/signupfin_rcyleview"
         android:layout_width="match_parent"
@@ -84,7 +85,7 @@
         android:fontFamily="@font/spoqa"
         android:gravity="top"
         android:lineSpacingExtra="0sp"
-        android:text="@string/signupfin_text"
+        android:text="로그인하러 가기 "
         android:textAppearance="@style/signupfin_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,5 +105,19 @@
         app:layout_constraintStart_toEndOf="@+id/signupfin_text"
         app:layout_constraintTop_toBottomOf="@+id/signupfin_rcyleview"
         app:layout_constraintVertical_bias="0.6" />
+
+    <TextView
+        android:id="@+id/tv_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="닉네임님!"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/signupfin_rcyleview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/signupfin_msg"
+        app:layout_constraintTop_toBottomOf="@+id/signupfin_msg"
+        app:layout_constraintVertical_bias="0.07999998" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

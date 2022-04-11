@@ -6,16 +6,10 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.view.KeyEvent
 import android.view.View
-import android.widget.Toast
-import androidx.core.content.ContextCompat
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.example.bangu.R
 import com.example.bangu.databinding.ActivitySignupBinding
-import java.text.SimpleDateFormat
-import java.util.*
+import com.example.bangu.signup_fin.ui.SgFinActivity
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
@@ -33,6 +27,7 @@ class SignupActivity : AppCompatActivity() {
         val view = binding.root
         val viewmodel = SignupViewModel()
         setContentView(view)
+
         binding.apply {
             lifecycleOwner = this@SignupActivity
             activity = this@SignupActivity
@@ -160,7 +155,7 @@ class SignupActivity : AppCompatActivity() {
         //회원가입 성공 -> 회원가입 성공화면으로
         viewmodel.requestOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
             it.getContentIfNotHandled()?.let {
-                Intent(this@SignupActivity,SignupFinActivity::class.java).apply {
+                Intent(this@SignupActivity, SgFinActivity::class.java).apply {
                     startActivity(this)
                 }
                 Log.d(" SignupActivity","just did viewmodel.success.observe")

@@ -5,21 +5,21 @@ import com.example.bangu.signup.data.model.SignupRequest
 import com.example.bangu.signup.data.model.SignupResponse
 
 object SgRepository {
-    private val sgdr = SgDataResource
+    private val sgDr = SgDataResource
     /*아이디 중복확인*/
     fun checkUserEmail(emailText:String,callback: GetDataCallback<Boolean>){
         Log.d("SgRepository","checkUserEmail")
-        sgdr.checkUserEmail(emailText,callback)
+        sgDr.checkUserEmail(emailText,callback)
     }
     /*닉네임 중복확인*/
     fun checkNickname(nickname:String,callback: GetDataCallback<Boolean>){
         Log.d("SgRepository","checkNickname")
-        sgdr.checkNickname(nickname,callback)
+        sgDr.checkNickname(nickname,callback)
     }
     /*회원가입*/
     fun requestSignup(signupRequest: SignupRequest, callback:GetDataCallback<SignupResponse>){
         Log.d("SgRepository","remoteDataService.requestSignup")
-        sgdr.requestSignup(signupRequest,callback)
+        sgDr.requestSignup(signupRequest,callback)
     }
     interface GetDataCallback<T>{
         fun onSuccess(data:T?)

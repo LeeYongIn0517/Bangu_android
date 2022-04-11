@@ -29,14 +29,14 @@ class SignupViewModel:ViewModel(){
             override fun onSuccess(data: Boolean?) {
                 if (data != null) {
                     //LiveData로 액티비티에 성공신호 제공
-                        if(data == true) _emailOk.postValue(Event("emailFail")) //입력된 아이디 존재o
-                    else if(data == false) _emailOk.postValue(Event("emailOk")) //입력된 아이디 존재x
+                    if(data == false) _emailOk.postValue(Event("emailOk")) //사용가능한 아이디로 확인됨
                 }
             }
 
             override fun onFailure(throwable: Throwable) {
-                //실패
-                Log.d("SignupVM.checkUserEmail","onFailure")
+                //이미 존재하는 아이디
+                _emailOk.postValue(Event("emailFail"))
+                //Log.d("SignupVM.checkUserEmail","onFailure")
             }
         })
     }
@@ -45,14 +45,14 @@ class SignupViewModel:ViewModel(){
             override fun onSuccess(data: Boolean?) {
                 if (data != null) {
                     //LiveData로 액티비티에 성공신호 제공
-                        if(data == true) _nicknameOk.postValue(Event("nicknameFail"))
-                    else if(data == false) _nicknameOk.postValue(Event("nicknameOk"))
+                    if(data == false) _nicknameOk.postValue(Event("nicknameOk")) //사용가능한 닉네임으로 확인됨
                 }
             }
 
             override fun onFailure(throwable: Throwable) {
-                //실패
-                Log.d("SignupVM.checkNickname","onFailure")
+                //이미 존재하는 닉네임
+                _nicknameOk.postValue(Event("nicknameFail"))
+                //Log.d("SignupVM.checkNickname","onFailure")
             }
         })
     }
@@ -97,11 +97,14 @@ class SignupViewModel:ViewModel(){
                         sp_ottName = data.userOttRespenseData.get(1).ottName
                         sp_userId = data.userOttRespenseData.get(2).userId
                     }
+                    Log.d("SignupViewModel.requestSignup.onSuccess.prefs",
+                        App.signup_prefs.sp_ottName.toString()
+                    )
                 }
             }
             override fun onFailure(throwable: Throwable){
             //경고창 띄우기
-                Log.d(" SignupViewModel","override fun onFailure")
+                Log.d("SignupViewModel","override fun onFailure")
             }
        })
     }
