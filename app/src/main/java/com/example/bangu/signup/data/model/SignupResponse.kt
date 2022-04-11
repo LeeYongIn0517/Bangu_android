@@ -1,7 +1,6 @@
 package com.example.bangu.signup.data.model
 
 import com.google.gson.annotations.SerializedName
-import java.sql.Timestamp
 
 //응답 데이터모델
 data class SignupResponse(

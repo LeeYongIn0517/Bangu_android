@@ -4,6 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Glide.with
+import com.example.bangu.GlideApp
+import com.example.bangu.MyGlideApp
 import com.example.bangu.databinding.SignupFinItemBinding
 import com.example.bangu.databinding.SignupFinItemLoadingBinding
 import com.example.bangu.signup_fin.data.model.Content
@@ -19,8 +22,8 @@ class SgFinAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class ItemViewHolder(private val binding:SignupFinItemBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(content:Content){
             val imageUrl = content.imageUrl
-            Glide.with(binding.root).load(imageUrl).into(binding.movieimage) //이미지 바인딩
-            binding.moviestar.numStars = content.score.toInt() //별점이...Int타입만 가능함
+            GlideApp.with(binding.root).load(imageUrl).override(158,227).into(binding.movieimage) //이미지 바인딩
+            binding.moviestar.rating = content.score //별점 바인딩
         }
     }
     //아이템이 로딩뷰인 경우
@@ -55,7 +58,6 @@ class SgFinAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
     //뷰의 타입 정하는 함수
     override fun getItemViewType(position: Int): Int {
-        //return super.getItemViewType(position)
         return when(items[position].imageUrl){
             " " -> TYPE_LOADING
             else -> TYPE_ITEM

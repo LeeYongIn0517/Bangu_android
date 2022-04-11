@@ -3,6 +3,7 @@ package com.example.bangu.signup_fin.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,6 +26,10 @@ class SgFinActivity : AppCompatActivity() {
         val viewmodel = SgFinViewModel()
         val adapter = SgFinAdapter()
 
+        //서버에 데이터 초기요청 1번
+        if(page == 0){
+            viewmodel.requestSgFinMovieList(page,ITEMS_SIZE)
+        }
         //닉네임 지정
         binding.tvNickname.text = App.signup_prefs.sp_nickname
         //리사이클뷰 어댑터 등록
@@ -46,6 +51,7 @@ class SgFinActivity : AppCompatActivity() {
                 //스크롤이 끝에 도달했는지 확인
                 if(!binding.signupfinRcyleview.canScrollHorizontally(1) && lastVisibleItemPosition == itemTotalCount){
                     adapter.deleteLoading()
+                    Log.d("SgFinVM","requestSgFinMovieList")
                     viewmodel.requestSgFinMovieList(++page,ITEMS_SIZE)
                 }
             }

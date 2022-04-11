@@ -148,7 +148,7 @@ class SignupActivity : AppCompatActivity() {
         }
 //        //테스트 용
 //        binding.loginBtnpic.setOnClickListener {
-//            Intent(this@SignupActivity, SignupFinActivity::class.java).apply {
+//            Intent(this@SignupActivity, SgFinActivity::class.java).apply {
 //                startActivity(this)
 //            }
 //        }

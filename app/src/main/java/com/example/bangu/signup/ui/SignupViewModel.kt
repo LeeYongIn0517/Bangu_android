@@ -93,13 +93,13 @@ class SignupViewModel:ViewModel(){
                         sp_id = data.id
                         sp_nickname = data.nickname
                         sp_update_at = data.update_at
-                        sp_ottID = data.userOttRespenseData.get(0).ottID
-                        sp_ottName = data.userOttRespenseData.get(1).ottName
-                        sp_userId = data.userOttRespenseData.get(2).userId
+//                        for(item in data.userOttRespenseData){
+//                            this.userOttResponseData.add(item)
+//                        }
+//                        sp_ottID = data.userOttRespenseData.ottID
+//                        sp_ottName = data.userOttRespenseData.ottName
+//                        sp_userId = data.userOttRespenseData.userId
                     }
-                    Log.d("SignupViewModel.requestSignup.onSuccess.prefs",
-                        App.signup_prefs.sp_ottName.toString()
-                    )
                 }
             }
             override fun onFailure(throwable: Throwable){
