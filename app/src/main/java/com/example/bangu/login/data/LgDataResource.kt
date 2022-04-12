@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object LgDataResource {
     var retrofit = Retrofit.Builder()
-        .baseUrl("https://3.34.255.216:8080") //도메인 주소
+        .baseUrl("http://3.34.255.216:8080") //도메인 주소
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     private val loginApi = retrofit.create(LoginAPI::class.java)
@@ -25,26 +25,37 @@ object LgDataResource {
             override fun onResponse(call: Call<AccessToken>, response: Response<AccessToken>) {
                 if(response.isSuccessful){
                     callback.onSuccess(response.body())
-                    Log.d("LgDataResource","just did loginApi.getKakao and got onResponse")
+                    Log.d("LgDataResource","getKakaoToken.onResponse")
                 }
             }
             override fun onFailure(call: Call<AccessToken>, t: Throwable) {
                 callback.onFailure(t)
+                Log.d("LgDataResource","getKakaoToken.onFailure")
             }
         })
     }
-    fun getLoginToken(email:String,password:String,callback:LgRepository.GetDataCallback<LoginResponse>){
-        loginApi.getLoginToken(email,password).enqueue(object :Callback<LoginResponse>{
+    fun getLoginToken(loginRequest:LoginRequest,callback:LgRepository.GetDataCallback<LoginResponse>){
+        loginApi.getLoginToken(loginRequest).enqueue(object :Callback<LoginResponse>{
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if(response.isSuccessful){
                     callback.onSuccess(response.body())
-                    Log.d("LgDataResource","just did loginApi.getLoginToken and got onResponse")
+                    Log.d("LgDataResource","getLoginToken.onResponse")
+                }else{
+                    val data = response.headers()
+                    val data2 = response.body()
+                    val data3 = response.message()
+                    val data4 = response.code()
+                    Log.d("LgDataResource","signupApi.getLoginToken.onResponse.callback-UnSuccessful")
+                    Log.d("LgDataResource.header",data.toString())
+                    Log.d("LgDataResource.body",data2.toString())
+                    Log.d("LgDataResource.message",data3.toString())
+                    Log.d("LgDataResource.code",data4.toString())
                 }
             }
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 callback.onFailure(t)
+                Log.d("LgDataResource","getLoginToken.onFailure")
             }
         })
     }
-
 }

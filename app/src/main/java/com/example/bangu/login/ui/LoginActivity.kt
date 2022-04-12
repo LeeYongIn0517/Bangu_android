@@ -22,7 +22,6 @@ class LoginActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_login)
         setContentView(binding.root)
         val viewmodel = LoginViewModel()
-        val lgRepo = LgRepository
 
         binding.apply {
             lifecycleOwner = this@LoginActivity

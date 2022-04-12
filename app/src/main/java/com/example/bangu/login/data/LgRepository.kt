@@ -11,11 +11,11 @@ object LgRepository {
 
     fun getKakaoAuthCode(callback:GetDataCallback<AccessToken>){
         lgdr.getKakaoToken(callback)
-        Log.d("LgRepository","just did LgDataService.getKakaoAuthCode")
+        Log.d("LgRepository","LgDataService.getKakaoAuthCode")
     }
-    fun getLoginToken(email:String,password:String,callback:GetDataCallback<LoginResponse>){
-        lgdr.getLoginToken(email,password,callback)
-        Log.d("LgRepository","just did LgDataService.getLoginToken")
+    fun getLoginToken(loginRequest:LoginRequest,callback:GetDataCallback<LoginResponse>){
+        lgdr.getLoginToken(loginRequest,callback)
+        Log.d("LgRepository","LgDataService.getLoginToken")
     }
     //로그인 요청에 대한 응답인터페이스
     interface GetDataCallback<T>{
