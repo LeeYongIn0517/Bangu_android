@@ -30,11 +30,11 @@ class LoginViewModel: ViewModel() {
         })
     }
     fun getLoginToken(email:String, password:String){
-        val loginRequest = LoginRequest(
-            email = email,
-            password = password
-        )
-        repo.getLoginToken(loginRequest, object : LgRepository.GetDataCallback<LoginResponse>{
+//        val loginRequest = LoginRequest(
+//            email = email,
+//            password = password
+//        )
+        repo.getLoginToken(email,password, object : LgRepository.GetDataCallback<LoginResponse>{
             override fun onSuccess(data: LoginResponse?) {
                 if(data != null){
                     //저장소를 활용해 AccessToken으로 앱 기능이용 예정
@@ -44,11 +44,14 @@ class LoginViewModel: ViewModel() {
                         grantType = data.grantType
                         refreshToken = data.refreshToken
                     }
+                    Log.d("LoginViewModel","onSuccess")
                     //LiveData로 액티비티에 성공신호 제공
                     _getTokenOk.postValue(Event("getTokenOk"))
                 }
             }
             override fun onFailure(throwable: Throwable) {
+                val string = throwable.toString()
+                Log.d("LoginViewModel","onFailure: "+string)
                 //로그인 실패 - 빨간색 로그인박스로 바꾸기
                 _getTokenOk.value = Event("getTokenFail")
             }

@@ -13,8 +13,8 @@ object LgRepository {
         lgdr.getKakaoToken(callback)
         Log.d("LgRepository","just did LgDataService.getKakaoAuthCode")
     }
-    fun getLoginToken(loginRequest: LoginRequest,callback:GetDataCallback<LoginResponse>){
-        lgdr.getLoginToken(loginRequest,callback)
+    fun getLoginToken(email:String,password:String,callback:GetDataCallback<LoginResponse>){
+        lgdr.getLoginToken(email,password,callback)
         Log.d("LgRepository","just did LgDataService.getLoginToken")
     }
     //로그인 요청에 대한 응답인터페이스

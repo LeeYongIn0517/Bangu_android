@@ -33,8 +33,8 @@ object LgDataResource {
             }
         })
     }
-    fun getLoginToken(loginRequest:LoginRequest,callback:LgRepository.GetDataCallback<LoginResponse>){
-        loginApi.getLoginToken(loginRequest).enqueue(object :Callback<LoginResponse>{
+    fun getLoginToken(email:String,password:String,callback:LgRepository.GetDataCallback<LoginResponse>){
+        loginApi.getLoginToken(email,password).enqueue(object :Callback<LoginResponse>{
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if(response.isSuccessful){
                     callback.onSuccess(response.body())
