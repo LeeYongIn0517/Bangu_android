@@ -1,4 +1,4 @@
-package com.example.bangu.home.ui
+package com.example.bangu.main.home.ui
 
 import android.os.Bundle
 import android.os.Handler
@@ -9,8 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.bangu.R
 import com.example.bangu.databinding.FragmentHomeBinding
+import com.example.bangu.main.ui.SearchcontentFragment
+import com.example.bangu.main.ui.SearchfilterFragment
 
-class HomeFragment : Fragment() {
+class HomeRvFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private val myHandler = Handler(Looper.getMainLooper())
 
@@ -26,14 +28,16 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //어댑터 등록
         binding.homeRcycleview
-            .adapter = HomeAdapter()
+            .adapter = HomeRvAdapter()
     }
 
     override fun onStart() {
         super.onStart()
         val workThread = Thread(HeightControl(550))
         val workThread2 = Thread(HeightControl(0))
+        //검색필터 바를 통해 검색필터 열고닫기
         binding.searchBar.setOnFocusChangeListener { view, b ->
             if (b) {
                 //검색필터 프레그먼트 호출하기
@@ -57,7 +61,7 @@ class HomeFragment : Fragment() {
 //            val fragment = SearchcontentFragment()
 //            fragmentTransaction.add(R.id.frame_filter, fragment)
 //            fragmentTransaction.commit()
-
+            //프레그먼트 교체
             val newFragment = SearchcontentFragment()
             val transaction = childFragmentManager.beginTransaction().apply {
                 // Replace whatever is in the fragment_container view with this fragment,

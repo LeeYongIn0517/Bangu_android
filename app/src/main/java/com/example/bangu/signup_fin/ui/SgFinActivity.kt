@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.App
 import com.example.bangu.databinding.ActivitySignupFinBinding
 import com.example.bangu.login.ui.LoginActivity
-import com.example.bangu.main.ui.MainActivity
 import com.example.bangu.signup_fin.data.model.Content
 
 class SgFinActivity : AppCompatActivity() {

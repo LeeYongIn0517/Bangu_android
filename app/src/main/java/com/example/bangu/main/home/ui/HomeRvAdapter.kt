@@ -1,4 +1,4 @@
-package com.example.bangu.home.ui
+package com.example.bangu.main.home.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.R
 
-class HomeAdapter():RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
+class HomeRvAdapter():RecyclerView.Adapter<HomeRvAdapter.ViewHolder>() {
 
     var list_title=listOf<String>("짱구극장판1","짱구극장판2","짱구극장판3")
     var list_score = listOf<Int>(1,2,3)
@@ -38,9 +38,9 @@ class HomeAdapter():RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.review_item, parent, false)
 
-        return HomeAdapter.ViewHolder(view)
+        return ViewHolder(view)
     }
-    override fun onBindViewHolder(holder: HomeAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.review_title.text = list_title.get(position)
         holder.review_score.rating = (list_score.get(position)).toFloat()
         holder.review_content.text = list_content.get(position)

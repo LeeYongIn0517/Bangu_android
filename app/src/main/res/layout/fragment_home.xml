@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/canvas"
-    tools:context=".main.ui.HomeFragment">
+    tools:context=".main.home.ui.HomeRvFragment">
 
     <EditText
         android:id="@+id/search_bar"
