@@ -1,13 +1,11 @@
-package com.example.bangu.main.ui
+package com.example.bangu.home.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.bangu.R
 import com.example.bangu.databinding.FragmentSearchcontentBinding
-import com.example.bangu.databinding.FragmentSearchfilterBinding
 
 class SearchcontentFragment : Fragment() {
     private lateinit var binding:FragmentSearchcontentBinding

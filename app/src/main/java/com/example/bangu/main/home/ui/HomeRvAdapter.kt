@@ -1,4 +1,4 @@
-package com.example.bangu.main.ui
+package com.example.bangu.home.ui
 
 import android.view.LayoutInflater
 import android.view.View
