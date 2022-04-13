@@ -12,5 +12,7 @@ interface LoginAPI {
     fun getKakaoToken(): Call<AccessToken>
 
     @POST("/session/login") //로그인
-    fun getLoginToken(@Body loginRequest: LoginRequest): Call<LoginResponse>
+    fun getLoginToken(
+        @Body loginRequest: LoginRequest
+    ): Call<LoginResponse>
 }

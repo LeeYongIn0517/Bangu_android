@@ -20,6 +20,7 @@ object LgDataResource {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     private val loginApi = retrofit.create(LoginAPI::class.java)
+    /**/
     fun getKakaoToken(callback:LgRepository.GetDataCallback<AccessToken>){
         loginApi.getKakaoToken().enqueue(object :Callback<AccessToken>{
             override fun onResponse(call: Call<AccessToken>, response: Response<AccessToken>) {
@@ -34,12 +35,13 @@ object LgDataResource {
             }
         })
     }
+    /*로그인 요청*/
     fun getLoginToken(loginRequest:LoginRequest,callback:LgRepository.GetDataCallback<LoginResponse>){
         loginApi.getLoginToken(loginRequest).enqueue(object :Callback<LoginResponse>{
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if(response.isSuccessful){
-                    callback.onSuccess(response.body())
                     Log.d("LgDataResource","getLoginToken.onResponse")
+                    callback.onSuccess(response.body())
                 }else{
                     val data = response.headers()
                     val data2 = response.body()
@@ -53,8 +55,8 @@ object LgDataResource {
                 }
             }
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                callback.onFailure(t)
                 Log.d("LgDataResource","getLoginToken.onFailure")
+                callback.onFailure(t)
             }
         })
     }

@@ -29,8 +29,8 @@ class LoginActivity : AppCompatActivity() {
 
             //앱 자체 로그인인증 시작
             loginStartbtn.setOnClickListener{
-                email = loginEmail.toString()
-                password = loginPw.toString()
+                email = loginEmail.text.toString()
+                password = loginPw.text.toString()
                 viewmodel.getLoginToken(email,password)
             }
             //kako 로그인 버튼 눌렀을 때

@@ -1,6 +1,5 @@
 package com.example.bangu.login.ui
 
-import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -34,6 +33,7 @@ class LoginViewModel: ViewModel() {
             email = email,
             password = password
         )
+        Log.d("loginRequest 객체 값 확인: ","email: "+loginRequest.email + " password: "+loginRequest.password)
         repo.getLoginToken(loginRequest, object : LgRepository.GetDataCallback<LoginResponse>{
             override fun onSuccess(data: LoginResponse?) {
                 if(data != null){
