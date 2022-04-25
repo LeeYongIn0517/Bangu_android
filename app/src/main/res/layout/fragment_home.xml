@@ -45,18 +45,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_bar" />
 
+    <CheckBox
+        android:id="@+id/content_checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="4dp"
+        android:button="@drawable/ic_checkbox_states"
+        android:fontFamily="@font/spoqa"
+        android:padding="0dp"
+        android:text="성별 / 나이대 맞춤 리뷰"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/back_cursor"
+        app:layout_constraintTop_toBottomOf="@id/frame_filter" />
+
     <TextView
         android:id="@+id/tv_review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/spoqa"
-        android:paddingTop="30dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="8dp"
         android:text="최근 올라온 리뷰"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/back_cursor"
         app:layout_constraintTop_toBottomOf="@id/frame_filter" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -74,7 +93,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/back_cursor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_backbtn"

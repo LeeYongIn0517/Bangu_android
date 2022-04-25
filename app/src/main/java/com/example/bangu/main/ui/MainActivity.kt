@@ -13,6 +13,7 @@ class MainActivity : FragmentActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //ViewPager2 등록
         viewPager = binding.viewPager
         val sspAdapter = ScreenSlidePagerAdapter(this)
         viewPager.adapter = sspAdapter

@@ -132,15 +132,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/review_movieimage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/review_movietitle"
+        app:layout_constraintTop_toBottomOf="@+id/review_movietitle"
         app:layout_constraintVertical_bias="0.120000005" />
 
     <TextView
         android:id="@+id/review_core"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:hint="너무나 재미있습니다 조심하십시오. 저는 여기에 영혼을 빼앗겨 버렸습니다. 여러분도 그렇게 되지 않으시길 바랍니다."
-        android:textColorHint="@color/review_text"
+        android:text="너무 재밌당 원래 이런 장르 안 보는데 재밌음!"
+        android:textColor="@color/review_text"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/review_movieimage"
         app:layout_constraintEnd_toEndOf="parent"
@@ -148,37 +148,52 @@
         app:layout_constraintStart_toEndOf="@+id/review_movieimage"
         app:layout_constraintStart_toStartOf="@+id/review_movietitle"
         app:layout_constraintTop_toBottomOf="@+id/review_starscore"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.17000002" />
 
     <LinearLayout
-        android:id="@+id/info_queue"
+        android:id="@+id/revie_genres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/review_movieimage"
         app:layout_constraintEnd_toEndOf="@+id/review_bookmark"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/review_core">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_drama"/>
-
 
         <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="@mipmap/ic_watcha_content"/>
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@mipmap/ic_netflix_review" />
+
         <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="@mipmap/ic_tving_content"/>
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@mipmap/ic_watcha_review" />
+
         <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="@mipmap/ic_wavve_content"/>
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@mipmap/ic_tving_review" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@mipmap/ic_wavve_review" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/review_genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="드라마"
+        android:textColor="@color/review_text"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/review_starscore"
+        app:layout_constraintEnd_toEndOf="@+id/review_movietitle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/review_movietitle"
+        app:layout_constraintTop_toBottomOf="@+id/review_movietitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
