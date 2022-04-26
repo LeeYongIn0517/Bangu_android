@@ -26,63 +26,21 @@
         app:layout_constraintEnd_toEndOf="@id/main_btmbar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main_topbar"
-        app:layout_constraintVertical_bias="0.434" />
+        app:layout_constraintVertical_bias="0.434"/>
 
-    <View
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/main_btmbar"
         android:layout_width="match_parent"
         android:layout_height="85dp"
         android:background="@drawable/main_btmbar"
+        app:tabIconTint="@color/white"
+        app:tabTextColor="@color/white"
+        app:tabIndicatorColor="@color/main_tab_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <View
-        android:id="@+id/main_tab_home"
-        android:layout_width="22.74dp"
-        android:layout_height="38.83dp"
-        android:background="@drawable/main_home_empty"
-        app:layout_constraintBottom_toBottomOf="@id/main_btmbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.125"
-        app:layout_constraintStart_toStartOf="@+id/main_btmbar"
-        app:layout_constraintTop_toTopOf="@+id/main_btmbar" />
-
-    <View
-        android:id="@+id/main_tab_mybangu"
-        android:layout_width="40dp"
-        android:layout_height="38.05dp"
-        android:background="@drawable/main_mybangu_empty"
-        app:layout_constraintBottom_toBottomOf="@+id/main_btmbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.375"
-        app:layout_constraintStart_toStartOf="@+id/main_btmbar"
-        app:layout_constraintTop_toTopOf="@+id/main_btmbar" />
-
-    <View
-        android:id="@+id/main_tab_feed"
-        android:layout_width="19.73dp"
-        android:layout_height="38.13dp"
-        android:background="@drawable/main_feed_empty"
-        app:layout_constraintBottom_toBottomOf="@id/main_btmbar"
-        app:layout_constraintEnd_toEndOf="@id/main_btmbar"
-        app:layout_constraintHorizontal_bias="0.625"
-        app:layout_constraintStart_toStartOf="@+id/main_btmbar"
-        app:layout_constraintTop_toTopOf="@id/main_btmbar" />
-
-    <View
-        android:id="@+id/main_tab_profile"
-        android:layout_width="28dp"
-        android:layout_height="38.57dp"
-        android:background="@drawable/main_profile_empty"
-        app:layout_constraintBottom_toBottomOf="@+id/main_btmbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.875"
-        app:layout_constraintStart_toStartOf="@id/main_btmbar"
-        app:layout_constraintTop_toTopOf="@+id/main_btmbar" />
-
+        app:layout_constraintVertical_bias="1.0"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
