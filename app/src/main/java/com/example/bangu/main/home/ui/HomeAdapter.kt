@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.R
 
-class HomeRvAdapter():RecyclerView.Adapter<HomeRvAdapter.ViewHolder>() {
+class HomeAdapter():RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
     var list_title=listOf<String>("짱구극장판1","짱구극장판2","짱구극장판3")
     var list_score = listOf<Int>(1,2,3)

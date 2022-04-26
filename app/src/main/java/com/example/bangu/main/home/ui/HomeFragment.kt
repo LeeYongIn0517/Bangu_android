@@ -11,7 +11,7 @@ import com.example.bangu.R
 import com.example.bangu.databinding.FragmentHomeBinding
 import com.example.bangu.main.ui.SearchfilterFragment
 
-class HomeRvFragment : Fragment() {
+class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private val myHandler = Handler(Looper.getMainLooper())
 
@@ -29,15 +29,15 @@ class HomeRvFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //어댑터 등록
         binding.homeRcycleview
-            .adapter = HomeRvAdapter()
+            .adapter = HomeAdapter()
     }
 
     override fun onStart() {
         super.onStart()
-        val workThread = Thread(HeightControl(550))
-        val workThread2 = Thread(HeightControl(0))
+        val workThread = Thread(HeightControl(550)) //검색필터 펼치기
+        val workThread2 = Thread(HeightControl(0)) //검색필터 접기
         //검색필터 바를 통해 검색필터 열고닫기
-        binding.searchBar.setOnFocusChangeListener { view, b ->
+        binding.searchbar.setOnFocusChangeListener { view, b ->
             if (b) {
                 //검색필터 프레그먼트 호출하기
                 val fragmentManager = childFragmentManager
@@ -54,7 +54,7 @@ class HomeRvFragment : Fragment() {
             }
         }
         binding.searchIcon.setOnClickListener {
-
+            //검색결과 data단으로 넘겨주기
         }
     }
     inner class HeightControl(i:Int):Runnable{

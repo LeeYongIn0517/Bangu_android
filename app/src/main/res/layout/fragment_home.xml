@@ -5,18 +5,28 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/canvas"
-    tools:context=".main.home.ui.HomeRvFragment">
+    tools:context=".main.home.ui.HomeFragment">
 
     <EditText
-        android:id="@+id/search_bar"
-        android:layout_width="321.25dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="46dp"
-        android:background="@drawable/search_bar"
-        android:fontFamily="@font/spoqa"
+        android:id="@+id/searchbar"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
         android:hint="리뷰를 검색해보세요!"
-        android:textColor="@color/white"
         android:textColorHint="@color/search_gray"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/searchbar_pic"
+        app:layout_constraintEnd_toStartOf="@+id/search_icon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/back_cursor"
+        app:layout_constraintTop_toTopOf="@id/search_icon"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/searchbar_pic"
+        android:layout_width="340dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/search_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,12 +38,13 @@
         android:id="@+id/search_icon"
         android:layout_width="23.98dp"
         android:layout_height="23.42dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/search_icon"
         android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="@+id/search_bar"
-        app:layout_constraintEnd_toEndOf="@+id/search_bar"
+        app:layout_constraintBottom_toBottomOf="@+id/searchbar_pic"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/search_bar"
+        app:layout_constraintStart_toEndOf="@+id/searchbar_pic"
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
@@ -43,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_bar" />
+        app:layout_constraintTop_toBottomOf="@id/searchbar_pic" />
 
     <CheckBox
         android:id="@+id/content_checkBox"
@@ -96,9 +107,10 @@
         android:id="@+id/back_cursor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:src="@drawable/ic_backbtn"
         app:layout_constraintBottom_toBottomOf="@+id/search_icon"
-        app:layout_constraintEnd_toStartOf="@+id/search_bar"
+        app:layout_constraintEnd_toStartOf="@+id/searchbar_pic"
         app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/search_icon"
