@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="transparent">#00000000</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -14,6 +15,8 @@
     <color name="review_text">#B6BED8</color>
     <color name="genre_text">#7D89AA</color>
     <color name="login_text">#8890A6</color>
+    <color name="main_tab_back">#1E1E29</color>
+    <color name="tab_text">#747A8B</color>
     <color name="login_error">#E8403F</color>
     <color name="signup_error">#FD4C4C</color>
     <color name="signup_ok">#CFFF48</color>
