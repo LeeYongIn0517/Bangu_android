@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object SgFinDataResource {
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://3.34.255.216:8080")
+        .baseUrl("https://bangu.shop:443")
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         .build()
