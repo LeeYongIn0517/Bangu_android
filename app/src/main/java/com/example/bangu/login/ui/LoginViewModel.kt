@@ -1,6 +1,5 @@
 package com.example.bangu.login.ui
 
-import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -30,11 +29,12 @@ class LoginViewModel: ViewModel() {
         })
     }
     fun getLoginToken(email:String, password:String){
-//        val loginRequest = LoginRequest(
-//            email = email,
-//            password = password
-//        )
-        repo.getLoginToken(email,password, object : LgRepository.GetDataCallback<LoginResponse>{
+        val loginRequest = LoginRequest(
+            email = email,
+            password = password
+        )
+        Log.d("loginRequest 객체 값 확인: ","email: "+loginRequest.email + " password: "+loginRequest.password)
+        repo.getLoginToken(loginRequest, object : LgRepository.GetDataCallback<LoginResponse>{
             override fun onSuccess(data: LoginResponse?) {
                 if(data != null){
                     //저장소를 활용해 AccessToken으로 앱 기능이용 예정

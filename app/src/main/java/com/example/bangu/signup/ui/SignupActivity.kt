@@ -18,8 +18,6 @@ class SignupActivity : AppCompatActivity() {
     private lateinit var nickname:String
     private lateinit var gender:String
     private var ott = mutableMapOf("tving" to false, "watcha" to false, "netflix" to false, "wavve" to false, "nothing" to false)
-    private lateinit var createAt:String
-    private lateinit var updateAt:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -139,10 +137,10 @@ class SignupActivity : AppCompatActivity() {
             ott.set("wavve",if(binding.rdbtnWavve.isChecked) true else false)
             ott.set("nothing",if(binding.rdbtnNothing.isChecked) true else false)
             gender = if(binding.rdbtnMale.isChecked) "M" else "F"
-            var year = binding.datepicker.year
-            var month = binding.datepicker.month + 1
-            var day = binding.datepicker.dayOfMonth
-            var birth = (year*10000 + month*100 + day).toLong()
+            val year = binding.datepicker.year
+            val month = binding.datepicker.month + 1
+            val day = binding.datepicker.dayOfMonth
+            val birth = (year*10000 + month*100 + day).toLong()
             Log.d(" SignupActivity","viewmodel.requestSignup")
             viewmodel.requestSignup(birth,email,gender,nickname,password,ott)
         }

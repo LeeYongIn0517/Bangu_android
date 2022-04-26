@@ -22,18 +22,18 @@ class LoginActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_login)
         setContentView(binding.root)
         val viewmodel = LoginViewModel()
-        val lgRepo = LgRepository
 
         binding.apply {
             lifecycleOwner = this@LoginActivity
             activity = this@LoginActivity
 
-//            //앱 자체 로그인인증 시작
-//            loginStartbtn.setOnClickListener{
-//                email = loginEmail.toString()
-//                password = loginPw.toString()
-//                viewmodel.getLoginToken(email,password)
-//            }
+            //앱 자체 로그인인증 시작
+            loginStartbtn.setOnClickListener{
+                email = loginEmail.text.toString()
+                password = loginPw.text.toString()
+                viewmodel.getLoginToken(email,password)
+            }
+
             //kako 로그인 버튼 눌렀을 때
             kakaoBtn.setOnClickListener{
                 viewmodel.getKakaoAuthCode()
