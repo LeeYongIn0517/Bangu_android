@@ -64,7 +64,7 @@ class SignupViewModel:ViewModel(){
     fun NicknameReset(){
 
     }
-    fun requestSignup(birth:Long, email:String, gender:String, nickname:String,
+    fun requestSignup(birth:String, email:String, gender:String, nickname:String,
                       password:String,ott:MutableMap<String,Boolean>){
         Log.d("SignupVM.checkNickname","requestSignup")
         val signup = SignupRequest(

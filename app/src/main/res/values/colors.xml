@@ -7,14 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="signup_char">#474D61</color>
     <color name="canvas">#000000</color>
+    <color name="login_text">#8890A6</color>
+    <color name="login_error">#E8403F</color>
+    <color name="signup_color">#1A1A24</color>
+    <color name="signup_char">#474D61</color>
+    <color name="signup_error">#FD4C4C</color>
+    <color name="signup_ok">#CFFF48</color>
     <color name="search_gray">#565D72</color>
     <color name="review_profile">#878787</color>
     <color name="review_text">#B6BED8</color>
     <color name="genre_text">#7D89AA</color>
-    <color name="login_text">#8890A6</color>
-    <color name="login_error">#E8403F</color>
-    <color name="signup_error">#FD4C4C</color>
-    <color name="signup_ok">#CFFF48</color>
 </resources>
