@@ -1,9 +1,14 @@
 package com.example.bangu.main.home.ui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.get
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.GlideApp
 import com.example.bangu.R
@@ -18,10 +23,21 @@ class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private const val TYPE_LOADING = 2
     }
     private val items = ArrayList<Content>()
+    private val viewmodel = HomeViewModel()
 
     //아이템이 리뷰인 경우
     inner class ReviewViewHolder(private val binding:ReviewItemBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(content: Content){
+            //북마크 버튼 동작 확인
+            var sign:Boolean
+            val bookmark = binding.reviewBookmark
+            bookmark.apply {
+                setOnClickListener {
+                    sign = bookmark.isSelected
+                    bookmark.isSelected = !sign
+                    viewmodel.adjustBookmark(content.id)
+                }
+            }
             //리뷰를 작성한 계정 프로필 바인딩
             binding.apply {
                 userNickname.text = content.userProfileData?.nickname
@@ -73,6 +89,7 @@ class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 //                }
 //            }
         }
+
     }
     inner class LoadingViewHolder(private val binding:ReviewItemLoadingBinding):RecyclerView.ViewHolder(binding.root){
 

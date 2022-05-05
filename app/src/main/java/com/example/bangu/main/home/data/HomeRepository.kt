@@ -9,6 +9,10 @@ object HomeRepository {
         Log.d("HomeRepository","requestReviewList")
         HomeDr.requestReviewList(accessToken,page,size,type,callback)
     }
+    fun adjustBookmark(accessToken:String,reviewId:Int,callback: GetDataCallback<Boolean>){
+        Log.d("HomeRepository","adjustBookmark")
+        HomeDr.adjustBookmark(accessToken,reviewId, callback)
+    }
     interface GetDataCallback<T>{
         fun onSuccess(data:T?)
         fun onFailure(throwable: Throwable)

@@ -28,4 +28,16 @@ object HomeDataResource {
                 callback.onFailure(it)
             })
     }
+    fun adjustBookmark(accessToken:String,reviewId:Int,callback: HomeRepository.GetDataCallback<Boolean>){
+        Log.d("HomeDataResource","adjustBookmark")
+        HomeApi.adjustBookmark(accessToken,reviewId)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                callback.onSuccess(it)
+            },{
+                Log.d("HomeDataResource","Failure: " + it.localizedMessage)
+                callback.onFailure(it)
+            })
+    }
 }

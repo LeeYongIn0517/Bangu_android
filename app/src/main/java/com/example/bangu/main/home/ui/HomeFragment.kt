@@ -3,10 +3,12 @@ package com.example.bangu.main.home.ui
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -61,6 +63,21 @@ class HomeFragment : Fragment() {
                 if(!binding.homeRcycleview.canScrollVertically(1) && lastVisibleItemPosition == itemTotalCount){
                     adapter.deleteLoading()
                     viewmodel.requestReviewList(++page, ITEMS_SIZE,TYPE_REVIEW)
+                }
+            }
+        })
+        //북마크 변경사항 알리기
+        viewmodel.BookMark.observe(viewLifecycleOwner, Observer {
+            it.getContentIfNotHandled()?.let{
+                when(it){
+                    "bookmark_register" -> Toast.makeText(this.context,"해당 리뷰를 북마크목록에 추가했습니다.", Toast.LENGTH_SHORT).apply {
+                        setGravity(Gravity.CENTER,0,0)
+                        show()
+                    }
+                    "bookmark_cancel" -> Toast.makeText(this.context,"해당 리뷰를 북마크목록에서 삭제했습니다.", Toast.LENGTH_SHORT).apply {
+                        setGravity(Gravity.CENTER,0,0)
+                        show()
+                    }
                 }
             }
         })
