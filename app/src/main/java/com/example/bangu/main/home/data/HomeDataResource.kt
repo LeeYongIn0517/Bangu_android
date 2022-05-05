@@ -1,6 +1,7 @@
 package com.example.bangu.main.home.data
 
 import android.util.Log
+import com.example.bangu.main.data.MainAPI
 import com.example.bangu.main.home.data.model.RequestReviewList
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -14,10 +15,11 @@ object HomeDataResource {
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+    private val MainApi = retrofit.create(MainAPI::class.java)
     private val HomeApi = retrofit.create(HomeAPI::class.java)
     fun requestReviewList(accessToken:String,page:Int, size:Int,type:String,callback: HomeRepository.GetDataCallback<RequestReviewList>){
         Log.d("HomeDataResource","requestReviewList")
-        HomeApi.requestReviewList(accessToken,page,size,type)
+        MainApi.requestReviewList(accessToken,page,size,type)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
