@@ -89,6 +89,7 @@
         android:layout_width="25.57dp"
         android:layout_height="31.18dp"
         android:background="@drawable/review_bookmark_states"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="@+id/following_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.912"
@@ -98,8 +99,8 @@
 
     <ImageView
         android:id="@+id/review_movieimage"
-        android:layout_width="100.81dp"
-        android:layout_height="127.53dp"
+        android:layout_width="100dp"
+        android:layout_height="127dp"
         android:background="@drawable/movie02"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -151,7 +152,7 @@
         app:layout_constraintVertical_bias="0.17000002" />
 
     <LinearLayout
-        android:id="@+id/revie_genres"
+        android:id="@+id/review_ott"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -161,26 +162,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/review_core">
 
-
         <ImageView
+            android:id="@+id/netflix"
             android:layout_width="22dp"
             android:layout_height="22dp"
-            android:background="@mipmap/ic_netflix_review" />
+            android:background="@mipmap/ic_netflix_review"
+            android:visibility="invisible" />
 
         <ImageView
+            android:id="@+id/watcha"
             android:layout_width="22dp"
             android:layout_height="22dp"
-            android:background="@mipmap/ic_watcha_review" />
+            android:background="@mipmap/ic_watcha_review"
+            android:visibility="invisible" />
 
         <ImageView
+            android:id="@+id/tving"
             android:layout_width="22dp"
             android:layout_height="22dp"
-            android:background="@mipmap/ic_tving_review" />
+            android:background="@mipmap/ic_tving_review"
+            android:visibility="invisible" />
 
         <ImageView
+            android:id="@+id/wavve"
             android:layout_width="22dp"
             android:layout_height="22dp"
-            android:background="@mipmap/ic_wavve_review" />
+            android:background="@mipmap/ic_wavve_review"
+            android:visibility="invisible" />
     </LinearLayout>
 
     <TextView

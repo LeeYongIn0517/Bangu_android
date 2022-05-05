@@ -5,9 +5,9 @@ import com.example.bangu.main.home.data.model.RequestReviewList
 
 object HomeRepository {
     private val HomeDr = HomeDataResource
-    fun requestReviewList(accessToken: String, callback: GetDataCallback<RequestReviewList>){
+    fun requestReviewList(accessToken: String,page:Int,size:Int,type:String,callback: GetDataCallback<RequestReviewList>){
         Log.d("HomeRepository","requestReviewList")
-        HomeDr.requestReviewList(accessToken, callback)
+        HomeDr.requestReviewList(accessToken,page,size,type,callback)
     }
     interface GetDataCallback<T>{
         fun onSuccess(data:T?)

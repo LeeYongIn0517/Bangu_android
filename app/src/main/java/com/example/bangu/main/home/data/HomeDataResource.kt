@@ -16,14 +16,15 @@ object HomeDataResource {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     private val HomeApi = retrofit.create(HomeAPI::class.java)
-    fun requestReviewList(accessToken:String,callback: HomeRepository.GetDataCallback<RequestReviewList>){
+    fun requestReviewList(accessToken:String,page:Int, size:Int,type:String,callback: HomeRepository.GetDataCallback<RequestReviewList>){
         Log.d("HomeDataResource","requestReviewList")
-        HomeApi.requestReviewList(accessToken)
+        HomeApi.requestReviewList(accessToken,page,size,type)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 callback.onSuccess(it)
             },{
+                Log.d("HomeDataResource","Failure: " + it.localizedMessage)
                 callback.onFailure(it)
             })
     }

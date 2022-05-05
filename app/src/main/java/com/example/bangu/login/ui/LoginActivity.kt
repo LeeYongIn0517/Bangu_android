@@ -44,12 +44,12 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(next)
             }
         }
-        //테스트용 프리패스
-        binding.loginStartbtn.setOnClickListener{
-            Intent(this@LoginActivity, MainActivity::class.java).apply {
-                startActivity(this)
-            }
-        }
+//        //테스트용 프리패스
+//        binding.loginStartbtn.setOnClickListener{
+//            Intent(this@LoginActivity, MainActivity::class.java).apply {
+//                startActivity(this)
+//            }
+//        }
         viewmodel.getTokenOk.observe(this@LoginActivity, Observer {
             it.getContentIfNotHandled()?.let {
                 //로그인 성공->메인 홈화면으로 (일반, kakao, naver 공통)
