@@ -14,7 +14,7 @@ import com.example.bangu.GlideApp
 import com.example.bangu.R
 import com.example.bangu.databinding.ReviewItemBinding
 import com.example.bangu.databinding.ReviewItemLoadingBinding
-import com.example.bangu.main.home.data.model.Content
+import com.example.bangu.main.data.model.Content
 
 class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object{

@@ -2,7 +2,7 @@ package com.example.bangu.main.home.data
 
 import android.util.Log
 import com.example.bangu.main.data.MainAPI
-import com.example.bangu.main.home.data.model.RequestReviewList
+import com.example.bangu.main.data.model.RequestReviewList
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import retrofit2.*

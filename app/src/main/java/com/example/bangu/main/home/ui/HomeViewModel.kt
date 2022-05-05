@@ -6,9 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.bangu.App
 import com.example.bangu.Event
+import com.example.bangu.main.data.model.Content
+import com.example.bangu.main.data.model.RequestReviewList
 import com.example.bangu.main.home.data.HomeRepository
-import com.example.bangu.main.home.data.model.Content
-import com.example.bangu.main.home.data.model.RequestReviewList
 
 class HomeViewModel: ViewModel() {
     private val repo = HomeRepository

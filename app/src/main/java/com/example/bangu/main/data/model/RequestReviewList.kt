@@ -1,4 +1,4 @@
-package com.example.bangu.main.home.data.model
+package com.example.bangu.main.data.model
 
 import com.google.gson.annotations.SerializedName
 

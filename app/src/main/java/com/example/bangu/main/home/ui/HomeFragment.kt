@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.R
 import com.example.bangu.databinding.FragmentHomeBinding
-import com.example.bangu.main.home.data.model.Content
+import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.ui.SearchfilterFragment
 
 class HomeFragment : Fragment() {

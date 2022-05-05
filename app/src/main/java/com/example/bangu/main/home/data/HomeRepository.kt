@@ -1,7 +1,7 @@
 package com.example.bangu.main.home.data
 
 import android.util.Log
-import com.example.bangu.main.home.data.model.RequestReviewList
+import com.example.bangu.main.data.model.RequestReviewList
 
 object HomeRepository {
     private val HomeDr = HomeDataResource
