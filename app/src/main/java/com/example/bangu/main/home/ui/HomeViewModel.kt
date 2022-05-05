@@ -57,4 +57,16 @@ class HomeViewModel: ViewModel() {
             })
         }
     }
+    fun requestToUnFollow(toUser:Int){
+        Log.d("HomeVM","requestToFollow")
+        if (accessToken != null) {
+            repo.requestToUnFollow(accessToken,toUser)
+        }
+    }
+    fun requestToFollow(toUser:Int){
+        Log.d("HomeVM","requestToFollow")
+        if (accessToken != null) {
+            repo.requestToFollow(accessToken,toUser)
+        }
+    }
 }

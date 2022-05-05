@@ -3,6 +3,7 @@ package com.example.bangu.main.home.data
 import com.example.bangu.main.home.data.model.RequestReviewList
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Single
+import retrofit2.Call
 import retrofit2.http.*
 
 interface HomeAPI {
@@ -20,4 +21,16 @@ interface HomeAPI {
         @Header("X-AUTH-TOKEN") accessToken:String,
         @Path("reviewId") reviewId:Int,
     ):Single<Boolean>
+
+    @DELETE("/follow/{toUserId}") //유저 idx를 받아 해당 유저를 언팔로우합니다
+    fun requestToUnFollow(
+        @Header("X-AUTH-TOKEN") accessToken:String,
+        @Path("toUserId") toUser:Int,
+    ): Call<Any>
+
+    @POST("/follow/{toUser}") //유저 idx를 받아 해당 유저를 팔로우합니다
+    fun requestToFollow(
+        @Header("X-AUTH-TOKEN") accessToken:String,
+        @Path("toUser") toUser:Int,
+    ): Call<Any>
 }

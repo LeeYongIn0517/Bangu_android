@@ -4,10 +4,9 @@ import android.util.Log
 import com.example.bangu.main.home.data.model.RequestReviewList
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
-import retrofit2.Retrofit
+import retrofit2.*
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 object HomeDataResource {
     private val retrofit = Retrofit.Builder()
@@ -39,5 +38,27 @@ object HomeDataResource {
                 Log.d("HomeDataResource","Failure: " + it.localizedMessage)
                 callback.onFailure(it)
             })
+    }
+    fun requestToUnFollow(accessToken:String,toUser:Int){
+        Log.d("HomeDataResource","requestToFollow")
+        HomeApi.requestToUnFollow(accessToken,toUser).enqueue(object :Callback<Any>{
+            override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                Log.d("HomeDataResource","HomeApi.requestToUnFollow.onResponse")
+            }
+            override fun onFailure(call: Call<Any>, t: Throwable) {
+                Log.d("HomeDataResource","HomeApi.requestToUnFollow.onFailure")
+            }
+        })
+    }
+    fun requestToFollow(accessToken:String,toUser:Int){
+        Log.d("HomeDataResource","requestToFollow")
+        HomeApi.requestToFollow(accessToken,toUser).enqueue(object :Callback<Any>{
+            override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                Log.d("HomeDataResource","HomeApi.requestToFollow.onResponse")
+            }
+            override fun onFailure(call: Call<Any>, t: Throwable) {
+                Log.d("HomeDataResource","HomeApi.requestToFollow.onFailure")
+            }
+        })
     }
 }

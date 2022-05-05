@@ -13,6 +13,14 @@ object HomeRepository {
         Log.d("HomeRepository","adjustBookmark")
         HomeDr.adjustBookmark(accessToken,reviewId, callback)
     }
+    fun requestToUnFollow(accessToken:String,toUser:Int){
+        Log.d("HomeRepository","requestToFollowing")
+        HomeDr.requestToUnFollow(accessToken,toUser)
+    }
+    fun requestToFollow(accessToken:String,toUser:Int){
+        Log.d("HomeRepository","requestToFollow")
+        HomeDr.requestToFollow(accessToken,toUser)
+    }
     interface GetDataCallback<T>{
         fun onSuccess(data:T?)
         fun onFailure(throwable: Throwable)

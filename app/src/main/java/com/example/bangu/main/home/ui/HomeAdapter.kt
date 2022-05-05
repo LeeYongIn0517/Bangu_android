@@ -28,7 +28,7 @@ class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     //아이템이 리뷰인 경우
     inner class ReviewViewHolder(private val binding:ReviewItemBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(content: Content){
-            //북마크 버튼 동작 확인
+            //북마크 추가, 삭제 기능
             var sign:Boolean
             val bookmark = binding.reviewBookmark
             bookmark.apply {
@@ -36,6 +36,20 @@ class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                     sign = bookmark.isSelected
                     bookmark.isSelected = !sign
                     viewmodel.adjustBookmark(content.id)
+                }
+            }
+            //팔로우&팔로잉 기능
+            var follow_sign:Boolean
+            val follow_btn = binding.followingBtn
+            follow_btn.apply {
+                setOnClickListener{
+                    follow_sign = follow_btn.isSelected
+                    follow_btn.isSelected = !follow_sign
+                    when(isSelected){
+                        true -> viewmodel.requestToUnFollow(content.userProfileData!!.id) //팔로우 취소
+                        else -> viewmodel.requestToFollow(content.userProfileData!!.id) //팔로우 하기
+                    }
+
                 }
             }
             //리뷰를 작성한 계정 프로필 바인딩

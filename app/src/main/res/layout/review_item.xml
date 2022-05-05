@@ -72,11 +72,11 @@
         app:layout_constraintTop_toBottomOf="@+id/user_nickname"
         app:layout_constraintVertical_bias="0.0" />
 
-    <View
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/following_btn"
         android:layout_width="70.55dp"
         android:layout_height="25.59dp"
-        android:background="@drawable/review_followingbtn"
+        android:background="@drawable/review_followbtn_states"
         app:layout_constraintBottom_toBottomOf="@+id/user_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
@@ -89,7 +89,6 @@
         android:layout_width="25.57dp"
         android:layout_height="31.18dp"
         android:background="@drawable/review_bookmark_states"
-        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="@+id/following_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.912"
