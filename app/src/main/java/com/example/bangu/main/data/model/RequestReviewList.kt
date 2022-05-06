@@ -46,23 +46,23 @@ data class Content(
     @SerializedName("dialogue")
     var dialogue:String,
     @SerializedName("content")
-    var content:String
+    var content:String,
+    @SerializedName("bookmark")
+    var bookmark:Boolean
 )
 data class MovieResponseData(
-    @SerializedName("id")
-    var id:Int,
     @SerializedName("title")
     var title:String,
     @SerializedName("movieOtts")
     var movieOtts:List<MovieOtts>,
     @SerializedName("imageUrl")
     var imageUrl:String,
+    @SerializedName("genre")
+    var genre:String,
     @SerializedName("director")
     var director:String,
     @SerializedName("actor")
     var actor:String,
-    @SerializedName("genre")
-    var genre:String,
 )
 data class MovieOtts(
     @SerializedName("ottId")
@@ -105,8 +105,8 @@ data class Pageable(
 data class Sort(
     @SerializedName("empty")
     var empty: Boolean,
-    @SerializedName("unsorted")
-    var unsorted:Boolean,
     @SerializedName("sorted")
-    var sorted:Boolean
+    var sorted:Boolean,
+    @SerializedName("unsorted")
+    var unsorted:Boolean
 )

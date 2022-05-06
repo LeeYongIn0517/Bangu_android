@@ -148,6 +148,6 @@ class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     fun setList(content:MutableList<Content>){
         items.addAll(content) //서버에서 받아온 Content 리스트 삽입
         items.add(Content(0,null,null,false,false,null,
-            0f," ", " ", " ")) //마지막에 빈 아이템 추가(로딩 뷰)
+            0f," ", " ", " ",false)) //마지막에 빈 아이템 추가(로딩 뷰)
     }
 }

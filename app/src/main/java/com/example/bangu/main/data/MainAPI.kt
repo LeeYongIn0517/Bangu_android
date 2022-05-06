@@ -1,6 +1,6 @@
 package com.example.bangu.main.data
 
-import com.example.bangu.main.home.data.model.RequestReviewList
+import com.example.bangu.main.data.model.RequestReviewList
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Header
