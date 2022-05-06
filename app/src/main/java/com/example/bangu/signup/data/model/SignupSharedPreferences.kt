@@ -7,7 +7,7 @@ class SignupSharedPreferences(context: Context) {
     private val prefsFilename = "signup_prefs"
     private val key_birth = "birth"
     private val key_create_at = "key_create_at"
-    private val key_email= "email"
+    private val key_userId= "userId"
     private val key_gender = "gender"
     private val key_id = "id"
     private val key_nickname = "nickname"
@@ -23,9 +23,9 @@ class SignupSharedPreferences(context: Context) {
     var sp_create_at:String?
         get() = prefs.getString(key_create_at,"")
         set(value) = prefs.edit().putString(key_create_at,value).apply()
-    var sp_email:String?
-        get() = prefs.getString(key_email,"")
-        set(value) = prefs.edit().putString(key_email,value).apply()
+    var sp_userId:String?
+        get() = prefs.getString(key_userId,"")
+        set(value) = prefs.edit().putString(key_userId,value).apply()
     var sp_gender: String?
         get() = prefs.getString(key_gender,"")
         set(value) = prefs.edit().putString(key_gender,value).apply()

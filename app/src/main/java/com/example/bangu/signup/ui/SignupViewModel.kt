@@ -14,28 +14,28 @@ class SignupViewModel:ViewModel(){
     private val repo = SgRepository
     private var _requestOk = MutableLiveData<Event<Boolean>>()
     val requestOk: LiveData<Event<Boolean>> = _requestOk
-    private var _emailOk = MutableLiveData<Event<String>>()
-    val emailOk: LiveData<Event<String>> = _emailOk
+    private var _userIdOk = MutableLiveData<Event<String>>()
+    val userIdOk: LiveData<Event<String>> = _userIdOk
     private var _nicknameOk = MutableLiveData<Event<String>>()
     val nicknameOk: LiveData<Event<String>> = _nicknameOk
-    private var _emailText = MutableLiveData<String>() //미완
-    val emailText : LiveData<String> = _emailText
+    private var _userIdText = MutableLiveData<String>() //미완
+    val userIdText : LiveData<String> = _userIdText
     private var _nicknameText = MutableLiveData<String>() //미완
     val nicknameText : LiveData<String> = _nicknameText
 
-    fun checkUserEmail(emailText:String){
-        Log.d("SignupVM.checkUserEmail","checkUserEmail")
-        repo.checkUserEmail(emailText,object :SgRepository.GetDataCallback<Boolean>{
+    fun checkUserId(userIdText:String){
+        Log.d("SignupVM.checkUserUserId","checkUserUserId")
+        repo.checkUserId(userIdText,object :SgRepository.GetDataCallback<Boolean>{
             override fun onSuccess(data: Boolean?) {
                 if (data != null) {
                     //LiveData로 액티비티에 성공신호 제공
-                    if(data == false) _emailOk.postValue(Event("emailOk")) //사용가능한 아이디로 확인됨
+                    if(data == false) _userIdOk.postValue(Event("userIdOk")) //사용가능한 아이디로 확인됨
                 }
             }
 
             override fun onFailure(throwable: Throwable) {
                 //이미 존재하는 아이디
-                _emailOk.postValue(Event("emailFail"))
+                _userIdOk.postValue(Event("userIdFail"))
                 //Log.d("SignupVM.checkUserEmail","onFailure")
             }
         })
@@ -64,12 +64,12 @@ class SignupViewModel:ViewModel(){
     fun NicknameReset(){
 
     }
-    fun requestSignup(birth:String, email:String, gender:String, nickname:String,
-                      password:String,ott:MutableMap<String,Boolean>){
+    fun requestSignup(birth:String, userId:String, gender:String, nickname:String,
+                      password:String, ott:MutableMap<String,Boolean>){
         Log.d("SignupVM.checkNickname","requestSignup")
         val signup = SignupRequest(
             birth = birth,
-            userId = email,
+            userId = userId,
             gender = gender,
             netflix = ott.get("netflix"),
             nickname = nickname,
@@ -88,17 +88,11 @@ class SignupViewModel:ViewModel(){
                     App.signup_prefs.apply {
                         sp_birth = data.birth
                         sp_create_at = data.create_at
-                        sp_email = data.email
+                        sp_userId = data.userId
                         sp_gender = data.gender
                         sp_id = data.id
                         sp_nickname = data.nickname
                         sp_update_at = data.update_at
-//                        for(item in data.userOttRespenseData){
-//                            this.userOttResponseData.add(item)
-//                        }
-//                        sp_ottID = data.userOttRespenseData.ottID
-//                        sp_ottName = data.userOttRespenseData.ottName
-//                        sp_userId = data.userOttRespenseData.userId
                     }
                 }
             }

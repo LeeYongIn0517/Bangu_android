@@ -64,14 +64,14 @@ class SignupActivity : AppCompatActivity() {
         })
         //이메일 중복체크 버튼
         binding.emailCheckbtn.setOnClickListener {
-                viewmodel.checkUserEmail(binding.signupEmail.text.toString())
+                viewmodel.checkUserId(binding.signupUserId.text.toString())
         }
         //닉네임 중복체크 버튼
         binding.nicknameCheckbtn.setOnClickListener {
                 viewmodel.checkNickname(binding.signupNickname.text.toString())
         }
         //이메일 중복확인 결과 -> UI반영하기
-        viewmodel.emailOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
+        viewmodel.userIdOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
             it.getContentIfNotHandled()?.let {
                 if(it == "emailOk"){
                     //성공
@@ -121,7 +121,7 @@ class SignupActivity : AppCompatActivity() {
             }
         })
         //이메일 중복확인 초기화 -> UI반영하기
-        viewmodel.emailText.observe(this@SignupActivity, androidx.lifecycle.Observer {
+        viewmodel.userIdText.observe(this@SignupActivity, androidx.lifecycle.Observer {
             binding.apply {
                 emailCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn)
                 emailCheckbtn.isEnabled = true
@@ -158,7 +158,7 @@ class SignupActivity : AppCompatActivity() {
 //                //버튼 활성화
 //                binding.loginBtnpic.isEnabled = true
 //            }
-            email = binding.signupEmail.text.toString()
+            email = binding.signupUserId.text.toString()
             password = binding.signupPw.text.toString()
             nickname = binding.signupNickname.text.toString()
             ott.set("tving",if(binding.rdbtnTving.isChecked) true else false)
