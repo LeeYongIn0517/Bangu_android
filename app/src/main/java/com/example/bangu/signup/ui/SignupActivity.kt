@@ -1,5 +1,7 @@
 package com.example.bangu.signup.ui
 
+import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +9,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import com.example.bangu.R
 import com.example.bangu.databinding.ActivitySignupBinding
 import com.example.bangu.signup_fin.ui.SgFinActivity
@@ -18,6 +22,9 @@ class SignupActivity : AppCompatActivity() {
     private lateinit var nickname:String
     private lateinit var gender:String
     private var ott = mutableMapOf("tving" to false, "watcha" to false, "netflix" to false, "wavve" to false, "nothing" to false)
+    private lateinit var year:String
+    private lateinit var month:String
+    private lateinit var day:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +37,11 @@ class SignupActivity : AppCompatActivity() {
             lifecycleOwner = this@SignupActivity
             activity = this@SignupActivity
         }
+        //생년월일 스피너 핸들러 등록
+        setupSpinnerHandler()
+        setupSpinnerYear()
+        setupSpinnerMonth()
+        setupSpinnerDay()
         //비밀번호 확인
         binding.signupCheck.addTextChangedListener(object : TextWatcher{
             //비밀번호 확인란에 문자 입력 전
@@ -52,14 +64,14 @@ class SignupActivity : AppCompatActivity() {
         })
         //이메일 중복체크 버튼
         binding.emailCheckbtn.setOnClickListener {
-                viewmodel.checkUserEmail(binding.signupEmail.text.toString())
+                viewmodel.checkUserId(binding.signupUserId.text.toString())
         }
         //닉네임 중복체크 버튼
         binding.nicknameCheckbtn.setOnClickListener {
                 viewmodel.checkNickname(binding.signupNickname.text.toString())
         }
         //이메일 중복확인 결과 -> UI반영하기
-        viewmodel.emailOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
+        viewmodel.userIdOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
             it.getContentIfNotHandled()?.let {
                 if(it == "emailOk"){
                     //성공
@@ -109,7 +121,7 @@ class SignupActivity : AppCompatActivity() {
             }
         })
         //이메일 중복확인 초기화 -> UI반영하기
-        viewmodel.emailText.observe(this@SignupActivity, androidx.lifecycle.Observer {
+        viewmodel.userIdText.observe(this@SignupActivity, androidx.lifecycle.Observer {
             binding.apply {
                 emailCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn)
                 emailCheckbtn.isEnabled = true
@@ -127,8 +139,26 @@ class SignupActivity : AppCompatActivity() {
             }
         })
         //회원가입 요청
-        binding.loginBtnpic.setOnClickListener{
-            email = binding.signupEmail.text.toString()
+        binding.signupBtnpic.setOnClickListener{
+            //필수 입력 항목 작성검사
+//            if(
+//                binding.signupEmail.text.toString().equals("") ||
+//                binding.signupPw.text.toString().equals("") ||
+//                binding.signupCheck.text.toString().equals("") ||
+//                binding.signupNickname.text.toString().equals("")
+//            )
+//            {
+//                val dialog = Signup_Dialog_warning(this)
+//                dialog.designDialog()
+//                dialog.showDialog()
+//                //버튼 비활성화
+//                binding.loginBtnpic.isEnabled = false
+//            }
+//            else{
+//                //버튼 활성화
+//                binding.loginBtnpic.isEnabled = true
+//            }
+            email = binding.signupUserId.text.toString()
             password = binding.signupPw.text.toString()
             nickname = binding.signupNickname.text.toString()
             ott.set("tving",if(binding.rdbtnTving.isChecked) true else false)
@@ -137,10 +167,7 @@ class SignupActivity : AppCompatActivity() {
             ott.set("wavve",if(binding.rdbtnWavve.isChecked) true else false)
             ott.set("nothing",if(binding.rdbtnNothing.isChecked) true else false)
             gender = if(binding.rdbtnMale.isChecked) "M" else "F"
-            val year = binding.datepicker.year
-            val month = binding.datepicker.month + 1
-            val day = binding.datepicker.dayOfMonth
-            val birth = (year*10000 + month*100 + day).toLong()
+            val birth = year+month+day
             Log.d(" SignupActivity","viewmodel.requestSignup")
             viewmodel.requestSignup(birth,email,gender,nickname,password,ott)
         }
@@ -159,6 +186,44 @@ class SignupActivity : AppCompatActivity() {
                 Log.d(" SignupActivity","just did viewmodel.success.observe")
             }
         })
-        //회원가입 실패 -> ?
+    }
+    private fun setupSpinnerYear(){
+        val years = resources.getStringArray(R.array.birthyear)
+        val adapter = ArrayAdapter(this,R.layout.spinner_list_image,years)
+        binding.spinnerBYear.adapter = adapter
+    }
+    private fun setupSpinnerMonth(){
+        val months = resources.getStringArray(R.array.birthmonth)
+        val adapter = ArrayAdapter(this,R.layout.spinner_list_image_mini,months)
+        binding.spinnerBMonth.adapter = adapter
+    }
+    private fun setupSpinnerDay(){
+        val days = resources.getStringArray(R.array.birthday)
+        val adapter = ArrayAdapter(this,R.layout.spinner_list_image_mini,days)
+        binding.spinnerBDay.adapter = adapter
+    }
+    private fun setupSpinnerHandler(){
+        binding.spinnerBYear.onItemSelectedListener = object :
+        AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+
+                year = binding.spinnerBYear.getItemAtPosition(p2).toString()
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
+        }
+        binding.spinnerBMonth.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                month = binding.spinnerBMonth.getItemAtPosition(p2).toString()
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
+        }
+        binding.spinnerBDay.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                day = binding.spinnerBDay.getItemAtPosition(p2).toString()
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
+        }
     }
 }

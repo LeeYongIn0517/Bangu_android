@@ -8,8 +8,8 @@ data class SignupResponse(
     var birth :Long,
     @SerializedName("create_at")
     var create_at: String,
-    @SerializedName("email")
-    var email:String,
+    @SerializedName("userId")
+    var userId:String,
     @SerializedName("gender")
     var gender:String,
     @SerializedName("id")

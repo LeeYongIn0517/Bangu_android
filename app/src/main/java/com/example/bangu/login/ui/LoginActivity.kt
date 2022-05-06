@@ -29,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
 
             //앱 자체 로그인인증 시작
             loginStartbtn.setOnClickListener{
-                email = loginEmail.text.toString()
+                email = loginUserId.text.toString()
                 password = loginPw.text.toString()
                 viewmodel.getLoginToken(email,password)
             }
@@ -61,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
                 //로그인 실패-> 로그인 EditText UI변경
                 else if(it == "getTokenFail"){
                     binding.apply {
-                        loginEmail.setBackgroundResource(R.drawable.login_input_error)
+                        loginUserId.setBackgroundResource(R.drawable.login_input_error)
                         loginPw.setBackgroundResource(R.drawable.login_input_error)
                         tvError.visibility = View.VISIBLE
                     }

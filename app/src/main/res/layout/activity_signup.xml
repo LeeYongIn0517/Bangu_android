@@ -105,7 +105,7 @@
                     android:text="아이디"
                     android:textAppearance="@style/white_color"
                     android:textSize="13sp"
-                    app:layout_constraintBottom_toTopOf="@+id/signup_email"
+                    app:layout_constraintBottom_toTopOf="@+id/signup_userId"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintStart_toStartOf="parent"
@@ -117,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:text="*"
                     android:textAppearance="@style/signup_dot"
-                    app:layout_constraintBottom_toTopOf="@id/signup_email"
+                    app:layout_constraintBottom_toTopOf="@id/signup_userId"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintStart_toEndOf="@id/text_id"
@@ -125,14 +125,14 @@
                     app:layout_constraintVertical_bias="0.5" />
 
                 <EditText
-                    android:id="@+id/signup_email"
+                    android:id="@+id/signup_userId"
                     android:layout_width="220dp"
                     android:layout_height="38.77dp"
                     android:background="@drawable/signup_rec2"
                     android:gravity="center|left"
                     android:nextFocusDown="@id/signup_pw"
                     android:singleLine="true"
-                    android:text = "@{vm.emailText}"
+                    android:text="@{vm.userIdText}"
                     android:textColor="@color/white"
                     android:textColorHint="@color/signup_char"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -140,17 +140,17 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/text_id"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.6" />
+                    app:layout_constraintVertical_bias="0.606" />
 
                 <ImageButton
                     android:id="@+id/email_checkbtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/signup_confirmbtn"
-                    app:layout_constraintBottom_toBottomOf="@+id/signup_email"
+                    app:layout_constraintBottom_toBottomOf="@+id/signup_userId"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/signup_email"
-                    app:layout_constraintTop_toTopOf="@+id/signup_email" />
+                    app:layout_constraintStart_toEndOf="@+id/signup_userId"
+                    app:layout_constraintTop_toTopOf="@+id/signup_userId" />
 
                 <TextView
                     android:id="@+id/email_ok"
@@ -164,7 +164,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/signup_email" />
+                    app:layout_constraintTop_toBottomOf="@+id/signup_userId" />
 
                 <TextView
                     android:id="@+id/email_fail"
@@ -178,7 +178,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/signup_email" />
+                    app:layout_constraintTop_toBottomOf="@+id/signup_userId" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -223,7 +223,7 @@
                     android:layout_alignParentTop="true"
                     android:background="@drawable/signup_rec"
                     android:gravity="center|left"
-                    android:hint="영어소문자, 숫자 조합 3`20자리"
+                    android:hint="영어소문자, 숫자 조합 3~20자리"
                     android:textColor="@color/white"
                     android:textColorHint="@color/signup_char"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -606,7 +606,9 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/block7"
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
+                android:layout_height="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
                     android:id="@+id/signup_birth"
@@ -638,20 +640,46 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.1" />
 
-                <DatePicker
-                    android:id="@+id/datepicker"
-                    android:layout_width="290dp"
-                    android:layout_height="100dp"
-                    android:background="@color/review_text"
-                    android:calendarViewShown="false"
-                    android:datePickerMode="spinner"
-                    android:focusableInTouchMode="true"
+                <Spinner
+                    android:id="@+id/spinner_b_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/signup_birth"
+                    android:spinnerMode="dropdown"
+                    android:textSize="13sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/signup_birth"
-                    app:layout_constraintVertical_bias="0.3" />
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/signup_birth"
+                    app:layout_constraintTop_toBottomOf="@+id/dot_birth"
+                    app:layout_constraintVertical_bias="0.13" />
+
+                <Spinner
+                    android:id="@+id/spinner_b_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/signup_birth_mini"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/spinner_b_year"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/spinner_b_year"
+                    app:layout_constraintTop_toTopOf="@+id/spinner_b_year" />
+
+                <Spinner
+                    android:id="@+id/spinner_b_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/signup_birth_mini"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="@+id/spinner_b_month"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/spinner_b_month"
+                    app:layout_constraintTop_toTopOf="@+id/spinner_b_month" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -662,10 +690,10 @@
     </ScrollView>
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/login_btnpic"
-        android:layout_width="305.6dp"
-        android:layout_height="52.91dp"
-        android:background="@drawable/login_btnpic"
+        android:id="@+id/signup_btnpic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/signup_btn_start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

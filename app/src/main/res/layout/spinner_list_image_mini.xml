@@ -1,0 +1,10 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="53dp"
+    android:layout_height="44dp"
+    android:background="@color/signup_color"
+    android:fontFamily="@font/spoqa"
+    android:gravity="center"
+    android:paddingVertical="10dp"
+    android:text="입력"
+    android:textColor="@color/signup_char"
+    android:textSize="13sp" />

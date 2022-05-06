@@ -3,8 +3,8 @@ package com.example.bangu.login.data.model
 import com.google.gson.annotations.SerializedName
 
 data class LoginRequest(
-    @SerializedName("email")
-    var email:String,
     @SerializedName("password")
-    var password:String
+    var password:String,
+    @SerializedName("userId")
+    var userId:String
 )
