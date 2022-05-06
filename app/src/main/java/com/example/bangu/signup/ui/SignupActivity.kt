@@ -73,9 +73,9 @@ class SignupActivity : AppCompatActivity() {
         //이메일 중복확인 결과 -> UI반영하기
         viewmodel.userIdOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
             it.getContentIfNotHandled()?.let {
-                if(it == "emailOk"){
+                if(it == "userIdOk"){
                     //성공
-                    Log.d("SignupActivity.emailOk","emailOk")
+                    Log.d("SignupActivity.userIdOk","userIdOk")
                     binding.apply {
                         emailCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn2)
                         emailCheckbtn.isEnabled = false
@@ -83,9 +83,9 @@ class SignupActivity : AppCompatActivity() {
                         emailFail.visibility = View.INVISIBLE
                     }
                 }
-                else if(it == "emailFail"){
+                else if(it == "userIdFail"){
                     //실패
-                    Log.d("SignupActivity.emailFail","emailFail")
+                    Log.d("SignupActivity.userIdFail","userIdFail")
                     binding.apply {
                         emailCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn)
                         emailCheckbtn.isEnabled = true
