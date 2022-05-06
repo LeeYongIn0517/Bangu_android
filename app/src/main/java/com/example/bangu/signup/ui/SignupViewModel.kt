@@ -69,7 +69,7 @@ class SignupViewModel:ViewModel(){
         Log.d("SignupVM.checkNickname","requestSignup")
         val signup = SignupRequest(
             birth = birth,
-            email = email,
+            userId = email,
             gender = gender,
             netflix = ott.get("netflix"),
             nickname = nickname,

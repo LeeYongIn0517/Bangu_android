@@ -30,10 +30,10 @@ class LoginViewModel: ViewModel() {
     }
     fun getLoginToken(email:String, password:String){
         val loginRequest = LoginRequest(
-            email = email,
+            userId = email,
             password = password
         )
-        Log.d("loginRequest 객체 값 확인: ","email: "+loginRequest.email + " password: "+loginRequest.password)
+        Log.d("loginRequest 객체 값 확인: ","email: "+loginRequest.userId + " password: "+loginRequest.password)
         repo.getLoginToken(loginRequest, object : LgRepository.GetDataCallback<LoginResponse>{
             override fun onSuccess(data: LoginResponse?) {
                 if(data != null){
