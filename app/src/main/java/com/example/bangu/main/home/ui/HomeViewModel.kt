@@ -19,7 +19,7 @@ class HomeViewModel: ViewModel() {
 
     //리뷰리스트 요청
     val accessToken = App.token_prefs.accessToken
-    fun requestReviewList(page:Int, size:Int,type:String,){
+    fun requestReviewList(page:Int, size:Int,type:String){
         if (accessToken != null) {
             Log.d("accessToken",accessToken)
         }

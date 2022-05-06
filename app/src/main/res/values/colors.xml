@@ -13,6 +13,7 @@
     <color name="search_gray">#565D72</color>
     <color name="review_profile">#878787</color>
     <color name="review_text">#B6BED8</color>
+    <color name="review_genre">#E4E4E4</color>
     <color name="genre_text">#7D89AA</color>
     <color name="login_text">#8890A6</color>
     <color name="main_tab_back">#1E1E29</color>
