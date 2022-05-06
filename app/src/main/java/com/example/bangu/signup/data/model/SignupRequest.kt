@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName
 data class SignupRequest (
     @SerializedName("birth")
     var birth :String,
-    @SerializedName("email")
-    var email:String,
+    @SerializedName("userId")
+    var userId:String,
     @SerializedName("gender")
     var gender:String,
     @SerializedName("netflix")

@@ -17,9 +17,9 @@ object SgDataResource {
         .build()
     private val signupApi = retrofit.create(SignupAPI::class.java)
     /*아이디 중복확인*/
-    fun checkUserEmail(emailText:String,callback: SgRepository.GetDataCallback<Boolean>){
+    fun checkUserId(userIdText:String,callback: SgRepository.GetDataCallback<Boolean>){
         Log.d("SgDataResource","checkUserEmail")
-        signupApi.checkUserEmail(emailText)
+        signupApi.checkUserId(userIdText)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({

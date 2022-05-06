@@ -8,7 +8,7 @@ import retrofit2.http.*
 
 interface SignupAPI {
     @GET("/users/emailCheck/{userEmail}") //아이디 중복확인
-    fun checkUserEmail(
+    fun checkUserId(
         @Path("userEmail") userEmail:String
     ): Single<Boolean>
 

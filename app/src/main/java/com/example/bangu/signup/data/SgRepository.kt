@@ -7,9 +7,9 @@ import com.example.bangu.signup.data.model.SignupResponse
 object SgRepository {
     private val sgDr = SgDataResource
     /*아이디 중복확인*/
-    fun checkUserEmail(emailText:String,callback: GetDataCallback<Boolean>){
-        Log.d("SgRepository","checkUserEmail")
-        sgDr.checkUserEmail(emailText,callback)
+    fun checkUserId(userIdText:String,callback: GetDataCallback<Boolean>){
+        Log.d("SgRepository","checkUserId")
+        sgDr.checkUserId(userIdText,callback)
     }
     /*닉네임 중복확인*/
     fun checkNickname(nickname:String,callback: GetDataCallback<Boolean>){
