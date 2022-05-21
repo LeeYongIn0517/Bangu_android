@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.mybangu.ui.ReviewFragment"
+    android:background="@color/canvas">
+
+    <ImageView
+        android:id="@+id/back_cursor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_backbtn"
+        app:layout_constraintBottom_toTopOf="@+id/mybangu_form"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/mybangu_form"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.66999996" />
+
+    <ImageView
+        android:id="@+id/mybangu_form"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mybangu_write_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <ImageView
+        android:id="@+id/mybangu_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mybangu_write_dash"
+        app:layout_constraintBottom_toBottomOf="@id/mybangu_form"
+        app:layout_constraintEnd_toEndOf="@id/mybangu_form"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="@id/mybangu_form"
+        app:layout_constraintTop_toTopOf="@id/mybangu_form"
+        app:layout_constraintVertical_bias="0.050000012" />
+
+    <ImageView
+        android:id="@+id/mybangu_plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mybangu_write_plus"
+        app:layout_constraintBottom_toBottomOf="@+id/mybangu_image"
+        app:layout_constraintEnd_toEndOf="@+id/mybangu_image"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/mybangu_image"
+        app:layout_constraintTop_toTopOf="@+id/mybangu_image"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mybangu_write_finbtn"
+        app:layout_constraintBottom_toBottomOf="@+id/mybangu_form"
+        app:layout_constraintEnd_toEndOf="@+id/mybangu_form"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="@+id/mybangu_form"
+        app:layout_constraintTop_toTopOf="@+id/mybangu_form"
+        app:layout_constraintVertical_bias="0.025" />
+
+    <TextView
+        android:id="@+id/result_movietitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="작품명"
+        android:textColor="@color/mybangu_itemtext"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mybangu_image"
+        app:layout_constraintEnd_toEndOf="@+id/mybangu_form"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/bar1"
+        app:layout_constraintTop_toTopOf="@+id/mybangu_form"/>
+
+    <ImageView
+        android:id="@+id/bar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/mybangu_textbar"
+        app:layout_constraintBottom_toBottomOf="@+id/mybangu_image"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintStart_toEndOf="@+id/mybangu_image"
+        app:layout_constraintTop_toBottomOf="@+id/result_movietitle"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="3dp"
+        android:text="감상 포인트"
+        android:textColor="@color/review_text"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mybangu_form"
+        app:layout_constraintEnd_toEndOf="@+id/mybangu_image"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/mybangu_image"
+        app:layout_constraintTop_toBottomOf="@+id/mybangu_image"
+        app:layout_constraintVertical_bias="0.13" />
+
+    <EditText
+        android:id="@+id/mybangu_attention"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="내용을 입력해주세요"
+        android:paddingTop="5dp"
+        android:paddingBottom="7dp"
+        android:textColor="@color/mybangu_itemtext"
+        android:textColorHint="@color/mybangu_itemtext"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mybangu_form"
+        app:layout_constraintEnd_toEndOf="@+id/mybangu_form"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/attention_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mybangu_textbar"
+        app:layout_constraintBottom_toBottomOf="@+id/mybangu_form"
+        app:layout_constraintEnd_toEndOf="@+id/bar1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/mybangu_attention"
+        app:layout_constraintTop_toBottomOf="@+id/mybangu_attention"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="3dp"
+        android:text="인상 깊은 대사"
+        android:textColor="@color/review_text"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mybangu_form"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/attention_bar"
+        app:layout_constraintVertical_bias="0.09" />
+
+    <EditText
+        android:id="@+id/mybangu_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="내용을 입력해주세요"
+        android:paddingTop="5dp"
+        android:paddingBottom="7dp"
+        android:textColor="@color/mybangu_itemtext"
+        android:textColorHint="@color/mybangu_itemtext"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mybangu_form"
+        app:layout_constraintEnd_toEndOf="@+id/mybangu_form"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/dialog_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mybangu_textbar"
+        app:layout_constraintBottom_toBottomOf="@+id/mybangu_form"
+        app:layout_constraintEnd_toEndOf="@+id/bar1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/mybangu_dialog"
+        app:layout_constraintTop_toBottomOf="@+id/mybangu_dialog"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="3dp"
+        android:text="리뷰"
+        android:textColor="@color/review_text"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mybangu_form"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_bar"
+        app:layout_constraintVertical_bias="0.12" />
+
+    <EditText
+        android:id="@+id/mybangu_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="내용을 입력해주세요"
+        android:paddingTop="5dp"
+        android:paddingBottom="7dp"
+        android:textColor="@color/mybangu_itemtext"
+        android:textColorHint="@color/mybangu_itemtext"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mybangu_form"
+        app:layout_constraintEnd_toEndOf="@+id/mybangu_form"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/content_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mybangu_textbar"
+        app:layout_constraintBottom_toBottomOf="@+id/mybangu_form"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/mybangu_content"
+        app:layout_constraintTop_toBottomOf="@+id/mybangu_content"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <CheckBox
+        android:id="@+id/mybangu_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@drawable/ic_checkbox_states"
+        android:text="비공개"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mybangu_form"
+        app:layout_constraintEnd_toEndOf="@+id/mybangu_form"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/mybangu_content"
+        app:layout_constraintTop_toBottomOf="@+id/content_bar" />
+    <TextView
+        android:id="@+id/dot_mybangu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*"
+        android:textAppearance="@style/signup_dot"
+        app:layout_constraintBottom_toBottomOf="@+id/mybangu_message"
+        app:layout_constraintEnd_toStartOf="@+id/mybangu_message"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/mybangu_form"
+        app:layout_constraintTop_toTopOf="@+id/mybangu_message" />
+
+    <TextView
+        android:id="@+id/mybangu_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="는 필수 입력 항목입니다"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/mybangu_form"
+        app:layout_constraintEnd_toEndOf="@+id/content_bar"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/content_bar"
+        app:layout_constraintTop_toTopOf="@+id/mybangu_form"
+        app:layout_constraintVertical_bias="0.98" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

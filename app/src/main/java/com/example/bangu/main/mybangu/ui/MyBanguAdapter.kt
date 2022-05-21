@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.GlideApp
 import com.example.bangu.R
-import com.example.bangu.databinding.MyreviewItemBinding
+import com.example.bangu.databinding.MybanguItemBinding
 import com.example.bangu.databinding.ReviewItemBinding
 import com.example.bangu.databinding.ReviewItemLoadingBinding
 import com.example.bangu.main.data.model.Content
@@ -21,7 +21,7 @@ class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val viewmodel = MyBanguViewModel()
 
     /*아이템이 리뷰인 경우*/
-    inner class ReviewViewHolder(private val binding: MyreviewItemBinding):RecyclerView.ViewHolder(binding.root){
+    inner class ReviewViewHolder(private val binding: MybanguItemBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(content:Content){
             //영화 정보 및 리뷰 내용 바인딩
             binding.apply {

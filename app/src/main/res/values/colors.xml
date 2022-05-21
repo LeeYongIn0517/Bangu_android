@@ -22,4 +22,8 @@
     <color name="signup_char">#474D61</color>
     <color name="signup_error">#FD4C4C</color>
     <color name="signup_ok">#CFFF48</color>
+    <color name="mybangu_itembar">#8994AF</color>
+    <color name="mybangu_itemtext">#676F84</color>
+    <color name="mybangu_searchtext">#BCC2D0</color>
+    <color name="mybangu_searchitem">#4D556A</color>
 </resources>

@@ -55,5 +55,10 @@ class MyBanguFragment : Fragment() {
                 }
             }
         })
+        /*리뷰 작성 기능*/
+        binding.mybanguWritebtn.setOnClickListener{
+            //프레그먼트 띄우기
+
+        }
     }
 }
