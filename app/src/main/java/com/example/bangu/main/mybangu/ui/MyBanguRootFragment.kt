@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.bangu.R
-import com.example.bangu.databinding.FragmentReviewBinding
+import com.example.bangu.databinding.FragmentMyBanguRootBinding
 
-class ReviewFragment : Fragment() {
-    private lateinit var binding: FragmentReviewBinding
+class MyBanguRootFragment : Fragment() {
+    private lateinit var binding: FragmentMyBanguRootBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,8 +19,14 @@ class ReviewFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentReviewBinding.inflate(inflater,container,false)
+        binding = FragmentMyBanguRootBinding.inflate(inflater,container,false)
         val view = binding.root
+
+        /*root프레그먼트를 MyBanguFragment로 무조건 교체하고 시작*/
+        childFragmentManager.beginTransaction().apply {
+            replace(R.id.mybangu_root_frag,MyBanguFragment())
+            commit()
+        }
         return view
     }
 }

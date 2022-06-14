@@ -60,9 +60,9 @@ data class MovieResponseData(
     @SerializedName("genre")
     var genre:String,
     @SerializedName("director")
-    var director:String,
+    var director:String?,
     @SerializedName("actor")
-    var actor:String,
+    var actor:String?,
 )
 data class MovieOtts(
     @SerializedName("ottId")

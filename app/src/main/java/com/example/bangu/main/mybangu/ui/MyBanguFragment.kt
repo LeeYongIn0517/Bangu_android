@@ -5,12 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.R
 import com.example.bangu.databinding.FragmentHomeBinding
 import com.example.bangu.databinding.FragmentMyBanguBinding
+import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.home.ui.HomeAdapter
+import com.example.bangu.main.ui.MainActivity
+import com.example.bangu.main.ui.ScreenSlidePagerAdapter
 
 class MyBanguFragment : Fragment() {
     private lateinit var binding: FragmentMyBanguBinding
@@ -31,14 +36,19 @@ class MyBanguFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val viewmodel = MyBanguViewModel()
-        val adapter = HomeAdapter()
+        val adapter = MyBanguAdapter()
 
         /*어댑터 등록*/
         binding.mybanguRcycleview
             .adapter = adapter
+        /*서버에서 온 데이터를 관찰하는 옵저버*/
+        viewmodel.reviewList.observe(viewLifecycleOwner, Observer {
+            adapter.setList(it as MutableList<Content>)
+            adapter.notifyItemRangeInserted(page*ITEMS_SIZE,ITEMS_SIZE)
+        })
         /*서버에서 데이터 초기요청 1번*/
         if(page == 0){
-
+            viewmodel.requestMyReviews(page,ITEMS_SIZE,TYPE_REVIEW)
         }
         /*스크롤 리스너*/
         binding.mybanguRcycleview.addOnScrollListener(object : RecyclerView.OnScrollListener(){
@@ -57,8 +67,13 @@ class MyBanguFragment : Fragment() {
         })
         /*리뷰 작성 기능*/
         binding.mybanguWritebtn.setOnClickListener{
-            //프레그먼트 띄우기
-
+            //ReviewFragment로 이동
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.mybangu_root_frag, ReviewFragment())
+                setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN) //Fragment is being added onto the stack
+                addToBackStack(null)
+                commit()
+            }
         }
     }
 }

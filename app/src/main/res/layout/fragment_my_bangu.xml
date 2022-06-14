@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/canvas"
+    android:id="@+id/mybangu_fragment_id"
     tools:context=".main.home.ui.HomeFragment">
 
     <EditText
