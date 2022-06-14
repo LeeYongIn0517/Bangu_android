@@ -10,7 +10,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
-import com.example.bangu.GlideApp
+import com.bumptech.glide.Glide
 import com.example.bangu.R
 import com.example.bangu.databinding.ReviewItemBinding
 import com.example.bangu.databinding.ReviewItemLoadingBinding
@@ -68,8 +68,8 @@ class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             //프로필 이미지 바인딩
             val profile_imageUrl = content.userProfileData?.imageUrl
             when(profile_imageUrl){
-                "" -> GlideApp.with(binding.root).load(R.mipmap.ic_launcher_round).override(28,28).into(binding.userImage)
-                else -> GlideApp.with(binding.root).load(profile_imageUrl).override(28,28).into(binding.userImage)
+                "" -> Glide.with(binding.root).load(R.mipmap.ic_launcher_round).override(28,28).into(binding.userImage)
+                else -> Glide.with(binding.root).load(profile_imageUrl).override(28,28).into(binding.userImage)
             }
             //영화 및 리뷰 내용, 팔로잉, 북마크 바인딩
             binding.apply {
@@ -87,11 +87,11 @@ class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             //영화 이미지 바인딩
             val movie_imageUrl = content.movieResponseData?.imageUrl
             when(movie_imageUrl){
-                " " -> GlideApp.with(binding.root).load(R.drawable.movie01).override(127,100).into(binding.reviewMovieimage)
-                null -> GlideApp.with(binding.root).load(R.drawable.movie03).override(127,100).into(binding.reviewMovieimage)
-                else -> GlideApp.with(binding.root).load(movie_imageUrl).override(127,100).into(binding.reviewMovieimage)
+                " " -> Glide.with(binding.root).load(R.drawable.movie01).override(127,100).into(binding.reviewMovieimage)
+                null -> Glide.with(binding.root).load(R.drawable.movie03).override(127,100).into(binding.reviewMovieimage)
+                else -> Glide.with(binding.root).load(movie_imageUrl).override(127,100).into(binding.reviewMovieimage)
             }
-            GlideApp.with(binding.root).load(movie_imageUrl).override(127,100).into(binding.reviewMovieimage)
+            Glide.with(binding.root).load(movie_imageUrl).override(127,100).into(binding.reviewMovieimage)
             //OTT 바인딩
 //            val ottSize = content.reviewOttResponseData?.size
 //            for(i in 0 until ottSize!!){
