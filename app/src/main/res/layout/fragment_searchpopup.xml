@@ -5,17 +5,106 @@
     android:layout_height="match_parent"
     android:background="@drawable/mybangu_pop_back">
 
-    <ImageView
+    <androidx.cardview.widget.CardView
         android:id="@+id/mybangu_search_popup"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
-        android:background="@drawable/mybangu_search_popup"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:cardBackgroundColor="@color/mybangu_searchitem"
+        app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/mybangu_search_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/search_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/mybangu_search_bar"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/mybangu_search_bar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.050000012" />
+
+            <EditText
+                android:id="@+id/mybangu_search_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="작품명을 검색해주세요"
+                android:paddingStart="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/mybangu_searchtext"
+                android:textColorHint="@color/mybangu_searchtext"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/mybangu_search_bar"
+                app:layout_constraintEnd_toStartOf="@+id/mybangu_search_icon"
+                app:layout_constraintStart_toStartOf="@+id/mybangu_search_bar"
+                app:layout_constraintTop_toTopOf="@+id/mybangu_search_icon"
+                app:layout_constraintVertical_bias="0.49" />
+
+            <ImageView
+                android:id="@+id/mybangu_search_bar"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/mybangu_searchbar"
+                app:layout_constraintBottom_toTopOf="@+id/search_result_rv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mybangu_search_icon"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/infotext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="130dp"
+                android:text="ex) 스파이더맨, 오징어 게임"
+                android:textColor="@color/mybangu_searchtext"
+                android:textSize="9sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/mybangu_search_bar"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/mybangu_search_bar"
+                app:layout_constraintTop_toTopOf="@+id/search_result_rv"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/mybangu_noresult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/mybangu_search_noresult"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/search_result_rv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mybangu_search_icon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
     <ImageView
         android:id="@+id/mybangu_search_out"
@@ -28,7 +117,7 @@
         app:layout_constraintTop_toBottomOf="@+id/mybangu_search_popup"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/mybangu_search_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,6 +139,7 @@
         android:paddingStart="5dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
+        android:textColor="@color/mybangu_searchtext"
         android:textColorHint="@color/mybangu_searchtext"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/mybangu_search_icon"
@@ -102,7 +192,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/mybangu_search_popup"
-        app:layout_constraintEnd_toEndOf="@+id/mybangu_search_popup"
-        app:layout_constraintStart_toStartOf="@+id/mybangu_search_popup"
-        app:layout_constraintTop_toBottomOf="@+id/mybangu_search_bar" />
+        app:layout_constraintEnd_toEndOf="@+id/mybangu_search_bar"
+        app:layout_constraintStart_toStartOf="@+id/mybangu_search_bar"
+        app:layout_constraintTop_toBottomOf="@+id/mybangu_search_bar" />-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

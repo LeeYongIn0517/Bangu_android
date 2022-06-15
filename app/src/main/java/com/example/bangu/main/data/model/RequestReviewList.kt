@@ -54,7 +54,7 @@ data class MovieResponseData(
     @SerializedName("title")
     var title:String,
     @SerializedName("movieOtts")
-    var movieOtts:List<MovieOtts>,
+    var movieOtts:List<MovieOtts>?,
     @SerializedName("imageUrl")
     var imageUrl:String,
     @SerializedName("genre")

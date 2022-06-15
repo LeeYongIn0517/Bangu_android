@@ -1,154 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="300dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:background="@color/mybangu_searchitem">
+    android:layout_marginTop="5dp"
+    android:layout_marginEnd="5dp"
+    app:cardBackgroundColor="@color/mybangu_searchitem"
+    app:cardCornerRadius="10dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:layout_marginStart="5dp">
 
-    <ImageView
-        android:id="@+id/result_image"
-        android:layout_width="85dp"
-        android:layout_height="107dp"
-        android:background="@drawable/movie03"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/result_title"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="행복한 리짜로"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/result_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.11"
-        app:layout_constraintStart_toEndOf="@+id/result_image"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:padding="5dp">
 
-    <TextView
-            android:id="@+id/result_"
+        <ImageView
+            android:id="@+id/result_image"
+            android:layout_width="85dp"
+            android:layout_height="107dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/result_title"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="행복한 리짜로"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/result_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.11"
+            app:layout_constraintStart_toEndOf="@+id/result_image"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/result_genre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="장르"
-        android:textColor="@color/mybangu_searchtext"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/result_title"
-        app:layout_constraintTop_toBottomOf="@+id/result_title"
-        app:layout_constraintVertical_bias="0.5" />
+        <TextView
+            android:id="@+id/result_genre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="장르"
+            android:textColor="@color/mybangu_searchtext"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/result_title"
+            app:layout_constraintTop_toBottomOf="@+id/result_title"
+            app:layout_constraintVertical_bias="0.5" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="감독"
-        android:textColor="@color/white"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/result_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/result_genre"
-        app:layout_constraintTop_toTopOf="@+id/result_title"
-        app:layout_constraintVertical_bias="0.55" />
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="감독"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/result_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/result_genre"
+            app:layout_constraintTop_toTopOf="@+id/result_title"
+            app:layout_constraintVertical_bias="0.55" />
 
-    <TextView
-        android:id="@+id/result_director"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="홍상수"
-        android:textColor="@color/mybangu_searchtext"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="@+id/textView6" />
+        <TextView
+            android:id="@+id/result_director"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="홍상수"
+            android:textColor="@color/mybangu_searchtext"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="@+id/textView6" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="배우"
-        android:textColor="@color/white"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/result_actor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/result_title"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="배우"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/result_actor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/result_title"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <TextView
-        android:id="@+id/result_actor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="엠마 스톤"
-        android:textColor="@color/mybangu_searchtext"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView8" />
+        <TextView
+            android:id="@+id/result_actor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="엠마 스톤"
+            android:textColor="@color/mybangu_searchtext"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView8" />
 
-    <ImageView
-        android:id="@+id/result_netflix"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:background="@mipmap/ic_netflix_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/result_watcha"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/result_image"
-        app:layout_constraintTop_toTopOf="@+id/result_title"
-        app:layout_constraintVertical_bias="0.0" />
+        <ImageView
+            android:id="@+id/result_netflix"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@mipmap/ic_netflix_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/result_watcha"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/result_image"
+            app:layout_constraintTop_toTopOf="@+id/result_title"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/result_watcha"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:background="@mipmap/ic_watcha_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/result_tving"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/result_image"
-        app:layout_constraintTop_toTopOf="@+id/result_title"
-        app:layout_constraintVertical_bias="0.0" />
+        <ImageView
+            android:id="@+id/result_watcha"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@mipmap/ic_watcha_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/result_tving"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/result_image"
+            app:layout_constraintTop_toTopOf="@+id/result_title"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/result_tving"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:background="@mipmap/ic_tving_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/result_wavve"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/result_image"
-        app:layout_constraintTop_toTopOf="@+id/result_title"
-        app:layout_constraintVertical_bias="0.0" />
+        <ImageView
+            android:id="@+id/result_tving"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@mipmap/ic_tving_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/result_wavve"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/result_image"
+            app:layout_constraintTop_toTopOf="@+id/result_title"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/result_wavve"
-        android:layout_width="22dp"
-        android:layout_height="22dp"
-        android:background="@mipmap/ic_wavve_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/result_image"
-        app:layout_constraintTop_toTopOf="@+id/result_title"
-        app:layout_constraintVertical_bias="0.0" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/result_wavve"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:background="@mipmap/ic_wavve_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/result_image"
+            app:layout_constraintTop_toTopOf="@+id/result_title"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

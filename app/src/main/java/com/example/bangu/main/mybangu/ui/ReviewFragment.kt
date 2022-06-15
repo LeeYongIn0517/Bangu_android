@@ -23,4 +23,15 @@ class ReviewFragment : Fragment() {
         val view = binding.root
         return view
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val viewmodel = ReviewViewModel()
+
+        /*영화작품 검색팝업 띄우기*/
+        binding.mybanguPlus.setOnClickListener {
+            childFragmentManager.beginTransaction(). replace(R.id.search_popup_frame, SearchPuFragment()).commit()
+        }
+    }
 }
