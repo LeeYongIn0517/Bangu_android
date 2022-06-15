@@ -15,7 +15,7 @@ import com.example.bangu.main.data.model.MovieResponseData
 class SearchPuFragment:Fragment() {
     private lateinit var binding:FragmentSearchpopupBinding
     private var page = 0
-    private val ITEMS_SIZE = 4 //다양한 검색결과를 고려해서 최대 사이즈로 지정
+    private val ITEMS_SIZE = 20 //다양한 검색결과를 고려해서 최대 사이즈로 지정
     private lateinit var name_recent:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,7 +60,7 @@ class SearchPuFragment:Fragment() {
             SpRvadapter.setList(it as MutableList<MovieResponseData>)
             SpRvadapter.notifyItemRangeInserted(page*ITEMS_SIZE,ITEMS_SIZE)
         })
-        /*스크롤 리스너*/
+        /*스크롤 리스너*//*
         binding.searchResultRv.addOnScrollListener(object: RecyclerView.OnScrollListener(){
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
@@ -74,7 +74,7 @@ class SearchPuFragment:Fragment() {
                     viewmodel.requestMovie(name_recent, ++page, ITEMS_SIZE)
                 }
             }
-        })
+        })*/
         /*x버튼으로 팝업 닫기*/
         binding.mybanguSearchOut.setOnClickListener {
             parentFragmentManager.beginTransaction().remove(this).commit()
