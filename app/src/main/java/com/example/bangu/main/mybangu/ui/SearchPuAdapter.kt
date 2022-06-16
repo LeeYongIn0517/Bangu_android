@@ -47,7 +47,7 @@ class SearchPuAdapter(private val listener:Communicator):RecyclerView.Adapter<Re
                 resultGenre.text = movieData.genre //영화 장르
                 resultDirector.text = movieData.director //영화 감독
                 resultActor.text = movieData.actor //영화 배우
-                resultTitle.text = movieData.title //영화 제목
+                resultTitle.text = setEnter(movieData.title) //영화 제목
             }
             /*영화 작품 선택 시*/
             binding.movieItem.setOnClickListener {
@@ -101,4 +101,19 @@ class SearchPuAdapter(private val listener:Communicator):RecyclerView.Adapter<Re
         items.addAll(content) //서버에서 받아온 영화작품 데이터 리스트 삽입
         //items.add(MovieResponseData(" ",null," "," "," "," ")) //마지막에 빈 아이템 추가(로딩 뷰)
     }
+    /*아이템의 영화제목 길이에 따라 엔터를 삽입하는 함수*/
+    fun setEnter(title:String):String{
+        val item_title = StringBuilder().append(title)
+        if(title.length > 14){
+            val mString = title.split(" ").toTypedArray()
+            var sum = 0
+            for(i in 0 until mString.size){
+                sum += mString[i].length + 1
+                if(sum > 10) break //엔터 삽입 위치 찾음
+            }
+            item_title.insert(sum-1,"\n")
+        }
+        return item_title.toString()
+    }
+
 }
