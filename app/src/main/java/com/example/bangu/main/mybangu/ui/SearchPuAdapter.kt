@@ -3,6 +3,7 @@ package com.example.bangu.main.mybangu.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.bangu.R
@@ -11,8 +12,10 @@ import com.example.bangu.databinding.ReviewMovieItemBinding
 import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.data.model.MovieResponseData
 import com.example.bangu.main.home.ui.HomeAdapter
+import com.example.bangu.main.mybangu.ui.myInterface.Communicator
+import java.lang.StringBuilder
 
-class SearchPuAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class SearchPuAdapter(private val listener:Communicator):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val items = ArrayList<MovieResponseData>()
     companion object{
         private const val TYPE_MOVIE = 0
@@ -23,10 +26,6 @@ class SearchPuAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun bind(movieData:MovieResponseData){
             //아이템에 서버로 얻은 정보 바인딩
             binding.apply {
-                resultTitle.text = movieData.title //영화 제목
-                resultGenre.text = movieData.genre //영화 장르
-                resultDirector.text = movieData.director //영화 감독
-                resultActor.text = movieData.actor //영화 배우
                 //영화 이미지 바인딩
                 var movie_image = movieData.imageUrl
                 when(movie_image) {
@@ -39,12 +38,24 @@ class SearchPuAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 val ottSize = movieData.movieOtts?.size
                 for(i in 0 until ottSize!!){
                     when(movieData.movieOtts!!.get(i).ottName){
-                        "netflix" -> binding.resultNetflix.visibility = View.VISIBLE
-                        "tving" -> binding.resultTving.visibility = View.VISIBLE
-                        "watcha" -> binding.resultWatcha.visibility = View.VISIBLE
-                        "wavve" -> binding.resultWavve.visibility = View.VISIBLE
+                        "NETFLIX" -> binding.resultNetflix.visibility = View.VISIBLE
+                        "TVING" -> binding.resultTving.visibility = View.VISIBLE
+                        "WATCHA" -> binding.resultWatcha.visibility = View.VISIBLE
+                        "WAVVE" -> binding.resultWavve.visibility = View.VISIBLE
                     }
                 }
+                resultGenre.text = movieData.genre //영화 장르
+                resultDirector.text = movieData.director //영화 감독
+                resultActor.text = movieData.actor //영화 배우
+                resultTitle.text = movieData.title //영화 제목
+            }
+            /*영화 작품 선택 시*/
+            binding.movieItem.setOnClickListener {
+                binding.movieLayout.background = it.context.getDrawable(R.drawable.mybangu_item_selected)
+                //리뷰 작성 프레그먼트에 선택된 데이터 전달하기
+                val title = binding.resultTitle.text.toString()
+                val imageUrl = movieData.imageUrl
+                listener.passData(title,imageUrl) //인터페이스로 데이터 전달
             }
         }
     }

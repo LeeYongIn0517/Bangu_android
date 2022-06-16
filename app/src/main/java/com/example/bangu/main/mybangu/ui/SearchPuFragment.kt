@@ -5,12 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.databinding.FragmentSearchpopupBinding
 import com.example.bangu.main.data.model.MovieResponseData
+import com.example.bangu.main.mybangu.ui.myInterface.Communicator
 
 class SearchPuFragment:Fragment() {
     private lateinit var binding:FragmentSearchpopupBinding
@@ -35,7 +37,14 @@ class SearchPuFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val viewmodel = SearchPuVM()
-        val SpRvadapter = SearchPuAdapter()
+        val SpRvadapter = SearchPuAdapter(object:Communicator{
+            override fun passData(title: String, imageUrl: String) {
+                val bundle_title = title
+                val bundle_imageUrl = imageUrl
+                parentFragmentManager.setFragmentResult("requestKey", bundleOf("title" to bundle_title,"imageUrl" to bundle_imageUrl))
+                parentFragmentManager.beginTransaction().remove(this@SearchPuFragment).commit()//현재 프레그먼트 닫기
+            }
+        })
 
         /*영화 검색결과 리사이클뷰 초기화*/
         binding.searchResultRv.apply {

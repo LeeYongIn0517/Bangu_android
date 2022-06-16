@@ -1,10 +1,13 @@
 package com.example.bangu.main.mybangu.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentResultListener
+import com.bumptech.glide.Glide
 import com.example.bangu.R
 import com.example.bangu.databinding.FragmentReviewBinding
 
@@ -33,5 +36,27 @@ class ReviewFragment : Fragment() {
         binding.mybanguPlus.setOnClickListener {
             childFragmentManager.beginTransaction(). replace(R.id.search_popup_frame, SearchPuFragment()).commit()
         }
+        /*mybangu 디폴트 페이지로 돌아가기*/
+        binding.backCursor.setOnClickListener {
+            parentFragmentManager.beginTransaction(). replace(R.id.search_popup_frame, MyBanguFragment()).commit()
+        }
+    }
+    /*SearchPuFragment에서 넘어온 값을 수신받을 시점*/
+    override fun onResume() {
+        super.onResume()
+        Log.d("ReviewFragment","onResume called")
+
+        childFragmentManager.setFragmentResultListener("requestKey",viewLifecycleOwner,
+            FragmentResultListener{ key,bundle->
+                var result_title : String ?= null
+                var result_imageUrl : String ?= null
+                result_title = bundle.getString("title")
+                result_imageUrl = bundle.getString("imageUrl")
+
+                /*수신받은 영화 이미지, 작품명 바인딩*/
+                Glide.with(binding.root).load(result_imageUrl).override(28, 28)
+                    .into(binding.mybanguImage) //이미지
+                binding.resultMovietitle.text = result_title //작품명
+            })
     }
 }
