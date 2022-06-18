@@ -3,15 +3,12 @@ package com.example.bangu.main.mybangu.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.Target
 import com.example.bangu.R
-import com.example.bangu.databinding.ReviewItemLoadingBinding
 import com.example.bangu.databinding.ReviewMovieItemBinding
-import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.data.model.MovieResponseData
-import com.example.bangu.main.home.ui.HomeAdapter
 import com.example.bangu.main.mybangu.ui.myInterface.Communicator
 import java.lang.StringBuilder
 
@@ -29,9 +26,9 @@ class SearchPuAdapter(private val listener:Communicator):RecyclerView.Adapter<Re
                 //영화 이미지 바인딩
                 var movie_image = movieData.imageUrl
                 when(movie_image) {
-                    "" -> Glide.with(binding.root).load(R.mipmap.ic_launcher_round).override(28, 28)
+                    "" -> Glide.with(binding.root).load(R.mipmap.ic_launcher_round).override(Target.SIZE_ORIGINAL)
                         .into(binding.resultImage)
-                    else -> Glide.with(binding.root).load(movie_image).override(28, 28)
+                    else -> Glide.with(binding.root).load(movie_image).override(Target.SIZE_ORIGINAL)
                         .into(binding.resultImage)
                 }
                 //ott정보 바인딩

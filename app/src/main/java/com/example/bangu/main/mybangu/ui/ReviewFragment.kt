@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentResultListener
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.Target
 import com.example.bangu.R
 import com.example.bangu.databinding.FragmentReviewBinding
 
@@ -54,7 +55,8 @@ class ReviewFragment : Fragment() {
                 result_imageUrl = bundle.getString("imageUrl")
 
                 /*수신받은 영화 이미지, 작품명 바인딩*/
-                Glide.with(binding.root).load(result_imageUrl).override(28, 28)
+                binding.dashImage.visibility = View.INVISIBLE //하연 점선 테두리 없애기
+                Glide.with(binding.root).load(result_imageUrl).override(Target.SIZE_ORIGINAL)
                     .into(binding.mybanguImage) //이미지
                 binding.resultMovietitle.text = result_title //작품명
             })
