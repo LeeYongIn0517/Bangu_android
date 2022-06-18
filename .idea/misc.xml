@@ -127,6 +127,8 @@
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/drawable/mybangu_rewrite.xml" value="0.1" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/drawable/mybangu_search_popup.xml" value="0.2655" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/drawable/mybangu_write.xml" value="0.2305" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/drawable/mybangu_write_bar.xml" value="0.22" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/drawable/mybangu_write_dash.xml" value="0.22" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/drawable/mybangu_write_finbtn.xml" value="0.337" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/drawable/mybangu_write_image.xml" value="0.264" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/drawable/mybangu_write_item.xml" value="0.337" />
@@ -176,7 +178,7 @@
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/layout/myreview_write_item.xml" value="0.14628623188405798" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/layout/review_item.xml" value="0.4" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/layout/review_item_loading.xml" value="0.264" />
-        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/layout/review_movie_item.xml" value="0.536" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/layout/review_movie_item.xml" value="0.4148936170212766" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/layout/review_specific_item.xml" value="0.2604166666666667" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/layout/signup_fin_item.xml" value="0.20100502512562815" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/layout/signup_fin_item_loading.xml" value="0.23958333333333334" />

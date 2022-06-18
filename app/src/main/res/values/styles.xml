@@ -99,4 +99,8 @@
             #FFFFFF
         </item>
     </style>
+    <style name="rounded_corner10Percent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12%</item>
+    </style>
 </resources>

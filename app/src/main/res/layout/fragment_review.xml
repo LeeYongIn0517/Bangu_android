@@ -55,18 +55,29 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.498" />
-
                 <ImageView
-                    android:id="@+id/mybangu_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/dash_image"
+                    android:layout_width="127dp"
+                    android:layout_height="161dp"
                     android:background="@drawable/mybangu_write_dash"
                     app:layout_constraintBottom_toBottomOf="@id/mybangu_form"
                     app:layout_constraintEnd_toEndOf="@id/mybangu_form"
-                    app:layout_constraintHorizontal_bias="0.07"
+                    app:layout_constraintHorizontal_bias="0.069"
                     app:layout_constraintStart_toStartOf="@id/mybangu_form"
                     app:layout_constraintTop_toTopOf="@id/mybangu_form"
-                    app:layout_constraintVertical_bias="0.050000012" />
+                    app:layout_constraintVertical_bias="0.04"
+                    app:shapeAppearance="@style/rounded_corner10Percent" />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/mybangu_image"
+                    android:layout_width="127dp"
+                    android:layout_height="161dp"
+                    app:layout_constraintBottom_toBottomOf="@id/mybangu_form"
+                    app:layout_constraintEnd_toEndOf="@id/mybangu_form"
+                    app:layout_constraintHorizontal_bias="0.069"
+                    app:layout_constraintStart_toStartOf="@id/mybangu_form"
+                    app:layout_constraintTop_toTopOf="@id/mybangu_form"
+                    app:layout_constraintVertical_bias="0.04"
+                    app:shapeAppearanceOverlay="@style/rounded_corner10Percent" />
 
                 <ImageView
                     android:id="@+id/mybangu_plus"
