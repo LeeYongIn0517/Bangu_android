@@ -32,6 +32,12 @@ class SearchPuAdapter(private val listener:Communicator):RecyclerView.Adapter<Re
                         .into(binding.resultImage)
                 }
                 //ott정보 바인딩
+                binding.apply{ //ott아이콘 초기화
+                    resultNetflix.visibility = View.GONE
+                    resultTving.visibility = View.GONE
+                    resultWatcha.visibility = View.GONE
+                    resultWavve.visibility = View.GONE
+                }
                 val ottSize = movieData.movieOtts?.size
                 for(i in 0 until ottSize!!){
                     when(movieData.movieOtts!!.get(i).ottName){
