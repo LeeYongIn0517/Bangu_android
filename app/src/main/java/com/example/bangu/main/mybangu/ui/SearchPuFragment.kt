@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.databinding.FragmentSearchpopupBinding
+import com.example.bangu.main.data.model.MovieOtts
 import com.example.bangu.main.data.model.MovieResponseData
 import com.example.bangu.main.mybangu.ui.myInterface.Communicator
 
@@ -38,10 +39,11 @@ class SearchPuFragment:Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val viewmodel = SearchPuVM()
         val SpRvadapter = SearchPuAdapter(object:Communicator{
-            override fun passData(title: String, imageUrl: String) {
+            override fun passData(title: String, imageUrl: String, ott:List<MovieOtts>) {
                 val bundle_title = title
                 val bundle_imageUrl = imageUrl
-                parentFragmentManager.setFragmentResult("requestKey", bundleOf("title" to bundle_title,"imageUrl" to bundle_imageUrl))
+                val bundle_ott = ott
+                parentFragmentManager.setFragmentResult("requestKey", bundleOf("title" to bundle_title,"imageUrl" to bundle_imageUrl, "ott" to bundle_ott))
                 parentFragmentManager.beginTransaction().remove(this@SearchPuFragment).commit()//현재 프레그먼트 닫기
             }
         })

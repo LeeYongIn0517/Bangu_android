@@ -52,7 +52,7 @@ class SearchPuAdapter(private val listener:Communicator):RecyclerView.Adapter<Re
                 //리뷰 작성 프레그먼트에 선택된 데이터 전달하기
                 val title = binding.resultTitle.text.toString()
                 val imageUrl = movieData.imageUrl
-                listener.passData(title,imageUrl) //인터페이스로 데이터 전달
+                listener.passData(title,imageUrl, movieData.movieOtts!!) //인터페이스로 데이터 전달
             }
         }
     }

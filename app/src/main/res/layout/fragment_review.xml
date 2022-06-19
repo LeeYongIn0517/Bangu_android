@@ -145,6 +145,48 @@
                     app:layout_constraintTop_toBottomOf="@+id/mybangu_image"
                     app:layout_constraintVertical_bias="0.13" />
 
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingEnd="5dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/dash_image"
+                    app:layout_constraintEnd_toEndOf="@+id/review_starscore"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/bar1"
+                    app:layout_constraintTop_toBottomOf="@+id/review_starscore"
+                    app:layout_constraintVertical_bias="1.0">
+
+                    <ImageView
+                        android:id="@+id/review_netflix"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@mipmap/ic_netflix_review"
+                        android:visibility="gone"/>
+
+                    <ImageView
+                        android:id="@+id/review_watcha"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@mipmap/ic_watcha_review"
+                        android:visibility="gone"/>
+
+                    <ImageView
+                        android:id="@+id/review_tving"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@mipmap/ic_tving_review"
+                        android:visibility="gone"/>
+
+                    <ImageView
+                        android:id="@+id/review_wavve"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@mipmap/ic_wavve_review"
+                        android:visibility="gone"/>
+                </LinearLayout>
+
                 <EditText
                     android:id="@+id/mybangu_attention"
                     android:layout_width="wrap_content"

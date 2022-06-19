@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
 import com.example.bangu.R
 import com.example.bangu.databinding.FragmentReviewBinding
+import com.example.bangu.main.data.model.MovieOtts
 
 class ReviewFragment : Fragment() {
     private lateinit var binding: FragmentReviewBinding
@@ -49,16 +50,29 @@ class ReviewFragment : Fragment() {
 
         childFragmentManager.setFragmentResultListener("requestKey",viewLifecycleOwner,
             FragmentResultListener{ key,bundle->
-                var result_title : String ?= null
-                var result_imageUrl : String ?= null
-                result_title = bundle.getString("title")
-                result_imageUrl = bundle.getString("imageUrl")
+                val ottList:List<MovieOtts> = bundle.get("ott") as List<MovieOtts>
 
-                /*수신받은 영화 이미지, 작품명 바인딩*/
-                binding.dashImage.visibility = View.INVISIBLE //하연 점선 테두리 없애기
-                Glide.with(binding.root).load(result_imageUrl).override(Target.SIZE_ORIGINAL)
+                /*수신받은 영화 이미지, 작품명, ott 바인딩*/
+                binding.dashImage.visibility = View.INVISIBLE // 하얀 점선 테두리 없애기
+                Glide.with(binding.root).load(bundle.getString("imageUrl")).override(Target.SIZE_ORIGINAL)
                     .into(binding.mybanguImage) //이미지
-                binding.resultMovietitle.text = result_title //작품명
+                binding.resultMovietitle.text = bundle.getString("title") //작품명
+
+                val ottSize = ottList.size
+                binding.apply{ //ott아이콘 초기화
+                    reviewNetflix.visibility = View.GONE
+                    reviewTving.visibility = View.GONE
+                    reviewWatcha.visibility = View.GONE
+                    reviewWavve.visibility = View.GONE
+                }
+                for(i in 0 until ottSize!!){
+                    when(ottList.get(i).ottName){
+                        "NETFLIX" -> binding.reviewNetflix.visibility = View.VISIBLE
+                        "TVING" -> binding.reviewTving.visibility = View.VISIBLE
+                        "WATCHAPLAY" -> binding.reviewWatcha.visibility = View.VISIBLE
+                        "WAVVE" -> binding.reviewWavve.visibility = View.VISIBLE
+                    }
+                }
             })
     }
 }
