@@ -45,7 +45,8 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     //implemented in Kotlin,include a kapt dependency instead of a annotationProcessor dependency
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
-
+    //splash
+    implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
     // Retrofit, Gson, RxAdapter
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'

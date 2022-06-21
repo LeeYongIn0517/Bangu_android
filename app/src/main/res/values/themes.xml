@@ -3,7 +3,7 @@
     <style name="Theme.Bangu" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="windowNoTitle">true</item>
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/intro_back</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -13,5 +13,10 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+    <style name="Theme.Bangu.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/intro_back</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_intro</item>
+        <item name="postSplashScreenTheme">@style/Theme.Bangu</item>
     </style>
 </resources>

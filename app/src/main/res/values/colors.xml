@@ -9,6 +9,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="canvas">#000000</color>
+    <color name="intro_back">#1A1A24</color>
     <color name="search_gray">#565D72</color>
     <color name="review_profile">#878787</color>
     <color name="review_text">#B6BED8</color>
