@@ -55,6 +55,19 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.498" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/mybangu_image"
+                    android:layout_width="127dp"
+                    android:layout_height="161dp"
+                    app:layout_constraintBottom_toBottomOf="@id/mybangu_form"
+                    app:layout_constraintEnd_toEndOf="@id/mybangu_form"
+                    app:layout_constraintHorizontal_bias="0.069"
+                    app:layout_constraintStart_toStartOf="@id/mybangu_form"
+                    app:layout_constraintTop_toTopOf="@id/mybangu_form"
+                    app:layout_constraintVertical_bias="0.04"
+                    app:shapeAppearanceOverlay="@style/rounded_corner10Percent" />
+
                 <ImageView
                     android:id="@+id/dash_image"
                     android:layout_width="127dp"
@@ -67,17 +80,6 @@
                     app:layout_constraintTop_toTopOf="@id/mybangu_form"
                     app:layout_constraintVertical_bias="0.04"
                     app:shapeAppearance="@style/rounded_corner10Percent" />
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/mybangu_image"
-                    android:layout_width="127dp"
-                    android:layout_height="161dp"
-                    app:layout_constraintBottom_toBottomOf="@id/mybangu_form"
-                    app:layout_constraintEnd_toEndOf="@id/mybangu_form"
-                    app:layout_constraintHorizontal_bias="0.069"
-                    app:layout_constraintStart_toStartOf="@id/mybangu_form"
-                    app:layout_constraintTop_toTopOf="@id/mybangu_form"
-                    app:layout_constraintVertical_bias="0.04"
-                    app:shapeAppearanceOverlay="@style/rounded_corner10Percent" />
 
                 <ImageView
                     android:id="@+id/mybangu_plus"
@@ -92,7 +94,7 @@
                     app:layout_constraintVertical_bias="0.5" />
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/btn_register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/mybangu_write_finbtn"
@@ -124,7 +126,7 @@
                     android:layout_marginTop="4dp"
                     android:background="@drawable/mybangu_textbar"
                     app:layout_constraintBottom_toBottomOf="@+id/mybangu_image"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_register"
                     app:layout_constraintHorizontal_bias="0.83"
                     app:layout_constraintStart_toEndOf="@+id/mybangu_image"
                     app:layout_constraintTop_toBottomOf="@+id/result_movietitle"
@@ -277,6 +279,18 @@
                     app:layout_constraintTop_toBottomOf="@+id/dialog_bar"
                     app:layout_constraintVertical_bias="0.12" />
 
+                <ImageView
+                    android:id="@+id/content_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/mybangu_textbar"
+                    app:layout_constraintBottom_toBottomOf="@+id/mybangu_form"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_register"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/mybangu_content"
+                    app:layout_constraintTop_toBottomOf="@+id/mybangu_content"
+                    app:layout_constraintVertical_bias="0.0" />
+
                 <EditText
                     android:id="@+id/mybangu_content"
                     android:layout_width="wrap_content"
@@ -293,18 +307,6 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/textView4"
                     app:layout_constraintTop_toBottomOf="@+id/textView4"
-                    app:layout_constraintVertical_bias="0.0" />
-
-                <ImageView
-                    android:id="@+id/content_bar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/mybangu_textbar"
-                    app:layout_constraintBottom_toBottomOf="@+id/mybangu_form"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView3"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/mybangu_content"
-                    app:layout_constraintTop_toBottomOf="@+id/mybangu_content"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <CheckBox
@@ -332,19 +334,6 @@
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="@+id/mybangu_form"
                     app:layout_constraintTop_toTopOf="@+id/mybangu_message" />
-
-                <TextView
-                    android:id="@+id/dot_mybangu2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="*"
-                    android:textAppearance="@style/signup_dot"
-                    app:layout_constraintBottom_toBottomOf="@+id/mybangu_check"
-                    app:layout_constraintEnd_toEndOf="@+id/mybangu_form"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/mybangu_check"
-                    app:layout_constraintTop_toTopOf="@+id/mybangu_check"
-                    app:layout_constraintVertical_bias="0.32999998" />
 
                 <TextView
                     android:id="@+id/dot_mybangu3"
