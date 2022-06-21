@@ -46,6 +46,11 @@ class SearchPuFragment:Fragment() {
                 parentFragmentManager.setFragmentResult("requestKey", bundleOf("title" to bundle_title,"imageUrl" to bundle_imageUrl, "ott" to bundle_ott))
                 parentFragmentManager.beginTransaction().remove(this@SearchPuFragment).commit()//현재 프레그먼트 닫기
             }
+
+            override fun passWholeData(movieData: MovieResponseData) {
+                val bundle_movieData = movieData
+                parentFragmentManager.setFragmentResult("requestKey_whole",bundleOf("movieData" to bundle_movieData))
+            }
         })
 
         /*영화 검색결과 리사이클뷰 초기화*/
