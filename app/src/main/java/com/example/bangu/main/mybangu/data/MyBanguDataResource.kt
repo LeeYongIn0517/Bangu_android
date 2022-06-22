@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.bangu.main.data.MainAPI
 import com.example.bangu.main.data.model.RequestReviewList
 import com.example.bangu.main.mybangu.data.model.MovieSearchResponse
+import com.example.bangu.main.mybangu.data.model.RegisterReview
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import retrofit2.Retrofit
@@ -34,6 +35,10 @@ object MyBanguDataResource {
             })
     }
     /***************************main-mybangu 리뷰 작성 페이지****************************/
+    fun registerMyReview(accessToken: String, registerReview: RegisterReview){
+        Log.d("MyBanguDataResource","registerMyReviews")
+        MyBanguApi.registerMyReview(accessToken, registerReview)
+    }
     /***************************main-mybangu 영화작품 검색 페이지****************************/
     /*리뷰에 쓸 영화 작품 불러오기*/
     fun requestMovie(name:String,page:Int,size:Int,callback: MyBanguRepository.GetDataCallback<MovieSearchResponse>){

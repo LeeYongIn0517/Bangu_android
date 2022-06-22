@@ -32,6 +32,12 @@ class SearchPuAdapter(private val listener:Communicator):RecyclerView.Adapter<Re
                         .into(binding.resultImage)
                 }
                 //ott정보 바인딩
+                binding.apply{ //ott아이콘 초기화
+                    resultNetflix.visibility = View.GONE
+                    resultTving.visibility = View.GONE
+                    resultWatcha.visibility = View.GONE
+                    resultWavve.visibility = View.GONE
+                }
                 val ottSize = movieData.movieOtts?.size
                 for(i in 0 until ottSize!!){
                     when(movieData.movieOtts!!.get(i).ottName){
@@ -52,7 +58,8 @@ class SearchPuAdapter(private val listener:Communicator):RecyclerView.Adapter<Re
                 //리뷰 작성 프레그먼트에 선택된 데이터 전달하기
                 val title = binding.resultTitle.text.toString()
                 val imageUrl = movieData.imageUrl
-                listener.passData(title,imageUrl) //인터페이스로 데이터 전달
+                listener.passData(title,imageUrl, movieData.movieOtts!!) //인터페이스로 데이터 전달
+                listener.passWholeData(movieData) //인터페이스로 리뷰등록에 필요한 영화 전체 데이터 전달
             }
         }
     }
