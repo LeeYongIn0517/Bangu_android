@@ -3,6 +3,7 @@ package com.example.bangu.login.data
 import com.example.bangu.login.data.model.AccessToken
 import com.example.bangu.login.data.model.LoginRequest
 import com.example.bangu.login.data.model.LoginResponse
+import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -14,5 +15,5 @@ interface LoginAPI {
     @POST("/session/login") //로그인
     fun getLoginToken(
         @Body loginRequest: LoginRequest
-    ): Call<LoginResponse>
+    ): Observable<LoginResponse>
 }

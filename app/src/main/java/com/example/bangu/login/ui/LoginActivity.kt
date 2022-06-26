@@ -12,11 +12,13 @@ import com.example.bangu.databinding.ActivityLoginBinding
 import com.example.bangu.login.data.LgRepository
 import com.example.bangu.main.ui.MainActivity
 import com.example.bangu.signup.ui.SignupActivity
+import io.reactivex.disposables.CompositeDisposable
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var email:String
     private lateinit var password:String
+    internal val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
@@ -34,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
             loginStartbtn.setOnClickListener{
                 email = loginUserId.text.toString()
                 password = loginPw.text.toString()
-                viewmodel.getLoginToken(email,password)
+                viewmodel.getLoginToken(email,password,disposables)
             }
 
             //kako 로그인 버튼 눌렀을 때
@@ -71,5 +73,11 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    override fun onStop() {
+        super.onStop()
+        //관리하고 있던 디스포저블 객체를 모두 해제
+        disposables.clear()
     }
 }

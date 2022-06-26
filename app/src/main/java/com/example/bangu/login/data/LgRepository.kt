@@ -12,10 +12,6 @@ object LgRepository {
         Log.d("LgRepository","LgDataService.getKakaoAuthCode")
         lgDr.getKakaoToken(callback)
     }
-    fun getLoginToken(loginRequest:LoginRequest,callback:GetDataCallback<LoginResponse>){
-        Log.d("LgRepository","LgDataService.getLoginToken")
-        lgDr.getLoginToken(loginRequest,callback)
-    }
     //로그인 요청에 대한 응답인터페이스
     interface GetDataCallback<T>{
         fun onSuccess(data:T?)

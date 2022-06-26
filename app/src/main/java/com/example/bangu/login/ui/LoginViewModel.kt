@@ -10,8 +10,12 @@ import com.example.bangu.login.data.model.AccessToken
 import com.example.bangu.login.data.model.LoginRequest
 import com.example.bangu.login.data.model.LoginResponse
 import com.example.bangu.Event
+import com.example.bangu.login.data.LgDataResource
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 
 class LoginViewModel: ViewModel() {
+    private val loginService = LgDataResource.loginApi //레트로빗 객체
     private val repo = LgRepository
     private var _getTokenOk = MutableLiveData<Event<String>>()
     val getTokenOk: LiveData<Event<String>> = _getTokenOk
@@ -28,33 +32,31 @@ class LoginViewModel: ViewModel() {
             }
         })
     }
-    fun getLoginToken(email:String, password:String){
+    fun getLoginToken(email:String, password:String,disposables:CompositeDisposable){
         val loginRequest = LoginRequest(
             userId = email,
             password = password
         )
         Log.d("loginRequest 객체 값 확인: ","email: "+loginRequest.userId + " password: "+loginRequest.password)
-        repo.getLoginToken(loginRequest, object : LgRepository.GetDataCallback<LoginResponse>{
-            override fun onSuccess(data: LoginResponse?) {
-                if(data != null){
+        disposables.add(
+            loginService.getLoginToken(loginRequest)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
                     //저장소를 활용해 AccessToken으로 앱 기능이용 예정
                     App.token_prefs.apply {
-                        accessToken = data.accessToken
-                        accessTokenExpireDate = data.accessTokenExpireDate
-                        grantType = data.grantType
-                        refreshToken = data.refreshToken
+                        accessToken = it.accessToken
+                        accessTokenExpireDate = it.accessTokenExpireDate
+                        grantType = it.grantType
+                        refreshToken = it.refreshToken
                     }
-                    Log.d("LoginViewModel","onSuccess")
                     //LiveData로 액티비티에 성공신호 제공
                     _getTokenOk.postValue(Event("getTokenOk"))
+                }) {
+                    //에러 블록
+                    Log.d("LoginViewModel.getLoginToken","onFailure: "+it.localizedMessage)
+                    //로그인 실패 - 빨간색 로그인박스로 바꾸기
+                    _getTokenOk.value = Event("getTokenFail")
                 }
-            }
-            override fun onFailure(throwable: Throwable) {
-                val string = throwable.toString()
-                Log.d("LoginViewModel","onFailure: "+string)
-                //로그인 실패 - 빨간색 로그인박스로 바꾸기
-                _getTokenOk.value = Event("getTokenFail")
-            }
-        })
+        )
     }
 }

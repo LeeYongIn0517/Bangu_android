@@ -1,25 +1,36 @@
 package com.example.bangu.login.data
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.example.bangu.App
+import com.example.bangu.Event
 import com.example.bangu.login.data.model.AccessToken
 import com.example.bangu.login.data.model.LoginRequest
 import com.example.bangu.login.data.model.LoginResponse
-import com.example.bangu.signup.data.SgDataResource
-import com.example.bangu.signup.data.SignupAPI
-import com.example.bangu.signup.data.model.SignupResponse
-import io.reactivex.rxjava3.core.Single
+import com.example.bangu.login.ui.LoginActivity
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers.io
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 object LgDataResource {
-    var retrofit = Retrofit.Builder()
+    var loginApi = Retrofit.Builder()
         .baseUrl("https://bangu.shop:443") //도메인 주소
+        //받은 응답을 옵서버블 형태로 변환
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-    private val loginApi = retrofit.create(LoginAPI::class.java)
+        .create(LoginAPI::class.java)
+    private var _login_success = MutableLiveData<Event<String>>()
+    val login_success:LiveData<Event<String>> = _login_success
     /**/
     fun getKakaoToken(callback:LgRepository.GetDataCallback<AccessToken>){
         loginApi.getKakaoToken().enqueue(object :Callback<AccessToken>{
@@ -32,31 +43,6 @@ object LgDataResource {
             override fun onFailure(call: Call<AccessToken>, t: Throwable) {
                 callback.onFailure(t)
                 Log.d("LgDataResource","getKakaoToken.onFailure")
-            }
-        })
-    }
-    /*로그인 요청*/
-    fun getLoginToken(loginRequest:LoginRequest,callback:LgRepository.GetDataCallback<LoginResponse>){
-        loginApi.getLoginToken(loginRequest).enqueue(object :Callback<LoginResponse>{
-            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                if(response.isSuccessful){
-                    Log.d("LgDataResource","getLoginToken.onResponse")
-                    callback.onSuccess(response.body())
-                }else{
-                    val data = response.headers()
-                    val data2 = response.body()
-                    val data3 = response.message()
-                    val data4 = response.code()
-                    Log.d("LgDataResource","signupApi.getLoginToken.onResponse.callback-UnSuccessful")
-                    Log.d("LgDataResource.header",data.toString())
-                    Log.d("LgDataResource.body",data2.toString())
-                    Log.d("LgDataResource.message",data3.toString())
-                    Log.d("LgDataResource.code",data4.toString())
-                }
-            }
-            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Log.d("LgDataResource","getLoginToken.onFailure")
-                callback.onFailure(t)
             }
         })
     }
