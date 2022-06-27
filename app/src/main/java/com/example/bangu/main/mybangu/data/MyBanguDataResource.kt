@@ -5,16 +5,16 @@ import com.example.bangu.main.data.MainAPI
 import com.example.bangu.main.data.model.RequestReviewList
 import com.example.bangu.main.mybangu.data.model.MovieSearchResponse
 import com.example.bangu.main.mybangu.data.model.RegisterReview
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 object MyBanguDataResource {
     private val retrofit = Retrofit.Builder()
         .baseUrl("https://bangu.shop:443")
-        .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     private val MainApi = retrofit.create(MainAPI::class.java) //리뷰 요청은 뷰페이저 4p 중 3p가 동일하게 사용하는 api이므로 MainAPI를 사용함

@@ -1,7 +1,7 @@
 package com.example.bangu.signup_fin.data
 
 import com.example.bangu.signup_fin.data.model.SgFinMovieList
-import io.reactivex.rxjava3.core.Single
+import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -11,5 +11,5 @@ interface SgFinAPI {
         @Query("page") page: Int,
         @Query("size") size:Int,
         @Query("sort") sort:Array<String>? = null
-    ):Single<SgFinMovieList>
+    ): Single<SgFinMovieList>
 }

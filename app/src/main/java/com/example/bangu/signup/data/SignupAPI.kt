@@ -2,7 +2,7 @@ package com.example.bangu.signup.data
 
 import com.example.bangu.signup.data.model.SignupRequest
 import com.example.bangu.signup.data.model.SignupResponse
-import io.reactivex.rxjava3.core.Single
+import io.reactivex.Single
 import retrofit2.Call
 import retrofit2.http.*
 

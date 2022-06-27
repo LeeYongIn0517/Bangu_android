@@ -1,6 +1,6 @@
 package com.example.bangu.main.home.data
 
-import io.reactivex.rxjava3.core.Single
+import io.reactivex.Single
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -10,7 +10,7 @@ interface HomeAPI {
     fun adjustBookmark(
         @Header("X-AUTH-TOKEN") accessToken:String,
         @Path("reviewId") reviewId:Int,
-    ):Single<Boolean>
+    ): Single<Boolean>
 
     @DELETE("/follow/{toUserId}") //유저 idx를 받아 해당 유저를 언팔로우합니다
     fun requestToUnFollow(
