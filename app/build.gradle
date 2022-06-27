@@ -23,11 +23,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "11"
     }
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
@@ -36,9 +36,18 @@ android {
         viewBinding true
         dataBinding true
     }
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
 }
 apply plugin: 'kotlin-kapt'
 dependencies {
+    //mock
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.10.0'
+    //kotest
+    testImplementation 'io.kotest:kotest-runner-junit5:4.3.2'
     //conscrypt
     implementation 'org.conscrypt:conscrypt-android:2.5.2'
     //Glide
