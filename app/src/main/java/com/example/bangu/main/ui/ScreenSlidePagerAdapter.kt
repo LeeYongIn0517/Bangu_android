@@ -12,7 +12,7 @@ private const val NUM_PAGES = 4
 
 class ScreenSlidePagerAdapter(fa: FragmentActivity): FragmentStateAdapter(fa){
     val fragmentList = mutableListOf(HomeFragment(),
-        MyBanguRootFragment(),FeedFragment(),ProfileFragment())
+        MyBanguRootFragment(), FeedFragment(),ProfileFragment())
     override fun createFragment(position: Int): Fragment {
         return fragmentList[position]
     }
