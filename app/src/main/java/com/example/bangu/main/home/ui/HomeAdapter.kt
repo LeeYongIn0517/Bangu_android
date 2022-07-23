@@ -79,7 +79,7 @@ class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                     "drama" -> "드라마"
                     else -> "기타 미디어"
                 }
-                reviewStarscore.rating = content.score
+                //reviewStarscore.rating = content.score
                 reviewCore.text = content.dialogue
                 //reviewBookmark.isSelected = content. //북마크 여부 추가예정
                 followingBtn.isSelected = content.followState
