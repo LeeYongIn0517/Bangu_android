@@ -1,55 +1,68 @@
 package com.example.bangu.main.feed.ui
 
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.bangu.R
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.bangu.databinding.FragmentFeedBinding
+import com.example.bangu.main.feed.ui.FeedAdapter
+import com.example.bangu.main.feed.ui.FeedViewModel
+import io.reactivex.disposables.CompositeDisposable
 
 class FeedFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentFeedBinding
+    private var page = 0
+    private val ITEMS_SIZE = 20
+    private val TYPE_REVIEW = "following"
+    private val disposables =  CompositeDisposable() //같은 모듈 안에서만 볼 수 있음
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_feed, container, false)
+        binding = FragmentFeedBinding.inflate(inflater,container,false)
+        val view = binding.root
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FeedRvFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FeedFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val viewmodel = FeedViewModel()
+        val adapter = FeedAdapter()
+
+        /*어댑터 등록*/
+        binding.feedRcycleview
+            .adapter = adapter
+        //서버에 데이터 초기요청 1번
+        if(page == 0){
+            viewmodel.requestReviewList(page,ITEMS_SIZE,TYPE_REVIEW,disposables)
+        }
+        //스크롤 리스너
+        binding.feedRcycleview.addOnScrollListener(object: RecyclerView.OnScrollListener(){
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                val lastVisibleItemPosition = (recyclerView.layoutManager as LinearLayoutManager)!!.findLastCompletelyVisibleItemPosition()
+                val itemTotalCount = recyclerView.adapter!!.itemCount - 1
+
+                //스크롤이 끝에 도달했는지 확인
+                if(!binding.feedRcycleview.canScrollVertically(1) && lastVisibleItemPosition == itemTotalCount){
+                    adapter.deleteLoading()
+                    viewmodel.requestReviewList(++page, ITEMS_SIZE,TYPE_REVIEW,disposables)
                 }
             }
+        })
+    }
+
+    override fun onStop() {
+        super.onStop()
+        //관리하고 있던 디스포저블 객체를 모두 해제
+        disposables.clear()
     }
 }

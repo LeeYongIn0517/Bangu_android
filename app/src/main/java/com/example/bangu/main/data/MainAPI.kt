@@ -1,6 +1,7 @@
 package com.example.bangu.main.data
 
 import com.example.bangu.main.data.model.RequestReviewList
+import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -13,5 +14,5 @@ interface MainAPI {
         @Query("page") page:Int,
         @Query("size") size:Int,
         @Query("type") type:String,
-    ): Single<RequestReviewList>
+    ): Observable<RequestReviewList>
 }
