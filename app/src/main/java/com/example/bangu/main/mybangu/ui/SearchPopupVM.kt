@@ -8,7 +8,7 @@ import com.example.bangu.main.data.model.MovieResponseData
 import com.example.bangu.main.mybangu.data.MyBanguRepository
 import com.example.bangu.main.mybangu.data.model.MovieSearchResponse
 
-class SearchPuVM : ViewModel() {
+class SearchPopupVM : ViewModel() {
     private val repo = MyBanguRepository
     private var _movieList = MutableLiveData<List<MovieResponseData>>() //리사이클 뷰에 넣을 원소 == 영화 1개의 데이터
     val movieList:LiveData<List<MovieResponseData>> = _movieList

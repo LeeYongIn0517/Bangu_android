@@ -25,7 +25,12 @@ class ReviewFragment : Fragment() {
     private var score:Float = 0.0f //초기화
     private lateinit var title:String
     private lateinit var movieData:MovieResponseData //리뷰 등록시 필요한 데이터클래스
-    private lateinit var reviewOtt:ReviewOtt //리뷰 등록시 필요한 데이터클래스
+    var reviewOtt=ReviewOtt(
+        netflix = false,
+        tving = false,
+        watcha = false,
+        wavve = false,
+    )//리뷰 등록시 필요한 ott 인스턴스 초기화
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -46,7 +51,7 @@ class ReviewFragment : Fragment() {
 
         /*영화작품 검색팝업 띄우기*/
         binding.mybanguPlus.setOnClickListener {
-            childFragmentManager.beginTransaction(). replace(R.id.search_popup_frame, SearchPuFragment()).commit()
+            childFragmentManager.beginTransaction(). replace(R.id.search_popup_frame, SearchPopupFragment()).commit()
         }
         /*mybangu 디폴트 페이지로 돌아가기*/
         binding.backCursor.setOnClickListener {
@@ -54,11 +59,11 @@ class ReviewFragment : Fragment() {
         }
         /*리뷰 등록 버튼 눌렀을 때*/
         binding.btnRegister.setOnClickListener {
-            title = binding.resultMovietitle.toString()
-            attention = binding.mybanguAttention.toString()
-            content = binding.mybanguContent.toString()
-            dialogue = binding.mybanguDialog.toString()
-            if(binding.mybanguCheck.isChecked){
+            title = binding.resultMovietitle.toString() //제목
+            attention = binding.mybanguAttention.toString() //감상포인트
+            content = binding.mybanguContent.toString() //리뷰내용
+            dialogue = binding.mybanguDialog.toString() //명대사
+            if(binding.mybanguCheck.isChecked){ //비공개 여부 체크
                 revealed = true
             } else revealed = false
             score = binding.reviewStarscore.rating
@@ -67,12 +72,12 @@ class ReviewFragment : Fragment() {
                 //다이얼로그 보여주기
                 WarningDialog().show(it.context)
             }else{
-                //선택받았던 영화작품의 데이터 수신하기
-                childFragmentManager.setFragmentResultListener("requestKey_whole",viewLifecycleOwner,
-                FragmentResultListener { key, bundle ->
-                    movieData = bundle.get("movieData") as MovieResponseData
-                })
-                viewmodel.registerMyReview(attention,content,dialogue,revealed,score,movieData,reviewOtt)
+//                //선택받았던 영화작품의 데이터 수신하기
+//                childFragmentManager.setFragmentResultListener("requestKey_whole",viewLifecycleOwner,
+//                FragmentResultListener { key, bundle ->
+//                    movieData = bundle.get("movieData") as MovieResponseData
+//                })
+//                viewmodel.registerMyReview(attention,content,dialogue,revealed,score,movieData,reviewOtt)
             }
         }
     }
@@ -98,12 +103,9 @@ class ReviewFragment : Fragment() {
                     reviewWatcha.visibility = View.GONE
                     reviewWavve.visibility = View.GONE
                 }
-                reviewOtt.apply {  //ReviewOtt 인스턴스 초기화
-                    netflix = false
-                    tving = false
-                    watcha = false
-                    wavve = false
-                }
+                //ReviewOtt 인스턴스 초기화
+
+
                 for(i in 0 until ottSize!!){
                     when(ottList.get(i).ottName){
                         "NETFLIX" ->{

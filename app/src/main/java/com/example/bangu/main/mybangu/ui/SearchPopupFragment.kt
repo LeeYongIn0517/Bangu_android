@@ -9,13 +9,12 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.databinding.FragmentSearchpopupBinding
 import com.example.bangu.main.data.model.MovieOtts
 import com.example.bangu.main.data.model.MovieResponseData
 import com.example.bangu.main.mybangu.ui.myInterface.Communicator
 
-class SearchPuFragment:Fragment() {
+class SearchPopupFragment:Fragment() {
     private lateinit var binding:FragmentSearchpopupBinding
     private var page = 0
     private val ITEMS_SIZE = 20 //다양한 검색결과를 고려해서 최대 사이즈로 지정
@@ -37,20 +36,20 @@ class SearchPuFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewmodel = SearchPuVM()
-        val SpRvadapter = SearchPuAdapter(object:Communicator{
+        val viewmodel = SearchPopupVM()
+        val SpRvadapter = SearchPopupAdapter(object:Communicator{
             override fun passData(title: String, imageUrl: String, ott:List<MovieOtts>) {
                 val bundle_title = title
                 val bundle_imageUrl = imageUrl
                 val bundle_ott = ott
                 parentFragmentManager.setFragmentResult("requestKey", bundleOf("title" to bundle_title,"imageUrl" to bundle_imageUrl, "ott" to bundle_ott))
-                parentFragmentManager.beginTransaction().remove(this@SearchPuFragment).commit()//현재 프레그먼트 닫기
+                parentFragmentManager.beginTransaction().remove(this@SearchPopupFragment).commit()//현재 프레그먼트 닫기
             }
 
-            override fun passWholeData(movieData: MovieResponseData) {
-                val bundle_movieData = movieData
-                parentFragmentManager.setFragmentResult("requestKey_whole",bundleOf("movieData" to bundle_movieData))
-            }
+//            override fun passWholeData(movieData: MovieResponseData) {
+//                val bundle_movieData = movieData
+//                parentFragmentManager.setFragmentResult("requestKey_whole",bundleOf("movieData" to bundle_movieData))
+//            }
         })
 
         /*영화 검색결과 리사이클뷰 초기화*/
