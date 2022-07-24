@@ -96,6 +96,7 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/review_movieimage"
+            android:theme="@style/Theme.AppCompat"
             android:layout_width="100dp"
             android:layout_height="127dp"
             android:layout_marginEnd="10dp"

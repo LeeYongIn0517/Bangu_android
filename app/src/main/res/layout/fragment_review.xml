@@ -58,6 +58,7 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/mybangu_image"
+                    android:theme="@style/Theme.AppCompat"
                     android:layout_width="127dp"
                     android:layout_height="161dp"
                     app:layout_constraintBottom_toBottomOf="@id/mybangu_form"
@@ -234,6 +235,17 @@
                     app:layout_constraintTop_toBottomOf="@+id/attention_bar"
                     app:layout_constraintVertical_bias="0.09" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textAppearance="@style/signup_dot"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView3"
+                    app:layout_constraintEnd_toEndOf="@+id/mybangu_dialog"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/textView3"
+                    app:layout_constraintTop_toTopOf="@+id/textView3" />
+
                 <EditText
                     android:id="@+id/mybangu_dialog"
                     android:layout_width="wrap_content"
@@ -278,6 +290,27 @@
                     app:layout_constraintStart_toStartOf="@+id/textView3"
                     app:layout_constraintTop_toBottomOf="@+id/dialog_bar"
                     app:layout_constraintVertical_bias="0.12" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textAppearance="@style/signup_dot"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                    app:layout_constraintEnd_toEndOf="@+id/mybangu_content"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/textView4"
+                    app:layout_constraintTop_toTopOf="@+id/textView4" />" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textAppearance="@style/signup_dot"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView"
+                    app:layout_constraintEnd_toEndOf="@+id/mybangu_attention"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="@+id/textView" />
 
                 <ImageView
                     android:id="@+id/content_bar"

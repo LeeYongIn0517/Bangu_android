@@ -25,6 +25,7 @@
             android:id="@+id/result_image"
             android:layout_width="84dp"
             android:layout_height="104dp"
+            android:theme="@style/Theme.AppCompat"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.015"
