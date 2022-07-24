@@ -18,10 +18,7 @@ class MainActivity : FragmentActivity() {
     private lateinit var binding:ActivityMainBinding
     private lateinit var viewPager: ViewPager2
     private lateinit var tablayout: TabLayout
-    private lateinit var tabIcon0:View
-    private lateinit var tabIcon1:View
-    private lateinit var tabIcon2:View
-    private lateinit var tabIcon3:View
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -32,7 +29,6 @@ class MainActivity : FragmentActivity() {
         viewPager = binding.viewPager
         val sspAdapter = ScreenSlidePagerAdapter(this)
         viewPager.adapter = sspAdapter
-        val tabIcons = arrayListOf<Any>(4,{})
 
         TabLayoutMediator(tablayout,viewPager, TabLayoutMediator.TabConfigurationStrategy{tab: TabLayout.Tab, position: Int ->
             when(position){
