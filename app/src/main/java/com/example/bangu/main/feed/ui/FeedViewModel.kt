@@ -18,7 +18,7 @@ class FeedViewModel: ViewModel() {
     private val ITEMS_SIZE = 20
 
     private val repo = FeedRepository
-    val adapter = FeedAdapter()
+    //val adapter = FeedAdapter()
 
     private val feedService = FeedDataResource.MainApi //레트로빗 객체
     private var _reviewList = MutableLiveData<List<Content>>()
@@ -55,10 +55,10 @@ class FeedViewModel: ViewModel() {
                     //옵서버블 구독
                     .subscribe({ item->
                         //검색결과 정상적으로 받았으 ㄹ때
-                        with(adapter){
-                            adapter.setList(item as MutableList<Content>)
-                            adapter.notifyItemRangeInserted(page*ITEMS_SIZE,ITEMS_SIZE)
-                        }
+//                        with(adapter){
+//                            adapter.setList(item as MutableList<Content>)
+//                            adapter.notifyItemRangeInserted(page*ITEMS_SIZE,ITEMS_SIZE)
+//                        }
                     }){
                         //에러 블록
                         //네트워크 오류나 데이터 처리 오류 등
