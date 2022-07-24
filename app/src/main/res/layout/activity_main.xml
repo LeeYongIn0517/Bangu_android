@@ -33,6 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_btmbar_height"
         android:background="@drawable/main_btmbar"
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -41,6 +42,7 @@
         app:layout_constraintVertical_bias="1.0"
         app:tabIconTint="@color/white"
         app:tabIndicatorColor="@color/main_tab_back"
-        app:tabTextColor="@color/white" />
+        app:tabTextColor="@color/white"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
