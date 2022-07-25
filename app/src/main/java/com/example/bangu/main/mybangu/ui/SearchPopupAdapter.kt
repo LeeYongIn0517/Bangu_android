@@ -59,7 +59,7 @@ class SearchPopupAdapter(private val listener:Communicator):RecyclerView.Adapter
                 val title = binding.resultTitle.text.toString()
                 val imageUrl = movieData.imageUrl
                 listener.passData(title,imageUrl, movieData.movieOtts!!) //인터페이스로 데이터 전달
-                //listener.passWholeData(movieData) //인터페이스로 리뷰등록에 필요한 영화 전체 데이터 전달
+                listener.passWholeData(movieData) //인터페이스로 리뷰등록에 필요한 영화 전체 데이터 전달
             }
         }
     }

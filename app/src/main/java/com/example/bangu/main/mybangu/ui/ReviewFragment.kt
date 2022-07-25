@@ -31,6 +31,8 @@ class ReviewFragment : Fragment() {
         watcha = false,
         wavve = false,
     )//리뷰 등록시 필요한 ott 인스턴스 초기화
+    val viewmodel = ReviewViewModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -47,8 +49,6 @@ class ReviewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val viewmodel = ReviewViewModel()
-
         /*영화작품 검색팝업 띄우기*/
         binding.mybanguPlus.setOnClickListener {
             childFragmentManager.beginTransaction(). replace(R.id.search_popup_frame, SearchPopupFragment()).commit()
@@ -57,6 +57,10 @@ class ReviewFragment : Fragment() {
         binding.backCursor.setOnClickListener {
             parentFragmentManager.beginTransaction(). replace(R.id.search_popup_frame, MyBanguFragment()).commit()
         }
+    }
+    /*SearchPuFragment에서 넘어온 값을 수신받을 수 있는 시점*/
+    override fun onResume() {
+        super.onResume()
         /*리뷰 등록 버튼 눌렀을 때*/
         binding.btnRegister.setOnClickListener {
             title = binding.resultMovietitle.toString() //제목
@@ -72,20 +76,15 @@ class ReviewFragment : Fragment() {
                 //다이얼로그 보여주기
                 WarningDialog().show(it.context)
             }else{
-//                //선택받았던 영화작품의 데이터 수신하기
-//                childFragmentManager.setFragmentResultListener("requestKey_whole",viewLifecycleOwner,
-//                FragmentResultListener { key, bundle ->
-//                    movieData = bundle.get("movieData") as MovieResponseData
-//                })
-//                viewmodel.registerMyReview(attention,content,dialogue,revealed,score,movieData,reviewOtt)
+                //선택받았던 영화작품의 데이터 수신받기
+                childFragmentManager.setFragmentResultListener("requestKey_whole",viewLifecycleOwner,
+                    FragmentResultListener { key, bundle ->
+                        movieData = bundle.get("movieData") as MovieResponseData
+                    })
+                viewmodel.registerMyReview(attention,content,dialogue,revealed,score,movieData,reviewOtt)
             }
         }
-    }
-    /*SearchPuFragment에서 넘어온 값을 수신받을 시점*/
-    override fun onResume() {
-        super.onResume()
-        Log.d("ReviewFragment","onResume called")
-
+        /*작품 선택 후 리뷰양식페이지로 돌아왔을 때, 선택한 작품의 데이터를 바인딩한다*/
         childFragmentManager.setFragmentResultListener("requestKey",viewLifecycleOwner,
             FragmentResultListener{ key,bundle->
                 val ottList:List<MovieOtts> = bundle.get("ott") as List<MovieOtts>
@@ -104,8 +103,6 @@ class ReviewFragment : Fragment() {
                     reviewWavve.visibility = View.GONE
                 }
                 //ReviewOtt 인스턴스 초기화
-
-
                 for(i in 0 until ottSize!!){
                     when(ottList.get(i).ottName){
                         "NETFLIX" ->{
