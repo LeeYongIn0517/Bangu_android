@@ -61,7 +61,6 @@ class SearchPopupAdapter(private val listener:Communicator):RecyclerView.Adapter
             }
         }
     }
-    //inner class LoadingViewHolder(private val binding: ReviewItemLoadingBinding):RecyclerView.ViewHolder(binding.root){ }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)

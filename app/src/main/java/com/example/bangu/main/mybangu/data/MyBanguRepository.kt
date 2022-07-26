@@ -4,6 +4,9 @@ import android.util.Log
 import com.example.bangu.main.data.model.RequestReviewList
 import com.example.bangu.main.mybangu.data.model.MovieSearchResponse
 import com.example.bangu.main.mybangu.data.model.RegisterReview
+import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 
 object MyBanguRepository {
     private val MyBanguDr = MyBanguDataResource
@@ -14,10 +17,6 @@ object MyBanguRepository {
         MyBanguDr.requestMyReviews(accessToken,page,size,type,callback)
     }
     /***************************main-mybangu 리뷰 작성 페이지****************************/
-    fun registerMyReview(accessToken: String, registerReview:RegisterReview){
-        Log.d("MyBanguRepository","registerMyReviews")
-        MyBanguDr.registerMyReview(accessToken,registerReview)
-    }
     /***************************main-mybangu 영화작품 검색 페이지****************************/
     /*리뷰에 쓸 영화 작품 불러오기*/
     fun requestMovie(name: String, page: Int, size: Int,callback: GetDataCallback<MovieSearchResponse>){
