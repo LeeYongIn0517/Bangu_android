@@ -39,10 +39,7 @@ class SearchPopupFragment:Fragment() {
         val viewmodel = SearchPopupVM()
         val SpRvadapter = SearchPopupAdapter(object:Communicator{
             override fun passData(title: String, imageUrl: String, ott:List<MovieOtts>) {
-                val bundle_title = title
-                val bundle_imageUrl = imageUrl
-                val bundle_ott = ott
-                parentFragmentManager.setFragmentResult("requestKey", bundleOf("title" to bundle_title,"imageUrl" to bundle_imageUrl, "ott" to bundle_ott))
+                parentFragmentManager.setFragmentResult("requestKey", bundleOf("title" to title,"imageUrl" to imageUrl, "ott" to ott))
                 parentFragmentManager.beginTransaction().remove(this@SearchPopupFragment).commit()//현재 프레그먼트 닫기
             }
 
@@ -74,21 +71,6 @@ class SearchPopupFragment:Fragment() {
             SpRvadapter.setList(it as MutableList<MovieResponseData>)
             SpRvadapter.notifyItemRangeInserted(page*ITEMS_SIZE,ITEMS_SIZE)
         })
-        /*스크롤 리스너*//*
-        binding.searchResultRv.addOnScrollListener(object: RecyclerView.OnScrollListener(){
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-
-                val lastVisibleItemPosition = (recyclerView.layoutManager as LinearLayoutManager)!!.findLastCompletelyVisibleItemPosition()
-                val itemTotalCount = recyclerView.adapter!!.itemCount - 1
-
-                //스크롤이 끝에 도달했는지 확인
-                if(!binding.searchResultRv.canScrollVertically(1) && lastVisibleItemPosition == itemTotalCount){
-                    SpRvadapter.deleteLoading()
-                    viewmodel.requestMovie(name_recent, ++page, ITEMS_SIZE)
-                }
-            }
-        })*/
         /*x버튼으로 팝업 닫기*/
         binding.mybanguSearchOut.setOnClickListener {
             parentFragmentManager.beginTransaction().remove(this).commit()

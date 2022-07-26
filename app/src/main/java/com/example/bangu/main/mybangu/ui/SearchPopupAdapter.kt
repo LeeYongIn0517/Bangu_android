@@ -15,8 +15,6 @@ import java.lang.StringBuilder
 class SearchPopupAdapter(private val listener:Communicator):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val items = ArrayList<MovieResponseData>()
     companion object{
-        private const val TYPE_MOVIE = 0
-        private const val TYPE_LOADING = 1
     }
     /*아이템이 영화인 경우*/
     inner class ResultViewHolder(private val binding:ReviewMovieItemBinding):RecyclerView.ViewHolder(binding.root){
@@ -69,17 +67,6 @@ class SearchPopupAdapter(private val listener:Communicator):RecyclerView.Adapter
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ReviewMovieItemBinding.inflate(layoutInflater,parent,false)
         return ResultViewHolder(binding)
-        /*when(viewType){
-            TYPE_MOVIE -> {
-                val binding = ReviewMovieItemBinding.inflate(layoutInflater,parent,false)
-                return ResultViewHolder(binding)
-            }
-            else -> {
-                val binding = ReviewItemLoadingBinding.inflate(layoutInflater,parent,false)
-
-                return LoadingViewHolder(binding)
-            }
-        }*/
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -90,20 +77,8 @@ class SearchPopupAdapter(private val listener:Communicator):RecyclerView.Adapter
     override fun getItemCount(): Int {
         return items.size
     }
-    /*//뷰의 타입을 정하는 함수
-    override fun getItemViewType(position: Int): Int {
-        return when(items[position].imageUrl){
-            " " -> TYPE_LOADING //setList에서 설정한 로딩뷰의 imageUrl값인 경우
-            else -> TYPE_MOVIE
-        }
-    }
-    //로딩이 완료되면 프로그레스바 지우기
-    fun deleteLoading(){
-        items.removeAt(items.lastIndex)
-    }*/
     fun setList(content:MutableList<MovieResponseData>){
         items.addAll(content) //서버에서 받아온 영화작품 데이터 리스트 삽입
-        //items.add(MovieResponseData(" ",null," "," "," "," ")) //마지막에 빈 아이템 추가(로딩 뷰)
     }
     /*아이템의 영화제목 길이에 따라 엔터를 삽입하는 함수*/
     fun setEnter(title:String,ottSize:Int):String{
