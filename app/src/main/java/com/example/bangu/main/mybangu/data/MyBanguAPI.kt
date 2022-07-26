@@ -17,5 +17,5 @@ interface MyBanguAPI {
     fun registerMyReview(
         @Header("X-AUTH-TOKEN") accessToken:String,
         @Body review: RegisterReview
-    )
+    ):Single<RegisterReview>
 }

@@ -17,8 +17,8 @@ object MyBanguDataResource {
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-    private val MainApi = retrofit.create(MainAPI::class.java) //리뷰 요청은 뷰페이저 4p 중 3p가 동일하게 사용하는 api이므로 MainAPI를 사용함
-    private val MyBanguApi = retrofit.create(MyBanguAPI::class.java) //나머지 요청은 mybangu 전용api 사용함
+    internal val MainApi = retrofit.create(MainAPI::class.java) //리뷰 요청은 뷰페이저 4p 중 3p가 동일하게 사용하는 api이므로 MainAPI를 사용함
+    internal val MyBanguApi = retrofit.create(MyBanguAPI::class.java) //나머지 요청은 mybangu 전용api 사용함
     /**************************main-mybangu 내가 쓴 리뷰 페이지***************************/
     /*main-mybangu 페이지의 내가 쓴 리뷰 불러오기*/
     fun requestMyReviews(accessToken:String, page:Int, size:Int, type:String,
@@ -35,10 +35,7 @@ object MyBanguDataResource {
             })
     }
     /***************************main-mybangu 리뷰 작성 페이지****************************/
-    fun registerMyReview(accessToken: String, registerReview: RegisterReview){
-        Log.d("MyBanguDataResource","registerMyReviews")
-        MyBanguApi.registerMyReview(accessToken, registerReview)
-    }
+
     /***************************main-mybangu 영화작품 검색 페이지****************************/
     /*리뷰에 쓸 영화 작품 불러오기*/
     fun requestMovie(name:String,page:Int,size:Int,callback: MyBanguRepository.GetDataCallback<MovieSearchResponse>){

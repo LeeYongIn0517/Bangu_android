@@ -1,12 +1,10 @@
 package com.example.bangu.main.mybangu.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentResultListener
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
@@ -76,12 +74,12 @@ class ReviewFragment : Fragment() {
                 //다이얼로그 보여주기
                 WarningDialog().show(it.context)
             }else{
-                //선택받았던 영화작품의 데이터 수신받기
-                childFragmentManager.setFragmentResultListener("requestKey_whole",viewLifecycleOwner,
-                    FragmentResultListener { key, bundle ->
-                        movieData = bundle.get("movieData") as MovieResponseData
-                    })
-                viewmodel.registerMyReview(attention,content,dialogue,revealed,score,movieData,reviewOtt)
+            //선택받았던 영화작품의 데이터 수신받기
+            childFragmentManager.setFragmentResultListener("requestKey_whole",viewLifecycleOwner,
+                FragmentResultListener { key, bundle ->
+                    movieData = bundle.get("movieData") as MovieResponseData
+                })
+            viewmodel.registerMyReview(attention,content,dialogue,revealed,score,movieData)
             }
         }
         /*작품 선택 후 리뷰양식페이지로 돌아왔을 때, 선택한 작품의 데이터를 바인딩한다*/

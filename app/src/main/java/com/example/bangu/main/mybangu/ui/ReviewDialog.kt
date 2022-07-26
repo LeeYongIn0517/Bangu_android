@@ -6,13 +6,16 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import com.example.bangu.databinding.DialogEssentialBinding
+import com.example.bangu.databinding.DialogReviewBinding
 
-class WarningDialog {
-    lateinit var binding:DialogEssentialBinding//회원가입,리뷰 양식의 경고창
-    fun show(context: Context){
+class ReviewDialog {
+    lateinit var binding: DialogReviewBinding//리뷰 저장,수정
+    fun show(context: Context, message:String){
         val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val binding = DialogEssentialBinding.inflate(inflater)
+        val binding = DialogReviewBinding.inflate(inflater)
         val build = AlertDialog.Builder(context).setView(binding.root)
+
+        binding.message.text = message //종류별 메세지 바인딩
 
         val dialog = build.create()
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
