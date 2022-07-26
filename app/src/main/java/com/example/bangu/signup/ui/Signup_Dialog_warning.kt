@@ -17,7 +17,7 @@ class Signup_Dialog_warning(context: Context) {
         val btn = dialog.findViewById<ImageButton>(R.id.dialog_button)
         dialog.apply {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
-            setContentView(R.layout.dialog_signup_warn)
+            setContentView(R.layout.dialog_essential)
         }
         btn.setOnClickListener{
             dialog.dismiss()
