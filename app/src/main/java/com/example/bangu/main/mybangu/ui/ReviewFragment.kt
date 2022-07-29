@@ -61,10 +61,10 @@ class ReviewFragment : Fragment() {
         super.onResume()
         /*리뷰 등록 버튼 눌렀을 때*/
         binding.btnRegister.setOnClickListener {
-            title = binding.resultMovietitle.toString() //제목
-            attention = binding.mybanguAttention.toString() //감상포인트
-            content = binding.mybanguContent.toString() //리뷰내용
-            dialogue = binding.mybanguDialog.toString() //명대사
+            title = binding.resultMovietitle.text.toString() //제목
+            attention = binding.mybanguAttention.text.toString() //감상포인트
+            content = binding.mybanguContent.text.toString() //리뷰내용
+            dialogue = binding.mybanguDialog.text.toString() //명대사
             if(binding.mybanguCheck.isChecked){ //비공개 여부 체크
                 revealed = true
             } else revealed = false
