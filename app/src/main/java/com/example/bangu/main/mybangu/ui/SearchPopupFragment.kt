@@ -75,21 +75,6 @@ class SearchPopupFragment:Fragment() {
             SpRvadapter.setList(it as MutableList<MovieResponseData>)
             SpRvadapter.notifyItemRangeInserted(page*ITEMS_SIZE,ITEMS_SIZE)
         })
-        /*스크롤 리스너*//*
-        binding.searchResultRv.addOnScrollListener(object: RecyclerView.OnScrollListener(){
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-
-                val lastVisibleItemPosition = (recyclerView.layoutManager as LinearLayoutManager)!!.findLastCompletelyVisibleItemPosition()
-                val itemTotalCount = recyclerView.adapter!!.itemCount - 1
-
-                //스크롤이 끝에 도달했는지 확인
-                if(!binding.searchResultRv.canScrollVertically(1) && lastVisibleItemPosition == itemTotalCount){
-                    SpRvadapter.deleteLoading()
-                    viewmodel.requestMovie(name_recent, ++page, ITEMS_SIZE)
-                }
-            }
-        })*/
         /*x버튼으로 팝업 닫기*/
         binding.mybanguSearchOut.setOnClickListener {
             parentFragmentManager.beginTransaction().remove(this).commit()

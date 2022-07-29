@@ -139,6 +139,7 @@
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/drawable/mybangu_write_image.xml" value="0.264" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/drawable/mybangu_write_item.xml" value="0.337" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/drawable/review_bookmark_states.xml" value="0.2845" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/drawable/review_dialog.xml" value="0.18" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/drawable/review_follow.xml" value="0.291" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/drawable/review_followbtn_states.xml" value="0.12" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/drawable/review_following.xml" value="0.291" />
@@ -167,6 +168,7 @@
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/layout/activity_signup.xml" value="0.264" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/layout/activity_signup_fin.xml" value="0.4" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/layout/content_item.xml" value="0.4" />
+        <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/layout/dialog_review.xml" value="0.4" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/layout/dialog_review_warn.xml" value="0.1718683197947841" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/layout/dialog_signup_warn.xml" value="0.264" />
         <entry key="..\:/Users/0517l/AndroidStudioProjects/Bangu_android/app/src/main/res/layout/fragment_feed.xml" value="0.264" />
