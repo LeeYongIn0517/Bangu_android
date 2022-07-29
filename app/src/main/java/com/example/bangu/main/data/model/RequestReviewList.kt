@@ -63,7 +63,7 @@ data class MovieResponseData(
     var director:String?,
     @SerializedName("actor")
     var actor:String?,
-)
+):java.io.Serializable
 data class MovieOtts(
     @SerializedName("ottId")
     var ottId:Int,

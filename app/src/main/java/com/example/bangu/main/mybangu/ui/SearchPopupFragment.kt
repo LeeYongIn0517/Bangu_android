@@ -43,11 +43,12 @@ class SearchPopupFragment:Fragment() {
                 val bundle_imageUrl = imageUrl
                 val bundle_ott = ott
                 parentFragmentManager.setFragmentResult("requestKey", bundleOf("title" to bundle_title,"imageUrl" to bundle_imageUrl, "ott" to bundle_ott))
-                parentFragmentManager.beginTransaction().remove(this@SearchPopupFragment).commit()//현재 프레그먼트 닫기
+
             }
 
             override fun passWholeData(movieData: MovieResponseData) {
                 parentFragmentManager.setFragmentResult("requestKey_whole",bundleOf("movieData" to movieData))
+                parentFragmentManager.beginTransaction().remove(this@SearchPopupFragment).commit()//현재 프레그먼트 닫기
             }
         })
 
