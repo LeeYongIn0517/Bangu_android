@@ -5,7 +5,6 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
-import com.example.bangu.databinding.DialogEssentialBinding
 import com.example.bangu.databinding.DialogReviewBinding
 
 class ReviewDialog {
