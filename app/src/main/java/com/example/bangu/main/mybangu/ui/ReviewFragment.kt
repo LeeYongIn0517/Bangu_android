@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.FragmentResultListener
+import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
 import com.example.bangu.R
@@ -30,6 +33,7 @@ class ReviewFragment : Fragment() {
         wavve = false,
     )//리뷰 등록시 필요한 ott 인스턴스 초기화
     val viewmodel = ReviewViewModel()
+    val reviewDialog = ReviewDialog()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +59,19 @@ class ReviewFragment : Fragment() {
         binding.backCursor.setOnClickListener {
             parentFragmentManager.beginTransaction(). replace(R.id.search_popup_frame, MyBanguFragment()).commit()
         }
+        //리뷰 등록 성공/실패 여부에 따른 UI동작 지시
+        viewmodel.dialog.observe( viewLifecycleOwner, Observer {
+            it.getContentIfNotHandled().let {
+                when(it){
+                    "review_registered"-> this.context?.let { it1 -> reviewDialog.show(it1,"리뷰가 저장되었습니다!")} //성공 신호를 관찰한 경우
+                    else -> { Toast.makeText(ReviewFragment().context,"리뷰저장에 실패했습니다", Toast.LENGTH_SHORT).show() } //실패 신호를 관찰한 경우
+                }
+                parentFragmentManager.beginTransaction().apply {
+                    replace(R.id.mybangu_root_frag, MyBanguFragment())
+                    commit()
+                }
+            }
+        })
     }
     /*SearchPuFragment에서 넘어온 값을 수신받을 수 있는 시점*/
     override fun onResume() {

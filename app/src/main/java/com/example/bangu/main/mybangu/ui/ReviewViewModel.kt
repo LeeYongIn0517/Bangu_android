@@ -1,8 +1,11 @@
 package com.example.bangu.main.mybangu.ui
 
 import android.widget.Toast
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.bangu.App
+import com.example.bangu.Event
 import com.example.bangu.main.data.model.MovieOtts
 import com.example.bangu.main.data.model.MovieResponseData
 import com.example.bangu.main.mybangu.data.MyBanguAPI
@@ -15,6 +18,9 @@ import io.reactivex.schedulers.Schedulers
 
 class ReviewViewModel: ViewModel() {
     private val myBanguService = MyBanguDataResource.MyBanguApi
+    private var _dialog = MutableLiveData<Event<String>>()
+    val dialog: LiveData<Event<String>> = _dialog
+
     /*내가 작성한 리뷰 등록 요청*/
     val accessToken = App.token_prefs.accessToken
     fun registerMyReview(attention:String, content:String,dialogue:String,revealed:Boolean,score:Float,movieData:MovieResponseData){
@@ -43,11 +49,9 @@ class ReviewViewModel: ViewModel() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    //리뷰저장 확인 후 다이얼로그 보여주기
-                    ReviewFragment().context?.let { it1 -> ReviewDialog().show(it1, "리뷰가 저장되었습니다!") }
+                    _dialog.postValue(Event("review_registered"))
                 },{
-                    //네트워킹 실패 토스트 보여주기
-                    Toast.makeText(ReviewFragment().context,"리뷰 저장에 실패했습니다",Toast.LENGTH_SHORT).show()
+                    _dialog.postValue(Event("review_unregistered"))
                 })
         }
     }
