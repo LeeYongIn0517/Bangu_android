@@ -1,4 +1,4 @@
-package com.example.bangu.main.mybangu.ui
+package com.example.bangu.main.mybangu.ui.MyBangu
 
 import android.util.Log
 import androidx.lifecycle.LiveData

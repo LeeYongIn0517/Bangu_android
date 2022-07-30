@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.bangu.R
 import com.example.bangu.databinding.FragmentMyBanguRootBinding
+import com.example.bangu.main.mybangu.ui.MyBangu.MyBanguFragment
 
 class MyBanguRootFragment : Fragment() {
     private lateinit var binding: FragmentMyBanguRootBinding
@@ -24,7 +25,7 @@ class MyBanguRootFragment : Fragment() {
 
         /*root프레그먼트를 MyBanguFragment로 무조건 교체하고 시작*/
         childFragmentManager.beginTransaction().apply {
-            replace(R.id.mybangu_root_frag,MyBanguFragment())
+            replace(R.id.mybangu_root_frag, MyBanguFragment())
             commit()
         }
         return view

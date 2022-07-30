@@ -1,16 +1,10 @@
 package com.example.bangu.main.ui
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.view.View
-import androidx.core.content.res.ResourcesCompat
-import androidx.core.view.get
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.bangu.R
 import com.example.bangu.databinding.ActivityMainBinding
-import com.example.bangu.main.mybangu.ui.ReviewFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 

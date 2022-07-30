@@ -1,4 +1,4 @@
-package com.example.bangu.main.mybangu.ui
+package com.example.bangu.main.mybangu.ui.MyBangu
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,12 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.R
-import com.example.bangu.databinding.FragmentHomeBinding
 import com.example.bangu.databinding.FragmentMyBanguBinding
 import com.example.bangu.main.data.model.Content
-import com.example.bangu.main.home.ui.HomeAdapter
-import com.example.bangu.main.ui.MainActivity
-import com.example.bangu.main.ui.ScreenSlidePagerAdapter
+import com.example.bangu.main.mybangu.ui.Review.ReviewFragment
 
 class MyBanguFragment : Fragment() {
     private lateinit var binding: FragmentMyBanguBinding

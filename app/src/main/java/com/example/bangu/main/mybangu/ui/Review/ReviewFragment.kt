@@ -1,4 +1,4 @@
-package com.example.bangu.main.mybangu.ui
+package com.example.bangu.main.mybangu.ui.Review
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.FragmentResultListener
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
@@ -16,6 +15,9 @@ import com.example.bangu.databinding.FragmentReviewBinding
 import com.example.bangu.main.data.model.MovieOtts
 import com.example.bangu.main.data.model.MovieResponseData
 import com.example.bangu.main.mybangu.data.model.ReviewOtt
+import com.example.bangu.main.mybangu.ui.MyBangu.MyBanguFragment
+import com.example.bangu.main.mybangu.ui.ReviewDialog
+import com.example.bangu.main.mybangu.ui.WarningDialog
 
 class ReviewFragment : Fragment() {
     private lateinit var binding: FragmentReviewBinding
