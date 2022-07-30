@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -72,8 +73,16 @@ class MyBanguFragment : Fragment() {
                 commit()
             }
         }
-        /*리뷰 수정 기능*/
-        //선택한 작품의 정보를 리뷰양식 프레그먼트로 전달
+        /*리뷰 수정버튼 이벤트 전달받기*/
+        adapter.review.observe(viewLifecycleOwner, Observer {
+            //화면 전환하기
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.mybangu_root_frag, ReviewFragment())
+                setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN) //Fragment is being added onto the stack
+                addToBackStack(null)
+                commit()
+            }
+        })
 
     }
 }

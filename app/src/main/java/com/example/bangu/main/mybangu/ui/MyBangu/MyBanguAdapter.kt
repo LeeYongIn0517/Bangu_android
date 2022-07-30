@@ -2,13 +2,17 @@ package com.example.bangu.main.mybangu.ui.MyBangu
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
+import com.example.bangu.Event
 import com.example.bangu.R
 import com.example.bangu.databinding.ReviewItemLoadingBinding
 import com.example.bangu.databinding.ReviewMybanguItemBinding
 import com.example.bangu.main.data.model.Content
+import com.example.bangu.main.mybangu.ui.myInterface.Communicator
 
 class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object{
@@ -17,7 +21,8 @@ class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private const val TYPE_LOADING = 2
     }
     private val items = ArrayList<Content>()
-    private val viewmodel = MyBanguViewModel()
+    private var _review = MutableLiveData<Event<Content>>()
+    val review :LiveData<Event<Content>> = _review
 
     /*아이템이 리뷰인 경우*/
     inner class ReviewViewHolder(private val binding: ReviewMybanguItemBinding):RecyclerView.ViewHolder(binding.root){
@@ -50,7 +55,7 @@ class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }*/
             //리뷰 수정하기
             binding.reviewRewrite.setOnClickListener {
-                
+                _review.postValue(Event(content))
             }
             //리뷰 삭제하기
             binding.reviewDelete.setOnClickListener {
