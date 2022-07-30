@@ -148,7 +148,7 @@ class ReviewFragment : Fragment() {
         MyBanguAdapter().review.observe(viewLifecycleOwner, Observer {
             //선택한 작품의 정보를 바인딩
             it.peekContent()
-            
+
         })
     }
 }
