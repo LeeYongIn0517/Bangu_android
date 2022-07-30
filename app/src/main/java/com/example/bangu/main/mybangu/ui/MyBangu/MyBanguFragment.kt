@@ -75,5 +75,8 @@ class MyBanguFragment : Fragment() {
                 commit()
             }
         }
+        /*리뷰 수정 기능*/
+        //선택한 작품의 정보를 리뷰양식 프레그먼트로 전달
+
     }
 }

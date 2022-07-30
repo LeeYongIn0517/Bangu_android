@@ -1,7 +1,6 @@
-package com.example.bangu.main.mybangu.ui
+package com.example.bangu.main.mybangu.ui.MyBangu
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -51,7 +50,7 @@ class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }*/
             //리뷰 수정하기
             binding.reviewRewrite.setOnClickListener {
-
+                
             }
             //리뷰 삭제하기
             binding.reviewDelete.setOnClickListener {
