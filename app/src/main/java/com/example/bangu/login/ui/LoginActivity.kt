@@ -22,6 +22,12 @@ class LoginActivity : AppCompatActivity() {
     internal val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //자동로그인 기능
+        if(!App.token_prefs.accessToken.equals("")) { //토큰이 존재하면 메인페이지로 이동
+            Intent(this@LoginActivity, MainActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
         installSplashScreen()
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_login)
@@ -29,12 +35,6 @@ class LoginActivity : AppCompatActivity() {
 
         val viewmodel = LoginViewModel()
 
-        //자동로그인 기능
-        if(!App.token_prefs.accessToken.equals("")) { //토큰이 존재하면 메인페이지로 이동
-            Intent(this@LoginActivity, MainActivity::class.java).apply {
-                startActivity(this)
-            }
-        }
         binding.apply {
             lifecycleOwner = this@LoginActivity
             activity = this@LoginActivity
