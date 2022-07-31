@@ -7,6 +7,7 @@ import android.view.View
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import com.example.bangu.App
 import com.example.bangu.R
 import com.example.bangu.databinding.ActivityLoginBinding
 import com.example.bangu.login.data.LgRepository
@@ -28,6 +29,13 @@ class LoginActivity : AppCompatActivity() {
 
         val viewmodel = LoginViewModel()
 
+        //자동로그인 기능
+        if(!App.token_prefs.accessToken.equals("")) { //토큰이 존재하면 메인페이지로 이동
+            Intent(this@LoginActivity, MainActivity::class.java).apply {
+                startActivity(this)
+
+            }
+        }
         binding.apply {
             lifecycleOwner = this@LoginActivity
             activity = this@LoginActivity
