@@ -33,7 +33,6 @@ class LoginActivity : AppCompatActivity() {
         if(!App.token_prefs.accessToken.equals("")) { //토큰이 존재하면 메인페이지로 이동
             Intent(this@LoginActivity, MainActivity::class.java).apply {
                 startActivity(this)
-
             }
         }
         binding.apply {
