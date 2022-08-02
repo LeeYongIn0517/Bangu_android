@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bangu">
+    package="com.example.bangu" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,23 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_app_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bangu.Splash"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true" >
         <activity
-            android:name=".main.ui.MainActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".signup.ui.SignupActivity"
-            android:exported="false" />
-        <activity
-            android:name=".signup_fin.ui.SgFinActivity"
-            android:exported="false" />
-        <activity
-            android:name=".login.ui.LoginActivity"
+            android:name=".SingleActivity"
             android:exported="true"
             android:theme="@style/Theme.Bangu.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

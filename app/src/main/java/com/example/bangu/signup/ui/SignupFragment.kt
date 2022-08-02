@@ -1,22 +1,24 @@
 package com.example.bangu.signup.ui
 
-import android.app.AlertDialog
-import android.app.Dialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.SpinnerAdapter
+import androidx.fragment.app.Fragment
 import com.example.bangu.R
-import com.example.bangu.databinding.ActivitySignupBinding
-import com.example.bangu.signup_fin.ui.SgFinActivity
+import com.example.bangu.SingleActivity
+import com.example.bangu.databinding.FragmentSignupBinding
+import com.example.bangu.signup_fin.ui.SgFinFragment
 
-class SignupActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySignupBinding
+class SignupFragment : Fragment() {
+    private lateinit var binding: FragmentSignupBinding
     private lateinit var email:String
     private lateinit var password:String
     private lateinit var nickname:String
@@ -26,16 +28,23 @@ class SignupActivity : AppCompatActivity() {
     private lateinit var month:String
     private lateinit var day:String
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivitySignupBinding.inflate(layoutInflater)
-        val view = binding.root
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return super.onCreateView(inflater, container, savedInstanceState)
+        binding = FragmentSignupBinding.inflate(inflater,container,false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val viewmodel = SignupViewModel()
-        setContentView(view)
 
         binding.apply {
-            lifecycleOwner = this@SignupActivity
-            activity = this@SignupActivity
+            lifecycleOwner = this@SignupFragment
+            activity = this@SignupFragment
         }
         //생년월일 스피너 핸들러 등록
         setupSpinnerHandler()
@@ -64,14 +73,14 @@ class SignupActivity : AppCompatActivity() {
         })
         //이메일 중복체크 버튼
         binding.emailCheckbtn.setOnClickListener {
-                viewmodel.checkUserId(binding.signupUserId.text.toString())
+            viewmodel.checkUserId(binding.signupUserId.text.toString())
         }
         //닉네임 중복체크 버튼
         binding.nicknameCheckbtn.setOnClickListener {
-                viewmodel.checkNickname(binding.signupNickname.text.toString())
+            viewmodel.checkNickname(binding.signupNickname.text.toString())
         }
         //이메일 중복확인 결과 -> UI반영하기
-        viewmodel.userIdOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
+        viewmodel.userIdOk.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             it.getContentIfNotHandled()?.let {
                 if(it == "userIdOk"){
                     //성공
@@ -96,7 +105,7 @@ class SignupActivity : AppCompatActivity() {
             }
         })
         //닉네임 중복확인 결과 -> UI반영하기
-        viewmodel.nicknameOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
+        viewmodel.nicknameOk.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             it.getContentIfNotHandled()?.let {
                 if(it == "nicknameOk"){
                     //성공
@@ -121,7 +130,7 @@ class SignupActivity : AppCompatActivity() {
             }
         })
         //이메일 중복확인 초기화 -> UI반영하기
-        viewmodel.userIdText.observe(this@SignupActivity, androidx.lifecycle.Observer {
+        viewmodel.userIdText.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             binding.apply {
                 emailCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn)
                 emailCheckbtn.isEnabled = true
@@ -130,7 +139,7 @@ class SignupActivity : AppCompatActivity() {
             }
         })
         //닉네임 중복확인 초기화 -> UI반영하기
-        viewmodel.nicknameText.observe(this@SignupActivity, androidx.lifecycle.Observer {
+        viewmodel.nicknameText.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             binding.apply {
                 nicknameCheckbtn.setBackgroundResource(R.drawable.signup_confirmbtn)
                 nicknameCheckbtn.isEnabled = true
@@ -178,33 +187,32 @@ class SignupActivity : AppCompatActivity() {
 //            }
 //        }
         //회원가입 성공 -> 회원가입 성공화면으로
-        viewmodel.requestOk.observe(this@SignupActivity, androidx.lifecycle.Observer {
+        viewmodel.requestOk.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             it.getContentIfNotHandled()?.let {
-                Intent(this@SignupActivity, SgFinActivity::class.java).apply {
-                    startActivity(this)
-                }
+                parentFragmentManager.beginTransaction().replace(R.id.singleFrame, SignupFragment())
                 Log.d(" SignupActivity","just did viewmodel.success.observe")
             }
         })
     }
     private fun setupSpinnerYear(){
         val years = resources.getStringArray(R.array.birthyear)
-        val adapter = ArrayAdapter(this,R.layout.spinner_list_image,years)
+        val adapter = ArrayAdapter(SingleActivity().baseContext,R.layout.spinner_list_image,years)
         binding.spinnerBYear.adapter = adapter
     }
+
     private fun setupSpinnerMonth(){
         val months = resources.getStringArray(R.array.birthmonth)
-        val adapter = ArrayAdapter(this,R.layout.spinner_list_image_mini,months)
+        val adapter = ArrayAdapter(SingleActivity().baseContext,R.layout.spinner_list_image_mini,months)
         binding.spinnerBMonth.adapter = adapter
     }
     private fun setupSpinnerDay(){
         val days = resources.getStringArray(R.array.birthday)
-        val adapter = ArrayAdapter(this,R.layout.spinner_list_image_mini,days)
+        val adapter = ArrayAdapter(SingleActivity().baseContext,R.layout.spinner_list_image_mini,days)
         binding.spinnerBDay.adapter = adapter
     }
     private fun setupSpinnerHandler(){
         binding.spinnerBYear.onItemSelectedListener = object :
-        AdapterView.OnItemSelectedListener{
+            AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
 
                 year = binding.spinnerBYear.getItemAtPosition(p2).toString()
@@ -226,4 +234,5 @@ class SignupActivity : AppCompatActivity() {
             override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
     }
+
 }

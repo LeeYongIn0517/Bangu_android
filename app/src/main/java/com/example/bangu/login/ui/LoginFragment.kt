@@ -1,43 +1,40 @@
 package com.example.bangu.login.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.databinding.DataBindingUtil
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.example.bangu.App
 import com.example.bangu.R
-import com.example.bangu.databinding.ActivityLoginBinding
-import com.example.bangu.login.data.LgRepository
-import com.example.bangu.main.ui.MainActivity
-import com.example.bangu.signup.ui.SignupActivity
+import com.example.bangu.databinding.FragmentLoginBinding
+import com.example.bangu.main.ui.MainFragment
+import com.example.bangu.signup.ui.SignupFragment
 import io.reactivex.disposables.CompositeDisposable
 
-class LoginActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityLoginBinding
+class LoginFragment : Fragment() {
+    private lateinit var binding: FragmentLoginBinding
     private lateinit var email:String
     private lateinit var password:String
     internal val disposables = CompositeDisposable()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        //자동로그인 기능
-        if(!App.token_prefs.accessToken.equals("")) { //토큰이 존재하면 메인페이지로 이동
-            Intent(this@LoginActivity, MainActivity::class.java).apply {
-                startActivity(this)
-            }
-        }
-        installSplashScreen()
-        super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_login)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding=FragmentLoginBinding.inflate(inflater,container,false)
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val viewmodel = LoginViewModel()
 
         binding.apply {
-            lifecycleOwner = this@LoginActivity
-            activity = this@LoginActivity
+            lifecycleOwner = this@LoginFragment
+            activity = this@LoginFragment
 
             //앱 자체 로그인인증 시작
             loginStartbtn.setOnClickListener{
@@ -52,8 +49,7 @@ class LoginActivity : AppCompatActivity() {
             }
             //회원가입 페이지로
             loginSignUp.setOnClickListener{
-                val next = Intent(this@LoginActivity,SignupActivity::class.java)
-                startActivity(next)
+                parentFragmentManager.beginTransaction().replace(R.id.singleFrame, SignupFragment())
             }
         }
 //        //테스트용 프리패스
@@ -62,13 +58,11 @@ class LoginActivity : AppCompatActivity() {
 //                startActivity(this)
 //            }
 //        }
-        viewmodel.getTokenOk.observe(this@LoginActivity, Observer {
+        viewmodel.getTokenOk.observe(viewLifecycleOwner, Observer {
             it.getContentIfNotHandled()?.let {
                 //로그인 성공->메인 홈화면으로 (일반, kakao, naver 공통)
                 if(it == "getTokenOk"){
-                    Intent(this@LoginActivity, MainActivity::class.java).apply {
-                        startActivity(this)
-                    }
+                    parentFragmentManager.beginTransaction().replace(R.id.singleFrame, MainFragment())
                 }
                 //로그인 실패-> 로그인 EditText UI변경
                 else if(it == "getTokenFail"){

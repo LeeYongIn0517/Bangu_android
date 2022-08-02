@@ -3,23 +3,14 @@ package com.example.bangu.login.data
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.bangu.App
 import com.example.bangu.Event
 import com.example.bangu.login.data.model.AccessToken
-import com.example.bangu.login.data.model.LoginRequest
-import com.example.bangu.login.data.model.LoginResponse
-import com.example.bangu.login.ui.LoginActivity
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers.io
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
 
 object LgDataResource {
     var loginApi = Retrofit.Builder()

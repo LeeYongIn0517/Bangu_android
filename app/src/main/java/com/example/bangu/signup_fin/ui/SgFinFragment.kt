@@ -8,17 +8,17 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.App
-import com.example.bangu.databinding.ActivitySignupFinBinding
-import com.example.bangu.login.ui.LoginActivity
+import com.example.bangu.databinding.FragmentSignupFinBinding
+import com.example.bangu.login.ui.LoginFragment
 import com.example.bangu.signup_fin.data.model.Content
 
-class SgFinActivity : AppCompatActivity() {
-    private lateinit var binding:ActivitySignupFinBinding
+class SgFinFragment : AppCompatActivity() {
+    private lateinit var binding: FragmentSignupFinBinding
     private var page = 0
     private val ITEMS_SIZE = 3
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySignupFinBinding.inflate(layoutInflater)
+        binding = FragmentSignupFinBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
@@ -57,7 +57,7 @@ class SgFinActivity : AppCompatActivity() {
         })
         //로그인화면으로 이동
         binding.signupfinText.setOnClickListener{
-            val next = Intent(this, LoginActivity::class.java)
+            val next = Intent(this, LoginFragment::class.java)
             startActivity(next)
         }
     }

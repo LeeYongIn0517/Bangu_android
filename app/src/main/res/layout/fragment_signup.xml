@@ -5,7 +5,7 @@
     <data>
         <variable
             name="activity"
-            type="com.example.bangu.signup.ui.SignupActivity"
+            type="com.example.bangu.signup.ui.SignupFragment"
             />
         <variable
             name="vm"
@@ -16,7 +16,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/intro_back"
-    tools:context=".signup.ui.SignupActivity">
+    tools:context=".signup.ui.SignupFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/signup_topbar"

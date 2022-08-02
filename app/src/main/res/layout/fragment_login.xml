@@ -5,7 +5,7 @@
     <data>
         <variable
             name="activity"
-            type="com.example.bangu.login.ui.LoginActivity"/>
+            type="com.example.bangu.login.ui.LoginFragment"/>
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/login_back"
@@ -13,7 +13,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/intro_back"
     android:visibility="visible"
-    tools:context=".login.ui.LoginActivity">
+    tools:context=".login.ui.LoginFragment">
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/login_startbtn"
