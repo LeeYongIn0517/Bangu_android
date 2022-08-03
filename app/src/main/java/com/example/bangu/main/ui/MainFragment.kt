@@ -26,7 +26,6 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentMainBinding.inflate(inflater,container,false)
         return binding.root
     }
