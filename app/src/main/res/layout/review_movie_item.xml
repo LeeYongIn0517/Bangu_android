@@ -24,6 +24,7 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/result_image"
             android:layout_width="84dp"
+            app:strokeColor="@null"
             android:layout_height="104dp"
             android:theme="@style/Theme.AppCompat"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -59,6 +59,7 @@
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/mybangu_image"
                     android:theme="@style/Theme.AppCompat"
+                    app:strokeColor="@null"
                     android:layout_width="127dp"
                     android:layout_height="161dp"
                     app:layout_constraintBottom_toBottomOf="@id/mybangu_form"
