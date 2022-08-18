@@ -19,4 +19,8 @@
         <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_intro</item>
         <item name="postSplashScreenTheme">@style/Theme.Bangu</item>
     </style>
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/intro_back</item>
+        <item name="colorControlActivated">@color/rating_star</item>
+    </style>
 </resources>
