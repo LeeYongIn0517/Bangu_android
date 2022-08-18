@@ -21,6 +21,7 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/myreview_image"
         android:theme="@style/Theme.AppCompat"
+        app:strokeColor="@null"
         android:layout_width="100dp"
         android:layout_height="127dp"
         app:shapeAppearanceOverlay="@style/rounded_corner10Percent"
