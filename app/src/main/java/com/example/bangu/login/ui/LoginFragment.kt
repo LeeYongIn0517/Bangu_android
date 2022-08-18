@@ -49,7 +49,7 @@ class LoginFragment : Fragment() {
             }
             //회원가입 페이지로
             loginSignUp.setOnClickListener{
-                parentFragmentManager.beginTransaction().replace(R.id.singleFrame, SignupFragment())
+                parentFragmentManager.beginTransaction().replace(R.id.singleFrame, SignupFragment()).commit()
             }
         }
 //        //테스트용 프리패스
@@ -62,7 +62,7 @@ class LoginFragment : Fragment() {
             it.getContentIfNotHandled()?.let {
                 //로그인 성공->메인 홈화면으로 (일반, kakao, naver 공통)
                 if(it == "getTokenOk"){
-                    parentFragmentManager.beginTransaction().replace(R.id.singleFrame, MainFragment())
+                    parentFragmentManager.beginTransaction().replace(R.id.singleFrame, MainFragment()).commit()
                 }
                 //로그인 실패-> 로그인 EditText UI변경
                 else if(it == "getTokenFail"){
