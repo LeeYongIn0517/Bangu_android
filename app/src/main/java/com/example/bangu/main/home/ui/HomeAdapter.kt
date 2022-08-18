@@ -35,9 +35,9 @@ class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             val bookmark = binding.reviewBookmark
             bookmark.apply {
                 setOnClickListener {
-                    sign = bookmark.isSelected
+                    sign = bookmark.isSelected //상태 값 할당
                     bookmark.isSelected = !sign
-                    viewmodel.adjustBookmark(content.id)
+                    viewmodel.adjustBookmark(content.id) //id를 넘겨줌
                 }
             }
             //팔로우&팔로잉 기능
