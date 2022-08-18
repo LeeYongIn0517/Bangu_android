@@ -27,10 +27,6 @@ class FeedAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.defaultGenre0,binding.defaultGenre1,binding.defaultGenre2,
             binding.defaultGenre3,binding.defaultGenre4,binding.defaultGenre5)
         //별점 이미지
-        private val star_array = arrayListOf<ImageView>(
-            binding.defaultStar0, binding.defaultStar1, binding.defaultStar2, binding.defaultStar3,
-            binding.defaultStar4
-            )
         fun bind(content:Content){
             //북마크 추가, 삭제 기능
             var sign:Boolean
@@ -64,16 +60,6 @@ class FeedAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             //영화 및 리뷰 내용, 팔로잉, 북마크 바인딩
             binding.apply {
                 reviewMovietitle.text = content.movieResponseData?.title
-                reviewGenre.text = when(content.movieResponseData?.genre){
-                    "movie" -> "영화"
-                    "drama" -> "드라마"
-                    else -> "기타 미디어"
-                }
-                //별점(레이팅바 커스텀을 임시 대체하는 이미지)
-                for(i in 0..content.score.toInt()){
-                    star_array[i].visibility = View.VISIBLE //가시적이게 전환
-
-                }
                 reviewCore.text = content.dialogue //영화 내용
                 reviewBookmark.isSelected = content.bookmark //영화 북마크 여부
                 //영화 장르 해쉬 태그
