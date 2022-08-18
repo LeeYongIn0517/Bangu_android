@@ -23,10 +23,10 @@ object HomeDataResource {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                //callback.onSuccess(it)
+                callback.onSuccess(it)
             },{
-                //Log.d("HomeDataResource","Failure: " + it.localizedMessage)
-                //callback.onFailure(it)
+                Log.d("HomeDataResource","Failure: " + it.localizedMessage)
+                callback.onFailure(it)
             })
     }
     fun adjustBookmark(accessToken:String,reviewId:Int,callback: HomeRepository.GetDataCallback<Boolean>){
@@ -35,10 +35,10 @@ object HomeDataResource {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                //callback.onSuccess(it)
+                callback.onSuccess(it)
             },{
-                //Log.d("HomeDataResource","Failure: " + it.localizedMessage)
-                //callback.onFailure(it)
+                Log.d("HomeDataResource","Failure: " + it.localizedMessage)
+                callback.onFailure(it)
             })
     }
     fun requestToUnFollow(accessToken:String,toUser:Int){
