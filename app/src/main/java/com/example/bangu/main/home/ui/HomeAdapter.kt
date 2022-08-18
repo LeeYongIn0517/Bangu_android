@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.get
 import androidx.lifecycle.Lifecycle
@@ -11,6 +12,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.Target
 import com.example.bangu.R
 import com.example.bangu.databinding.ReviewItemBinding
 import com.example.bangu.databinding.ReviewItemLoadingBinding
@@ -68,40 +70,50 @@ class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             //프로필 이미지 바인딩
             val profile_imageUrl = content.userProfileData?.imageUrl
             when(profile_imageUrl){
-                "" -> Glide.with(binding.root).load(R.mipmap.ic_launcher_round).override(28,28).into(binding.userImage)
-                else -> Glide.with(binding.root).load(profile_imageUrl).override(28,28).into(binding.userImage)
+                "" -> Glide.with(binding.root).load(R.drawable.review_icon).override(Target.SIZE_ORIGINAL).into(binding.userImage)
+                else -> Glide.with(binding.root).load(profile_imageUrl).override(Target.SIZE_ORIGINAL).into(binding.userImage)
             }
-            //영화 및 리뷰 내용, 팔로잉, 북마크 바인딩
+            //영화 및 리뷰 내용, 팔로잉, 북마크, 별점 바인딩
             binding.apply {
                 reviewMovietitle.text = content.movieResponseData?.title
-                reviewGenre.text = when(content.movieResponseData?.genre){
-                    "movie" -> "영화"
-                    "drama" -> "드라마"
-                    else -> "기타 미디어"
-                }
-                //reviewStarscore.rating = content.score
-                reviewCore.text = content.dialogue
+                reviewCore.text = content.content
                 //reviewBookmark.isSelected = content. //북마크 여부 추가예정
                 followingBtn.isSelected = content.followState
+                reviewStars.rating = content.score
             }
             //영화 이미지 바인딩
             val movie_imageUrl = content.movieResponseData?.imageUrl
             when(movie_imageUrl){
-                " " -> Glide.with(binding.root).load(R.drawable.movie01).override(127,100).into(binding.reviewMovieimage)
-                null -> Glide.with(binding.root).load(R.drawable.movie03).override(127,100).into(binding.reviewMovieimage)
-                else -> Glide.with(binding.root).load(movie_imageUrl).override(127,100).into(binding.reviewMovieimage)
+                " " -> Glide.with(binding.root).load(R.drawable.movie01).override(Target.SIZE_ORIGINAL).into(binding.reviewMovieimage)
+                null -> Glide.with(binding.root).load(R.drawable.movie03).override(Target.SIZE_ORIGINAL).into(binding.reviewMovieimage)
+                else -> Glide.with(binding.root).load(movie_imageUrl).override(Target.SIZE_ORIGINAL).into(binding.reviewMovieimage)
             }
-            Glide.with(binding.root).load(movie_imageUrl).override(127,100).into(binding.reviewMovieimage)
+            Glide.with(binding.root).load(movie_imageUrl).override(Target.SIZE_ORIGINAL).into(binding.reviewMovieimage)
             //OTT 바인딩
-//            val ottSize = content.reviewOttResponseData?.size
-//            for(i in 0 until ottSize!!){
-//                when(content.reviewOttResponseData!![i].ottName){
-//                    "netflix" -> binding.netflix.visibility = View.INVISIBLE
-//                    "tving" -> binding.tving.visibility = View.INVISIBLE
-//                    "watcha" -> binding.watcha.visibility = View.INVISIBLE
-//                    "wavve" -> binding.wavve.visibility = View.INVISIBLE
-//                }
-//            }
+            binding.apply{ //ott아이콘 초기화
+                netflix.visibility = View.GONE
+                tving.visibility = View.GONE
+                watcha.visibility = View.GONE
+                wavve.visibility = View.VISIBLE
+            }
+            val ottSize = content.reviewOttResponseData?.size
+            for(i in 0 until ottSize!!){
+                when(content.reviewOttResponseData!![i].ottName){
+                    "NETFLIX" -> binding.netflix.visibility = View.VISIBLE
+                    "TVING" -> binding.tving.visibility = View.VISIBLE
+                    "WATCHAPLAY" -> binding.watcha.visibility = View.VISIBLE
+                    "WAVVE" -> binding.wavve.visibility = View.VISIBLE
+                }
+            }
+            //장르 태그 바인딩
+            val genreTextArray:Array<TextView> = arrayOf(binding.defaultGenre0, binding.defaultGenre1, binding.defaultGenre2, binding.defaultGenre3,
+                binding.defaultGenre4, binding.defaultGenre5)
+            var genre_texts = content.movieResponseData?.genre?.split(" ")
+            if (genre_texts != null) {
+                for(i in 0 until genre_texts.size){
+                    genreTextArray[i].text = genre_texts[i]
+                }
+            }
         }
 
     }
