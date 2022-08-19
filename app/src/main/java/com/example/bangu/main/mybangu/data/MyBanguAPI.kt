@@ -24,17 +24,18 @@ interface MyBanguAPI {
     @PATCH("/reviews/{id}") //내가 작성한 리뷰 수정
     fun rewriteMyReview(
         @Header("X-AUTH-TOKEN") accessToken:String,
+        @Path("id") id:Int,
         @Body review: RewriteReview
     ):Single<RegisterReview>
 
     @DELETE("/reviews/{id}") //내가 작성한 리뷰 삭제
     fun deleteMyReview(
         @Header("X-AUTH-TOKEN") accessToken:String,
-        @Query("id") id:Int,
+        @Path("id") id:Int,
     ):Single<String>
 
     @GET("/reviews/{id}") //식별자 값의 리뷰 상세 조회
     fun requestSpecificReview(
-        @Query("id") id:Int,
+        @Path("id") id:Int,
     ):Single<Content>
 }

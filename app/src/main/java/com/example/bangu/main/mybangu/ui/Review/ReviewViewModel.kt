@@ -67,7 +67,7 @@ class ReviewViewModel: ViewModel() {
             score = score
         )
         if (accessToken != null) {
-            myBanguService.rewriteMyReview(accessToken,rewriteReview)
+            myBanguService.rewriteMyReview(accessToken,target_id,rewriteReview)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
