@@ -25,4 +25,9 @@ interface MyBanguAPI {
         @Header("X-AUTH-TOKEN") accessToken:String,
         @Body review: UpdateReview
     ):Single<RegisterReview>
+    @DELETE("/reviews/{id}") //내가 작성한 리뷰 삭제
+    fun deleteMyReview(
+        @Header("X-AUTH-TOKEN") accessToken:String,
+        @Query("id") id:Int,
+    ):Single<String>
 }

@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,15 +13,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.R
 import com.example.bangu.databinding.FragmentMyBanguBinding
 import com.example.bangu.main.data.model.Content
-import com.example.bangu.main.data.model.MovieOtts
+import com.example.bangu.main.mybangu.ui.DeleteQuestionDialog
+import com.example.bangu.main.mybangu.ui.DeleteConfirmDialog
 import com.example.bangu.main.mybangu.ui.Review.ReviewFragment
-import com.example.bangu.main.mybangu.ui.myInterface.Communicator
+import com.example.bangu.main.mybangu.ui.myInterface.DialogListener
+import io.reactivex.disposables.CompositeDisposable
 
 class MyBanguFragment : Fragment() {
     private lateinit var binding: FragmentMyBanguBinding
     private var page = 0
     private val ITEMS_SIZE = 3
     private val TYPE_REVIEW = "myReviews"
+    private val disposables = CompositeDisposable()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,14 +38,7 @@ class MyBanguFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val viewmodel = MyBanguViewModel()
-        val adapter = MyBanguAdapter(object :Communicator{
-            override fun passData(title: String, imageUrl: String, ott: List<MovieOtts>) {
-                TODO("Not yet implemented")
-            }
-            override fun <T> passWholeData(data: T) {
-                parentFragmentManager.setFragmentResult("requestKey_whole_rewrite", bundleOf("contentData" to data))
-            }
-        })
+        val adapter = MyBanguAdapter()
 
         /*어댑터 등록*/
         binding.mybanguRcycleview
@@ -83,7 +78,7 @@ class MyBanguFragment : Fragment() {
             }
         }
         /*리뷰 수정버튼 이벤트 전달받기*/
-        adapter.reviewBtn.observe(viewLifecycleOwner, Observer {
+        adapter.rewrite.observe(viewLifecycleOwner, Observer {
             //화면 전환하기
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.mybangu_root_frag, ReviewFragment())
@@ -92,6 +87,29 @@ class MyBanguFragment : Fragment() {
                 commit()
             }
         })
-
+        /*리뷰 삭제버튼 클릭이벤트 전달받기*/
+        adapter.delete.observe(viewLifecycleOwner, Observer {
+            //"리뷰를 삭제하시겠습니까?"다이얼로그 띄우기
+            this.context?.let { it1 -> DeleteQuestionDialog().show(it1,object:DialogListener{
+                override fun onPositiveClicked(event: Boolean) {
+                    if(event == true){
+                        Log.i("MyBanguFragment","삭제api 호출")
+                        //리뷰 삭제하기
+                        var target_id = it.peekContent()
+                        viewmodel.deleteMyReviews(target_id,disposables)
+                    }
+                }
+            }) }
+        })
+        /*리뷰 삭제완료 이벤트 전달받기*/
+        viewmodel.deleteOk.observe(viewLifecycleOwner, Observer {
+            //"리뷰를 삭제하였습니다"다이얼로그 띄우기
+            this.context?.let { it1 -> DeleteConfirmDialog().show(it1) }
+        })
+    }
+    override fun onStop() {
+        super.onStop()
+        //관리하고 있던 디스포저블 객체를 모두 해제
+        disposables.clear()
     }
 }

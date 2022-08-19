@@ -1,6 +1,5 @@
 package com.example.bangu.main.mybangu.ui.MyBangu
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,17 +13,18 @@ import com.example.bangu.R
 import com.example.bangu.databinding.ReviewItemLoadingBinding
 import com.example.bangu.databinding.ReviewMybanguItemBinding
 import com.example.bangu.main.data.model.Content
-import com.example.bangu.main.mybangu.ui.myInterface.Communicator
 
-class MyBanguAdapter(private val listener:Communicator):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object{
         private const val TYPE_MOVIE = 0
         private const val TYPE_REVIEW = 1
         private const val TYPE_LOADING = 2
     }
     private val items = ArrayList<Content>()
-    private var _reviewBtn = MutableLiveData<Event<Boolean>>()
-    val reviewBtn :LiveData<Event<Boolean>> = _reviewBtn
+    private var _rewrite = MutableLiveData<Event<Int>>()
+    val rewrite :LiveData<Event<Int>> = _rewrite
+    private var _delete = MutableLiveData<Event<Int>>()
+    val delete :LiveData<Event<Int>> = _delete
     /*아이템이 리뷰인 경우*/
     inner class ReviewViewHolder(private val binding: ReviewMybanguItemBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(content:Content){
@@ -62,12 +62,11 @@ class MyBanguAdapter(private val listener:Communicator):RecyclerView.Adapter<Rec
             }
             //리뷰 수정하기
             binding.reviewRewrite.setOnClickListener {
-                listener.passWholeData(content)
-                _reviewBtn.postValue(Event(true))
+                _rewrite.postValue(Event(content.id))
             }
             //리뷰 삭제하기
             binding.reviewDelete.setOnClickListener {
-
+                _delete.postValue(Event(content.id))
             }
         }
     }
