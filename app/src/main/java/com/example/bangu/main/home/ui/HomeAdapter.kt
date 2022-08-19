@@ -96,12 +96,12 @@ class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 watcha.visibility = View.GONE
                 wavve.visibility = View.VISIBLE
             }
-            val ottSize = content.reviewOttResponseData?.size
+            val ottSize = content.movieResponseData?.movieOtts?.size
             for(i in 0 until ottSize!!){
                 when(content.reviewOttResponseData!![i].ottName){
                     "NETFLIX" -> binding.netflix.visibility = View.VISIBLE
                     "TVING" -> binding.tving.visibility = View.VISIBLE
-                    "WATCHAPLAY" -> binding.watcha.visibility = View.VISIBLE
+                    "WATCHA" -> binding.watcha.visibility = View.VISIBLE
                     "WAVVE" -> binding.wavve.visibility = View.VISIBLE
                 }
             }

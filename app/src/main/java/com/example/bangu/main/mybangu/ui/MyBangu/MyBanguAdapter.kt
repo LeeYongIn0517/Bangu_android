@@ -1,6 +1,7 @@
 package com.example.bangu.main.mybangu.ui.MyBangu
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -44,7 +45,13 @@ class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 else -> Glide.with(binding.root).load(movie_imageUrl).override(Target.SIZE_ORIGINAL).into(binding.myreviewImage)
             }
             //ott 바인딩
-            /*val ottSize = content.movieResponseData?.movieOtts?.size
+            binding.apply{ //ott아이콘 초기화
+                myreviewNetflix.visibility = View.GONE
+                myreviewTving.visibility = View.GONE
+                myreviewWatcha.visibility = View.GONE
+                myreviewWavve.visibility = View.VISIBLE
+            }
+            val ottSize = content.movieResponseData?.movieOtts?.size
             for(i in 0 until ottSize!!){
                 when(content.movieResponseData?.movieOtts!![i].ottName){
                     "NETFLIX" -> binding.myreviewNetflix.visibility = View.VISIBLE
@@ -52,7 +59,7 @@ class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                     "WATCHA" -> binding.myreviewWatcha.visibility = View.VISIBLE
                     "WAVVE" -> binding.myreviewWavve.visibility = View.VISIBLE
                 }
-            }*/
+            }
             //리뷰 수정하기
             binding.reviewRewrite.setOnClickListener {
                 _review.postValue(Event(content))

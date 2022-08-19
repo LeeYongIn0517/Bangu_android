@@ -52,7 +52,7 @@
         android:id="@+id/myreview_genre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="영화"
+        android:text="#"
         android:textColor="@color/review_genre"
         android:textSize="8sp"
         app:layout_constraintEnd_toEndOf="@+id/myreview_Title"
@@ -62,17 +62,19 @@
 
     <RatingBar
         android:id="@+id/myreview_starscore"
-        android:layout_width="241dp"
-        android:layout_height="39dp"
+        style="@android:style/Widget.DeviceDefault.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isIndicator="true"
         android:numStars="5"
-        android:scaleX="0.3"
-        android:scaleY="0.3"
-        app:layout_constraintBottom_toBottomOf="@+id/myreview_image"
+        android:stepSize="0.5"
+        android:theme="@style/RatingBar"
+        app:layout_constraintBottom_toTopOf="@+id/myreview_point"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.411"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/myreview_Title"
         app:layout_constraintTop_toTopOf="@+id/myreview_Title"
-        app:layout_constraintVertical_bias="0.227" />
+        app:layout_constraintVertical_bias="0.87" />
 
     <TextView
         android:id="@+id/myreview_point"
