@@ -1,3 +1,5 @@
 package com.example.bangu.main.mybangu.ui.myInterface
 
-sealed interface DialogListener
+interface DialogListener{
+    fun onPositiveClicked(event:Boolean)
+}
