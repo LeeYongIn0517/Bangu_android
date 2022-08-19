@@ -13,6 +13,7 @@ import com.example.bangu.R
 import com.example.bangu.databinding.ReviewItemLoadingBinding
 import com.example.bangu.databinding.ReviewMybanguItemBinding
 import com.example.bangu.main.data.model.Content
+import com.example.bangu.main.mybangu.ui.Review.ReviewViewModel
 
 class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object{
@@ -21,8 +22,8 @@ class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private const val TYPE_LOADING = 2
     }
     private val items = ArrayList<Content>()
-    private var _rewrite = MutableLiveData<Event<Int>>()
-    val rewrite :LiveData<Event<Int>> = _rewrite
+    private var _rewrite = MutableLiveData<Event<Boolean>>()
+    val rewrite :LiveData<Event<Boolean>> = _rewrite
     private var _delete = MutableLiveData<Event<Int>>()
     val delete :LiveData<Event<Int>> = _delete
     /*아이템이 리뷰인 경우*/
@@ -62,7 +63,8 @@ class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }
             //리뷰 수정하기
             binding.reviewRewrite.setOnClickListener {
-                _rewrite.postValue(Event(content.id))
+                ReviewViewModel().requestSpecificReview(content.id) //선택된 리뷰의 식별자로 서버에 리뷰요청보내기
+                _rewrite.postValue(Event(true))
             }
             //리뷰 삭제하기
             binding.reviewDelete.setOnClickListener {
