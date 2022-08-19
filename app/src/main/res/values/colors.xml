@@ -29,4 +29,6 @@
     <color name="mybangu_searchtext">#BCC2D0</color>
     <color name="mybangu_searchitem">#4D556A</color>
     <color name="rating_star">#DBFF79</color>
+    <color name="btn_selected">#CCD6F2</color>
+    <color name="dialog_background">#20202D</color>
 </resources>
