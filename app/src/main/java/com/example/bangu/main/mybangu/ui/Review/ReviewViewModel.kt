@@ -57,7 +57,7 @@ class ReviewViewModel: ViewModel() {
                 })
         }
     }
-    fun updateMyReview(target_id:Int,attention:String, content:String, dialogue:String, revealed:Boolean, score:Float){
+    fun rewriteMyReview(target_id:Int,attention:String, content:String, dialogue:String, revealed:Boolean, score:Float){
         //요청데이터 클래스 완성
         val rewriteReview = RewriteReview(
             attention = attention,
