@@ -1,6 +1,7 @@
 package com.example.bangu.main.mybangu.ui.MyBangu
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.R
 import com.example.bangu.databinding.FragmentMyBanguBinding
 import com.example.bangu.main.data.model.Content
+import com.example.bangu.main.data.model.MovieOtts
 import com.example.bangu.main.mybangu.ui.Review.ReviewFragment
+import com.example.bangu.main.mybangu.ui.myInterface.Communicator
 
 class MyBanguFragment : Fragment() {
     private lateinit var binding: FragmentMyBanguBinding
@@ -32,9 +35,15 @@ class MyBanguFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val viewmodel = MyBanguViewModel()
-        val adapter = MyBanguAdapter()
+        val adapter = MyBanguAdapter(object :Communicator{
+            override fun passData(title: String, imageUrl: String, ott: List<MovieOtts>) {
+                TODO("Not yet implemented")
+            }
+            override fun <T> passWholeData(data: T) {
+                parentFragmentManager.setFragmentResult("requestKey_whole_rewrite", bundleOf("contentData" to data))
+            }
+        })
 
         /*어댑터 등록*/
         binding.mybanguRcycleview
@@ -74,7 +83,7 @@ class MyBanguFragment : Fragment() {
             }
         }
         /*리뷰 수정버튼 이벤트 전달받기*/
-        adapter.review.observe(viewLifecycleOwner, Observer {
+        adapter.reviewBtn.observe(viewLifecycleOwner, Observer {
             //화면 전환하기
             parentFragmentManager.beginTransaction().apply {
                 replace(R.id.mybangu_root_frag, ReviewFragment())

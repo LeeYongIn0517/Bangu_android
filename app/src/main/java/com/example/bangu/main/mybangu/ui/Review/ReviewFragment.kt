@@ -1,6 +1,7 @@
 package com.example.bangu.main.mybangu.ui.Review
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
 import com.example.bangu.R
 import com.example.bangu.databinding.FragmentReviewBinding
+import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.data.model.MovieOtts
 import com.example.bangu.main.data.model.MovieResponseData
 import com.example.bangu.main.mybangu.data.model.ReviewOtt
@@ -55,7 +57,7 @@ class ReviewFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        Log.i("ReviewFragment","onViewCreated()")
         /*영화작품 검색팝업 띄우기*/
         binding.mybanguPlus.setOnClickListener {
             childFragmentManager.beginTransaction(). replace(R.id.search_popup_frame, SearchPopupFragment()).commit()
@@ -77,10 +79,12 @@ class ReviewFragment : Fragment() {
                 }
             }
         })
+
     }
     /*SearchPuFragment에서 넘어온 값을 수신받을 수 있는 시점*/
     override fun onResume() {
         super.onResume()
+        Log.i("ReviewFragment","onResume()")
         /*리뷰 등록 버튼 눌렀을 때*/
         binding.btnRegister.setOnClickListener {
             title = binding.resultMovietitle.text.toString() //제목
@@ -144,11 +148,54 @@ class ReviewFragment : Fragment() {
                     }
                 }
             })
-        /*리뷰 수정버튼 이벤트 전달받기*/
-        MyBanguAdapter().review.observe(viewLifecycleOwner, Observer {
-            //선택한 작품의 정보를 바인딩
-            it.peekContent()
+        /*수정하려고 리뷰양식페이지로 왔을 때, 선택한 작품의 데이터를 바인딩한다*/
+        parentFragmentManager.setFragmentResultListener("requestKey_whole_rewrite",viewLifecycleOwner,
+            FragmentResultListener { key, bundle ->
+                var data = bundle.get("contentData") as Content
+                /*수신받은 영화 이미지, 작품명, ott 바인딩*/
+                binding.dashImage.visibility = View.INVISIBLE // 하얀 점선 테두리 없애기
+                Glide.with(binding.root).load(data.movieResponseData?.imageUrl).override(Target.SIZE_ORIGINAL)
+                    .into(binding.mybanguImage) //이미지
+                binding.resultMovietitle.text = data.movieResponseData?.title //작품명
 
-        })
+                val ottSize = data.movieResponseData?.movieOtts?.size
+                binding.apply{ //ott아이콘 초기화
+                    reviewNetflix.visibility = View.GONE
+                    reviewTving.visibility = View.GONE
+                    reviewWatcha.visibility = View.GONE
+                    reviewWavve.visibility = View.GONE
+                }
+                //ott 바인딩 후 ReviewOtt 인스턴스 초기화
+                for(i in 0 until ottSize!!){
+                    when(data.movieResponseData?.movieOtts?.get(i)?.ottName){
+                        "NETFLIX" ->{
+                            binding.reviewNetflix.visibility = View.VISIBLE
+                            reviewOtt.netflix = true
+                        }
+                        "TVING" -> {
+                            binding.reviewTving.visibility = View.VISIBLE
+                            reviewOtt.tving = true
+                        }
+                        "WATCHAPLAY" -> {
+                            binding.reviewWatcha.visibility = View.VISIBLE
+                            reviewOtt.watcha = true
+                        }
+                        "WAVVE" -> {
+                            binding.reviewWavve.visibility = View.VISIBLE
+                            reviewOtt.wavve = true
+                        }
+                    }
+                }
+                title = binding.resultMovietitle.text.toString() //제목
+                attention = binding.mybanguAttention.text.toString() //감상포인트
+                content = binding.mybanguContent.text.toString() //리뷰내용
+                dialogue = binding.mybanguDialog.text.toString() //명대사
+                //수정해야 할 부분바인딩
+                binding.reviewStarscore.rating = this.score //별점
+                binding.mybanguAttention.hint= this.attention //감상포인트
+                binding.mybanguDialog.hint = this.dialogue //인상깊은 대사
+                binding.mybanguContent.hint = this.content //리뷰
+                binding.mybanguCheck.isChecked = false //일단 공개인 걸로(api 반환값 고쳐치면 반영하기)
+            })
     }
 }

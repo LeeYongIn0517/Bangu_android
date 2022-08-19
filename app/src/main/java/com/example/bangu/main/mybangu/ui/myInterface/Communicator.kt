@@ -6,5 +6,5 @@ import java.util.*
 
 interface Communicator {
     fun passData(title:String, imageUrl:String, ott:List<MovieOtts>)
-    fun passWholeData(movieData: MovieResponseData)
+    fun <T> passWholeData(data:T)
 }

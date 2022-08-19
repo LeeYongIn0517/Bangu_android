@@ -46,8 +46,8 @@ class SearchPopupFragment:Fragment() {
 
             }
 
-            override fun passWholeData(movieData: MovieResponseData) {
-                parentFragmentManager.setFragmentResult("requestKey_whole",bundleOf("movieData" to movieData))
+            override fun <T> passWholeData(data: T) {
+                parentFragmentManager.setFragmentResult("requestKey_whole",bundleOf("movieData" to data))
                 parentFragmentManager.beginTransaction().remove(this@SearchPopupFragment).commit()//현재 프레그먼트 닫기
             }
         })

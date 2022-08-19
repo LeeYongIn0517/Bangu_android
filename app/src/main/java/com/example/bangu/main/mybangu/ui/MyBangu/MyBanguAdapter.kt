@@ -1,5 +1,6 @@
 package com.example.bangu.main.mybangu.ui.MyBangu
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,16 +16,15 @@ import com.example.bangu.databinding.ReviewMybanguItemBinding
 import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.mybangu.ui.myInterface.Communicator
 
-class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MyBanguAdapter(private val listener:Communicator):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object{
         private const val TYPE_MOVIE = 0
         private const val TYPE_REVIEW = 1
         private const val TYPE_LOADING = 2
     }
     private val items = ArrayList<Content>()
-    private var _review = MutableLiveData<Event<Content>>()
-    val review :LiveData<Event<Content>> = _review
-
+    private var _reviewBtn = MutableLiveData<Event<Boolean>>()
+    val reviewBtn :LiveData<Event<Boolean>> = _reviewBtn
     /*아이템이 리뷰인 경우*/
     inner class ReviewViewHolder(private val binding: ReviewMybanguItemBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(content:Content){
@@ -62,7 +62,8 @@ class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }
             //리뷰 수정하기
             binding.reviewRewrite.setOnClickListener {
-                _review.postValue(Event(content))
+                listener.passWholeData(content)
+                _reviewBtn.postValue(Event(true))
             }
             //리뷰 삭제하기
             binding.reviewDelete.setOnClickListener {
