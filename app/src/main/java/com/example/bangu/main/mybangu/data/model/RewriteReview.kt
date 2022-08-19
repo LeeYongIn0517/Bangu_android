@@ -2,7 +2,7 @@ package com.example.bangu.main.mybangu.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class UpdateReview(
+data class RewriteReview(
     @SerializedName("attention")
     var attention:String,
     @SerializedName("content")
@@ -10,7 +10,7 @@ data class UpdateReview(
     @SerializedName("dialogue")
     var dialogue:String,
     @SerializedName("revealed")
-    var revealed:String,
+    var revealed:Boolean,
     @SerializedName("score")
     var score:Float,
 )

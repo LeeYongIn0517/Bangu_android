@@ -2,7 +2,7 @@ package com.example.bangu.main.mybangu.data
 
 import com.example.bangu.main.mybangu.data.model.MovieSearchResponse
 import com.example.bangu.main.mybangu.data.model.RegisterReview
-import com.example.bangu.main.mybangu.data.model.UpdateReview
+import com.example.bangu.main.mybangu.data.model.RewriteReview
 import io.reactivex.Single
 import retrofit2.http.*
 
@@ -21,10 +21,11 @@ interface MyBanguAPI {
     ):Single<RegisterReview>
 
     @PATCH("/reviews/{id}") //내가 작성한 리뷰 수정
-    fun updateMyReview(
+    fun rewriteMyReview(
         @Header("X-AUTH-TOKEN") accessToken:String,
-        @Body review: UpdateReview
+        @Body review: RewriteReview
     ):Single<RegisterReview>
+
     @DELETE("/reviews/{id}") //내가 작성한 리뷰 삭제
     fun deleteMyReview(
         @Header("X-AUTH-TOKEN") accessToken:String,

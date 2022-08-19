@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.FragmentResultListener
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
@@ -19,7 +18,6 @@ import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.data.model.MovieOtts
 import com.example.bangu.main.data.model.MovieResponseData
 import com.example.bangu.main.mybangu.data.model.ReviewOtt
-import com.example.bangu.main.mybangu.ui.MyBangu.MyBanguAdapter
 import com.example.bangu.main.mybangu.ui.MyBangu.MyBanguFragment
 import com.example.bangu.main.mybangu.ui.ReviewDialog
 import com.example.bangu.main.mybangu.ui.WarningDialog
@@ -79,7 +77,21 @@ class ReviewFragment : Fragment() {
                 }
             }
         })
-
+        //리뷰 수정 성공 여부 전달받기
+        viewmodel.rewrite.observe(viewLifecycleOwner, Observer {
+            it.getContentIfNotHandled().let{
+                when(it){
+                    "review_rewrite_success" -> { //성공 신호를 관찰한 경우
+                        this.context?.let { it1 -> reviewDialog.show(it1,"수정이 완료되었습니다.") }
+                        parentFragmentManager.beginTransaction().apply {
+                            replace(R.id.mybangu_root_frag, MyBanguFragment())
+                            commit()
+                        }
+                    }
+                    else -> { Toast.makeText(ReviewFragment().context,"리뷰수정에 실패했습니다", Toast.LENGTH_SHORT).show() } //실패 신호를 관찰한 경우
+                }
+            }
+        })
     }
     /*SearchPuFragment에서 넘어온 값을 수신받을 수 있는 시점*/
     override fun onResume() {
