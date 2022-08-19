@@ -49,7 +49,7 @@ data class Content(
     var content:String,
     @SerializedName("bookmark")
     var bookmark:Boolean
-)
+):java.io.Serializable
 data class MovieResponseData(
     @SerializedName("title")
     var title:String,
