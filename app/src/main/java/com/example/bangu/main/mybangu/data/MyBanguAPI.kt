@@ -1,5 +1,6 @@
 package com.example.bangu.main.mybangu.data
 
+import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.mybangu.data.model.MovieSearchResponse
 import com.example.bangu.main.mybangu.data.model.RegisterReview
 import com.example.bangu.main.mybangu.data.model.RewriteReview
@@ -31,4 +32,9 @@ interface MyBanguAPI {
         @Header("X-AUTH-TOKEN") accessToken:String,
         @Query("id") id:Int,
     ):Single<String>
+
+    @GET("/reviews/{id}") //식별자 값의 리뷰 상세 조회
+    fun requestSpecificReview(
+        @Query("id") id:Int,
+    ):Single<Content>
 }

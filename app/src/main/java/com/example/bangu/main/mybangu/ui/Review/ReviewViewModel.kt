@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.bangu.App
 import com.example.bangu.Event
+import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.data.model.MovieResponseData
 import com.example.bangu.main.mybangu.data.MyBanguDataResource
 import com.example.bangu.main.mybangu.data.model.RegisterReview
@@ -19,6 +20,8 @@ class ReviewViewModel: ViewModel() {
     val dialog: LiveData<Event<String>> = _dialog
     private var _rewrite = MutableLiveData<Event<String>>()
     val rewrite: LiveData<Event<String>> = _rewrite
+    private var _specific = MutableLiveData<Event<Content>>()
+    val specific: LiveData<Event<Content>> = _specific
 
     /*내가 작성한 리뷰 등록 요청*/
     val accessToken = App.token_prefs.accessToken
@@ -73,5 +76,14 @@ class ReviewViewModel: ViewModel() {
                     _rewrite.postValue(Event("review_rewrite_fail"))
                 }
         }
+    }
+    fun requestSpecificReview(target_id: Int){
+        myBanguService.requestSpecificReview(target_id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                //응답 값으로 ReviewFragment 바인딩...
+                _specific.postValue(Event(it))
+            }){}
     }
 }
