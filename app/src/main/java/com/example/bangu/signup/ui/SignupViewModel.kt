@@ -56,14 +56,6 @@ class SignupViewModel:ViewModel(){
             }
         })
     }
-    //이메일 중복 초기화
-    fun emailReset(){
-
-    }
-    //닉네임 중복 초기화
-    fun NicknameReset(){
-
-    }
     fun requestSignup(birth:String, userId:String, gender:String, nickname:String,
                       password:String, ott:MutableMap<String,Boolean>){
         Log.d("SignupVM.checkNickname","requestSignup")
