@@ -41,7 +41,8 @@ class ReviewFragment : Fragment() {
     )//리뷰 등록시 필요한 ott 인스턴스 초기화
     val viewmodel = ReviewViewModel()
     val reviewDialog = ReviewDialog()
-
+    var isForRegister = true //제출버튼과 함께 사용-> 리뷰 등록:true, 리뷰 수정:false
+    var reviewId = 0 //리뷰 수정에 필요한 리뷰 식별자 값
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -94,10 +95,15 @@ class ReviewFragment : Fragment() {
                 }
             }
         })
-        //식별자 값의 리뷰 조회 결과 전달받기, 바인딩
+        //식별자 값의 리뷰 조회 결과 전달받기, UI에 바인딩
         viewmodel.specific.observe(viewLifecycleOwner, Observer {
+            isForRegister = false //리뷰수정 모드로 전환
             it.getContentIfNotHandled().let{
                 if(it != null){
+                    /*리뷰 식별자 값 할당*/
+                    reviewId = it.id
+                    /*검색버튼 무효화. 작품변경을 막기 위함*/
+                    binding.mybanguPlus.isClickable = false
                     /*수신받은 영화 이미지, 작품명, ott 바인딩*/
                     binding.dashImage.visibility = View.INVISIBLE // 하얀 점선 테두리 없애기
                     Glide.with(binding.root).load(it.movieResponseData?.imageUrl).override(Target.SIZE_ORIGINAL)
@@ -132,10 +138,6 @@ class ReviewFragment : Fragment() {
                             }
                         }
                     }
-                    title = binding.resultMovietitle.text.toString() //제목
-                    attention = binding.mybanguAttention.text.toString() //감상포인트
-                    content = binding.mybanguContent.text.toString() //리뷰내용
-                    dialogue = binding.mybanguDialog.text.toString() //명대사
                     //수정해야 할 부분바인딩
                     binding.reviewStarscore.rating = this.score //별점
                     binding.mybanguAttention.hint= this.attention //감상포인트
@@ -150,9 +152,10 @@ class ReviewFragment : Fragment() {
     /*SearchPuFragment에서 넘어온 값을 수신받을 수 있는 시점*/
     override fun onResume() {
         super.onResume()
-        Log.i("ReviewFragment","onResume()")
-        /*리뷰 등록 버튼 눌렀을 때*/
+
+        /*리뷰 제출 버튼 눌렀을 때*/
         binding.btnRegister.setOnClickListener {
+
             title = binding.resultMovietitle.text.toString() //제목
             attention = binding.mybanguAttention.text.toString() //감상포인트
             content = binding.mybanguContent.text.toString() //리뷰내용
@@ -166,17 +169,25 @@ class ReviewFragment : Fragment() {
                 //다이얼로그 보여주기
                 WarningDialog().show(it.context)
             }else{
-            //선택받았던 영화작품의 데이터 수신받기
-            childFragmentManager.setFragmentResultListener("requestKey_whole",viewLifecycleOwner,
-                FragmentResultListener { key, bundle ->
-                    movieData = bundle.get("movieData") as MovieResponseData
-                })
-            viewmodel.registerMyReview(attention,content,dialogue,revealed,score,movieData)
+                when(isForRegister){
+                    true -> { //리뷰 등록으로써 동작할 때
+                        childFragmentManager.setFragmentResultListener("requestKey_whole",viewLifecycleOwner,
+                            FragmentResultListener { key, bundle ->
+                                movieData = bundle.get("movieData") as MovieResponseData
+                            }) //선택받았던 영화작품의 데이터 수신받기
+                        viewmodel.registerMyReview(attention,content,dialogue,revealed,score,movieData)
+                    }
+                    false -> { //리뷰 수정으로써 동작할 때*/
+                        viewmodel.rewriteMyReview(reviewId,attention,content,dialogue,revealed,score)
+                    }
+                }
             }
         }
+
         /*작품 선택 후 리뷰양식페이지로 돌아왔을 때, 선택한 작품의 데이터를 바인딩한다*/
         childFragmentManager.setFragmentResultListener("requestKey",viewLifecycleOwner,
             FragmentResultListener{ key,bundle->
+                isForRegister = true //새 리뷰등록 모드로 전환
                 val ottList:List<MovieOtts> = bundle.get("ott") as List<MovieOtts>
 
                 /*수신받은 영화 이미지, 작품명, ott 바인딩*/
