@@ -34,7 +34,6 @@ class LoginFragment : Fragment() {
 
         binding.apply {
             lifecycleOwner = this@LoginFragment
-            activity = this@LoginFragment
 
             //앱 자체 로그인인증 시작
             loginStartbtn.setOnClickListener{
