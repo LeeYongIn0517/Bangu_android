@@ -2,16 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <data>
-        <variable
-            name="activity"
-            type="com.example.bangu.signup.ui.SignupFragment"
-            />
-        <variable
-            name="vm"
-            type="com.example.bangu.signup.ui.SignupViewModel"
-            />
-    </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -132,7 +122,6 @@
                     android:gravity="center|left"
                     android:nextFocusDown="@id/signup_pw"
                     android:singleLine="true"
-                    android:text="@{vm.userIdText}"
                     android:textColor="@color/white"
                     android:textColorHint="@color/signup_char"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -356,7 +345,6 @@
                     android:hint="8자 이하"
                     android:nextFocusDown="@id/signup_pw"
                     android:singleLine="true"
-                    android:text="@{vm.nicknameText}"
                     android:textColor="@color/white"
                     android:textColorHint="@color/signup_char"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -408,7 +396,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/block5"
                 android:layout_width="match_parent"
-                android:layout_height="170dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/signup_ott"
@@ -440,91 +428,144 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.1" />
 
-                <RadioButton
+                <ImageButton
                     android:id="@+id/rdbtn_tving"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/signup_btn_states"
+                    android:clickable="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/tving"
+                    app:layout_constraintStart_toStartOf="@+id/signup_ott"
+                    app:layout_constraintTop_toBottomOf="@+id/signup_ott"/>
+
+                <ImageButton
+                    android:id="@+id/rdbtn_nothing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:background="@drawable/signup_btn_states"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/signup_ott"
+                    android:layout_marginTop="15dp"/>
+
+                <ImageButton
+                    android:id="@+id/rdbtn_netflix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/signup_btn_states"
+                    android:clickable="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/rdbtn_nothing"
+                    app:layout_constraintStart_toStartOf="@+id/rdbtn_tving"
+                    app:layout_constraintTop_toBottomOf="@+id/rdbtn_tving"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <ImageButton
+                    android:id="@+id/rdbtn_watcha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/signup_btn_states"
+                    android:clickable="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/watcha"
+                    app:layout_constraintEnd_toStartOf="@+id/watcha"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/tving"
+                    app:layout_constraintTop_toTopOf="@+id/watcha" />
+
+                <ImageButton
+                    android:id="@+id/rdbtn_wavve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/signup_btn_states"
+                    android:clickable="true"
+                    app:layout_constraintBottom_toBottomOf="@+id/wavve"
+                    app:layout_constraintEnd_toStartOf="@+id/watcha"
+                    app:layout_constraintStart_toStartOf="@+id/rdbtn_watcha"
+                    app:layout_constraintTop_toTopOf="@+id/netflix"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/tving"
+                    android:layout_width="wrap_content"
                     android:layout_height="17dp"
-                    android:button="@drawable/signup_btn_states"
+                    android:layout_marginTop="15dp"
                     android:fontFamily="@font/spoqa"
                     android:text="   TVING"
                     android:textColor="@color/white"
                     android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@id/signup_ott"
-                    app:layout_constraintTop_toBottomOf="@id/signup_ott"
-                    app:layout_constraintVertical_bias="0.2" />
+                    app:layout_constraintStart_toEndOf="@+id/rdbtn_tving"
+                    app:layout_constraintTop_toBottomOf="@+id/signup_ott" />
 
-                <RadioButton
-                    android:id="@+id/rdbtn_watcha"
+                <TextView
+                    android:id="@+id/watcha"
                     android:layout_width="wrap_content"
                     android:layout_height="17dp"
-                    android:button="@drawable/signup_btn_states"
                     android:fontFamily="@font/spoqa"
                     android:text="   WATCHA"
                     android:textColor="@color/white"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.502"
+                    app:layout_constraintHorizontal_bias="0.56"
                     app:layout_constraintStart_toEndOf="@id/rdbtn_tving"
-                    app:layout_constraintTop_toBottomOf="@id/signup_ott"
-                    app:layout_constraintVertical_bias="0.198" />
+                    app:layout_constraintTop_toTopOf="@+id/rdbtn_tving"
+                    app:layout_constraintVertical_bias="0.0" />
 
-                <RadioButton
-                    android:id="@+id/rdbtn_netflix"
+                <TextView
+                    android:id="@+id/netflix"
                     android:layout_width="wrap_content"
                     android:layout_height="17dp"
-                    android:button="@drawable/signup_btn_states"
+                    android:layout_marginTop="15dp"
                     android:fontFamily="@font/spoqa"
                     android:text="   NETFLIX"
                     android:textColor="@color/white"
                     android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/rdbtn_tving"
+                    app:layout_constraintEnd_toStartOf="@+id/rdbtn_wavve"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/signup_ott"
-                    app:layout_constraintTop_toTopOf="@+id/rdbtn_tving"
-                    app:layout_constraintVertical_bias="0.407" />
+                    app:layout_constraintStart_toEndOf="@+id/rdbtn_netflix"
+                    app:layout_constraintTop_toBottomOf="@+id/tving" />
 
-                <RadioButton
-                    android:id="@+id/rdbtn_wavve"
+                <TextView
+                    android:id="@+id/wavve"
                     android:layout_width="wrap_content"
                     android:layout_height="17dp"
-                    android:button="@drawable/signup_btn_states"
+                    android:layout_marginTop="15dp"
                     android:fontFamily="@font/spoqa"
                     android:text="   WAVVE"
                     android:textColor="@color/white"
                     android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/rdbtn_watcha"
+                    app:layout_constraintBottom_toBottomOf="@+id/netflix"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/rdbtn_watcha"
-                    app:layout_constraintTop_toBottomOf="@id/rdbtn_watcha"
-                    app:layout_constraintVertical_bias="0.25" />
+                    app:layout_constraintStart_toEndOf="@+id/rdbtn_wavve"
+                    app:layout_constraintTop_toBottomOf="@id/watcha" />
 
-                <RadioButton
-                    android:id="@+id/rdbtn_nothing"
-                    android:layout_width="wrap_content"
-                    android:layout_height="17dp"
-                    android:button="@drawable/signup_btn_states"
+                <TextView
+                    android:id="@+id/nothing"
+                    android:layout_width="94dp"
+                    android:layout_height="18dp"
+                    android:layout_marginTop="15dp"
                     android:fontFamily="@font/spoqa"
                     android:text="   해당 사항 없음"
                     android:textColor="@color/white"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/rdbtn_netflix"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/signup_ott"
-                    app:layout_constraintTop_toTopOf="@+id/rdbtn_tving"
-                    app:layout_constraintVertical_bias="0.8" />
+                    app:layout_constraintStart_toEndOf="@+id/rdbtn_nothing"
+                    app:layout_constraintTop_toBottomOf="@+id/netflix" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/block6"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
@@ -557,16 +598,18 @@
                     app:layout_constraintStart_toEndOf="@id/signup_gender"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.1" />
+
                 <RadioGroup
-                    android:id="@+id/rdbtn_group"
+                    android:id="@+id/gender_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/signup_gender"
+                    app:layout_constraintTop_toBottomOf="@+id/signup_gender"
                     app:layout_constraintVertical_bias="0.5">
 
                     <RadioButton
@@ -574,7 +617,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="17dp"
                         android:layout_marginEnd="100dp"
-                        android:button="@drawable/signup_btn_states"
+                        android:button="@drawable/signup_btn_states2"
                         android:fontFamily="@font/spoqa"
                         android:text="   남"
                         android:textColor="@color/white"
@@ -589,7 +632,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="17dp"
                         android:layout_marginStart="100dp"
-                        android:button="@drawable/signup_btn_states"
+                        android:button="@drawable/signup_btn_states2"
                         android:fontFamily="@font/spoqa"
                         android:text="   여"
                         android:textColor="@color/white"
