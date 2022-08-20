@@ -4,24 +4,36 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
+import androidx.databinding.DataBindingUtil.setContentView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.App
+import com.example.bangu.R
 import com.example.bangu.databinding.FragmentSignupFinBinding
 import com.example.bangu.login.ui.LoginFragment
 import com.example.bangu.signup_fin.data.model.Content
 
-class SgFinFragment : AppCompatActivity() {
+class SgFinFragment : Fragment() {
     private lateinit var binding: FragmentSignupFinBinding
     private var page = 0
     private val ITEMS_SIZE = 3
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = FragmentSignupFinBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentSignupFinBinding.inflate(inflater,container,false)
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val viewmodel = SgFinViewModel()
         val adapter = SgFinAdapter()
 
@@ -35,7 +47,7 @@ class SgFinFragment : AppCompatActivity() {
         binding.signupfinRcyleview
             .adapter = adapter
         //서버에서 온 데이터를 관찰하는 옵저버
-        viewmodel.contentList.observe(this, Observer {
+        viewmodel.contentList.observe(viewLifecycleOwner, Observer {
             adapter.setList(it as MutableList<Content>)
             adapter.notifyItemRangeInserted(page*ITEMS_SIZE,ITEMS_SIZE) //이해 100% 안됨
         })
@@ -57,8 +69,8 @@ class SgFinFragment : AppCompatActivity() {
         })
         //로그인화면으로 이동
         binding.signupfinText.setOnClickListener{
-            val next = Intent(this, LoginFragment::class.java)
-            startActivity(next)
+            parentFragmentManager.beginTransaction().replace(R.id.singleFrame, LoginFragment()).commit()
         }
     }
+
 }
