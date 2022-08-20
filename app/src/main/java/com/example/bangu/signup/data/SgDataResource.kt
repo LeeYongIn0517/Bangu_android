@@ -23,9 +23,9 @@ object SgDataResource {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                //callback.onSuccess(it)
+                callback.onSuccess(it)
             },{
-                //callback.onFailure(it)
+                callback.onFailure(it)
             })
     }
     /*닉네임 중복확인*/
@@ -35,9 +35,9 @@ object SgDataResource {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                //callback.onSuccess(it)
+                callback.onSuccess(it)
             },{
-                //callback.onFailure(it)
+                callback.onFailure(it)
             })
     }
     /*회원가입*/
