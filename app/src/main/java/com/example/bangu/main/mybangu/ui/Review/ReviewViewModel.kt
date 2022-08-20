@@ -1,5 +1,6 @@
 package com.example.bangu.main.mybangu.ui.Review
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -82,8 +83,11 @@ class ReviewViewModel: ViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
+                Log.d("MyBanguVM.requestSpecificReview:식별자 값", it.id.toString())
                 //응답 값으로 ReviewFragment 바인딩...
                 _specific.postValue(Event(it))
-            }){}
+            }){
+                Log.d("MyBanguVM", "requestSpecificReview().fail")
+            }
     }
 }

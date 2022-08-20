@@ -1,5 +1,6 @@
 package com.example.bangu.main.mybangu.ui.MyBangu
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -63,6 +64,7 @@ class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }
             //리뷰 수정하기
             binding.reviewRewrite.setOnClickListener {
+                Log.d("MyBanguAdapter", "수정대상 리뷰 식별자: "+content.id.toString())
                 ReviewViewModel().requestSpecificReview(content.id) //선택된 리뷰의 식별자로 서버에 리뷰요청보내기
                 _rewrite.postValue(Event(true))
             }
