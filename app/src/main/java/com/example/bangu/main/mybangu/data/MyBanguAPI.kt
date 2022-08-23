@@ -32,7 +32,7 @@ interface MyBanguAPI {
     fun deleteMyReview(
         @Header("X-AUTH-TOKEN") accessToken:String,
         @Path("id") id:Int,
-    ):Single<String>
+    ):Single<Any>
 
     @GET("/reviews/{id}") //식별자 값의 리뷰 상세 조회
     fun requestSpecificReview(
