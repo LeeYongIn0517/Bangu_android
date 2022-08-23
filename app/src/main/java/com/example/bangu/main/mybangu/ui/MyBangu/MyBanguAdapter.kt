@@ -47,19 +47,20 @@ class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 else -> Glide.with(binding.root).load(movie_imageUrl).override(Target.SIZE_ORIGINAL).into(binding.myreviewImage)
             }
             //ott 바인딩
+            //OTT 바인딩
             binding.apply{ //ott아이콘 초기화
-                myreviewNetflix.visibility = View.GONE
-                myreviewTving.visibility = View.GONE
-                myreviewWatcha.visibility = View.GONE
-                myreviewWavve.visibility = View.VISIBLE
+                netflix.visibility = View.GONE
+                tving.visibility = View.GONE
+                watcha.visibility = View.GONE
+                wavve.visibility =  View.VISIBLE
             }
             val ottSize = content.movieResponseData?.movieOtts?.size
             for(i in 0 until ottSize!!){
                 when(content.movieResponseData?.movieOtts!![i].ottName){
-                    "NETFLIX" -> binding.myreviewNetflix.visibility = View.VISIBLE
-                    "TVING" -> binding.myreviewTving.visibility = View.VISIBLE
-                    "WATCHA" -> binding.myreviewWatcha.visibility = View.VISIBLE
-                    "WAVVE" -> binding.myreviewWavve.visibility = View.VISIBLE
+                    "NETFLIX" -> binding.netflix.visibility = View.VISIBLE
+                    "TVING" -> binding.tving.visibility = View.VISIBLE
+                    "WATCHA" -> binding.watcha.visibility = View.VISIBLE
+                    "WAVVE" -> binding.wavve.visibility = View.VISIBLE
                 }
             }
             //리뷰 수정하기

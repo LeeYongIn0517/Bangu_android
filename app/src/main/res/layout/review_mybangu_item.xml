@@ -1,235 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:id="@+id/review_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:padding="0dp"
+    app:cardBackgroundColor="@color/review_item"
+    app:cardCornerRadius="12dp">
 
-    <View
-        android:id="@+id/item_review"
-        android:layout_width="343dp"
-        android:layout_height="210dp"
-        android:background="@drawable/review"
-        android:paddingTop="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/myreview_image"
-        android:theme="@style/Theme.AppCompat"
-        app:strokeColor="@null"
-        android:layout_width="100dp"
-        android:layout_height="127dp"
-        app:shapeAppearanceOverlay="@style/rounded_corner10Percent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
-        app:layout_constraintStart_toStartOf="@+id/item_review"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25"
-        app:srcCompat="@drawable/movie01" />
-
-    <TextView
-        android:id="@+id/myreview_Title"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/spoqa_bold"
-        android:text="셜록:유령신부"
-        android:textColor="@android:color/white"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
-        app:layout_constraintStart_toEndOf="@+id/myreview_image"
-        app:layout_constraintTop_toTopOf="@+id/myreview_image"
-        app:layout_constraintVertical_bias="0.0" />
+        android:paddingBottom="10dp">
 
-    <TextView
-        android:id="@+id/myreview_genre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="#"
-        android:textColor="@color/review_genre"
-        android:textSize="8sp"
-        app:layout_constraintEnd_toEndOf="@+id/myreview_Title"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/myreview_Title"
-        app:layout_constraintTop_toBottomOf="@+id/myreview_Title" />
+        <View
+            android:id="@+id/item_review"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@drawable/review"
+            android:paddingTop="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <RatingBar
-        android:id="@+id/myreview_starscore"
-        style="@android:style/Widget.DeviceDefault.RatingBar.Small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:isIndicator="true"
-        android:numStars="5"
-        android:stepSize="0.5"
-        android:theme="@style/RatingBar"
-        app:layout_constraintBottom_toTopOf="@+id/myreview_point"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/myreview_Title"
-        app:layout_constraintTop_toTopOf="@+id/myreview_Title"
-        app:layout_constraintVertical_bias="0.87" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/myreview_image"
+            android:layout_width="100dp"
+            android:layout_height="127dp"
+            android:theme="@style/Theme.AppCompat"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.08"
+            app:layout_constraintStart_toStartOf="@+id/item_review"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.25"
+            app:shapeAppearanceOverlay="@style/rounded_corner10Percent"
+            app:srcCompat="@drawable/movie01"
+            app:strokeColor="@null" />
 
-    <TextView
-        android:id="@+id/myreview_point"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/spoqa_bold"
-        android:text="감상포인트"
-        android:textColor="@color/review_text"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/myreview_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/myreview_Title"
-        app:layout_constraintTop_toTopOf="@+id/myreview_Title" />
+        <TextView
+            android:id="@+id/myreview_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqa_bold"
+            android:text="셜록:유령신부"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.06"
+            app:layout_constraintStart_toEndOf="@+id/myreview_image"
+            app:layout_constraintTop_toTopOf="@+id/myreview_image"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/myreview_attention"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:text="베네딕트 그 자체 영국 발음 레전드"
-        android:textColor="@color/review_text"
-        app:layout_constraintBottom_toBottomOf="@+id/myreview_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/myreview_point"
-        app:layout_constraintTop_toBottomOf="@+id/myreview_point"
-        app:layout_constraintVertical_bias="0.0"
-        tools:textSize="10sp" />
+        <TextView
+            android:id="@+id/myreview_genre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#"
+            android:textColor="@color/review_genre"
+            android:textSize="8sp"
+            app:layout_constraintEnd_toEndOf="@+id/myreview_Title"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/myreview_Title"
+            app:layout_constraintTop_toBottomOf="@+id/myreview_Title" />
 
-    <TextView
-        android:id="@+id/my_dialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/spoqa_bold"
-        android:text="인상깊은 대사"
-        android:textColor="@color/review_text"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/item_review"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/myreview_Title"
-        app:layout_constraintTop_toBottomOf="@+id/myreview_attention"
-        app:layout_constraintVertical_bias="0.13" />
+        <RatingBar
+            android:id="@+id/myreview_starscore"
+            style="@android:style/Widget.DeviceDefault.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:theme="@style/RatingBar"
+            app:layout_constraintBottom_toTopOf="@+id/myreview_point"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/myreview_Title"
+            app:layout_constraintTop_toTopOf="@+id/myreview_Title"
+            app:layout_constraintVertical_bias="0.87" />
 
-    <TextView
-        android:id="@+id/myreview_dialog"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:text="범인은 이 안에 있다"
-        android:textColor="@color/review_text"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/my_review"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/my_dialog"
-        app:layout_constraintTop_toBottomOf="@+id/my_dialog"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/myreview_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqa_bold"
+            android:text="감상포인트"
+            android:textColor="@color/review_text"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/myreview_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/myreview_Title"
+            app:layout_constraintTop_toTopOf="@+id/myreview_Title" />
 
-    <TextView
-        android:id="@+id/my_review"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
-        android:fontFamily="@font/spoqa_bold"
-        android:text="리뷰"
-        android:textColor="@color/review_text"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/item_review"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/my_dialog"
-        app:layout_constraintTop_toBottomOf="@+id/myreview_dialog" />
+        <TextView
+            android:id="@+id/myreview_attention"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="베네딕트 그 자체 영국 발음 레전드"
+            android:textColor="@color/review_text"
+            app:layout_constraintBottom_toBottomOf="@+id/myreview_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/myreview_point"
+            app:layout_constraintTop_toBottomOf="@+id/myreview_point"
+            app:layout_constraintVertical_bias="0.0"
+            tools:textSize="10sp" />
 
-    <TextView
-        android:id="@+id/myreview_content"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:text="연출이랑 스토리 구성이 뻔하지 않아서 재밌게 봤습니당"
-        android:textColor="@color/review_text"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/my_review"
-        app:layout_constraintTop_toBottomOf="@+id/my_review"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/my_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spoqa_bold"
+            android:text="인상깊은 대사"
+            android:textColor="@color/review_text"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/item_review"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/myreview_Title"
+            app:layout_constraintTop_toBottomOf="@+id/myreview_attention"
+            app:layout_constraintVertical_bias="0.13" />
 
-    <ImageView
-        android:id="@+id/myreview_netflix"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
-        android:background="@mipmap/ic_netflix_review"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/myreview_content"
-        app:layout_constraintEnd_toStartOf="@+id/myreview_content"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/myreview_image"
-        app:layout_constraintTop_toBottomOf="@+id/myreview_image"
-        app:layout_constraintVertical_bias="0.37" />
+        <TextView
+            android:id="@+id/myreview_dialog"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="범인은 이 안에 있다"
+            android:textColor="@color/review_text"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/my_review"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/my_dialog"
+            app:layout_constraintTop_toBottomOf="@+id/my_dialog"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/myreview_tving"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
-        android:background="@mipmap/ic_tving_review"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/myreview_content"
-        app:layout_constraintEnd_toStartOf="@+id/myreview_content"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/myreview_netflix"
-        app:layout_constraintTop_toBottomOf="@+id/myreview_image"
-        app:layout_constraintVertical_bias="0.37" />
+        <TextView
+            android:id="@+id/my_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="60dp"
+            android:fontFamily="@font/spoqa_bold"
+            android:text="리뷰"
+            android:textColor="@color/review_text"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/item_review"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/my_dialog"
+            app:layout_constraintTop_toBottomOf="@+id/myreview_dialog" />
 
-    <ImageView
-        android:id="@+id/myreview_watcha"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
-        android:background="@mipmap/ic_watcha_review"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/myreview_content"
-        app:layout_constraintEnd_toStartOf="@+id/myreview_content"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/myreview_tving"
-        app:layout_constraintTop_toBottomOf="@+id/myreview_image"
-        app:layout_constraintVertical_bias="0.37" />
+        <TextView
+            android:id="@+id/myreview_content"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="연출이랑 스토리 구성이 뻔하지 않아서 재밌게 봤습니당"
+            android:textColor="@color/review_text"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/myreview_dialog"
+            app:layout_constraintStart_toStartOf="@+id/my_review"
+            app:layout_constraintTop_toBottomOf="@+id/my_review"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/myreview_wavve"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
-        android:background="@mipmap/ic_wavve_review"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/myreview_content"
-        app:layout_constraintEnd_toStartOf="@+id/myreview_content"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/myreview_watcha"
-        app:layout_constraintTop_toBottomOf="@+id/myreview_image"
-        app:layout_constraintVertical_bias="0.37" />
+        <LinearLayout
+            android:id="@+id/review_ott"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/myreview_content"
+            app:layout_constraintEnd_toStartOf="@+id/myreview_content"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/myreview_image"
+            app:layout_constraintTop_toBottomOf="@+id/myreview_image">
 
-    <ImageView
-        android:id="@+id/review_rewrite"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:background="@drawable/mybangu_rewrite"
-        app:layout_constraintBottom_toBottomOf="@+id/myreview_Title"
-        app:layout_constraintEnd_toEndOf="@+id/myreview_attention"
-        app:layout_constraintHorizontal_bias="0.89"
-        app:layout_constraintStart_toEndOf="@+id/myreview_Title"
-        app:layout_constraintTop_toTopOf="@+id/myreview_Title" />
+            <ImageView
+                android:id="@+id/netflix"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:background="@mipmap/ic_netflix_review"
+                android:visibility="gone" />
 
-    <ImageView
-        android:id="@+id/review_delete"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:background="@drawable/mybangu_delete"
-        app:layout_constraintBottom_toBottomOf="@+id/myreview_Title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.21"
-        app:layout_constraintStart_toEndOf="@+id/review_rewrite"
-        app:layout_constraintTop_toTopOf="@+id/myreview_Title" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/watcha"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:background="@mipmap/ic_watcha_review"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/tving"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:background="@mipmap/ic_tving_review"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/wavve"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:background="@mipmap/ic_wavve_review"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/review_rewrite"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/mybangu_rewrite"
+            app:layout_constraintBottom_toBottomOf="@+id/myreview_Title"
+            app:layout_constraintEnd_toStartOf="@+id/review_delete"
+            app:layout_constraintHorizontal_bias="0.89"
+            app:layout_constraintStart_toEndOf="@+id/myreview_Title"
+            app:layout_constraintTop_toTopOf="@+id/myreview_Title" />
+
+        <ImageView
+            android:id="@+id/review_delete"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/mybangu_delete"
+            app:layout_constraintBottom_toBottomOf="@+id/myreview_Title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/myreview_Title"
+            app:layout_constraintTop_toTopOf="@+id/myreview_Title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
