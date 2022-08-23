@@ -5,10 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.example.bangu.R
-import com.example.bangu.databinding.FragmentMyBanguRootBinding
 import com.example.bangu.databinding.FragmentProfileRootBinding
-import com.example.bangu.main.mybangu.ui.MyBangu.MyBanguFragment
 
 class ProfileRootFragment: Fragment() {
     private lateinit var binding: FragmentProfileRootBinding
@@ -27,6 +26,37 @@ class ProfileRootFragment: Fragment() {
         childFragmentManager.beginTransaction().apply {
             replace(R.id.profile_root_frag, ProfileFragment())
             commit()
+        }
+        /**ProfileFragment 네비게이션*/
+        ProfileFragment().apply {
+            /**설정페이지*/
+            toSetting.observe(viewLifecycleOwner, Observer {
+                childFragmentManager.beginTransaction().apply {
+                    replace(R.id.profile_root_frag, SettingFragment())
+                    commit()
+                }
+            })
+            /**팔로워페이지*/
+            toFollower.observe(viewLifecycleOwner, Observer {
+                childFragmentManager.beginTransaction().apply {
+                    replace(R.id.profile_root_frag, FollowerFragment())
+                    commit()
+                }
+            })
+            /**팔로잉페이지*/
+            toFollowing.observe(viewLifecycleOwner, Observer {
+                childFragmentManager.beginTransaction().apply {
+                    replace(R.id.profile_root_frag, FollowingFragment())
+                    commit()
+                }
+            })
+            /**북마크페이지*/
+            toBookmark.observe(viewLifecycleOwner, Observer {
+                childFragmentManager.beginTransaction().apply {
+                    replace(R.id.profile_root_frag, BookmarkFragment())
+                    commit()
+                }
+            })
         }
         return view
     }

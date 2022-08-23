@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.bangu.R
 import com.example.bangu.databinding.FragmentSettingsBinding
-import com.example.bangu.main.mybangu.ui.MyBangu.MyBanguFragment
 
 class SettingFragment: Fragment() {
     private lateinit var binding: FragmentSettingsBinding

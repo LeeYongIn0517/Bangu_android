@@ -5,12 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.example.bangu.Event
 import com.example.bangu.R
 import com.example.bangu.databinding.FragmentProfileBinding
-import com.example.bangu.main.mybangu.ui.MyBangu.MyBanguFragment
 
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
+    private var _toSetting = MutableLiveData<Event<Boolean>>()
+    val toSetting: LiveData<Event<Boolean>> = _toSetting
+    private var _toFollower = MutableLiveData<Event<Boolean>>()
+    val toFollower: LiveData<Event<Boolean>> = _toFollower
+    private var _toFollowing = MutableLiveData<Event<Boolean>>()
+    val toFollowing: LiveData<Event<Boolean>> = _toFollowing
+    private var _toBookmark = MutableLiveData<Event<Boolean>>()
+    val toBookmark: LiveData<Event<Boolean>> = _toBookmark
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -25,34 +36,21 @@ class ProfileFragment : Fragment() {
         binding.apply {
             /**설정 페이지*/
             icSetting.setOnClickListener{
-                childFragmentManager.beginTransaction().apply {
-                    replace(R.id.profile_root_frag, SettingFragment())
-                    commit()
-                }
+                _toSetting.postValue(Event(true))
             }
             /**팔로워 페이지*/
             spaceFollower.setOnClickListener{
-                childFragmentManager.beginTransaction().apply {
-                    replace(R.id.profile_root_frag, FollowerFragment())
-                    commit()
-                }
+                _toFollower.postValue(Event(true))
             }
             /**팔로잉 페이지*/
             spaceFollowing.setOnClickListener{
-                childFragmentManager.beginTransaction().apply {
-                    replace(R.id.profile_root_frag, FollowingFragment())
-                    commit()
-                }
+                _toFollowing.postValue(Event(true))
             }
             /**북마크 페이지*/
             spaceBookmark.setOnClickListener{
-                childFragmentManager.beginTransaction().apply {
-                    replace(R.id.profile_root_frag, BookmarkFragment())
-                    commit()
-                }
+                _toBookmark.postValue(Event(true))
             }
         }
-
         return view
     }
 }
