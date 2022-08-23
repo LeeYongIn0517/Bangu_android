@@ -52,7 +52,7 @@ class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 netflix.visibility = View.GONE
                 tving.visibility = View.GONE
                 watcha.visibility = View.GONE
-                wavve.visibility =  View.VISIBLE
+                wavve.visibility =  View.GONE
             }
             val ottSize = content.movieResponseData?.movieOtts?.size
             for(i in 0 until ottSize!!){
