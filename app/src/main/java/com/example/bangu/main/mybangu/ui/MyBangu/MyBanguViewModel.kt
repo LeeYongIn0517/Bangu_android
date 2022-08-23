@@ -12,6 +12,7 @@ import com.example.bangu.main.mybangu.data.MyBanguDataResource
 import com.example.bangu.main.mybangu.data.MyBanguRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 
 class MyBanguViewModel:ViewModel() {
     private val mybanguService = MyBanguDataResource.MyBanguApi
@@ -53,6 +54,7 @@ class MyBanguViewModel:ViewModel() {
                         _deleteOk.postValue(Event(true))
                     }){
                         Log.i("MyBanguViewModel","deleteMyReviews().fail")
+                        Log.d("SgDataResource.message",it.toString())
                     }
             )
         }

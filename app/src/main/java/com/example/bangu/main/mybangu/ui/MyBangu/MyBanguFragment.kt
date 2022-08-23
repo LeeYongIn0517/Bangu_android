@@ -96,7 +96,7 @@ class MyBanguFragment : Fragment() {
                         Log.i("MyBanguFragment","삭제api 호출")
                         //리뷰 삭제하기
                         var target_id = it.peekContent()
-                        viewmodel.deleteMyReviews(target_id,disposables)
+                            viewmodel.deleteMyReviews(target_id,disposables)
                         Log.i("ReviewFragment:삭제요청 대상 식별아이디", target_id.toString())
                     }
                 }
