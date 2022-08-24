@@ -1,6 +1,7 @@
 package com.example.bangu.main.profile.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,14 +14,6 @@ import com.example.bangu.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
-    private var _toSetting = MutableLiveData<Event<Boolean>>()
-    val toSetting: LiveData<Event<Boolean>> = _toSetting
-    private var _toFollower = MutableLiveData<Event<Boolean>>()
-    val toFollower: LiveData<Event<Boolean>> = _toFollower
-    private var _toFollowing = MutableLiveData<Event<Boolean>>()
-    val toFollowing: LiveData<Event<Boolean>> = _toFollowing
-    private var _toBookmark = MutableLiveData<Event<Boolean>>()
-    val toBookmark: LiveData<Event<Boolean>> = _toBookmark
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,23 +25,36 @@ class ProfileFragment : Fragment() {
     ): View? {
         binding = FragmentProfileBinding.inflate(inflater,container,false)
         val view = binding.root
-        /**개별페이지로 이동*/
+
+        /**fragment_profile 데이터바인딩해서 이벤트 넘겨서 네비게이션 하기*/
         binding.apply {
-            /**설정 페이지*/
-            icSetting.setOnClickListener{
-                _toSetting.postValue(Event(true))
+            /**설정페이지로 이동*/
+            icSetting.setOnClickListener {
+                parentFragmentManager.beginTransaction().apply {
+                    replace(R.id.profile_root_frag, SettingFragment())
+                    commit()
+                }
             }
-            /**팔로워 페이지*/
-            spaceFollower.setOnClickListener{
-                _toFollower.postValue(Event(true))
+            /**팔로워페이지로 이동*/
+            spaceFollower.setOnClickListener {
+                parentFragmentManager.beginTransaction().apply {
+                    replace(R.id.profile_root_frag, FollowerFragment())
+                    commit()
+                }
             }
-            /**팔로잉 페이지*/
+            /**팔로잉페이지로 이동*/
             spaceFollowing.setOnClickListener{
-                _toFollowing.postValue(Event(true))
+                parentFragmentManager.beginTransaction().apply {
+                    replace(R.id.profile_root_frag, FollowingFragment())
+                    commit()
+                }
             }
-            /**북마크 페이지*/
-            spaceBookmark.setOnClickListener{
-                _toBookmark.postValue(Event(true))
+            /**북마크페이지로 이동*/
+            spaceBookmark.setOnClickListener {
+                parentFragmentManager.beginTransaction().apply {
+                    replace(R.id.profile_root_frag, BookmarkFragment())
+                    commit()
+                }
             }
         }
         return view

@@ -5,13 +5,14 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.bangu.main.mybangu.ui.MyBanguRootFragment
 import com.example.bangu.main.feed.ui.FeedFragment
 import com.example.bangu.main.home.ui.HomeFragment
-import com.example.bangu.main.profile.ui.ProfileFragment
+import com.example.bangu.main.profile.ui.ProfileRootFragment
 
 private const val NUM_PAGES = 4
 
 class ScreenSlidePagerAdapter(f: Fragment): FragmentStateAdapter(f){
     val fragmentList = mutableListOf(HomeFragment(),
-        MyBanguRootFragment(), FeedFragment(),ProfileFragment())
+        MyBanguRootFragment(), FeedFragment(), ProfileRootFragment()
+    )
     override fun createFragment(position: Int): Fragment {
         return fragmentList[position]
     }

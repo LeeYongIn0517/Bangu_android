@@ -27,6 +27,6 @@ class FollowingFragment: Fragment() {
             //프로필 페이지로 돌아가기
             parentFragmentManager.beginTransaction(). replace(R.id.profile_root_frag, ProfileFragment()).commit()
         }
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return binding.root
     }
 }
