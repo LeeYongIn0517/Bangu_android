@@ -1,4 +1,6 @@
 package com.example.bangu.main.profile.presentation
 
-class ChangingPwViewmodel {
+import androidx.lifecycle.ViewModel
+
+class ChangingPwViewmodel:ViewModel() {
 }

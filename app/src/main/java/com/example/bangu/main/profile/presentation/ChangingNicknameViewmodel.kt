@@ -1,4 +1,6 @@
 package com.example.bangu.main.profile.presentation
 
-class ChangingNicknameViewmodel {
+import androidx.lifecycle.ViewModel
+
+class ChangingNicknameViewmodel:ViewModel() {
 }
