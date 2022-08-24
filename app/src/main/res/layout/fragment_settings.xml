@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/setting_root_frag"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/canvas">
@@ -47,7 +48,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout6"
+        android:id="@+id/pw_changing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/style_border01"
@@ -67,12 +68,12 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/pw_changing"
+            app:layout_constraintStart_toEndOf="@+id/textView9"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_next" />
 
         <TextView
-            android:id="@+id/pw_changing"
+            android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="비밀번호 변경"
@@ -86,7 +87,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout8"
+        android:id="@+id/profile_photo_changing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/style_border01"
@@ -94,7 +95,7 @@
         android:paddingLeft="25dp"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
+        app:layout_constraintTop_toBottomOf="@+id/pw_changing">
 
         <ImageView
             android:id="@+id/imageView5"
@@ -104,12 +105,12 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/profile_photo_changing"
+            app:layout_constraintStart_toEndOf="@+id/textView10"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_next" />
 
         <TextView
-            android:id="@+id/profile_photo_changing"
+            android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="프로필 사진 변경"
@@ -123,6 +124,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/nickname_changing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/style_border01"
@@ -131,7 +133,7 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout8"
+        app:layout_constraintTop_toBottomOf="@+id/profile_photo_changing"
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
@@ -142,12 +144,12 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/nickname_changing"
+            app:layout_constraintStart_toEndOf="@+id/textView12"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_next" />
 
         <TextView
-            android:id="@+id/nickname_changing"
+            android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="닉네임 변경"
