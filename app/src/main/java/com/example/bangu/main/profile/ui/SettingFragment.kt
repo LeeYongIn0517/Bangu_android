@@ -27,6 +27,22 @@ class SettingFragment: Fragment() {
             //프로필 페이지로 돌아가기
             parentFragmentManager.beginTransaction(). replace(R.id.profile_root_frag, ProfileFragment()).commit()
         }
+
+        binding.apply {
+            /**비번 변경으로*/
+            pwChanging.setOnClickListener {
+                childFragmentManager.beginTransaction().replace(R.id.setting_root_frag, ChangingPwFragment()).addToBackStack(null).commit()
+            }
+            /**프로필사진 변경으로*/
+            profilePhotoChanging.setOnClickListener {
+
+            }
+            /**닉네임 변경으로*/
+            nicknameChanging.setOnClickListener {
+                childFragmentManager.beginTransaction().replace(R.id.setting_root_frag, ChangingNicknameFragment()).addToBackStack(null).commit()
+            }
+        }
+
         return binding.root
     }
 }
