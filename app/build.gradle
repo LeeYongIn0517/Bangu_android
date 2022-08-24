@@ -33,8 +33,8 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
     buildFeatures {
-        viewBinding true
         dataBinding true
+        viewBinding true
     }
     testOptions {
         unitTests.all {
@@ -43,6 +43,7 @@ android {
     }
 }
 apply plugin: 'kotlin-kapt'
+
 dependencies {
     //mock
     testImplementation 'com.squareup.okhttp3:mockwebserver:4.10.0'
