@@ -8,7 +8,7 @@
     tools:context=".main.feed.ui.FeedFragment">
 
     <EditText
-        android:id="@+id/searchbar"
+        android:id="@+id/nickname_input"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:hint="리뷰를 검색해보세요!"

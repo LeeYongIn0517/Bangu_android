@@ -50,8 +50,8 @@
             android:paddingRight="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/searchbar"
-            app:layout_constraintTop_toTopOf="@+id/searchbar"
+            app:layout_constraintStart_toEndOf="@+id/nickname_input"
+            app:layout_constraintTop_toTopOf="@+id/nickname_input"
             app:srcCompat="@drawable/search_icon" />
 
         <ImageView
@@ -62,11 +62,11 @@
             android:paddingRight="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/searchbar"
+            app:layout_constraintTop_toTopOf="@+id/nickname_input"
             app:srcCompat="@drawable/ic_backbtn" />
 
         <EditText
-            android:id="@+id/searchbar"
+            android:id="@+id/nickname_input"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:hint="내가 쓴 리뷰를 검색해보세요!"
