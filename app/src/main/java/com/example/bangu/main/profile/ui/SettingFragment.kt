@@ -31,7 +31,7 @@ class SettingFragment: Fragment() {
         binding.apply {
             /**비번 변경으로*/
             pwChanging.setOnClickListener {
-                childFragmentManager.beginTransaction().replace(R.id.setting_root_frag, ChangingPwFragment()).addToBackStack(null).commit()
+                childFragmentManager.beginTransaction().replace(R.id.setting_root_frag, UpdatePwFragment()).addToBackStack(null).commit()
             }
             /**프로필사진 변경으로*/
             profilePhotoChanging.setOnClickListener {
@@ -39,7 +39,7 @@ class SettingFragment: Fragment() {
             }
             /**닉네임 변경으로*/
             nicknameChanging.setOnClickListener {
-                childFragmentManager.beginTransaction().replace(R.id.setting_root_frag, ChangingNicknameFragment()).addToBackStack(null).commit()
+                childFragmentManager.beginTransaction().replace(R.id.setting_root_frag, UpdateNicknameFragment()).addToBackStack(null).commit()
             }
         }
 
