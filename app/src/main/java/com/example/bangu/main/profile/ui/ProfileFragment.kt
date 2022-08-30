@@ -1,16 +1,13 @@
 package com.example.bangu.main.profile.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.example.bangu.Event
 import com.example.bangu.R
 import com.example.bangu.databinding.FragmentProfileBinding
+import com.example.bangu.main.profile.presentation.ProfileViewModel
 
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
@@ -25,6 +22,7 @@ class ProfileFragment : Fragment() {
     ): View? {
         binding = FragmentProfileBinding.inflate(inflater,container,false)
         val view = binding.root
+        val viewmodel = ProfileViewModel()
 
         /**fragment_profile 데이터바인딩해서 이벤트 넘겨서 네비게이션 하기*/
         binding.apply {
@@ -57,6 +55,18 @@ class ProfileFragment : Fragment() {
                 }
             }
         }
+        /**프로필 아이콘을 누를 경우 기기 기본 갤러리 접근*/
+        binding.profilePhoto.setOnClickListener {
+            viewmodel.checkSelfPermission()
+        }
         return view
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 }
