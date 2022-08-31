@@ -26,4 +26,13 @@ interface ProfileApi {
         @Query("page") page:Int,
         @Query("size") size:Int,
     ):Single<FollowingResponse>
+
+    /**유저 팔로워 조회*/
+    @GET("/users/{id}/follower")
+    fun requestFollower(
+        @Header("X-AUTH-TOKEN") accessToken:String,
+        @Path("id") id:Int,
+        @Query("page") page:Int,
+        @Query("size") size:Int,
+    ):Single<FollowingResponse>
 }
