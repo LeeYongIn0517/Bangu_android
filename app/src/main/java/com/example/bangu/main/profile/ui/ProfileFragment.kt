@@ -57,7 +57,7 @@ class ProfileFragment : Fragment() {
         }
         /**프로필 아이콘을 누를 경우 기기 기본 갤러리 접근*/
         binding.profilePhoto.setOnClickListener {
-            viewmodel.checkSelfPermission()
+            //viewmodel.checkSelfPermission()
         }
         return view
     }
