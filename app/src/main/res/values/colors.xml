@@ -31,4 +31,5 @@
     <color name="rating_star">#DBFF79</color>
     <color name="btn_selected">#CCD6F2</color>
     <color name="dialog_background">#20202D</color>
+    <color name="btn_text">#7581a6</color>
 </resources>
