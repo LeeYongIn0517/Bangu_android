@@ -5,14 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.bangu.R
 import com.example.bangu.databinding.FragmentBookmarkBinding
+import com.example.bangu.main.data.model.Content
+import com.example.bangu.main.profile.presentation.BookmarkViewModel
+import io.reactivex.disposables.CompositeDisposable
+
 class BookmarkFragment: Fragment() {
     private lateinit var binding: FragmentBookmarkBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private var page = 0
+    private val ITEMS_SIZE = 10
+    private val disposables = CompositeDisposable()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,5 +33,35 @@ class BookmarkFragment: Fragment() {
             parentFragmentManager.beginTransaction(). replace(R.id.profile_root_frag, ProfileFragment()).commit()
         }
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val viewmodel = BookmarkViewModel()
+        val adapter = BookmarkAdapter()
+
+        /**어댑터 등록*/
+        binding.recyclerview.adapter = adapter
+        /**서버에서 데이터 초기요청 1번*/
+        if(page == 0) viewmodel.requestBookmark(page,ITEMS_SIZE,disposables)
+        /**스크롤 리스너*/
+        binding.recyclerview.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                val lastVisibleItemPosition = (recyclerView.layoutManager as LinearLayoutManager)!!.findLastCompletelyVisibleItemPosition()
+                val itemTotalCount = recyclerView.adapter!!.itemCount - 1
+
+                //스크롤이 끝에 도달했는지 확인
+                if(!binding.recyclerview.canScrollVertically(1) && lastVisibleItemPosition == itemTotalCount){
+                    viewmodel.requestBookmark(++page,ITEMS_SIZE,disposables)
+                }
+            }
+        })
+        /**서버에서 온 데이터를 관찰하는 옵저버*/
+        viewmodel.reviewList.observe(viewLifecycleOwner, Observer {
+            adapter.setList(it as MutableList<Content>)
+            adapter.notifyItemInserted(page*ITEMS_SIZE)
+        })
     }
 }
