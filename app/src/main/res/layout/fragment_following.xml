@@ -84,7 +84,7 @@
             android:id="@+id/nickname_input"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:hint="내가 쓴 리뷰를 검색해보세요!"
+            android:hint="팔로잉하고 있는 유저를 검색해보세요!"
             android:textColorHint="@color/search_gray"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
