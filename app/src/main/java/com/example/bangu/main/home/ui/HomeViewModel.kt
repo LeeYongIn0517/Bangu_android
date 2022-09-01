@@ -6,19 +6,26 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.bangu.App
 import com.example.bangu.Event
+import com.example.bangu.main.data.MainDataResource
 import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.data.model.RequestReviewList
 import com.example.bangu.main.home.data.HomeRepository
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 
 class HomeViewModel: ViewModel() {
     private val repo = HomeRepository
+    private val MainService = MainDataResource.MainApi
     private var _reviewList = MutableLiveData<List<Content>>()
     val  reviewList: LiveData<List<Content>> = _reviewList
     private var _BookMark = MutableLiveData<Event<String>>()
     val BookMark: LiveData<Event<String>> = _BookMark
-
+    private var _search = MutableLiveData<List<Content>>()
+    val  search: LiveData<List<Content>> = _search
     //리뷰리스트 요청
     val accessToken = App.token_prefs.accessToken
+
     fun requestReviewList(page:Int, size:Int,type:String){
         if (accessToken != null) {
             Log.d("accessToken",accessToken)
@@ -67,6 +74,22 @@ class HomeViewModel: ViewModel() {
         Log.d("HomeVM","requestToFollow")
         if (accessToken != null) {
             repo.requestToFollow(accessToken,toUser)
+        }
+    }
+    /**영화 이름으로 리뷰 검색*/
+    fun searchReviews(title:String,sortType:Boolean,disposable: CompositeDisposable){
+        if (accessToken != null) {
+            disposable.add(
+            MainService.searchReviews(accessToken,title,sortType)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    Log.d("HomeViewModel","searchReviews().success")
+                    _search.value = it
+                }){
+                    Log.d("HomeViewModel","searchReviews().fail")
+                }
+            )
         }
     }
 }

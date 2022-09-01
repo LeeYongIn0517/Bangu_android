@@ -1,5 +1,6 @@
 package com.example.bangu.main.data
 
+import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.data.model.RequestReviewList
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -15,4 +16,11 @@ interface MainAPI {
         @Query("size") size:Int,
         @Query("type") type:String,
     ): Observable<RequestReviewList>
+    /**영화 이름으로 리뷰 검색*/
+    @GET("/reviews")
+    fun searchReviews(
+        @Header("X-AUTH-TOKEN") accessToken:String,
+        @Query("title") title:String,
+        @Query("sortType") sortType:Boolean,
+    ):Single<List<Content>>
 }
