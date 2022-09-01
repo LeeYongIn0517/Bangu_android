@@ -1,5 +1,6 @@
 package com.example.bangu.main.profile.data.model
 
+import com.example.bangu.main.data.model.Page
 import com.example.bangu.main.data.model.Sort
 import com.google.gson.annotations.SerializedName
 
@@ -23,7 +24,7 @@ data class UserFollowData(
     @SerializedName("numberOfElements")
     var numberOfElements:Int,
     @SerializedName("pageable")
-    var pageable:Page,
+    var pageable: Page,
     @SerializedName("size")
     var size: Int,
     @SerializedName("sort")
@@ -32,14 +33,6 @@ data class UserFollowData(
     var totalElements: Int,
     @SerializedName("totalPages")
     var totalPages: Int,
-)
-data class Page(
-    @SerializedName("page")
-    var page: Int,
-    @SerializedName("size")
-    var size: Int,
-    @SerializedName("sort")
-    var sort: List<String>,
 )
 data class FollowContent(
     @SerializedName("followState")

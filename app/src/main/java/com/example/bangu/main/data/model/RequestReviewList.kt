@@ -1,12 +1,13 @@
 package com.example.bangu.main.data.model
 
+import com.example.bangu.signup_fin.data.model.Pageable
 import com.google.gson.annotations.SerializedName
 
 data class RequestReviewList(
     @SerializedName("content")
     var content:List<Content>,
     @SerializedName("pageable")
-    var pageable:Pageable,
+    var pageable: Pageable,
     @SerializedName("totalElements")
     var totalElements:Int,
     @SerializedName("totalPages")
@@ -88,7 +89,7 @@ data class UserProfileData(
     @SerializedName("birth")
     var birth:Int
 )
-data class Pageable(
+data class Page(
     @SerializedName("sort")
     var sort:Sort,
     @SerializedName("offset")
