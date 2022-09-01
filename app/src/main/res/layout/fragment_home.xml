@@ -4,115 +4,86 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/canvas"
-    tools:context=".main.home.ui.HomeFragment">
+    android:background="@color/canvas">
 
-    <EditText
-        android:id="@+id/searchbar"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:hint="리뷰를 검색해보세요!"
-        android:textColorHint="@color/search_gray"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@id/searchbar_pic"
-        app:layout_constraintEnd_toStartOf="@+id/search_icon"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/back_cursor"
-        app:layout_constraintTop_toTopOf="@id/search_icon"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <ImageView
-        android:id="@+id/searchbar_pic"
-        android:layout_width="340dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/search_bar"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:searchIcon="@drawable/search_icon" />
+        app:layout_constraintVertical_bias="0.0">
 
-    <View
-        android:id="@+id/search_icon"
-        android:layout_width="23.98dp"
-        android:layout_height="23.42dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/search_icon"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="@+id/searchbar_pic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/searchbar_pic"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mybangu_searchbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView3"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView7"
+            app:layout_constraintTop_toBottomOf="parent" />
 
-    <FrameLayout
-        android:id="@+id/frame_filter"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchbar_pic" />
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/ic_backbtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <CheckBox
-        android:id="@+id/content_checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="4dp"
-        android:button="@drawable/ic_checkbox_states"
-        android:fontFamily="@font/spoqa"
-        android:padding="0dp"
-        android:text="성별 / 나이대 맞춤 리뷰"
-        android:textColor="@color/white"
-        android:textSize="12sp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/back_cursor"
-        app:layout_constraintTop_toBottomOf="@id/frame_filter" />
+        <EditText
+            android:id="@+id/home_search"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:hint="   리뷰를 검색해보세요!"
+            android:textColorHint="@color/search_gray"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView3"
+            app:layout_constraintStart_toEndOf="@+id/imageView7" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:paddingRight="0dp"
+            android:src="@drawable/search_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/home_search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/home_search"
+            app:layout_constraintTop_toTopOf="@+id/home_search" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/tv_review"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:paddingBottom="8dp"
-        android:text="최근 올라온 리뷰"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/back_cursor"
-        app:layout_constraintTop_toBottomOf="@id/frame_filter" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/home_rcycleview"
+        android:id="@+id/textView17"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:fontFamily="@font/spoqa_bold"
+        android:paddingLeft="25dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="10dp"
+        android:text="최근 올라온 리뷰"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
+        tools:layout_editor_absoluteX="131dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/home_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_review"
+        app:layout_constraintTop_toBottomOf="@+id/textView17"
         app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/back_cursor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:src="@drawable/ic_backbtn"
-        app:layout_constraintBottom_toBottomOf="@+id/search_icon"
-        app:layout_constraintEnd_toStartOf="@+id/searchbar_pic"
-        app:layout_constraintHorizontal_bias="0.432"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/search_icon"
-        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
