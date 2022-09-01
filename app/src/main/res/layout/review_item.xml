@@ -228,7 +228,7 @@
                 android:paddingRight="2dp"
                 android:textColor="@color/review_text"
                 android:textSize="7sp"
-                android:visibility="visible" />
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/default_genre1"
