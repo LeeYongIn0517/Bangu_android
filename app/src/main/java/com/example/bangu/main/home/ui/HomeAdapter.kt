@@ -124,8 +124,10 @@ class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     fun setList(content:MutableList<Content>){
         items.addAll(content) //서버에서 받아온 Content 리스트 삽입
     }
-
+    /**모든 항목 삭제*/
     fun clearList(){
+        var removed_num = itemCount //삭제되기 전 개수 기록
         items.clear() //모든 항목삭제
+        notifyItemRangeRemoved(0, removed_num)
     }
 }

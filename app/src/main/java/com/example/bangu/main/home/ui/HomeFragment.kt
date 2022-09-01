@@ -25,6 +25,7 @@ class HomeFragment : Fragment() {
     private val TYPE_REVIEW = "home"
     private val sortType = false
     private val disposables = CompositeDisposable()
+    private var positionStart = 0 // 삽입/삭제된 아이템의 첫 위치
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -89,16 +90,21 @@ class HomeFragment : Fragment() {
         }
         /**검색결과 옵저버*/
         viewmodel.search.observe(viewLifecycleOwner, Observer {
-            /**리사이클뷰 싹 지우고 검색결과 내용으로 바꾸기*/
+            /**리사이클뷰 초기화하고 검색결과 내용으로 바꾸기*/
             adapter.clearList()
             adapter.apply {
-                notifyItemRangeRemoved(0,ITEMS_SIZE)
                 setList(it as MutableList<Content>)
+                notifyItemRangeInserted(0,adapter.itemCount)
             }
-
         })
-        /**백 버튼 - 검색결과 이전화면으로 돌아가기*/
-
+        /**백 버튼 - '최근 올라온 리뷰'화면으로 돌아가기*/
+        binding.homeBack.setOnClickListener {
+            /**리사이클뷰 초기화*/
+            adapter.clearList()
+            /**최근 올라온 리뷰의 데이터를 요청하도록 페이지 초기화*/
+            page = 0
+            viewmodel.requestReviewList(page,ITEMS_SIZE,TYPE_REVIEW)
+        }
     }
     override fun onStop() {
         super.onStop()
