@@ -1,15 +1,21 @@
 package com.example.bangu.main.profile.presentation
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.bangu.App
 import com.example.bangu.main.profile.data.ProfileDataResource
+import com.example.bangu.main.profile.data.model.FollowContent
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 class FollowingViewModel:ViewModel() {
     private val profileService = ProfileDataResource.ProfileApi
+    private var _following = MutableLiveData<List<FollowContent>>()
+    val  following: LiveData<List<FollowContent>> = _following
+
     val accessToken = App.token_prefs.accessToken
     val id = App.signup_prefs.sp_id //사용자 식별자
 
@@ -21,6 +27,7 @@ class FollowingViewModel:ViewModel() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
                         Log.d("FollowingViewModel","requestFollowing().success")
+                        _following.value = it.followData.content
                     }){
                         Log.d("FollowingViewModel","requestFollowing().fail")
                     }

@@ -39,4 +39,8 @@ class FollowingAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun getItemCount(): Int {
         return items.size
     }
+
+    fun setList(content:MutableList<FollowContent>){
+        items.addAll(content) //서버에서 받아온 FollowContent 리스트 삽입
+    }
 }
