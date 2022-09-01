@@ -16,13 +16,15 @@ import com.example.bangu.R
 import com.example.bangu.databinding.FragmentHomeBinding
 import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.ui.SearchfilterFragment
+import io.reactivex.disposables.CompositeDisposable
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    private val myHandler = Handler(Looper.getMainLooper())
     private var page = 0
     private val ITEMS_SIZE = 10
     private val TYPE_REVIEW = "home"
+    private val sortType = false
+    private val disposables = CompositeDisposable()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -82,8 +84,26 @@ class HomeFragment : Fragment() {
             }
         })
         /**검색기능*/
+        binding.homeIcSearch.setOnClickListener {
+            viewmodel.searchReviews(binding.homeSearch.text.toString(),sortType,disposables)
+        }
+        /**검색결과 옵저버*/
+        viewmodel.search.observe(viewLifecycleOwner, Observer {
+            /**리사이클뷰 싹 지우고 검색결과 내용으로 바꾸기*/
+            adapter.clearList()
+            adapter.apply {
+                notifyItemRangeRemoved(0,ITEMS_SIZE)
+                setList(it as MutableList<Content>)
+            }
+
+        })
+        /**백 버튼 - 검색결과 이전화면으로 돌아가기*/
 
     }
-
+    override fun onStop() {
+        super.onStop()
+        //관리하고 있던 디스포저블 객체를 모두 해제
+        disposables.clear()
+    }
 }
 

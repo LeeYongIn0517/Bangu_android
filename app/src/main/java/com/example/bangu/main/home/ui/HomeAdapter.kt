@@ -124,4 +124,8 @@ class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     fun setList(content:MutableList<Content>){
         items.addAll(content) //서버에서 받아온 Content 리스트 삽입
     }
+
+    fun clearList(){
+        items.clear() //모든 항목삭제
+    }
 }
