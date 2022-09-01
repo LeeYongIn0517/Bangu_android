@@ -20,16 +20,17 @@
 
         <ImageView
             android:id="@+id/imageView8"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:src="@drawable/mybangu_searchbar"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="@+id/home_ic_search"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imageView7"
+            app:layout_constraintStart_toEndOf="@+id/home_back"
             app:layout_constraintTop_toBottomOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/home_back"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:paddingLeft="25dp"
@@ -44,13 +45,16 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:hint="   리뷰를 검색해보세요!"
+            android:textColor="@color/search_gray"
             android:textColorHint="@color/search_gray"
             android:textSize="12sp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView3"
-            app:layout_constraintStart_toEndOf="@+id/imageView7" />
+            app:layout_constraintBottom_toTopOf="@+id/imageView8"
+            app:layout_constraintEnd_toStartOf="@+id/home_ic_search"
+            app:layout_constraintStart_toEndOf="@+id/home_back"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/home_ic_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="25dp"
@@ -81,6 +85,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
