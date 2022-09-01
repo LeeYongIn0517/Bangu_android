@@ -1,7 +1,7 @@
 package com.example.bangu.main.mybangu.data.model
 
 import com.example.bangu.main.data.model.MovieResponseData
-import com.example.bangu.main.data.model.Pageable
+import com.example.bangu.main.data.model.Page
 import com.example.bangu.main.data.model.Sort
 import com.google.gson.annotations.SerializedName
 
@@ -10,7 +10,7 @@ data class MovieSearchResponse(
     @SerializedName("content")
     var content:List<MovieResponseData>,
     @SerializedName("pageable")
-    var pageable:Pageable,
+    var pageable: Page,
     @SerializedName("totalElements")
     var totalElements:Int,
     @SerializedName("totalPages")
