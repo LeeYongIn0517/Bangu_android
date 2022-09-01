@@ -1,21 +1,14 @@
 package com.example.bangu.main.home.ui
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.view.get
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
 import com.example.bangu.R
 import com.example.bangu.databinding.ReviewItemBinding
-import com.example.bangu.databinding.ReviewItemLoadingBinding
 import com.example.bangu.main.data.model.Content
 
 class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {

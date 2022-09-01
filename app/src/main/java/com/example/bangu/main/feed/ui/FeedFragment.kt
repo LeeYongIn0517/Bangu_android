@@ -53,7 +53,6 @@ class FeedFragment : Fragment() {
 
                 //스크롤이 끝에 도달했는지 확인
                 if(!binding.feedRcycleview.canScrollVertically(1) && lastVisibleItemPosition == itemTotalCount){
-                    adapter.deleteLoading()
                     viewmodel.requestReviewList(++page, ITEMS_SIZE,TYPE_REVIEW,disposables)
                 }
             }

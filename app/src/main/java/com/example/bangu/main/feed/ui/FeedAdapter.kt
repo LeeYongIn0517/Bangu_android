@@ -9,18 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.bangu.R
 import com.example.bangu.databinding.ReviewItemBinding
-import com.example.bangu.databinding.ReviewItemLoadingBinding
 import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.home.ui.HomeAdapter
 
 class FeedAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    companion object{
-        private const val TYPE_MOVIE = 0
-        private const val TYPE_REVIEW = 1
-        private const val TYPE_LOADING = 2
-    }
     private val items = ArrayList<Content>()
     private val viewmodel = FeedViewModel()
+
     inner class ReviewViewHolder(private val binding:ReviewItemBinding):RecyclerView.ViewHolder(binding.root){
         //장르 해쉬태그 (최대 6개)
         private val genre_array = arrayListOf<TextView>(
@@ -90,24 +85,12 @@ class FeedAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.followingBtn.visibility = View.INVISIBLE
         }
     }
-    inner class LoadingViewHolder(private val binding:ReviewItemLoadingBinding):RecyclerView.ViewHolder(binding.root){
-
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context);
-        when(viewType){
-            TYPE_REVIEW -> {
-                val binding = ReviewItemBinding.inflate(layoutInflater,parent,false)
+            val binding = ReviewItemBinding.inflate(layoutInflater,parent,false)
 
-                return ReviewViewHolder(binding)
-            }
-            else -> {
-                val binding = ReviewItemLoadingBinding.inflate(layoutInflater,parent,false)
-
-                return LoadingViewHolder(binding)
-            }
-        }
+            return ReviewViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -120,18 +103,7 @@ class FeedAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         return items.size
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return when(items[position].movieResponseData?.imageUrl){
-            " " -> FeedAdapter.TYPE_LOADING
-            else -> FeedAdapter.TYPE_REVIEW
-        }
-    }
-    fun deleteLoading(){
-        items.removeAt(items.lastIndex)
-    }
     fun setList(content:MutableList<Content>){
         items.addAll(content) //서버에서 받아온 Content 리스트 삽입
-        items.add(Content(0,null,null,false,false,null,
-            0f," ", " ", " ",false)) //마지막에 빈 아이템 추가(로딩 뷰)
     }
 }

@@ -11,7 +11,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
 import com.example.bangu.Event
 import com.example.bangu.R
-import com.example.bangu.databinding.ReviewItemLoadingBinding
 import com.example.bangu.databinding.ReviewMybanguItemBinding
 import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.mybangu.ui.Review.ReviewViewModel
