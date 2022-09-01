@@ -18,7 +18,8 @@
         <activity
             android:name=".SingleActivity"
             android:exported="true"
-            android:theme="@style/Theme.Bangu.Splash">
+            android:theme="@style/Theme.Bangu.Splash"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
