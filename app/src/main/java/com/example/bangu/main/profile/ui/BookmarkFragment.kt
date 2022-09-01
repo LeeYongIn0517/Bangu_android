@@ -64,4 +64,9 @@ class BookmarkFragment: Fragment() {
             adapter.notifyItemInserted(page*ITEMS_SIZE)
         })
     }
+    override fun onStop() {
+        super.onStop()
+        //관리하고 있던 디스포저블 객체를 모두 해제
+        disposables.clear()
+    }
 }
