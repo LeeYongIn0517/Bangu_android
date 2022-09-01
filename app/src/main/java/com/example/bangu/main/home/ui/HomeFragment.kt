@@ -21,7 +21,7 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private val myHandler = Handler(Looper.getMainLooper())
     private var page = 0
-    private val ITEMS_SIZE = 3
+    private val ITEMS_SIZE = 10
     private val TYPE_REVIEW = "home"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,7 +61,6 @@ class HomeFragment : Fragment() {
 
                 //스크롤이 끝에 도달했는지 확인
                 if(!binding.homeRcycleview.canScrollVertically(1) && lastVisibleItemPosition == itemTotalCount){
-                    adapter.deleteLoading()
                     viewmodel.requestReviewList(++page, ITEMS_SIZE,TYPE_REVIEW)
                 }
             }

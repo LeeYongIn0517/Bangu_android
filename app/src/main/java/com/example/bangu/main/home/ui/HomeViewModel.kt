@@ -35,8 +35,6 @@ class HomeViewModel: ViewModel() {
 
                 override fun onFailure(throwable: Throwable) {
                     Log.d("HomeVM.requestReviewList","onFailure")
-                    Log.d("HomeVM.requestReviewList","더미데이터 보여주기")
-//                    _reviewList.value = DummyContent()
                 }
             })
         }
