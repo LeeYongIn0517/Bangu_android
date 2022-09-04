@@ -1,4 +1,4 @@
-package com.example.bangu.main.home.ui
+package com.example.bangu.main.home.presentation
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -8,6 +8,7 @@ import com.example.bangu.App
 import com.example.bangu.Event
 import com.example.bangu.main.data.MainDataResource
 import com.example.bangu.main.data.model.Content
+import com.example.bangu.main.data.model.MovieResponseData
 import com.example.bangu.main.data.model.RequestReviewList
 import com.example.bangu.main.home.data.HomeRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -23,6 +24,8 @@ class HomeViewModel: ViewModel() {
     val BookMark: LiveData<Event<String>> = _BookMark
     private var _search = MutableLiveData<List<Content>>()
     val  search: LiveData<List<Content>> = _search
+    private var _movieList = MutableLiveData<List<MovieResponseData>>()
+    val movieList:LiveData<List<MovieResponseData>> = _movieList
     //리뷰리스트 요청
     val accessToken = App.token_prefs.accessToken
 
@@ -89,6 +92,22 @@ class HomeViewModel: ViewModel() {
                 }){
                     Log.d("HomeViewModel","searchReviews().fail")
                 }
+            )
+        }
+    }
+    /**영화 이름으로 검색*/
+    fun searchMovie(name:String, page: Int, size: Int,disposable: CompositeDisposable){
+        if(accessToken != null) {
+            disposable.add(
+                MainService.searchMovies(name, page, size)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({
+                        Log.d("HomeViewModel","searchMovies().success")
+                        _movieList.value = it.content
+                    }){
+                        Log.d("HomeViewModel","searchMovies().fail")
+                    }
             )
         }
     }
