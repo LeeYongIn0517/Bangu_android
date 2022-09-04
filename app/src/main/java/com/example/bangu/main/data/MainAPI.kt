@@ -2,6 +2,7 @@ package com.example.bangu.main.data
 
 import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.data.model.RequestReviewList
+import com.example.bangu.main.mybangu.data.model.MovieSearchResponse
 import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.http.GET
@@ -23,4 +24,12 @@ interface MainAPI {
         @Query("title") title:String,
         @Query("sortType") sortType:Boolean,
     ):Single<List<Content>>
+
+    /**영화 이름으로 작품 검색*/
+    @GET("/movies/search")
+    fun searchMovies(
+        @Query("name") name:String,
+        @Query("page") page:Int,
+        @Query("size") size:Int
+    ): Single<MovieSearchResponse>
 }
