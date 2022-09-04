@@ -8,9 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
 import com.example.bangu.R
 import com.example.bangu.databinding.ItemMovieBinding
-import com.example.bangu.databinding.ItemMybanguBinding
 import com.example.bangu.main.data.model.MovieResponseData
-import com.example.bangu.main.mybangu.ui.MyBangu.MyBanguAdapter
 
 class MovieAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val items = ArrayList<MovieResponseData>()
