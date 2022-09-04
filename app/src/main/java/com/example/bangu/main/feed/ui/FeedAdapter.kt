@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.bangu.R
-import com.example.bangu.databinding.ReviewItemBinding
+import com.example.bangu.databinding.ItemReviewBinding
 import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.home.ui.HomeAdapter
 
@@ -16,7 +16,7 @@ class FeedAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val items = ArrayList<Content>()
     private val viewmodel = FeedViewModel()
 
-    inner class ReviewViewHolder(private val binding:ReviewItemBinding):RecyclerView.ViewHolder(binding.root){
+    inner class ReviewViewHolder(private val binding:ItemReviewBinding):RecyclerView.ViewHolder(binding.root){
         //장르 해쉬태그 (최대 6개)
         private val genre_array = arrayListOf<TextView>(
             binding.defaultGenre0,binding.defaultGenre1,binding.defaultGenre2,
@@ -88,7 +88,7 @@ class FeedAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context);
-            val binding = ReviewItemBinding.inflate(layoutInflater,parent,false)
+            val binding = ItemReviewBinding.inflate(layoutInflater,parent,false)
 
             return ReviewViewHolder(binding)
     }

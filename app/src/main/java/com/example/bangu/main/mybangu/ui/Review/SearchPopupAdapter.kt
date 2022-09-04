@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
 import com.example.bangu.R
-import com.example.bangu.databinding.ReviewMovieItemBinding
+import com.example.bangu.databinding.ItemMovieBinding
 import com.example.bangu.main.data.model.MovieResponseData
 import com.example.bangu.main.mybangu.ui.myInterface.Communicator
 import java.lang.StringBuilder
@@ -17,7 +17,7 @@ class SearchPopupAdapter(private val listener:Communicator):RecyclerView.Adapter
     companion object{
     }
     /*아이템이 영화인 경우*/
-    inner class ResultViewHolder(private val binding:ReviewMovieItemBinding):RecyclerView.ViewHolder(binding.root){
+    inner class ResultViewHolder(private val binding:ItemMovieBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(movieData:MovieResponseData){
             //아이템에 서버로 얻은 정보 바인딩
             binding.apply {
@@ -64,7 +64,7 @@ class SearchPopupAdapter(private val listener:Communicator):RecyclerView.Adapter
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = ReviewMovieItemBinding.inflate(layoutInflater,parent,false)
+        val binding = ItemMovieBinding.inflate(layoutInflater,parent,false)
         return ResultViewHolder(binding)
     }
 
@@ -76,6 +76,7 @@ class SearchPopupAdapter(private val listener:Communicator):RecyclerView.Adapter
     override fun getItemCount(): Int {
         return items.size
     }
+
     fun setList(content:MutableList<MovieResponseData>){
         items.addAll(content) //서버에서 받아온 영화작품 데이터 리스트 삽입
     }
@@ -97,8 +98,6 @@ class SearchPopupAdapter(private val listener:Communicator):RecyclerView.Adapter
             }
             item_title.insert(sum-1,"\n")
         }
-
         return item_title.toString()
     }
-
 }

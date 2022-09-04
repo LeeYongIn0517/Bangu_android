@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
 import com.example.bangu.Event
 import com.example.bangu.R
-import com.example.bangu.databinding.ReviewMybanguItemBinding
+import com.example.bangu.databinding.ItemMybanguBinding
 import com.example.bangu.main.data.model.Content
 import com.example.bangu.main.mybangu.ui.Review.ReviewViewModel
 
@@ -23,7 +23,7 @@ class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val delete :LiveData<Event<Int>> = _delete
 
     /*아이템이 리뷰인 경우*/
-    inner class ReviewViewHolder(private val binding: ReviewMybanguItemBinding):RecyclerView.ViewHolder(binding.root){
+    inner class ReviewViewHolder(private val binding: ItemMybanguBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(content:Content){
             //영화 정보 및 리뷰 내용 바인딩
             binding.apply {
@@ -73,7 +73,7 @@ class MyBanguAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = ReviewMybanguItemBinding.inflate(layoutInflater,parent,false)
+        val binding = ItemMybanguBinding.inflate(layoutInflater,parent,false)
 
         return ReviewViewHolder(binding)
     }

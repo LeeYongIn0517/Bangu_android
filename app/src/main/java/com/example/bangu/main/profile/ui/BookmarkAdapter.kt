@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
 import com.example.bangu.R
-import com.example.bangu.databinding.ReviewItemBinding
+import com.example.bangu.databinding.ItemReviewBinding
 import com.example.bangu.main.data.model.Content
-import com.example.bangu.main.home.ui.HomeViewModel
+import com.example.bangu.main.home.presentation.HomeViewModel
 import com.example.bangu.main.profile.presentation.BookmarkViewModel
 
 class BookmarkAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -19,7 +19,7 @@ class BookmarkAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val homeViewmodel = HomeViewModel()
 
     /**아이템이 리뷰인 경우*/
-    inner class ReviewViewHolder(private val binding: ReviewItemBinding):RecyclerView.ViewHolder(binding.root){
+    inner class ReviewViewHolder(private val binding: ItemReviewBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(content: Content){
             //북마크 추가, 삭제 기능
             var sign:Boolean
@@ -110,7 +110,7 @@ class BookmarkAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = ReviewItemBinding.inflate(layoutInflater,parent,false)
+        val binding = ItemReviewBinding.inflate(layoutInflater,parent,false)
 
         return ReviewViewHolder(binding)
     }

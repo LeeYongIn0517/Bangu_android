@@ -7,8 +7,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.Glide.with
 import com.example.bangu.GlideApp
 import com.example.bangu.MyGlideApp
-import com.example.bangu.databinding.SignupFinItemBinding
-import com.example.bangu.databinding.SignupFinItemLoadingBinding
+import com.example.bangu.databinding.ItemSignupFinBinding
+import com.example.bangu.databinding.ItemSignupFinLoadingBinding
 import com.example.bangu.signup_fin.data.model.Content
 
 class SgFinAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -19,7 +19,7 @@ class SgFinAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val items = ArrayList<Content>()
 
     //아이템이 게시물인 경우
-    inner class ItemViewHolder(private val binding:SignupFinItemBinding):RecyclerView.ViewHolder(binding.root){
+    inner class ItemViewHolder(private val binding:ItemSignupFinBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(content:Content){
             val imageUrl = content.imageUrl
             GlideApp.with(binding.root).load(imageUrl).override(158,227).into(binding.movieimage) //이미지 바인딩
@@ -27,21 +27,21 @@ class SgFinAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
     //아이템이 로딩뷰인 경우
-    inner class LoadingViewHolder(private val binding:SignupFinItemLoadingBinding): RecyclerView.ViewHolder(binding.root){
+    inner class LoadingViewHolder(private val binding:ItemSignupFinLoadingBinding): RecyclerView.ViewHolder(binding.root){
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):RecyclerView.ViewHolder {
         when(viewType){
             TYPE_ITEM -> {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = SignupFinItemBinding.inflate(layoutInflater,parent,false)
+                val binding = ItemSignupFinBinding.inflate(layoutInflater,parent,false)
 
                 return ItemViewHolder(binding)
             }
             //TYPE_LOADING
             else -> {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = SignupFinItemLoadingBinding.inflate(layoutInflater,parent,false)
+                val binding = ItemSignupFinLoadingBinding.inflate(layoutInflater,parent,false)
 
                 return LoadingViewHolder(binding)
             }
