@@ -10,7 +10,8 @@ import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface MainAPI {
-    @GET("/reviews/lists") //리뷰를 전체 조회(구독하는 OTT로 필터링)
+    /**리뷰를 전체 조회*/
+    @GET("/reviews/lists")
     fun requestReviewList(
         @Header("X-AUTH-TOKEN") accessToken:String,
         @Query("page") page:Int,
