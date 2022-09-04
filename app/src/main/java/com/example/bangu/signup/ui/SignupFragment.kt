@@ -1,6 +1,5 @@
 package com.example.bangu.signup.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,17 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.SpinnerAdapter
-import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.example.bangu.R
-import com.example.bangu.SingleActivity
 import com.example.bangu.databinding.FragmentSignupBinding
 import com.example.bangu.main.mybangu.ui.WarningDialog
 import com.example.bangu.signup_fin.ui.SgFinFragment
-import kotlin.math.sign
 
 class SignupFragment : Fragment() {
     private lateinit var binding: FragmentSignupBinding
@@ -275,18 +270,18 @@ class SignupFragment : Fragment() {
     private fun setupSpinnerYear(){
         val years = resources.getStringArray(R.array.birthyear)
         //val adapter = ArrayAdapter(SingleActivity().baseContext,R.layout.spinner_list_image,years)
-        val adapter = this.context?.let { ArrayAdapter(it,R.layout.spinner_list_image,years) }
+        val adapter = this.context?.let { ArrayAdapter(it,R.layout.image_spinner_list,years) }
         binding.spinnerBYear.adapter = adapter
     }
 
     private fun setupSpinnerMonth(){
         val months = resources.getStringArray(R.array.birthmonth)
-        val adapter = this.context?.let { ArrayAdapter(it,R.layout.spinner_list_image_mini,months) }
+        val adapter = this.context?.let { ArrayAdapter(it,R.layout.image_mini_spinner_list,months) }
         binding.spinnerBMonth.adapter = adapter
     }
     private fun setupSpinnerDay(){
         val days = resources.getStringArray(R.array.birthday)
-        val adapter = this.context?.let { ArrayAdapter(it,R.layout.spinner_list_image_mini,days) }
+        val adapter = this.context?.let { ArrayAdapter(it,R.layout.image_mini_spinner_list,days) }
         binding.spinnerBDay.adapter = adapter
     }
     private fun setupSpinnerHandler(){
