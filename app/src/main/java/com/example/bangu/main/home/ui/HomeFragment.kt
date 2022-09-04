@@ -1,8 +1,6 @@
 package com.example.bangu.main.home.ui
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,10 +10,10 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.bangu.R
 import com.example.bangu.databinding.FragmentHomeBinding
 import com.example.bangu.main.data.model.Content
-import com.example.bangu.main.ui.SearchfilterFragment
+import com.example.bangu.main.data.model.MovieResponseData
+import com.example.bangu.main.home.presentation.HomeViewModel
 import io.reactivex.disposables.CompositeDisposable
 
 class HomeFragment : Fragment() {
@@ -42,10 +40,14 @@ class HomeFragment : Fragment() {
 
         val viewmodel = HomeViewModel()
         val adapter = HomeAdapter()
+        val movieAdapter = MovieAdapter()
 
-        //어댑터 등록
-        binding.homeRecyclerview
-            .adapter = adapter
+        /**어댑터 등록*/
+        binding.apply {
+            homeRecyclerview.adapter = adapter
+            movieRecyclerview.adapter = movieAdapter
+        }
+
         //서버에서 온 데이터를 관찰하는 옵저버
         viewmodel.reviewList.observe(viewLifecycleOwner, Observer {
             adapter.setList(it as MutableList<Content>)
@@ -86,9 +88,10 @@ class HomeFragment : Fragment() {
         })
         /**검색기능*/
         binding.homeIcSearch.setOnClickListener {
+            viewmodel.searchMovie(binding.homeSearch.text.toString(),page, ITEMS_SIZE,disposables)
             viewmodel.searchReviews(binding.homeSearch.text.toString(),sortType,disposables)
         }
-        /**검색결과 옵저버*/
+        /**리뷰 검색결과 옵저버*/
         viewmodel.search.observe(viewLifecycleOwner, Observer {
             /**리사이클뷰 초기화하고 검색결과 내용으로 바꾸기*/
             adapter.clearList()
@@ -97,8 +100,22 @@ class HomeFragment : Fragment() {
                 notifyItemRangeInserted(0,adapter.itemCount)
             }
         })
+        /**영화 검색결과 옵저버*/
+        viewmodel.movieList.observe(viewLifecycleOwner, Observer {
+            /**페이지 타이틀('최근 올라온 리뷰') 지우기*/
+            binding.homeTitle.visibility = View.GONE
+            /**movie_recyclerview 가시화, 바인딩*/
+            binding.movieRecyclerview.visibility = View.VISIBLE
+            movieAdapter.setList(it as MutableList<MovieResponseData>)
+            movieAdapter.notifyItemRangeInserted(page*ITEMS_SIZE,ITEMS_SIZE)
+        })
         /**백 버튼 - '최근 올라온 리뷰'화면으로 돌아가기*/
         binding.homeBack.setOnClickListener {
+            /**페이지 타이틀('최근 올라온 리뷰') 초기화*/
+            binding.homeTitle.visibility = View.VISIBLE
+            /**영화 검색결과 리스트 초기화*/
+            movieAdapter.clearList()
+            binding.movieRecyclerview.visibility = View.GONE
             /**리사이클뷰 초기화*/
             adapter.clearList()
             /**최근 올라온 리뷰의 데이터를 요청하도록 페이지 초기화*/
