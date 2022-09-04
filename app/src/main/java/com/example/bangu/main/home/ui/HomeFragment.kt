@@ -19,6 +19,7 @@ import io.reactivex.disposables.CompositeDisposable
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private var page = 0
+    private var pageMovie = 0
     private val ITEMS_SIZE = 10
     private val TYPE_REVIEW = "home"
     private val sortType = false
@@ -88,7 +89,7 @@ class HomeFragment : Fragment() {
         })
         /**검색기능*/
         binding.homeIcSearch.setOnClickListener {
-            viewmodel.searchMovie(binding.homeSearch.text.toString(),page, ITEMS_SIZE,disposables)
+            viewmodel.searchMovie(binding.homeSearch.text.toString(),pageMovie, ITEMS_SIZE,disposables)
             viewmodel.searchReviews(binding.homeSearch.text.toString(),sortType,disposables)
         }
         /**리뷰 검색결과 옵저버*/
@@ -116,6 +117,7 @@ class HomeFragment : Fragment() {
             /**영화 검색결과 리스트 초기화*/
             movieAdapter.clearList()
             binding.movieRecyclerview.visibility = View.GONE
+            pageMovie = 0
             /**리사이클뷰 초기화*/
             adapter.clearList()
             /**최근 올라온 리뷰의 데이터를 요청하도록 페이지 초기화*/
