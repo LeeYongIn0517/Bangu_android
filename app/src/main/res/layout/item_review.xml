@@ -5,7 +5,7 @@
     android:id="@+id/review_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_marginTop="10dp"
     app:cardBackgroundColor="@color/review_item"
     app:cardCornerRadius="12dp">
 
@@ -99,11 +99,10 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/review_movieimage"
-            android:theme="@style/Theme.AppCompat"
-            app:strokeColor="@null"
             android:layout_width="100dp"
             android:layout_height="127dp"
             android:layout_marginEnd="10dp"
+            android:theme="@style/Theme.AppCompat"
             app:layout_constraintBottom_toBottomOf="@+id/item_review"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -111,7 +110,8 @@
             app:layout_constraintTop_toTopOf="@+id/review_movietitle"
             app:layout_constraintVertical_bias="0.18"
             app:shapeAppearanceOverlay="@style/rounded_corner10Percent"
-            app:srcCompat="@drawable/movie02" />
+            app:srcCompat="@drawable/movie02"
+            app:strokeColor="@null" />
 
         <TextView
             android:id="@+id/review_movietitle"
@@ -134,15 +134,15 @@
             style="@android:style/Widget.DeviceDefault.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:isIndicator="true"
+            android:stepSize="0.5"
+            android:theme="@style/RatingBar"
             app:layout_constraintBottom_toBottomOf="@+id/review_movieimage"
             app:layout_constraintEnd_toStartOf="@+id/review_movieimage"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/review_movietitle"
             app:layout_constraintTop_toBottomOf="@+id/review_movietitle"
-            app:layout_constraintVertical_bias="0.01"
-            android:theme="@style/RatingBar"
-            android:stepSize="0.5"
-            android:isIndicator="true"/>
+            app:layout_constraintVertical_bias="0.01" />
 
         <TextView
             android:id="@+id/review_core"
@@ -235,12 +235,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="9dp"
+                android:background="@drawable/review_genrebox"
                 android:gravity="center"
                 android:paddingLeft="2dp"
                 android:paddingRight="2dp"
                 android:textColor="@color/review_text"
                 android:textSize="7sp"
-                android:background="@drawable/review_genrebox"
                 android:visibility="invisible" />
 
             <TextView
@@ -248,12 +248,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="9dp"
+                android:background="@drawable/review_genrebox"
                 android:gravity="center"
                 android:paddingLeft="2dp"
                 android:paddingRight="2dp"
                 android:textColor="@color/review_text"
                 android:textSize="7sp"
-                android:background="@drawable/review_genrebox"
                 android:visibility="invisible" />
 
             <TextView
@@ -261,12 +261,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="9dp"
+                android:background="@drawable/review_genrebox"
                 android:gravity="center"
                 android:paddingLeft="2dp"
                 android:paddingRight="2dp"
                 android:textColor="@color/review_text"
                 android:textSize="7sp"
-                android:background="@drawable/review_genrebox"
                 android:visibility="invisible" />
 
             <TextView
@@ -274,12 +274,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="9dp"
+                android:background="@drawable/review_genrebox"
                 android:gravity="center"
                 android:paddingLeft="2dp"
                 android:paddingRight="2dp"
                 android:textColor="@color/review_text"
                 android:textSize="7sp"
-                android:background="@drawable/review_genrebox"
                 android:visibility="invisible" />
 
             <TextView
@@ -287,12 +287,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="9dp"
+                android:background="@drawable/review_genrebox"
                 android:gravity="center"
                 android:paddingLeft="2dp"
                 android:paddingRight="2dp"
                 android:textColor="@color/review_text"
                 android:textSize="7sp"
-                android:background="@drawable/review_genrebox"
                 android:visibility="invisible" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
