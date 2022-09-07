@@ -39,6 +39,9 @@ class MainFragment : Fragment() {
         val sspAdapter = ScreenSlidePagerAdapter(this)
         viewPager.adapter = sspAdapter
 
+        /**옆으로 드래그해서 페이지 전환을 방지하기. only tabIcon을 클릭해서만 가능하도록.*/
+        viewPager.isUserInputEnabled = false
+
         TabLayoutMediator(tablayout,viewPager, TabLayoutMediator.TabConfigurationStrategy{tab: TabLayout.Tab, position: Int ->
             when(position){
                 0->tab.apply {
