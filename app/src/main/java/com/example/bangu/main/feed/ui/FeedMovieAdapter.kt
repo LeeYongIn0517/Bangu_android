@@ -16,9 +16,9 @@ class FeedMovieAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     inner class ReviewViewHolder(private val binding: ItemMovieBinding):RecyclerView.ViewHolder(binding.root) {
         fun bind(movieData:MovieResponseData) {
-            //아이템에 서버로 얻은 정보 바인딩
+            /**아이템에 서버로 얻은 정보 바인딩*/
             binding.apply {
-                //영화 이미지 바인딩
+                /**영화 이미지 바인딩*/
                 var movie_image = movieData.imageUrl
                 when(movie_image) {
                     "" -> Glide.with(binding.root).load(R.mipmap.ic_launcher_round).override(Target.SIZE_ORIGINAL)
@@ -26,7 +26,7 @@ class FeedMovieAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
                     else -> Glide.with(binding.root).load(movie_image).override(Target.SIZE_ORIGINAL)
                         .into(binding.resultImage)
                 }
-                //ott정보 바인딩
+                /**ott정보 바인딩*/
                 binding.apply{ //ott아이콘 초기화
                     resultNetflix.visibility = View.GONE
                     resultTving.visibility = View.GONE
@@ -42,6 +42,13 @@ class FeedMovieAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
                         "WAVVE" -> binding.resultWavve.visibility = View.VISIBLE
                     }
                 }
+                /**영화 정보 바인딩*/
+                binding.apply {
+                    resultTitle.text = movieData.title
+                    resultGenre.text = movieData.genre
+                    resultDirector.text = movieData.director
+                    resultActor.text = movieData.actor
+                }
             }
         }
     }
@@ -54,7 +61,7 @@ class FeedMovieAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if(holder is MovieAdapter.ReviewViewHolder) holder.bind(items[position])
+        if(holder is ReviewViewHolder) holder.bind(items[position])
     }
 
     override fun getItemCount(): Int {
