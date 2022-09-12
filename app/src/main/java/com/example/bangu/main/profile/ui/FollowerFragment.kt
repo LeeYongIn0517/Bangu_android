@@ -54,8 +54,9 @@ class FollowerFragment: Fragment() {
         })
         /**서버에서 온 데이터를 관찰하는 옵저버*/
         viewmodel.follower.observe(viewLifecycleOwner, Observer {
-            adapter.setList(it as MutableList<FollowContent>)
+            adapter.setList(it.followData.content as MutableList<FollowContent>)
             adapter.notifyItemRangeInserted(page*ITEMS_SIZE,ITEMS_SIZE)
+            binding.number.text = it.followers.toString()
         })
         /**백 버튼*/
         binding.btnBack.setOnClickListener{
