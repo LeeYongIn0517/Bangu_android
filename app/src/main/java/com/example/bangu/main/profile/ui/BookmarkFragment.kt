@@ -63,6 +63,14 @@ class BookmarkFragment: Fragment() {
             adapter.setList(it as MutableList<Content>)
             adapter.notifyItemInserted(page*ITEMS_SIZE)
         })
+        /**어댑터의 언팔로우 유무를 관찰하는 옵저버*/
+        adapter.unfollow.observe(viewLifecycleOwner, Observer {
+            viewmodel.requestToUnFollow(it.peekContent(),disposables)
+        })
+        /**어댑터의 팔로우 유무를 관찰하는 옵저버*/
+        adapter.follow.observe(viewLifecycleOwner, Observer {
+            viewmodel.requestToFollow(it.peekContent(),disposables)
+        })
     }
     override fun onStop() {
         super.onStop()
