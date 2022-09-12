@@ -43,8 +43,9 @@ class FollowingFragment: Fragment() {
         if(page == 0) {viewmodel.requestFollowing(page,ITEMS_SIZE,disposables)} /**사용자가 팔로잉하는 유저 조회*/
         /**서버에서 온 데이터를 관찰하는 옵저버*/
         viewmodel.following.observe(viewLifecycleOwner, Observer {
-            adapter.setList(it as MutableList<FollowContent>)
+            adapter.setList(it.followData.content as MutableList<FollowContent>)
             adapter.notifyItemRangeInserted(page*ITEMS_SIZE, ITEMS_SIZE)
+            binding.number.text = it.followings.toString()
         })
         /**스크롤 리스너*/
         binding.recyclerview.addOnScrollListener(object : RecyclerView.OnScrollListener(){
