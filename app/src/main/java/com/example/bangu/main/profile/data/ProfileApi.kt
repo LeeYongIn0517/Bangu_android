@@ -1,6 +1,7 @@
 package com.example.bangu.main.profile.data
 
 import com.example.bangu.main.data.model.RequestReviewList
+import com.example.bangu.main.profile.data.model.FollowerResponse
 import com.example.bangu.main.profile.data.model.FollowingResponse
 import io.reactivex.Single
 import retrofit2.http.*
@@ -35,7 +36,7 @@ interface ProfileApi {
         @Path("id") id:Int,
         @Query("page") page:Int,
         @Query("size") size:Int,
-    ):Single<FollowingResponse>
+    ):Single<FollowerResponse>
 
     /**유저의 북마크한 리뷰 조회*/
     @GET("/reviews/bookmark")
