@@ -44,4 +44,11 @@ interface MainAPI {
         @Header("X-AUTH-TOKEN") accessToken:String,
         @Path("toUser") toUser:Int,
     ): Single<Any>
+
+    /**리뷰 북마크 및 북마크 해제 하기*/
+    @POST("/reviews/bookmark/{reviewId}")
+    fun adjustBookmark(
+        @Header("X-AUTH-TOKEN") accessToken:String,
+        @Path("reviewId") reviewId:Int,
+    ): Single<Boolean>
 }
