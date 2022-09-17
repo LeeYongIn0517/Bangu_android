@@ -92,6 +92,7 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/login_input"
         android:fontFamily="@font/spoqa"
+        android:inputType="textPassword"
         android:hint="PW"
         android:paddingStart="20.2dp"
         android:textColor="@color/white"
