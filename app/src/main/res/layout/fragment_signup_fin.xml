@@ -12,11 +12,12 @@
         android:layout_width="37.4dp"
         android:layout_height="36.56dp"
         android:background="@drawable/signupfin_pic"
-        app:layout_constraintBottom_toTopOf="@+id/signupfin_msg"
+        app:layout_constraintBottom_toTopOf="@+id/signupfin_rcyleview"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"
+        app:layout_constraintVertical_bias="0.26"
         tools:layout_constraintHorizontal_bias="0.15
 " />
 
@@ -38,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/spoqa"
         android:gravity="top"
         android:lineSpacingExtra="0sp"
@@ -45,10 +47,10 @@
         android:textAppearance="@style/signupfin_msg"
         app:layout_constraintBottom_toTopOf="@id/signupfin_rcyleview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.19"
+        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.49"
+        app:layout_constraintTop_toBottomOf="@+id/signupfin_pic"
+        app:layout_constraintVertical_bias="0.0"
         tools:layout_constraintHorizontal_bias="0.2" />
 
     <TextView

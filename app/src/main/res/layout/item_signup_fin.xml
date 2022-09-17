@@ -10,10 +10,12 @@
         android:layout_width="158dp"
         android:layout_height="227dp"
         android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
         app:layout_constraintBottom_toTopOf="@+id/moviestar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginBottom="10dp" />
 
     <androidx.appcompat.widget.AppCompatRatingBar
         android:id="@+id/moviestar"
@@ -30,6 +32,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/movieimage"
         app:layout_constraintTop_toBottomOf="@+id/movieimage" />
 </androidx.constraintlayout.widget.ConstraintLayout>
