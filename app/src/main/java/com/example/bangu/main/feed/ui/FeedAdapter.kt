@@ -83,9 +83,9 @@ class FeedAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             /**영화 이미지 바인딩*/
             val movie_imageUrl = content.movieResponseData?.imageUrl
             when(movie_imageUrl){
-                " " -> Glide.with(binding.root).load(R.drawable.movie01).override(127,100).into(binding.reviewMovieimage)
-                null -> Glide.with(binding.root).load(R.drawable.movie03).override(127,100).into(binding.reviewMovieimage)
-                else -> Glide.with(binding.root).load(movie_imageUrl).override(127,100).into(binding.reviewMovieimage)
+                " " -> Glide.with(binding.root).load(R.drawable.movie01).override(Target.SIZE_ORIGINAL).into(binding.reviewMovieimage)
+                null -> Glide.with(binding.root).load(R.drawable.movie03).override(Target.SIZE_ORIGINAL).into(binding.reviewMovieimage)
+                else -> Glide.with(binding.root).load(movie_imageUrl).override(Target.SIZE_ORIGINAL).into(binding.reviewMovieimage)
             }
             /**OTT 바인딩*/
             /**OTT 아이콘 초기화*/
