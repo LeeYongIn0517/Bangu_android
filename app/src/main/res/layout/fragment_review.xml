@@ -373,13 +373,14 @@
                     android:id="@+id/dot_mybangu3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
                     android:text="*"
                     android:textAppearance="@style/signup_dot"
                     app:layout_constraintBottom_toBottomOf="@+id/review_starscore"
-                    app:layout_constraintEnd_toEndOf="@+id/review_starscore"
-                    app:layout_constraintHorizontal_bias="0.67"
-                    app:layout_constraintStart_toEndOf="@+id/mybangu_image"
-                    app:layout_constraintTop_toBottomOf="@+id/bar1" />
+                    app:layout_constraintEnd_toEndOf="@+id/bar1"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/review_starscore"
+                    app:layout_constraintTop_toTopOf="@+id/review_starscore" />
 
                 <TextView
                     android:id="@+id/mybangu_message"
@@ -397,15 +398,19 @@
 
                 <RatingBar
                     android:id="@+id/review_starscore"
-                    android:layout_width="241dp"
-                    android:layout_height="39dp"
+                    style="@android:style/Widget.DeviceDefault.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="15dp"
                     android:isIndicator="false"
                     android:numStars="5"
-                    android:scaleX="0.4"
-                    android:scaleY="0.4"
+                    android:scaleX="1.2"
+                    android:scaleY="1.2"
+                    android:theme="@style/RatingBar"
                     app:layout_constraintBottom_toBottomOf="@+id/mybangu_image"
                     app:layout_constraintEnd_toEndOf="@+id/mybangu_form"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/bar1"
                     app:layout_constraintTop_toBottomOf="@+id/bar1"
                     app:layout_constraintVertical_bias="0.0" />

@@ -19,7 +19,7 @@ class SingleActivity : AppCompatActivity() {
         binding = ActivitySingleBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if(App.token_prefs.accessToken.equals("")){ //토큰이 존재하면 메인페이지를 추가하며 시작
+        if(!App.token_prefs.accessToken.equals("")){ //토큰이 존재하면 메인페이지를 추가하며 시작
             Log.i("SingleActivity","toMainFragment()")
             supportFragmentManager.beginTransaction().add(R.id.singleFrame,MainFragment()).commit()
         }else{
