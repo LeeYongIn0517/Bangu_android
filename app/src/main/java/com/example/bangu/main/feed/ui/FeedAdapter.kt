@@ -4,9 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
+import com.example.bangu.Event
 import com.example.bangu.R
 import com.example.bangu.databinding.ItemReviewBinding
 import com.example.bangu.main.data.model.Content
@@ -14,6 +17,8 @@ import com.example.bangu.main.data.model.Content
 class FeedAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val items = ArrayList<Content>()
     private val viewmodel = FeedViewModel()
+    private var _BookMark = MutableLiveData<Event<Int>>()
+    val BookMark: LiveData<Event<Int>> = _BookMark
 
     inner class ReviewViewHolder(private val binding:ItemReviewBinding):RecyclerView.ViewHolder(binding.root){
         /**장르 해쉬태그 (최대 6개)*/
@@ -29,7 +34,7 @@ class FeedAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 setOnClickListener {
                     sign = bookmark.isSelected
                     bookmark.isSelected = !sign
-                    viewmodel.adjustBookmark(content.id)
+                    _BookMark.postValue(Event(content.id))
                 }
             }
 

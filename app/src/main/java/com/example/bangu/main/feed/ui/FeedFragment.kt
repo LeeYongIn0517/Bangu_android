@@ -96,6 +96,10 @@ class FeedFragment : Fragment() {
                 notifyItemRangeInserted(0,adapter.itemCount)
             }
         })
+        /**북마크 및 북마크해제 옵저버*/
+        adapter.BookMark.observe(viewLifecycleOwner, Observer {
+            viewmodel.adjustBookmark(it.peekContent(),disposables)
+        })
         /**백 버튼 - '팔로잉' 화면으로 돌아가기*/
         binding.feedBack.setOnClickListener {
             /**페이지 타이틀('팔로잉') 초기화*/

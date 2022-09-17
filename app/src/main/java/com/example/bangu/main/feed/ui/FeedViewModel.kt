@@ -26,8 +26,6 @@ class FeedViewModel: ViewModel() {
     private val MainService = MainDataResource.MainApi
     private var _reviewList = MutableLiveData<List<Content>>()
     val reviewList: LiveData<List<Content>> = _reviewList
-    private var _BookMark = MutableLiveData<Event<String>>()
-    val BookMark: LiveData<Event<String>> = _BookMark
     private var _movieList = MutableLiveData<List<MovieResponseData>>()
     val movieList:LiveData<List<MovieResponseData>> = _movieList
     private var _searchReviews = MutableLiveData<List<Content>>()
@@ -82,9 +80,20 @@ class FeedViewModel: ViewModel() {
             )
         }
     }
-    fun adjustBookmark(reviewId:Int){
+    fun adjustBookmark(reviewId:Int,disposables: CompositeDisposable){
         if (accessToken != null) {
-            repo.adjustBookmark(accessToken,reviewId)
+            if(accessToken != null){
+                disposables.add(
+                    MainService.adjustBookmark(accessToken,reviewId)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({
+                            Log.d("FeedViewModel","searchReviews().success")
+                        }){
+                            Log.d("FeedViewModel","searchReviews().fail")
+                        }
+                )
+            }
         }
     }
 }
