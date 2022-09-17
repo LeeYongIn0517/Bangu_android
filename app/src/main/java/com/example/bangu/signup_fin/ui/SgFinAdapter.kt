@@ -14,7 +14,6 @@ import com.example.bangu.signup_fin.data.model.Content
 class SgFinAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object{
         private const val TYPE_ITEM = 0
-        private const val TYPE_LOADING = 1
     }
     private val items = ArrayList<Content>()
 
@@ -55,17 +54,6 @@ class SgFinAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     //전체 아이템 개수 리턴
     override fun getItemCount(): Int {
         return items.size
-    }
-    //뷰의 타입 정하는 함수
-    override fun getItemViewType(position: Int): Int {
-        return when(items[position].imageUrl){
-            " " -> TYPE_LOADING
-            else -> TYPE_ITEM
-        }
-    }
-    //로딩이 완료되면 프로그레스바 지우기
-    fun deleteLoading(){
-        items.removeAt(items.lastIndex)
     }
     fun setList(content:MutableList<Content>){
         items.addAll(content)

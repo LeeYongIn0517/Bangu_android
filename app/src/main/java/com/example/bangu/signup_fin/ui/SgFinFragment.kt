@@ -22,7 +22,7 @@ import com.example.bangu.signup_fin.data.model.Content
 class SgFinFragment : Fragment() {
     private lateinit var binding: FragmentSignupFinBinding
     private var page = 0
-    private val ITEMS_SIZE = 3
+    private val ITEMS_SIZE = 15
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -61,7 +61,6 @@ class SgFinFragment : Fragment() {
 
                 //스크롤이 끝에 도달했는지 확인
                 if(!binding.signupfinRcyleview.canScrollHorizontally(1) && lastVisibleItemPosition == itemTotalCount){
-                    adapter.deleteLoading()
                     Log.d("SgFinVM","requestSgFinMovieList")
                     viewmodel.requestSgFinMovieList(++page,ITEMS_SIZE)
                 }
