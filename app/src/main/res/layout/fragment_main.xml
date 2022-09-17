@@ -19,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_btmbar_height"
         android:background="@drawable/main_btmbar"
+        android:paddingTop="20dp"
         android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
