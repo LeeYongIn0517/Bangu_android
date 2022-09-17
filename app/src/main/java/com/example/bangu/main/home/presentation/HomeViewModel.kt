@@ -67,16 +67,32 @@ class HomeViewModel: ViewModel() {
             })
         }
     }
-    fun requestToUnFollow(toUser:Int){
-        Log.d("HomeVM","requestToFollow")
-        if (accessToken != null) {
-            repo.requestToUnFollow(accessToken,toUser)
+    fun requestToUnFollow(toUser:Int,disposable: CompositeDisposable){
+        if(accessToken != null){
+            disposable.add(
+                MainService.requestToUnFollow(accessToken,toUser)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({
+                        Log.d("HomeVM","requestToUnFollow().success")
+                    }){
+                        Log.d("HomeVM","requestToUnFollow().fail")
+                    }
+            )
         }
     }
-    fun requestToFollow(toUser:Int){
-        Log.d("HomeVM","requestToFollow")
-        if (accessToken != null) {
-            repo.requestToFollow(accessToken,toUser)
+    fun requestToFollow(toUser:Int,disposable: CompositeDisposable){
+        if(accessToken != null){
+            disposable.add(
+                MainService.requestToFollow(accessToken,toUser)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({
+                        Log.d("HomeVM","requestToFollow().success")
+                    }){
+                        Log.d("HomeVM","requestToFollow().fail")
+                    }
+            )
         }
     }
     /**영화 이름으로 리뷰 검색*/

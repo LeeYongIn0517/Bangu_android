@@ -110,6 +110,14 @@ class HomeFragment : Fragment() {
             movieAdapter.setList(it as MutableList<MovieResponseData>)
             movieAdapter.notifyItemRangeInserted(page*ITEMS_SIZE,ITEMS_SIZE)
         })
+        /**어댑터의 언팔로우 유무를 관찰하는 옵저버*/
+        adapter.unfollow.observe(viewLifecycleOwner) {
+            viewmodel.requestToUnFollow(it.peekContent(), disposables)
+        }
+        /**어댑터의 팔로우 유무를 관찰하는 옵저버*/
+        adapter.follow.observe(viewLifecycleOwner) {
+            viewmodel.requestToFollow(it.peekContent(), disposables)
+        }
         /**백 버튼 - '최근 올라온 리뷰'화면으로 돌아가기*/
         binding.homeBack.setOnClickListener {
             /**페이지 타이틀('최근 올라온 리뷰') 초기화*/

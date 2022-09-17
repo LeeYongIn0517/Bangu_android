@@ -41,26 +41,20 @@ object HomeDataResource {
                 callback.onFailure(it)
             })
     }
-    fun requestToUnFollow(accessToken:String,toUser:Int){
-        Log.d("HomeDataResource","requestToFollow")
-        HomeApi.requestToUnFollow(accessToken,toUser).enqueue(object :Callback<Any>{
-            override fun onResponse(call: Call<Any>, response: Response<Any>) {
-                Log.d("HomeDataResource","HomeApi.requestToUnFollow.onResponse")
-            }
-            override fun onFailure(call: Call<Any>, t: Throwable) {
-                Log.d("HomeDataResource","HomeApi.requestToUnFollow.onFailure")
-            }
-        })
+    fun requestToFollow(
+        accessToken:String,
+        reviewId:Int,
+        callback: HomeRepository.GetDataCallback<Any>
+    ){
+        Log.d("HomeDataResource", "requestToFollow")
+        HomeApi.requestToFollow(accessToken,reviewId)
     }
-    fun requestToFollow(accessToken:String,toUser:Int){
-        Log.d("HomeDataResource","requestToFollow")
-        HomeApi.requestToFollow(accessToken,toUser).enqueue(object :Callback<Any>{
-            override fun onResponse(call: Call<Any>, response: Response<Any>) {
-                Log.d("HomeDataResource","HomeApi.requestToFollow.onResponse")
-            }
-            override fun onFailure(call: Call<Any>, t: Throwable) {
-                Log.d("HomeDataResource","HomeApi.requestToFollow.onFailure")
-            }
-        })
+    fun requestToUnFollow(
+        accessToken:String,
+        reviewId:Int,
+        callback: HomeRepository.GetDataCallback<Any>
+    ){
+        Log.d("HomeDataResource", "requestToUnFollow")
+        HomeApi.requestToUnFollow(accessToken,reviewId)
     }
 }

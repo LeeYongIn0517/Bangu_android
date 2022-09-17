@@ -4,9 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
+import com.example.bangu.Event
 import com.example.bangu.R
 import com.example.bangu.databinding.ItemReviewBinding
 import com.example.bangu.main.data.model.Content
@@ -15,6 +18,10 @@ import com.example.bangu.main.home.presentation.HomeViewModel
 class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val items = ArrayList<Content>()
     private val viewmodel = HomeViewModel()
+    private var _unfollow = MutableLiveData<Event<Int>>()
+    val  unfollow: LiveData<Event<Int>> = _unfollow
+    private var _follow = MutableLiveData<Event<Int>>()
+    val  follow: LiveData<Event<Int>> = _follow
 
     //아이템이 리뷰인 경우
     inner class ReviewViewHolder(private val binding:ItemReviewBinding):RecyclerView.ViewHolder(binding.root){
@@ -45,8 +52,8 @@ class HomeAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                     follow_sign = it.isSelected
                     it.isSelected = !follow_sign
                     when(isSelected){
-                        true -> viewmodel.requestToUnFollow(content.userProfileData!!.id) //팔로우 취소
-                        else -> viewmodel.requestToFollow(content.userProfileData!!.id) //팔로우 하기
+                        true -> _unfollow.postValue(Event(content.userProfileData!!.id))//언팔로우 전달
+                        else -> _follow.postValue(Event(content.userProfileData!!.id)) //팔로우 전달
                     }
                 }
             }
