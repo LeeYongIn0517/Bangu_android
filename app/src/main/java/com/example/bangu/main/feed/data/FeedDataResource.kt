@@ -22,8 +22,6 @@ object FeedDataResource {
     /*팔로잉하는 리뷰어의 리뷰 보기*/
     fun requestReviewList(accessToken:String,page:Int, size:Int,type:String){
         Log.d("HomeDataResource","requestReviewList")
-
-
     }
     fun adjustBookmark(accessToken:String,reviewId:Int) {
         Log.d("HomeDataResource", "adjustBookmark")

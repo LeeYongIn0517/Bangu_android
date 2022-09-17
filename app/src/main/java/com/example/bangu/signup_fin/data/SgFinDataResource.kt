@@ -14,16 +14,5 @@ object SgFinDataResource {
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-    private val sgFinApi = retrofit.create(SgFinAPI::class.java)
-    fun requestSgFinMovieList(page:Int,size:Int,callback: SgFinRepository.GetDataCallback<SgFinMovieList>){
-        Log.d("SgFinDataResource","requestSgFinMovieList")
-        sgFinApi.requestSgFinMovieList(page, size)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                callback.onSuccess(it)
-            },{
-                callback.onFailure(it)
-            })
-    }
+    internal val sgFinApi = retrofit.create(SgFinAPI::class.java)
 }
