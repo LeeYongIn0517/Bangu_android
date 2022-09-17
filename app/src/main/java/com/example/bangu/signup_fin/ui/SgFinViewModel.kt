@@ -4,28 +4,34 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.bangu.Event
+import com.example.bangu.signup_fin.data.SgFinAPI
+import com.example.bangu.signup_fin.data.SgFinDataResource
 import com.example.bangu.signup_fin.data.SgFinRepository
 import com.example.bangu.signup_fin.data.model.Content
 import com.example.bangu.signup_fin.data.model.SgFinMovieList
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 
 class SgFinViewModel: ViewModel() {
-    private val repo = SgFinRepository
-    private var _contentList = MutableLiveData<List<Content>>()
-    val contentList:LiveData<List<Content>> = _contentList
-    private val ITEMS_SIZE = 3
+    private val SgFinService = SgFinDataResource.sgFinApi
+    private var _contentList = MutableLiveData<Event<List<Content>>>()
+    val contentList:LiveData<Event<List<Content>>> = _contentList
+
     //영화리스트 요청
-    fun requestSgFinMovieList(page:Int,size:Int){
+    fun requestSgFinMovieList(page:Int,size:Int,disposable: CompositeDisposable){
         Log.d("SgFinVM","requestSgFinMovieList")
-        repo.requestSgFinMovieList(page,ITEMS_SIZE,object:SgFinRepository.GetDataCallback<SgFinMovieList>{
-            override fun onSuccess(data: SgFinMovieList?) {
-                if (data != null) {
-                    _contentList.value = data.content
+        disposable.add(
+            SgFinService.requestSgFinMovieList(page,size)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    Log.d("SgFinViewModel","requestSgFinMovieList().success")
+                    _contentList.postValue(Event(it.content))
+                }){
+                    Log.d("SgFinViewModel","requestSgFinMovieList().fail")
                 }
-            }
-            override fun onFailure(throwable: Throwable) {
-                TODO("Not yet implemented")
-            }
-        })
+        )
     }
-    //영화리스트에서
 }
