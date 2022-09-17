@@ -7,26 +7,12 @@
     android:background="@color/canvas"
     tools:context=".main.ui.MainFragment">
 
-    <View
-        android:id="@+id/main_topbar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/main_topbar_height"
-        android:background="@drawable/main_topbar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/main_btmbar"
-        app:layout_constraintEnd_toEndOf="@id/main_btmbar"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_topbar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toTopOf="@+id/main_btmbar"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/main_btmbar"
