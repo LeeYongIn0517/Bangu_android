@@ -3,6 +3,7 @@ package com.example.bangu.main.profile.data
 import com.example.bangu.main.data.model.RequestReviewList
 import com.example.bangu.main.profile.data.model.FollowerResponse
 import com.example.bangu.main.profile.data.model.FollowingResponse
+import com.example.bangu.main.profile.data.model.UserResponse
 import io.reactivex.Single
 import retrofit2.http.*
 
@@ -45,4 +46,10 @@ interface ProfileApi {
         @Query("page") page:Int,
         @Query("size") size:Int,
     ):Single<RequestReviewList>
+
+    /**현재 사용자 조회*/
+    @GET("/users")
+    fun requestUser(
+        @Header("X-AUTH-TOKEN") accessToken:String,
+    ):Single<UserResponse>
 }

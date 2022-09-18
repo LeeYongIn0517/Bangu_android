@@ -20,7 +20,7 @@ class FeedFragment : Fragment() {
     private val ITEMS_SIZE = 20
     private val TYPE_REVIEW = "following"
     private val sortType = false
-    private val disposables =  CompositeDisposable() //같은 모듈 안에서만 볼 수 있음
+    private val disposables =  CompositeDisposable()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

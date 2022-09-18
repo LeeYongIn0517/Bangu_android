@@ -5,12 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import com.example.bangu.R
 import com.example.bangu.databinding.FragmentProfileBinding
 import com.example.bangu.main.profile.presentation.ProfileViewModel
+import io.reactivex.disposables.CompositeDisposable
 
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
+    private val disposables =  CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,10 +58,41 @@ class ProfileFragment : Fragment() {
                 }
             }
         }
+        viewmodel.apply {
+            /**사용자 조회*/
+            requestUser(disposables)
+            /**팔로워 조회*/
+            requestFollower(0,1,disposables)
+            /**팔로잉 조회*/
+            viewmodel.requestFollowing(0,1,disposables)
+            /**북마크 조회*/
+            viewmodel.requestBookmark(0,1,disposables)
+        }
+
         /**프로필 아이콘을 누를 경우 기기 기본 갤러리 접근*/
         binding.profilePhoto.setOnClickListener {
             //viewmodel.checkSelfPermission()
         }
+
+        viewmodel.apply {
+            /**사용자 이름 바인딩*/
+            username.observe(viewLifecycleOwner, Observer {
+                binding.userName.text = it
+            })
+            /**팔로워 수 바인딩*/
+            followerNum.observe(viewLifecycleOwner, Observer {
+                binding.followerNum.text = it
+            })
+            /**팔로잉 수 바인딩*/
+            followingNum.observe(viewLifecycleOwner, Observer {
+                binding.followingNum.text = it
+            })
+            /**북마크 수 바인딩*/
+            bookmarkNum.observe(viewLifecycleOwner, Observer {
+                binding.bookmarkNum.text = it
+            })
+        }
+
         return view
     }
 
@@ -68,5 +102,11 @@ class ProfileFragment : Fragment() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        /**관리하고 있던 디스포저블 객체를 모두 해제*/
+        disposables.clear()
     }
 }
